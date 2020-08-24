@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +7,74 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
-<meta name="jbuget-fr/config/environment" content="%7B%22modulePrefix%22%3A%22jbuget-fr%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22jbuget-fr%22%2C%22version%22%3A%223.0.0+4e1b84a9%22%7D%2C%22googleFonts%22%3A%5B%22Roboto%3A100%2C300%2C400%2C700%2C900%22%5D%2C%22contentSecurityPolicy%22%3A%7B%22font-src%22%3A%22%27self%27%20fonts.gstatic.com%22%2C%22style-src%22%3A%22%27self%27%20fonts.googleapis.com%22%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-93280305-1%22%2C%22debug%22%3Afalse%2C%22trace%22%3Afalse%2C%22sendHitTask%22%3Atrue%2C%22require%22%3A%5B%22ecommerce%22%5D%7D%7D%5D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet" type="text/css" media="all">
 
-    <link integrity="" rel="stylesheet" href="/assets/vendor-fea40f3c28ebd3dc2976fae0e05d51bc.css">
-    <link integrity="" rel="stylesheet" href="/assets/jbuget-fr-f84cc7914ca006ec596e7b1cf9a4c212.css">
+    <style>
 
-    
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-Thin.woff2") format("woff2"), url("./fonts/marianne/Marianne-Thin.woff") format("woff");
+            font-weight: 200;
+            font-style: normal; }
+
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-Light.woff2") format("woff2"), url("./fonts/marianne/Marianne-Light.woff") format("woff");
+            font-weight: 300;
+            font-style: normal; }
+
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-Regular.woff2") format("woff2"), url("./fonts/marianne/Marianne-Regular.woff") format("woff");
+            font-weight: 400;
+            font-style: normal; }
+
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-Medium.woff2") format("woff2"), url("./fonts/marianne/Marianne-Medium.woff") format("woff");
+            font-weight: 600;
+            font-style: normal; }
+
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-Bold.woff2") format("woff2"), url("./fonts/marianne/Marianne-Bold.woff") format("woff");
+            font-weight: 700;
+            font-style: normal; }
+
+        @font-face {
+            font-family: 'Marianne';
+            src: url("./fonts/marianne/Marianne-ExtraBold.woff2") format("woff2"), url("./fonts/marianne/Marianne-ExtraBold.woff") format("woff");
+            font-weight: 900;
+            font-style: normal; }
+
+      html, body {
+          font-family: Marianne, Roboto, Arial, sans-serif;
+      }
+    </style>
+
   </head>
   <body>
-    
+    <div class="page index">
+      <div class="container">
+        <h1>👋 Bonjour !</h1>
+        <p>It's Jérémy. I'm a <a href="https://github.com/jbuget">full-stack developer</a> since 2007.</p>
+        <p>I'm french and I live close to Paris with my wife, our two children and our old english bulldog.</p>
+        <p>I love making innovative Web sites for the general public, such as the <a href="https://www.clubmed.fr">booking site</a> of Club Med, the <a href="http://www.ingdirect.fr/credit-immobilier/#simulateurCI">home loan simulator</a> for ING Direct or the new <a href="https://tickets.rolandgarros.com">online ticketing service</a> of Roland-Garros.</p>
+        <p>I worked 5 years for <a href="http://www.octo.com/fr">OCTO Technology</a>, as a software architect and developer. In 2015, I became the leader of the <a href="http://rejoins.octo.com/tribes#68-web-front">WEBF tribe</a>, dedicated to the Web front-end development.</p>
+        <p>Since 2016, I am the CTO of <a href="https://pix.fr">Pix</a>, a french public service I co-founded that helps people to measure, develop and valorize their digital competence.</p>
+        <p>My main technologies are JavaScript, HTML, and CSS. I used Java and JVM technologies for years but this time is far away now.</p>
+        <p>After making the right thing at the right time, the thing I prefer is making the thing right. I try to make my <a href="http://ricardogeek.com/docs/clean_code.pdf">code clean</a> and I'm aware of <a href="http://ptgmedia.pearsoncmg.com/images/9780321834577/samplepages/0321834577.pdf">DDD</a>, <a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html">clean architecture</a> and all other <a href="http://manifesto.softwarecraftsmanship.org">software craftsmanhip practices</a> or <a href="http://agilemanifesto.org">agile methodologies</a>.</p>
+        <p>Today, one of the most important things to me when I code is "knowing, using and respecting the standards". It's why I prefer Vue.js over React, or Ember.js over Angular.</p>
+        <p>My main purpose when I wake up every morning is <em>"help people growing and having fun"</em>.</p>
+        <p>You can follow me on <a href="https://github.com/jbuget">GitHub</a>, <a href="https://twitter.com/jbuget">Twitter</a> or <a href="https://www.linkedin.com/in/jbuget">LinkedIn</a>.</p>
+      </div>
 
-    <script src="/assets/vendor-849be6cefe5d9ac6572e32da3f98e37d.js" integrity="sha256-MxkrPewYZfkaUWPCWrBeHDI03F8KyMBKqtEJfq5La48= sha512-0KghD8XvSkpWXJRO4az3qhGkLLYMOTj8dgVdMka1K3uf2yC2FTl0ZOR+oYigEhzWx1966lCRdk3SeuE+W60xsQ==" ></script>
-    <script src="/assets/jbuget-fr-a702f44406b474604bbadd8c0d18dcbc.js" integrity="sha256-erbtpDifTJ0pGv1rcJBAxfoJxGHDtpIz65uxlr3td8s= sha512-QdtsD/wQbL5id1FSwTH4aB61dSgiO62zPt3sCeWLpCkzsBDE7ivEBp39k4T3DZ8TWG58+uU7UnJ8Xt4mxLc35Q==" ></script>
+      <hr>
 
-    <div id="ember-bootstrap-wormhole"></div>
+      <div class="container">
+        <a class="twitter-timeline" href="https://twitter.com/jbuget">Tweets by jbuget</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+
   </body>
 </html>
