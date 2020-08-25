@@ -1,0 +1,28 @@
+html, body {
+    font-family: Marianne, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: black;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 1em;
+}
+
+.container {
+    margin: 0 auto;
+    width: 700px;
+}
