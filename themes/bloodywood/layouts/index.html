@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main aria-role="main">
   <div class="container">
-    <section id="presentation">
+    <section id="presentation" class="row">
       <header class="homepage-header">
         <h1>{{.Title}}</h1>
         {{ with .Params.subtitle }}
@@ -13,7 +13,7 @@
       </div>
     </section>
     <hr>
-    <section id="last-articles">
+    <section id="last-articles" class="row">
       {{ range first 3 .Site.RegularPages }}
       {{ .Render "summary"}}
       {{ end }}
