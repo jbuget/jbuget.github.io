@@ -207,3 +207,11 @@ Et voilà !
 ![img_3.png](resultat_final.png)
 
 ## Conclusion
+
+Version Google Fonts :
+
+![img.png](version_google_fonts.png)
+
+Version _self hosted_ :
+
+![img.png](version_self_hosted.png)
