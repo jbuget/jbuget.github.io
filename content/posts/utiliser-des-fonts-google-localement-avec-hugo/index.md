@@ -14,6 +14,16 @@ La technique pour y parvenir est plutôt simple à mettre en œuvre, notamment p
 
 ---
 
+## Table des matières
+
+- [I. Le problème avec Google Fonts](#i-le-problème-avec-google-fonts)
+- [II. La solution pour un site généré avec Hugo](#ii-la-solution-pour-un-site-généré-avec-hugo)
+- [III. Étude comparative](#iii-étude-comparative)
+- [Conclusion](#conclusion)
+- [Liens](#liens)
+
+---
+
 ## I. Le problème avec Google Fonts
 
 [Google Fonts](https://fonts.google.com/) est le service d’hébergement gratuit de polices d’écritures pour le Web propulsé par Google.
@@ -63,7 +73,7 @@ Ce qui nous fait basculer du côté des inconvénients.
 > 
 > -- Bruce Willis (enfin, [sa voix française](https://webdeveloppementdurable.com/bruce-willis-vous-explique-si-cest-gratuit-vous-etes-le-produit/) !)
 
-Si la technique ci-dessus présente l'avantage d'être facile et rapide à mettre en œuvre, elle recèle en revanche un inconvénient majeur : elle permet à Google de tracer les visiteurs qui accèdent à votre site.
+Si la technique ci-dessus présente l'avantage d'être facile et rapide à mettre en œuvre, elle recèle en revanche un inconvénient majeur : **elle permet à Google de tracer les visiteurs qui accèdent à votre site**.
 [Google ne s'en cache pas](https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users) et l'écrit noir sur blanc sur la documentation en ligne à l'usage des développeurs :
 {.cons}
 
@@ -76,16 +86,16 @@ Si la technique ci-dessus présente l'avantage d'être facile et rapide à mettr
 Il n'est donc pas nécessaire d'ajouter un bandeau cookie spécifique (dans le cas où vous n'en n'auriez pas déjà un) ou de les gérer dans les options de consentement.
 Il convient toutefois de rester très vigilant sur le sujet, car les autorités dédiées, elles, le sont et n'hésitent pas intervenir, [comme en Allemagne](https://web.developpez.com/actu/330644/Un-site-Web-condamne-a-une-amende-par-un-tribunal-allemand-pour-avoir-divulgue-l-adresse-IP-d-un-visiteur-via-Google-Fonts-le-proprietaire-du-site-risque-une-peine-de-prison-en-cas-de-recidive/).
 
-Un autre point à risque à garder en tête est que le fait de reposer sur le service Google Fonts crée une dépendance externe de votre site ou SI.
+Un autre point à risque à garder en tête est que le fait de **reposer sur le service Google Fonts crée une dépendance externe** de votre site ou SI.
 Pour la plupart des sites, cela ne pose pas de problème.
 Mais pour un acteur à l'éthique ou aux contraintes (politique, stratégique, juridique) plus marquées, cela peut être un sujet non négligeable.
 {.cons}
 
-Pour peu que votre direction artistique soit un point fondamental de votre site ou application (ex : marque de luxe) et repose beaucoup sur la font (ex : design très épuré), avoir une police qui se charge mal, trop lentement ou pas du tout, peut avoir un impact négatif (image, retombées financières).
+Pour peu que votre direction artistique soit un point fondamental de votre site ou application (ex : marque de luxe) et repose beaucoup sur la font (ex : design très épuré), avoir **une police qui se charge mal, trop lentement ou pas du tout, du fait de restrictions (économiques, géopolitiques, géographiques) tierces, peut avoir un impact négatif (image, retombées financières)**.
 Je conçois qu'il s'agit d'un cas extrême, qui concerne peut-être 0.01% des sites utilisant Google Fonts, mais il n'en demeure pas moins avéré.
 {.cons}
 
-Enfin, pour en revenir à l'avantage de bénéficier des mises à jour de police automatique, le revers de la médaille, c'est de voir son design "chamboulé" (là encore le terme est fort) du jour au lendemain sans s'en avoir le contrôle de la situation.
+Enfin, pour en revenir à l'avantage de bénéficier des mises à jour de police automatique, le revers de la médaille, c'est de **voir son design "chamboulé" du jour au lendemain** (là encore le terme est fort) sans réelle capacité de contrôle ou moyen de mitigation du risque.
 {.cons}
 
 ---
