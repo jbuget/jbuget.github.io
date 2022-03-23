@@ -1,8 +1,9 @@
 ---
-title: "Utiliser des fonts Google localement avec Hugo"
-date: 2022-03-22T10:56:16+01:00
+title: Utiliser des fonts Google localement avec Hugo
+date: 2022-03-23T10:00:00-01:00
 draft: false
-description: "Lorem ipsum"
+summary: Google Fonts permet d'accéder à des milliers de polices d'écriture d'excellente facture et de les intégrer très facilement et rapidement à ses applications ou sites Web. En contrepartie, Google trace le comportement des utilisateurs qui les visitent. Une solution consiste à récupérer lesdites fonts et les héberger soi-même, sur son infra / site.
+
 ---
 
 ## TL;DR
@@ -99,11 +100,11 @@ La première chose à faire, une fois la police d'écriture sélectionnée, cons
 
 Depuis la page de présentation de la police, il est possible de la récupérer très facilement en cliquant sur le bouton "Download family" disposé en haut à droite.
 
-![img.png](/posts/img.png)
+![img.png](/images/img.png)
 
 On obtient une archive au format ZIP, qui contient différents fichiers, notamment tout un tas de fichiers au format [TTF](https://fr.wikipedia.org/wiki/TTF). Ce sont ces derniers qui vont vraiment nous intéresser.
 
-![img_1.png](/posts/img_1.png)
+![img_1.png](/images/img_1.png)
 
 > Pour les amateurs de performance, il est possible de sélectionner un sous-ensemble de fonts, dans le cas où l'on anticipe que tous les styles relatifs à une police d'écriture donnée ne seront pas nécessaires.
 > Pour ce faire, il faut sélectionner lesdits styles et accéder au lien indiqué dans l'encart "Use on the web".
@@ -124,7 +125,7 @@ Je considère que les quelques polices inutilisées ne justifient pas la complex
 
 Je copie les 2 fichiers TTF à la racine de l'archive `Nunito-VariableFont_wght` et `Nunito-Italic-VariableFont_wght` dans le répertoire des ressources statiques : `~/themes/bloodywood/static/fonts`.
 
-![img_2.png](/posts/img_2.png)
+![img_2.png](/images/img_2.png)
 
 ### 3/ Définir les polices CSS
 
@@ -204,7 +205,7 @@ html {
 
 Et voilà !
 
-![img_3.png](/posts/img_3.png)
+![img_3.png](/images/img_3.png)
 
 ## Conclusion
 

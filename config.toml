@@ -1,5 +1,6 @@
 baseURL = 'https://jbuget.netlify.app'
-languageCode = 'en-us'
+languageCode = 'fr-fr'
 title = 'Site Web personnel de Jérémy Buget'
 theme = 'bloodywood'
 enableRobotsTXT = true
+enableGitInfo = true
