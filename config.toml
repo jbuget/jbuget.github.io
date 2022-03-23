@@ -4,3 +4,12 @@ title = 'Site Web personnel de Jérémy Buget'
 theme = 'bloodywood'
 enableRobotsTXT = true
 enableGitInfo = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true

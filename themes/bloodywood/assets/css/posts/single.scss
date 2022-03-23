@@ -1,8 +1,41 @@
 .posts-single {
 
+	p {
+		position: relative;
+
+		&.pros {
+			&::before {
+				content: '';
+				background-color: #2e8540;
+				display: inline-block;
+				width: 0.5rem;
+				height: 0.5rem;
+				border-radius: 0.25rem;
+				position: absolute;
+				top: 0.5rem;
+				left: -1rem;
+			}
+		}
+
+		&.cons {
+			&::before {
+				content: '';
+				background-color: #e31c3d;
+				display: inline-block;
+				width: 0.5rem;
+				height: 0.5rem;
+				border-radius: 0.25rem;
+				position: absolute;
+				top: 0.5rem;
+				left: -1rem;
+			}
+		}
+	}
+
 	p > img {
 		display: block;
 		max-width: 100%;
 		margin: 0 auto;
 	}
+
 }
