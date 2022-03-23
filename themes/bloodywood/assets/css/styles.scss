@@ -1,5 +1,4 @@
 @import "fonts";
-
-html {
-	font-family: Nunito, sans-serif;
-}
+@import "global";
+@import "layout";
+@import "posts/single";
