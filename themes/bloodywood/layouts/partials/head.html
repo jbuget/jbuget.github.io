@@ -47,4 +47,6 @@
   {{ $styleSass := resources.Get "css/styles.scss" }}
   {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
 </head>
