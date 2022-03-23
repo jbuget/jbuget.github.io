@@ -1,7 +1,6 @@
 ---
 title: "Utiliser des fonts Google localement avec Hugo"
-date: 2022-03-23T10:56:16+01:00
-draft: true
+publishDate: 2022-03-22T10:56:16+01:00
 ---
 
 ## TL;DR
