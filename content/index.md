@@ -1,7 +1,7 @@
 ---
 title: Home page
 ---
-👋 Salut ! je m’appelle Jérémy. Je suis développeur Web full stack depuis 2007.
+👋 Salut ! je suis Jérémy, ingénieur logiciel spécialisé dans le développement Web depuis 2007.
 
 J’aime créer des sites, applications ou plateformes Web à fort impact / trafic, avec une appétence particulière pour les secteurs du service public, de l’éducation, du numérique et du sport.
 
