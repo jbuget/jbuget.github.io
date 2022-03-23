@@ -5,6 +5,16 @@
       <h1>{{ .Title }}</h1>
       {{ .Content }}
     </div>
+    <div class="row">
+      <ul>
+        <!-- Ranges through content/posts/*.md -->
+        {{ range .Pages }}
+        <li>
+          <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
   </div>
 </main>
 {{ end }}

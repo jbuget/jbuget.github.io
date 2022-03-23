@@ -45,6 +45,6 @@
   {{ end }}
 
   {{ $styleSass := resources.Get "css/styles.scss" }}
-  {{ $styleCSS := $styleSass | resources.ToCSS }}
+  {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
 </head>
