@@ -1,3 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Site Web personnel de Jérémy Buget</title><link>https://jbuget.fr/</link><description>Recent content on Site Web personnel de Jérémy Buget</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://jbuget.fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Home page</title><link>https://jbuget.fr/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jbuget.fr/</guid><description>👋 Salut ! je m’appelle Jérémy. Je suis développeur Web full stack depuis 2007.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Site Web personnel de Jérémy Buget</title>
+    <link>https://jbuget.fr/</link>
+    <description>Recent content on Site Web personnel de Jérémy Buget</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://jbuget.fr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home page</title>
+      <link>https://jbuget.fr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbuget.fr/</guid>
+      <description>👋 Salut ! je suis Jérémy, ingénieur logiciel spécialisé dans le développement Web depuis 2007.
 J’aime créer des sites, applications ou plateformes Web à fort impact / trafic, avec une appétence particulière pour les secteurs du service public, de l’éducation, du numérique et du sport.
-Diplômé de l’EPITA en 2008, majeure Multimédia et Technologies de l’Information (MTI), je me suis spécialisé dans le développement d’applications Web riches en Java puis JavaScript.</description></item></channel></rss>
+Diplômé de l’EPITA en 2008, majeure Multimédia et Technologies de l’Information (MTI), je me suis spécialisé dans le développement d’applications Web riches en Java puis JavaScript.</description>
+    </item>
+    
+  </channel>
+</rss>

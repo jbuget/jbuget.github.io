@@ -1,4 +1,50 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{{ $styleSass := resources.Get "css/styles.scss" }}
-{{ $styleCSS := $styleSass | resources.ToCSS }}
-<link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
+<head itemscope itemtype="{{ .Site.BaseURL }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Title Tags -->
+  <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}"/>
+  <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}"/>
+  <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}"/>
+  <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}"/>
+  <meta property="og:site_name" content="{{ .Site.Params.sitename }}"/>
+
+  <!-- Description Tags -->
+  <meta name="description" content="{{ .Params.description }}"/>
+  <meta itemprop="description" content="{{ .Params.description }}"/>
+  <meta property="og:description" content="{{ .Params.description }}"/>
+  <meta name="twitter:description" content="{{ .Params.description }}"/>
+
+  <!-- Link Tags -->
+  <base href="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .Permalink }}" itemprop="url"/>
+  <meta name="url" content="{{ .Permalink }}"/>
+  <meta name="twitter:url" content="{{ .Permalink }}"/>
+  <meta property="og:url" content="{{ .Permalink }}"/>
+
+  <!-- Language Tags -->
+  <meta property="og:locale" content="{{ .Language.Lang }}">
+  <meta name="language" content="{{ .Language.LanguageName }}">
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+  {{ end }}
+
+  <!-- Image Tags -->
+  {{ with .Params.image }}
+  <meta itemprop="image" content="{{ . | absURL }}"/>
+  <meta property="og:image" content="{{ . | absURL }}"/>
+  <meta name="twitter:image" content="{{ . | absURL }}"/>
+  <meta name="twitter:image:src" content="{{ . | absURL }}"/>
+  {{ else }}
+  <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}"/>
+  <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}"/>
+  <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}"/>
+  <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
+  {{ end }}
+
+  {{ $styleSass := resources.Get "css/styles.scss" }}
+  {{ $styleCSS := $styleSass | resources.ToCSS }}
+  <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
+</head>
