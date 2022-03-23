@@ -1,19 +1,14 @@
 {{ define "main" }}
-<main class="posts-single">
+<main aria-role="main" class="posts-single">
   <div class="container">
     <div class="row">
       <h1>{{ .Title }}</h1>
       {{ .Content }}
     </div>
     <div class="row">
-      <ul>
-        <!-- Ranges through content/posts/*.md -->
-        {{ range .Pages }}
-        <li>
-          <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-        </li>
-        {{ end }}
-      </ul>
+      {{ with .Site.GetPage "/posts" }}
+      <a href="{{ .Permalink }}">Revenir à la liste des articles</a>
+      {{ end }}
     </div>
   </div>
 </main>

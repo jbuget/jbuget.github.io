@@ -3,7 +3,6 @@ title: Utiliser des fonts Google localement avec Hugo
 date: 2022-03-23T10:00:00-01:00
 draft: false
 summary: Google Fonts permet d'accéder à des milliers de polices d'écriture d'excellente facture et de les intégrer très facilement et rapidement à ses applications ou sites Web. En contrepartie, Google trace le comportement des utilisateurs qui les visitent. Une solution consiste à récupérer lesdites fonts et les héberger soi-même, sur son infra / site.
-
 ---
 
 ## TL;DR
@@ -23,7 +22,7 @@ L'intérêt de passer par Google Fonts est de **disposer gratuitement de fonts d
 Tant et si bien que ce n'est pas toujours simple de faire son choix.
 Google propose d'ailleurs [une série de guides](https://fonts.google.com/knowledge/choosing_type) pour nous aider.
 
-Dans la suite de l'article, je baserai mes exemples sur la police [Nunito](https://fonts.google.com/specimen/Nunito), utilisée dans la version actuelle du présent site (23/03/2022), et que vous pouvez retrouver dans [le code source](https://github.com/jbuget/jbuget.github.io).
+> Dans la suite de l'article, je baserai mes exemples sur la police [Nunito](https://fonts.google.com/specimen/Nunito), utilisée dans la version actuelle du présent site (23/03/2022), et que vous pouvez retrouver dans [le code source](https://github.com/jbuget/jbuget.github.io).
 
 Un second avantage avéré de passer par Google Fonts est sa **simplicité d'intégration.**
 
@@ -72,7 +71,7 @@ Il convient toutefois de rester très vigilant sur le sujet, car les autorités 
 
 ## La solution pour un site généré avec Hugo
 
-> Pour rappel, [Hugo](https://gohugo.io/) est un logiciel libre, générateur de site statique écrit en langage Go. 
+> [Hugo](https://gohugo.io/) est un logiciel libre, générateur de site statique écrit en langage Go. 
 > C'est le framework utilisé pour développer ce site.
 
 Les étapes ci-dessous expliquent :
@@ -90,7 +89,7 @@ Auparavant, j'ai pratiqué pas mal de frameworks Web / front-end de différentes
 Je vous invite à me corriger en commentaire ou sur Twitter le cas échéant
 
 2. Je rédige cet article dans le cadre du développement de la nouvelle mouture de mon site Web personnel.
-En particulier, la mise en place de fonts custom a été la toute première opération que j'ai réalisée sur ce site.
+En particulier, la mise en place de fonts custom a été l'une des toutes premières opérations que j'ai réalisées sur ce site.
 Ceci explique le focus sur l'étape 4 à propos de Sass et de l'_asset processing_.
 Il est possible que cette étape soit déjà réalisée sur votre propre projet.
 
@@ -100,11 +99,11 @@ La première chose à faire, une fois la police d'écriture sélectionnée, cons
 
 Depuis la page de présentation de la police, il est possible de la récupérer très facilement en cliquant sur le bouton "Download family" disposé en haut à droite.
 
-![img.png](/images/img.png)
+![img.png](selection_font.png)
 
 On obtient une archive au format ZIP, qui contient différents fichiers, notamment tout un tas de fichiers au format [TTF](https://fr.wikipedia.org/wiki/TTF). Ce sont ces derniers qui vont vraiment nous intéresser.
 
-![img_1.png](/images/img_1.png)
+![img_1.png](contenu_archive_font.png)
 
 > Pour les amateurs de performance, il est possible de sélectionner un sous-ensemble de fonts, dans le cas où l'on anticipe que tous les styles relatifs à une police d'écriture donnée ne seront pas nécessaires.
 > Pour ce faire, il faut sélectionner lesdits styles et accéder au lien indiqué dans l'encart "Use on the web".
@@ -125,7 +124,7 @@ Je considère que les quelques polices inutilisées ne justifient pas la complex
 
 Je copie les 2 fichiers TTF à la racine de l'archive `Nunito-VariableFont_wght` et `Nunito-Italic-VariableFont_wght` dans le répertoire des ressources statiques : `~/themes/bloodywood/static/fonts`.
 
-![img_2.png](/images/img_2.png)
+![img_2.png](arborescence_fichiers_font_ttf.png)
 
 ### 3/ Définir les polices CSS
 
@@ -205,7 +204,6 @@ html {
 
 Et voilà !
 
-![img_3.png](/images/img_3.png)
+![img_3.png](resultat_final.png)
 
 ## Conclusion
-
