@@ -114,9 +114,9 @@ On obtient une archive au format ZIP, qui contient différents fichiers, notamme
 > 
 > Bref, c'est la Ferrari des polices d'écriture, mais elle nécessite un petit plus de travail en aval, telle que la récupération individuelle de chaque style de police.
 
-### 2/ Ajout les fichiers de fonts au projet
+### 2/ Ajouter les fichiers de fonts au projet
 
-Dans mon cas, je pars du principe que j'aurais besoin de la majorité des styles proposés.
+Dans mon cas, je pars du principe que j'aurai besoin de la majorité des styles proposés.
 Je considère que les quelques polices inutilisées ne justifient pas la complexité de gérer des fonts individuellement.
 
 > À noter que dans le cadre de mon site, je passe par un thème _custom_ (a.k.a. "bloodywood").
