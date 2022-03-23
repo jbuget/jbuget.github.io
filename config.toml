@@ -1,4 +1,4 @@
-baseURL = 'https://jbuget.fr'
+baseURL = 'https://jbuget.netlify.app'
 languageCode = 'en-us'
 title = 'Site Web personnel de Jérémy Buget'
 theme = 'bloodywood'
