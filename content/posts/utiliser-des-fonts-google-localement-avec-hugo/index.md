@@ -153,7 +153,7 @@ On obtient une archive au format ZIP, qui contient différents fichiers, notamme
 Dans mon cas, je pars du principe que j'aurai besoin de la majorité des styles proposés.
 Je considère que les quelques polices inutilisées ne justifient pas la complexité de gérer des fonts individuellement.
 
-> À noter que dans le cadre de mon site, je passe par un thème _custom_ (a.k.a. "bloodywood").
+> À noter que dans le cadre de mon site, je passe par un thème _custom_ (a.k.a. "[bloodywood](https://www.youtube.com/watch?v=6uJoN_I9ebQ)").
 > La plupart des ressources que je traite sont gérées dans le répertoire `~/themes/bloodywood/*`.
 
 Je copie les 2 fichiers TTF à la racine de l'archive `Nunito-VariableFont_wght` et `Nunito-Italic-VariableFont_wght` dans le répertoire des ressources statiques : `~/themes/bloodywood/static/fonts`.
