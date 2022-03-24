@@ -5,6 +5,8 @@ theme = 'bloodywood'
 enableRobotsTXT = true
 enableGitInfo = true
 
+disqusShortname = 'jbuget'
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]

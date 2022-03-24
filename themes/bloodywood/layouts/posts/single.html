@@ -6,6 +6,9 @@
       {{ .Content }}
     </div>
     <div class="row">
+      {{ template "_internal/disqus.html" . }}
+    </div>
+    <div class="row">
       {{ with .Site.GetPage "/posts" }}
       <a href="{{ .Permalink }}">Revenir à la liste des articles</a>
       {{ end }}
