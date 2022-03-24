@@ -248,7 +248,7 @@ L'objectif de cette section est de comparer les différences entre la version Go
 
 ### Échantillons
 
-La version `SH` peut elle-même être divisée en 2 sous-versions, en fonction de la mise en cache ou non des fichiers de fonts (TTF) au sein de l'infrastrucutre (en l'occurrence ici, l'hébergeur de mon site Web est [Netlify](https://netlify.app/)) : 
+La version `SH` peut elle-même être divisée en 2 sous-versions, en fonction de la mise en cache ou non des fichiers de fonts (TTF) au sein de l'infrastructure (en l'occurrence ici, l'hébergeur de mon site Web est [Netlify](https://netlify.app/)) : 
 - la version `SH-nocache` pour le tout premier chargement du site par un visiteur quelconque
 - la version `SH-cached` dans le cas où le fichier TTF aurait déjà été chargé et mis en cache sur l'instance de serveur Netlify
 
