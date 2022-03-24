@@ -38,4 +38,21 @@
 		margin: 0 auto;
 	}
 
+	.post {
+
+		&__body {
+
+		}
+
+		&__comments {
+			background-color: #F5F8FA;
+			padding: 2rem;
+			border-radius: 5px;
+		}
+
+		&__related {
+
+		}
+	}
+
 }
