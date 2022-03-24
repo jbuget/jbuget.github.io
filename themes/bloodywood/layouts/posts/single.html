@@ -6,7 +6,9 @@
       {{ .Content }}
     </div>
     <div class="row">
+      <hr>
       {{ template "_internal/disqus.html" . }}
+      <hr>
     </div>
     <div class="row">
       {{ with .Site.GetPage "/posts" }}
