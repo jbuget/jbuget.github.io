@@ -1,5 +1,41 @@
+@import "../colors";
+
 .page-footer {
 	min-height: 60px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+
+	&__links {
+		border-top: 1px solid $grey2;
+		padding: 2rem 0;
+	}
+
+	&__copyright {
+		width: 100vw;
+		padding: 0.5rem 0;
+		font-size: 0.75rem;
+		border-top: 1px solid $grey2;
+		text-align: center;
+		color: $grey4;
+	}
+
+	.footer__links {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.footer__links-header {
+		text-transform: uppercase;
+		font-weight: 800;
+		font-size: 0.85rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	.footer__link {
+		margin: 0;
+		padding: 0;
+	}
+
 }

@@ -1,16 +1,32 @@
-.posts {
+@import "colors";
 
-	&__list {
-		display: flex;
-		flex-direction: column;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+section#presentation,
+section#last-articles,
+section#last-tweets {
+	border-top: 1px solid $grey2;
+	padding: 2rem 0;
+}
 
-	&__item {
-		display: block;
-		margin-bottom: 2rem;
-		padding: 0;
+section#presentation {
+	border-top: none;
+}
+
+section#last-articles {
+
+	.posts {
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		&__item {
+			display: block;
+			margin-bottom: 2rem;
+			padding: 0;
+		}
 	}
 }

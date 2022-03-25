@@ -47,4 +47,9 @@
   {{ $styleSass := resources.Get "css/styles.scss" }}
   {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
 </head>

@@ -2,14 +2,30 @@
 	margin: 0 auto;
 
 	@media screen and (min-width: 992px) {
-		max-width: 800px;
+		width: 800px;
+	}
+}
+
+.row {
+	padding: 15px;
+
+	@media screen and (min-width: 992px) {
+		padding: 0;
+	}
+}
+
+.cols {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	@media screen and (min-width: 992px) {
+		flex-direction: row;
 	}
 
-	> .row {
-		padding: 15px;
-
-		@media screen and (min-width: 992px) {
-			padding: 0;
-		}
+	> .col {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
 	}
 }
