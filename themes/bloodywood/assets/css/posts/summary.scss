@@ -1,0 +1,39 @@
+@import "../colors";
+
+.posts-summary {
+
+	&.post-card {
+
+		&__header {
+
+		}
+
+		&__body {
+
+		}
+
+		&__meta {
+			margin: 0 0 2rem;
+		}
+
+		&__author,
+		&__date,
+		&__category {
+			font-weight: 600;
+			color: $orange1;
+		}
+
+		&__title {
+
+		}
+
+		&__content {
+
+		}
+
+		&__reading-time {
+
+		}
+	}
+}
+

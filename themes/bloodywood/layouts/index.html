@@ -1,23 +1,37 @@
 {{ define "main" }}
 <main aria-role="main">
-  <div class="container">
-    <section id="presentation" class="row">
-      <header class="homepage-header">
-        <h1>{{.Title}}</h1>
-        {{ with .Params.subtitle }}
-        <span class="subtitle">{{.}}</span>
-        {{ end }}
-      </header>
-      <div class="homepage-content">
-        {{.Content}}
+  <section id="presentation">
+    <div class="container">
+      <div class="row">
+        <header class="homepage-header">
+          <h1>{{.Title}}</h1>
+          {{ with .Params.subtitle }}
+          <span class="subtitle">{{.}}</span>
+          {{ end }}
+        </header>
+        <div class="homepage-content">
+          {{.Content}}
+        </div>
       </div>
-    </section>
-    <hr>
-    <section id="last-articles" class="row">
-      {{ range first 3 .Site.RegularPages }}
-      {{ .Render "summary"}}
-      {{ end }}
-    </section>
-  </div>
+    </div>
+  </section>
+  <hr>
+  <section id="last-articles">
+    <div class="container">
+      <div class="row">
+        <h2>Derniers articles de blog</h2>
+        <div class="posts">
+          <ul class="posts__list" role="list">
+            {{ range first 5 .Site.RegularPages }}
+            <li class="posts__item">
+              {{ .Render "summary"}}
+            </li>
+            {{ end }}
+          </ul>
+          <a href="/posts">Découvrir tous les articles</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 {{ end }}

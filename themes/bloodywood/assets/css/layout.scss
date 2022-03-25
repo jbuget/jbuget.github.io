@@ -1,13 +1,12 @@
 .container {
-	max-width: 800px;
 	margin: 0 auto;
+
+	@media screen and (min-width: 992px) {
+		max-width: 800px;
+	}
 
 	> .row {
 		padding: 15px;
-
-		@media screen and (min-width: 769px) {
-			padding: 0;
-		}
 
 		@media screen and (min-width: 992px) {
 			padding: 0;

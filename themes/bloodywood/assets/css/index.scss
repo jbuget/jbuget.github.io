@@ -1,0 +1,16 @@
+.posts {
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__item {
+		display: block;
+		margin-bottom: 2rem;
+		padding: 0;
+	}
+}
