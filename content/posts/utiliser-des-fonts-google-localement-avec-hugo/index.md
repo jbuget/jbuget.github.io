@@ -12,8 +12,6 @@ En contrepartie, Google trace le comportement des utilisateurs qui les visitent.
 Une solution consiste à récupérer lesdites fonts et les héberger soi-même, sur son infra / site.
 La technique pour y parvenir est plutôt simple à mettre en œuvre, notamment pour un site Web généré avec le framework Hugo.
 
----
-
 ## Table des matières
 
 - [I. Le problème avec Google Fonts](#i-le-problème-avec-google-fonts)
@@ -21,8 +19,6 @@ La technique pour y parvenir est plutôt simple à mettre en œuvre, notamment p
 - [III. Étude comparative](#iii-étude-comparative)
 - [Conclusion](#conclusion)
 - [Liens](#liens)
-
----
 
 ## I. Le problème avec Google Fonts
 
@@ -97,8 +93,6 @@ Je conçois qu'il s'agit d'un cas extrême, qui concerne peut-être 0.01% des si
 
 Enfin, pour en revenir à l'avantage de bénéficier des mises à jour de police automatique, le revers de la médaille, c'est de **voir son design "chamboulé" du jour au lendemain** (là encore le terme est fort) sans réelle capacité de contrôle ou moyen de mitigation du risque.
 {.cons}
-
----
 
 ## II. La solution pour un site généré avec Hugo
 
@@ -240,8 +234,6 @@ Et voilà !
 
 ![img_3.png](resultat_final.png)
 
----
-
 ## III. Étude comparative
 
 L'objectif de cette section est de comparer les différences entre la version Google Fonts (échantillon `GF`) et la version auto-hébergée ou "_self hosted_" (échantillon `SH`).
@@ -288,8 +280,6 @@ Cette intuition est très certainement dûe au fait que la police Nunito sur Goo
 **5/** Finalement, on remarque dans les 3 cas, l'absence du téléchargement des styles de police "italiques".
 Il faudrait creuser un peu plus le sujet, mais j'imagine que c'est dûe à une optimisation du runtime CSS, qui doit ne charger que les fichiers de fonts dont il est sûr d'avoir besoin.
 
----
-
 ## Conclusion
 
 Nous avons vu, au travers de ce cas d'usage, qu'il est tout à fait judicieux et possible d'utiliser les police d'écritures proposées gratuitement sur la plateforme Google Fonts sans en subir (ou faire subir à nos visiteurs) les conséquences.
@@ -301,8 +291,6 @@ Par ailleurs, un rapide benchmark a permis de confirmer que la solution proposé
 Il paraît difficile d'atteindre le même niveau de performance, en sachant pourtant que l'hébergeur du site (Netlify) propose lui aussi un niveau de performance élevé.
 
 Finalement, on pourrait peut-être pousser un peu plus loin l'intégration en récupérant directement les fichiers WOFF propulsés par l'API de Google Fonts (via la requête `css?family=Nunito`). 
-
----
 
 ## Liens
 

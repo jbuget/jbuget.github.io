@@ -16,8 +16,6 @@ Cela passe nécessairement par pousser de bons commits.
 - il comporte un changement complet
 - il est bien nommé et décrit
 
----
-
 ## Table des matières
 
 - [Introduction](#introduction)
@@ -27,8 +25,6 @@ Cela passe nécessairement par pousser de bons commits.
 - [Bonus : quelques bonnes pratiques courantes](#bonus-quelques-bonnes-pratiques-courantes)
 - [Conclusion](#conclusion)
 - [Liens](#liens)
-
----
 
 ## Introduction
 
@@ -64,7 +60,6 @@ Spoiler alert : c'est un peu velu 😅.
 
 ![Description d'un Commit Object](commit_object.png)
 
-
 Point crucial : **un commit est immuable**. Il ne peut JAMAIS être modifié.
 
 > Il n'est pas possible de modifier un commit, mais il est possible et courant de modifier l'historique des commits (grâce notamment à la sacro-sainte commande `git rebase`).
@@ -99,8 +94,6 @@ Dernier argument important, mais pas des moindres : en cas de gros pépin dans l
 Quand un tel problème survient, la jauge de stress augmente très vite et la lucidité devient rapidement une denrée rare.
 Autant s'éviter des obstacles supplémentaires, au pire moment 😇.
 {.pros}
-
----
 
 ## Critères de qualité d'un commit Git
 
@@ -274,16 +267,12 @@ Avec le recul, et en toute sincérité, ils sont loin d'être parfaits et ne res
 - https://gitlab.com/aqoba/aqoba.fr/-/merge_requests/4/diffs?commit_id=7555a038bb2cc52f37227c53094c69a9fb2ef21c
 - https://gitlab.com/aqoba/aqoba.fr/-/merge_requests/6/diffs?commit_id=035c0a0feba9f74d3b86452a4b5bebafa1a93d27
 
----
-
 ## Bonus : quelques bonnes pratiques courantes
 
 - Commiter très souvent
 - Pousser sur le repos distant au moins 1 fois par jour
 - Ne pas hésiter à modifier / amender un commit (grâce à l'instruction `fixup` de la commande `git rebase -i`)
 - Utiliser les hooks Git ou des outils comme Husky
-
----
 
 ## Conclusion
 
@@ -294,8 +283,6 @@ Cela demande de l'expérience, prend du temps, est souvent un exercice fastidieu
 En revanche, c'est une pratique qui participe grandement à la qualité (et la documentation) du code, la fluidité de l'équipe dans ses interactions (coucou la première valeur du [manifeste agile](https://agilemanifesto.org/iso/fr/manifesto.html)) et peut être véritablement salvatrice le jour hypothétique (qui finit toujours par arriver, loi de Murphy, tout ça) d'un gros pépin.
 
 _Et vous, quelles sont vos critères ou bonnes pratiques Git ?_
-
----
 
 ## Liens
 - [What's in a Good Commit?](https://dev.solita.fi/2013/07/04/whats-in-a-good-commit.html) #article 🇬🇧
