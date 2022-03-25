@@ -1,6 +1,6 @@
 baseURL = 'https://jbuget.fr'
 languageCode = 'fr-fr'
-title = 'Site Web personnel de Jérémy Buget'
+title = 'Jérémy Buget, Software Engineering & Leader'
 theme = 'bloodywood'
 enableRobotsTXT = true
 enableGitInfo = true

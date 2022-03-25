@@ -3,5 +3,11 @@
 @import "global";
 @import "layout";
 @import "index";
+
+/* Pages */
 @import "posts/single";
 @import "posts/summary";
+
+/* Partials */
+@import "partials/header";
+@import "partials/footer";
