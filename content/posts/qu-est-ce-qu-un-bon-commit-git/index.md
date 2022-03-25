@@ -274,6 +274,8 @@ Avec le recul, et en toute sincérité, ils sont loin d'être parfaits et ne res
 - Ne pas hésiter à modifier / amender un commit (grâce à l'instruction `fixup` de la commande `git rebase -i`)
 - Utiliser les hooks Git ou des outils comme Husky
 
+Pour creuser un peu plus ce sujet, je vous invite à consulter [cet excellent article](https://blog.octo.com/en/seven-shades-of-git/) du non moins excellent Léo (😘).
+
 ## Conclusion
 
 Produire des bons commits Git n'est pas chose aisée.
@@ -287,6 +289,7 @@ _Et vous, quelles sont vos critères ou bonnes pratiques Git ?_
 ## Liens
 - [What's in a Good Commit?](https://dev.solita.fi/2013/07/04/whats-in-a-good-commit.html) #article 🇬🇧
 - [What Makes a Good Git Commit?](https://www.simplethread.com/what-makes-a-good-git-commit/) #article 🇬🇧
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) #specification
-- [Git Guides](https://github.com/git-guides)
-- [The Git Commit Hash](https://www.mikestreety.co.uk/blog/the-git-commit-hash/#:~:text=The%20commit%20hash%20is%20an,The%20file%20changes)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) #spec 🇬🇧
+- [Git Guides](https://github.com/git-guides) #articles 🇬🇧
+- [The Git Commit Hash](https://www.mikestreety.co.uk/blog/the-git-commit-hash/#:~:text=The%20commit%20hash%20is%20an,The%20file%20changes) #article 🇬🇧
+- [Seven shades of Git](https://blog.octo.com/en/seven-shades-of-git/) #article 🇬🇧
