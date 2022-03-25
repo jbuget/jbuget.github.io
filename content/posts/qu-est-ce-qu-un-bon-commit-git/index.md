@@ -53,7 +53,7 @@ Les changements concernés sont de 2 natures (*) :
 
 _(*) j'ai beau chercher, je ne vois pas d'autres sortes de changement._
 
-Plus concrètement encore un commit comprend (entre autre et _grosso modo_) :
+Plus concrètement encore un commit comprend (entre autres et _grosso modo_) :
 - un [_hash_](https://www.mikestreety.co.uk/blog/the-git-commit-hash/#:~:text=The%20commit%20hash%20is%20an,The%20file%20changes) qui est une chaîne de caractères unique générée via l'algorithme SHA-1 à partir de plusieurs propriétés du commit
 - des meta-données : auteur(s), date, commit parent
 - les fichiers changés (et leurs modifications)
@@ -120,7 +120,7 @@ Ils doivent permettre la réalisation complète de l'exigence fonctionnelle ou h
 Le comportement métier qui en découle doit être celui exprimé / attendu.
 Il ne doit pas y avoir de bug, défaut ou manquement produit (ou technique, le cas échéant).
 
-Côté implémentation, les tests doivent s'exécuter correctement (attention aux `.only` qui traînent !) et respecter les critères de succès (attention aux temps de réponse générale qui _dérape_ !) ;
+Côté implémentation, les tests doivent s'exécuter correctement (attention aux `.only` qui traînent !) et respecter les critères de succès (attention au temps de réponse général qui _dérape_ !) ;
 les linters / formatters / validateurs et autres outils ou hooks doivent passer avec succès ;
 les standards de design et de code de l'équipe doivent être suivis ; 
 l'outillage de CI doit aussi être satisfait dans les bonnes conditions #MD10, etc.
@@ -181,7 +181,7 @@ Mais pour le coup, je trouve personnellement que les commits auraient été "tro
 À la rigueur, le premier commit, qui contient un renommage important, impacte plusieurs fichiers qui l'appellent
 Mais le côté "potentiel de code non utile" (car pas utilisé) du second me gêne.
 
-Tout l'enjeu est d'arriver à estimer dans quelle mesure "la complétude" attaché à l'intention sous-jacente du commit est étendue à toute la base de code ou pas.
+Tout l'enjeu est d'arriver à estimer dans quelle mesure "la complétude" attachée à l'intention sous-jacente du commit est étendue à toute la base de code ou pas.
 
 Autre exemple qui peut être difficile à trancher ou très situationnel : l'ajout d'une règle de _linter_ (changement de nature plutôt structurelle).
 Si je vois que l'ajout de la règle modifie considérablement 30+ fichiers, je vais peut-être la restreindre à un sous-ensemble le plus cohérent ou proche possible (pour rester "complet") du code, afin de pouvoir splitter l'intention en plusieurs commits.
@@ -191,7 +191,7 @@ Si l'impact porte sur quelques lignes ou fichiers, plutôt localisés ou clairem
 
 Dernière étape avant de pouvoir pousser un commit sur l'entrepôt de code central distant.
 En tant que telle, l'impatience domine généralement notre esprit à cet instant du flux !
-D'autant plus quand on dispose d'une bonne CI/CD qui va déclencher la batterie de tâches automatisées jusqu'au déploiement du code dansun environnement partagé (review app, pré-prod, prod). 
+D'autant plus quand on dispose d'une bonne CI/CD qui va déclencher la batterie de tâches automatisées jusqu'au déploiement du code dans un environnement partagé (review app, pré-prod, prod). 
 
 Malgré les années, encore aujourd'hui, la tentation reste grande de lâcher un expéditif `git commit -m "fix problem"` pour voir le résultat en live et passer à la suite.
 
@@ -208,7 +208,7 @@ Et les règles, justement, sont les suivantes :
 - au passage, un titre commence par une majuscule, mais ne se termine pas par un point (ce n'est pas un paragraphe) 
 - dans la même veine, un titre commence par un message d'action (et non d'état, ni auxiliaire)
 
-Voilà pour les basiques non-négociables.
+Voilà pour les basiques non négociables.
 On pourrait s'arrêter là.
 Notre historique Git aurait déjà belle allure.
 Mais je vous propose d'aller un cran plus loin.
@@ -265,7 +265,7 @@ Ci-dessous, je vous partage d'autres exemples issus de _ma_ vie réelle, pioché
 
 ![img.png](good_commit_examples.png)
 
-Avec le recul, et en toute sincérité, ils sont loins d'être parfaits et ne respectent pas parfaitement tous les critères ci-dessus.
+Avec le recul, et en toute sincérité, ils sont loin d'être parfaits et ne respectent pas tout à fait tous les critères ci-dessus.
 
 - https://github.com/1024pix/pix/pull/3357/commits
 - https://github.com/1024pix/pix/pull/3523/commits
