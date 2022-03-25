@@ -56,6 +56,17 @@
 
 		}
 
+		&__meta {
+			margin: 0 0 2rem;
+		}
+
+		&__author,
+		&__date,
+		&__category {
+			font-weight: 600;
+			color: #F38334;
+		}
+
 		&__comments {
 			background-color: #F5F8FA;
 			padding: 2rem;

@@ -5,6 +5,9 @@ theme = 'bloodywood'
 enableRobotsTXT = true
 enableGitInfo = true
 
+[params]
+  author = 'Jérémy Buget'
+
 disqusShortname = 'jbuget'
 
 [markup]

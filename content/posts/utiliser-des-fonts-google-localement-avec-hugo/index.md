@@ -1,5 +1,6 @@
 ---
 title: Utiliser des fonts Google localement avec Hugo
+categories: ["hugo"]
 date: 2022-03-23T10:00:00-01:00
 draft: false
 summary: Google Fonts permet d'accéder à des milliers de polices d'écriture d'excellente facture et de les intégrer très facilement et rapidement à ses applications ou sites Web. En contrepartie, Google trace le comportement des utilisateurs qui les visitent. Une solution consiste à récupérer lesdites fonts et les héberger soi-même, sur son infra / site.
