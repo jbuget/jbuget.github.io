@@ -1,3 +1,5 @@
+@import "colors";
+
 *, :after, :before {
 	box-sizing: border-box;
 }
@@ -50,9 +52,10 @@ code {
 	display: inline-block;
 	padding: 0 0.3rem;
 	position: relative;
+	color: $red1;
 
 	&::before {
-		background: #F8F9FA;
+		background: $grey3;
 		border-radius: 0.2rem;
 		bottom: 0.1em;
 		content: "";
@@ -65,5 +68,5 @@ code {
 }
 
 a {
-	color: #0594cb;
+	color: $blue1;
 }
