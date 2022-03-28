@@ -1,3 +1,5 @@
-import { loadThemeMode } from './switch';
+import { initTheme } from './switch';
 
-loadThemeMode();
+initTheme();
+
+console.log('Le document HTML est complètement chargé.');

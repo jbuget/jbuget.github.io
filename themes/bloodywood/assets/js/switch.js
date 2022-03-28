@@ -1,28 +1,41 @@
-/* Inspired by https://radu-matei.com/blog/dark-mode/ */
-
 const html = document.querySelector('html');
 const darkModeSwitcher = document.getElementById("dark-mode-toggle");
 const darkModeIcon = document.getElementById("dark-mode-icon");
 
 darkModeSwitcher.addEventListener("change", (event) => {
-  (event.target.checked) ? setTheme("dark") : setTheme("light");
+  const mode = (event.target.checked) ? 'dark' : 'light';
+  setTheme(mode);
+  localStorage.setItem("theme", mode);
 });
 
 function setTheme(mode) {
-  localStorage.setItem("dark-mode-storage", mode);
-
-  if (mode === "dark") {
-    html.className = 'dark-mode';
-    darkModeIcon.className = "fa-solid fa-sun";
-  } else if (mode === "light") {
-    html.className = 'light-mode';
-    darkModeIcon.className = "fa-solid fa-moon";
-  }
+  document.documentElement.setAttribute('data-theme', mode);
+  darkModeIcon.className = mode === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
 }
 
-export function loadThemeMode() {
-  // the default theme is light
-  const savedTheme = localStorage.getItem("dark-mode-storage") || "light";
-  darkModeSwitcher.checked = (savedTheme === 'dark');
-  setTheme(savedTheme);
+export function initTheme() {
+  let mode = localStorage.getItem('theme');
+  if (!mode) {
+    if (window.matchMedia) {
+      const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function getModeFromMediaQuery() {
+        return darkModeMediaQuery.matches ? 'dark' : 'light';
+      }
+
+      mode = getModeFromMediaQuery();
+
+      darkModeMediaQuery.addEventListener('change', () => {
+        if (!localStorage.getItem('theme')) {
+          const newMode = getModeFromMediaQuery();
+          setTheme(newMode);
+          darkModeSwitcher.checked = (newMode === 'dark');
+        }
+      });
+    } else {
+      mode = 'light';
+    }
+  }
+  setTheme(mode);
+  darkModeSwitcher.checked = (mode === 'dark');
 }
