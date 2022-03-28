@@ -44,6 +44,10 @@
   <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
   {{ end }}
 
+  <!-- Vendors -->
+  <link href="/vendors/fontawesome/css/all.css" rel="stylesheet">
+
+  <!-- Styles -->
   {{ $styleSass := resources.Get "css/styles.scss" }}
   {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
@@ -52,4 +56,10 @@
   {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
+
+  <!-- Scripts -->
+  {{ $opts := dict "targetPath" "app.js" "minify" "true" "sourceMap" "inline" }}
+  {{ $built := resources.Get "js/index.js" | js.Build $opts }}
+  {{ $securedJS := $built | resources.Fingerprint "sha512" }}
+  <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" defer></script>
 </head>

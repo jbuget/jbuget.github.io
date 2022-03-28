@@ -4,6 +4,13 @@
 @import "layout";
 @import "index";
 
+/* Themes */
+@import "themes/light";
+@import "themes/dark";
+
+/* Components */
+@import "switch";
+
 /* Pages */
 @import "posts/single";
 @import "posts/summary";
