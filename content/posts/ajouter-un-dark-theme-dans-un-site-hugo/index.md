@@ -669,6 +669,10 @@ Nous avons adressé toutes les contraintes  et couvert tous les besoins que nous
 
 Nous pourrions aller plus loin sur ce dernier point (ex : mieux indiquer le title associé au bouton, gérer correctement le liseret focus qui ne s'affiche pas en l'état, conservation uniquement des icônes FontAwesome utiles, optimisation des ressources CSS tierces, etc.).
 
+Par ailleurs, des points restent en suspend :
+- modifier le style du code (géré via le plugin [Highlight.js](https://highlightjs.org/) build-in dans Hugo) dynamiquement
+- gérer les images en fonction du thème (via le mécanisme d'[images adaptatives](https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) et notamment la propriété `srcset`)
+
 Peut-être l'histoire d'une prochaine fois…
 
 ## Liens
