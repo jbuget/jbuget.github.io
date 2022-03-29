@@ -12,6 +12,22 @@
 			padding-top: 0;
 			border-top: none;
 		}
+
+		& + h3 {
+			margin-top: 0;
+		}
+	}
+
+	p, ul, ol, img {
+
+		& + h2 {
+			margin-top: 2.5rem;
+		}
+	}
+
+	h3 {
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
 	}
 
 	p {
@@ -49,7 +65,12 @@
 	p > img {
 		display: block;
 		max-width: 100%;
-		margin: 0 auto;
+		margin: 1.5rem auto;
+		border: 1px solid $grey2;
+	}
+
+	p + ul {
+		margin-top: -1rem;
 	}
 
 	.post {

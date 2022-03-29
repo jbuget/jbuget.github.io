@@ -64,9 +64,9 @@ Par ailleurs, on souhaite aussi :
 
 ![img.png](light_dark_modes.png)
 
-Dans un premier temps, nous ébaucherons une solution conceptuelle / stratégie de réalisation.
-Puis nous verrons comment la mettre en œuvre.
-Avant de creuser ou pousser un peu plus loin quelques détails (comme la gestion de dépendances tierces). 
+Dans un premier temps, nous ébaucherons une solution conceptuelle / stratégie de réalisation, applicable au-delà de tout framework.
+Dans un second temps, nous préparerons le terrain côté Hugo, avec la mise en place du nécessaires pour bien gérer des ressources JavaScript.
+Enfin, dans un dernier temps, et à nouveau de façon agnostique (CSS / _vanilla JS_), nous verrons comment implémenter le tout.
 
 ## 1. Conception
 
@@ -103,7 +103,8 @@ Pour ce qui est de la solution et par rapport aux pistes ci-dessus, j'ai retenu 
 - à cette checkbox, on attache un listener sur l'évènement `change`
 - au sein de ce listener, on teste la valeur cochée ou non du bouton
 - en fonction de celui-ci, on ajuste l'attribut `data-theme` de l'élément `document.html` (en s'inspirant de [cet article](https://lukelowrey.com/css-variable-theme-switcher/))
-- pour gérer le retour d'un visiteur, on stocke et gère l'information via le `LocalStorage`
+- on gère le style grâce à la fonctionnalité des [variables CSS](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) (compatible avec Sass)
+- pour gérer le retour d'un visiteur, on stocke et gère l'information via le [`localStorage`](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage)
 - l'information doit être mise à jour à chaque fois que l'on modifie la valeur de la _checkbox_
 - il faut aussi qu'elle soit lue pour pouvoir adapter le mode d'affichage ("light" ou "dark") à chaque chargement d'une page du site
 - bonus : par défaut, on se base sur les préférences système de l'utilisateur, via [la media feature CSS `prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
@@ -145,7 +146,7 @@ On obtient le résultat suivant :
 console.log('Le document HTML est complètement chargé.');
 ```
 
-```html
+```go-html-template
 <!-- Fichier : themes/bloodywood/partials/head.html -->
 <head itemscope itemtype="{{ .Site.BaseURL }}">
     ...
@@ -191,7 +192,7 @@ console.log('Le document HTML est complètement chargé.');
 ```
 
 Et on pense bien à activer le processing pipe ESBuild :
-```html
+```go-html-template
 <!-- Fichier : themes/bloodywood/partials/head.html -->
 <head itemscope itemtype="{{ .Site.BaseURL }}">
     ...
@@ -213,7 +214,7 @@ Nous pouvons aller [plus loin encore](https://gohugo.io/hugo-pipes/js).
 J'active la minification, les sourcemaps (plus pour s'amuser que par réelle nécessité, surtout en production) et le fingerprinting (bénéfique pour la sécurité et le [_cache busting_](https://www.keycdn.com/support/what-is-cache-busting#:~:text=Cache%20busting%20solves%20the%20browser,server%20for%20the%20new%20file.)).
 {.pros}
 
-```html
+```go-html-template
 <!-- Fichier : themes/bloodywood/partials/head.html -->
 <head itemscope itemtype="{{ .Site.BaseURL }}">
     ...

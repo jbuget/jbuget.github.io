@@ -1,0 +1,24 @@
+@import "colors";
+
+:root {
+	--background-color: #fff;
+	--text-color: #24292f;
+	--link-color: #{$blue1};
+}
+
+/* Light */
+
+html[data-theme='light'] {
+	--background-color: #fff;
+	--text-color: #24292f;
+	--link-color: #{$blue1};
+}
+
+/* Dark */
+
+html[data-theme='dark'] {
+	--background-color: #282b35;
+	--text-color: #e7ecf3;
+	--link-color: #{$orange2};
+}
+

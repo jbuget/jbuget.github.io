@@ -1,12 +1,10 @@
 @import "colors";
 @import "fonts";
+@import "themes";
+@import "highlight";
 @import "global";
 @import "layout";
 @import "index";
-
-/* Themes */
-@import "themes/light";
-@import "themes/dark";
 
 /* Components */
 @import "switch";

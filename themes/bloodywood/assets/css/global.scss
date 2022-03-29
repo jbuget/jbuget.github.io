@@ -1,4 +1,5 @@
 @import "colors";
+@import "themes";
 
 *, :after, :before {
 	box-sizing: border-box;
@@ -7,6 +8,8 @@
 html {
 	font-family: Nunito, sans-serif;
 	font-size: 18px;
+	background: var(--background-color);
+	color: var(--text-color);
 }
 
 body {
@@ -39,7 +42,7 @@ pre {
 }
 
 blockquote {
-	background: #F8F9FA;
+	background: $grey3;
 	margin: 0 0 1rem;
 	padding: 1rem 1.5rem;
 	border-left: 3px solid #0594cb;
@@ -67,5 +70,5 @@ code {
 }
 
 a {
-	color: $blue1;
+	color: var(--link-color);
 }
