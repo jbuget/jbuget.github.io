@@ -534,10 +534,16 @@ Et voilà !
 Cette étape tient plus du sucre qu'autre chose, mais puisque nous en sommes arrivés là, autant aller jusqu'au bout.
 
 J'ai décidé d'utiliser le pack gratuit de [la bibliothèque d'icônes FontAwesome](https://fontawesome.com/).
+{.pros}
+
+Tout comme pour les fonts Google, j'ai décidé d'héberger moi-même les libs que je consomme, pour des raisons de RGPD, sécurité, cohérence globale.
+{.pros}
+
+J'ai donc récupéré le pack d'icônes depuis le site de FontAwesome, que j'ai placé délicatement dans `themes/bloodywood/static/vendors/fontawesome`.
 
 > 🏎 Cet article étant déjà beaucoup trop long, je n'aborderai pas ici les problématiques et solutions pour optimiser le chargement des ressources issues de FontAwesome. Sachez cependant que cela est tout à fait possible et assez simple. À vous de jouer !
 
-Je ne rentre pas dans le détail de cette partie-là, qui n'est juste qu'un peu de maniplation de DOM en JavaScript basique avec un peu de style CSS.
+Je ne rentre pas dans le détail de cette partie-là, qui n'est juste qu'un peu de manipulation de DOM en JavaScript basique avec un peu de style CSS.
 
 ## Code final
 
@@ -672,6 +678,7 @@ Nous pourrions aller plus loin sur ce dernier point (ex : mieux indiquer le titl
 Par ailleurs, des points restent en suspend :
 - modifier le style du code (géré via le plugin [Highlight.js](https://highlightjs.org/) build-in dans Hugo) dynamiquement
 - gérer les images en fonction du thème (via le mécanisme d'[images adaptatives](https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) et notamment la propriété `srcset`)
+- faire un bouton de switch un peu plus sympa et animé
 
 Peut-être l'histoire d'une prochaine fois…
 
