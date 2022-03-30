@@ -21,10 +21,15 @@ html[data-theme='dark'] {
 	border-bottom: 1px solid var(--border-bottom-color);
 
 	.row {
-		height: 60px;
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+
+		@media screen and (min-width: 992px) {
+			flex-direction: row;
+			height: 60px;
+		}
 	}
 
 	h1 {
@@ -34,8 +39,14 @@ html[data-theme='dark'] {
 
 	nav {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		@media screen and (min-width: 992px) {
+			flex-direction: row;
+		}
+
 
 		> ul {
 			margin: 0;
