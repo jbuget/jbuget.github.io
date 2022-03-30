@@ -21,22 +21,22 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
 
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-
-		@media screen and (min-width: 769px) {
-		    flex-direction: row;
-		}
-
-		li {
+		> ul {
 			margin: 0;
 			padding: 0;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+
+			@media screen and (min-width: 769px) {
+				flex-direction: row;
+			}
+
+			li {
+				margin: 0;
+				padding: 0;
+			}
 		}
 	}
 

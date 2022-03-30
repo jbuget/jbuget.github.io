@@ -6,9 +6,6 @@
 @import "layout";
 @import "index";
 
-/* Components */
-@import "switch";
-
 /* Pages */
 @import "posts/single";
 @import "posts/summary";
@@ -16,3 +13,8 @@
 /* Partials */
 @import "partials/header";
 @import "partials/footer";
+
+/* Components */
+@import "switch";
+@import "theme-switcher-menu";
+

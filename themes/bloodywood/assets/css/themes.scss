@@ -17,8 +17,8 @@ html[data-theme='light'] {
 /* Dark */
 
 html[data-theme='dark'] {
-	--background-color: #282b35;
-	--text-color: #e7ecf3;
+	--background-color: #{$dark1};
+	--text-color: #{$dark5};
 	--link-color: #{$orange2};
 }
 

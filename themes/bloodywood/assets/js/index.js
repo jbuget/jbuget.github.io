@@ -1,4 +1,4 @@
-import { initTheme } from './switch';
+import { initTheme } from './theme-switcher-menu';
 
 initTheme();
 
