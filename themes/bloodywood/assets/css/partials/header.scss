@@ -1,9 +1,24 @@
 @import "../colors";
 
+html[data-theme='light'] {
+
+	.page-header {
+		--border-bottom-color: #{$grey2};
+	}
+}
+
+html[data-theme='dark'] {
+
+	.page-header {
+		--border-bottom-color: #{$dark4};
+	}
+}
+
+
 .page-header {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid $grey2;
+	border-bottom: 1px solid var(--border-bottom-color);
 
 	.row {
 		height: 60px;

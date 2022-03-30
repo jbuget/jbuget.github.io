@@ -12,6 +12,9 @@ html[data-theme='light'] {
 	--background-color: #fff;
 	--text-color: #24292f;
 	--link-color: #{$blue1};
+	--blockquote-background: #{$grey3};
+	--code-color: #{$blue1};
+	--code-before-background: #{$grey3};
 }
 
 /* Dark */
@@ -20,5 +23,8 @@ html[data-theme='dark'] {
 	--background-color: #{$dark1};
 	--text-color: #{$dark5};
 	--link-color: #{$orange2};
+	--blockquote-background: #{$dark2};
+	--code-color: #{$green1};
+	--code-before-background: #{$dark2};
 }
 

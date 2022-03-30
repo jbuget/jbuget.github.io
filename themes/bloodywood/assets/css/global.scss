@@ -42,7 +42,7 @@ pre {
 }
 
 blockquote {
-	background: $grey3;
+	background: var(--blockquote-background);
 	margin: 0 0 1rem;
 	padding: 1rem 1.5rem;
 	border-left: 3px solid #0594cb;
@@ -54,10 +54,10 @@ code {
 	display: inline-block;
 	padding: 0 0.3rem;
 	position: relative;
-	color: $red1;
+	color: var(--code-color);
 
 	&::before {
-		background: $grey3;
+		background: var(--code-before-background);
 		border-radius: 0.2rem;
 		bottom: 0.1em;
 		content: "";
