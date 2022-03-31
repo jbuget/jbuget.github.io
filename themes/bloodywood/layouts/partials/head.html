@@ -50,14 +50,14 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
-  <!-- Vendors -->
-<!--
-  <link href="/vendors/fontawesome/css/all.css" rel="stylesheet">
--->
-  <link rel="preload" href="/vendors/fontawesome/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Custom and optimized FontAwesome icons kit -->
+  {{ $faOpts := dict "outputStyle" "compressed" }}
+  {{ $faBundle := resources.Match "custom/fontawesome/css/*.css" | resources.Concat "css/fontawesome.css" | resources.ToCSS $faOpts }}
+  {{ $faCSS := resources.Minify $faBundle | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $faCSS.RelPermalink }}" integrity="{{ $faCSS.Data.Integrity }}" >
 
   <!-- Styles -->
-  {{ $styleOpts := dict "outputStyle" "compressed"  }}
+  {{ $styleOpts := dict "outputStyle" "compressed" }}
   {{ $styleSass := resources.Get "css/styles.scss" }}
   {{ $styleCSS := $styleSass | resources.ToCSS $styleOpts | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" >
