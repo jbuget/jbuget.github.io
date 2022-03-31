@@ -46,12 +46,20 @@
   {{ end }}
 
   <!-- Vendors -->
+<!--
   <link href="/vendors/fontawesome/css/all.css" rel="stylesheet">
+-->
+  <link rel="preload" href="/vendors/fontawesome/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Styles -->
+  {{ $styleOpts := dict "outputStyle" "compressed"  }}
   {{ $styleSass := resources.Get "css/styles.scss" }}
-  {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
+  {{ $styleCSS := $styleSass | resources.ToCSS $styleOpts | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" >
+<!--
+  <link rel="preload" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+-->
+
 
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
@@ -62,5 +70,5 @@
   {{ $opts := dict "targetPath" "app.js" "minify" "true" "sourceMap" "inline" }}
   {{ $built := resources.Get "js/index.js" | js.Build $opts }}
   {{ $securedJS := $built | resources.Fingerprint "sha512" }}
-  <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" defer></script>
+  <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" integrity="{{ $securedJS.Data.Integrity }}" defer></script>
 </head>
