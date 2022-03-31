@@ -45,6 +45,11 @@
   <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
   {{ end }}
 
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
   <!-- Vendors -->
 <!--
   <link href="/vendors/fontawesome/css/all.css" rel="stylesheet">
@@ -59,12 +64,6 @@
 <!--
   <link rel="preload" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 -->
-
-
-  <!-- RSS -->
-  {{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
 
   <!-- Scripts -->
   {{ $opts := dict "targetPath" "app.js" "minify" "true" "sourceMap" "inline" }}
