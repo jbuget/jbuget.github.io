@@ -8,8 +8,6 @@ enableGitInfo = true
 [params]
   author = 'Jérémy Buget'
 
-disqusShortname = 'jbuget'
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]
