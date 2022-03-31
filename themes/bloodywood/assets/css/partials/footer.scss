@@ -3,11 +3,13 @@
 html[data-theme='light'] {
 	--page-footer-background: #{$grey3};
 	--page-footer-border-color: #{$grey6};
+	--page-footer-link-color: #{$blue2};
 }
 
 html[data-theme='dark'] {
 	--page-footer-background: #{$dark2};
 	--page-footer-border-color: #{$dark3};
+	--page-footer-link-color: #{$dark5};
 }
 
 .page-footer {
@@ -15,6 +17,11 @@ html[data-theme='dark'] {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--page-footer-background);
+
+	a {
+		color: var(--page-footer-link-color);
+		text-decoration: none;
+	}
 
 	&__links {
 		border-top: 1px solid var(--page-footer-border-color);
