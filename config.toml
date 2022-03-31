@@ -1,5 +1,6 @@
 baseURL = 'https://jbuget.fr'
 languageCode = 'fr-fr'
+DefaultContentLanguage = "fr"
 title = 'Jérémy Buget'
 theme = 'bloodywood'
 enableRobotsTXT = true
