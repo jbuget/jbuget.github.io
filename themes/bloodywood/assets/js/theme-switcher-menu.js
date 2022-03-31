@@ -111,3 +111,15 @@ document.addEventListener('click', (event) => {
     }
   }
 });
+
+document.addEventListener('keyup', (event) => {
+  if (event.defaultPrevented) {
+    return;
+  }
+  if (event.key === 'Escape') {
+    if (!themeSwitcherMenuList.classList.contains('hidden')) {
+      themeSwitcherMenuList.classList.add('hidden');
+    }
+  }
+  event.preventDefault();
+}, true);
