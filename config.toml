@@ -8,6 +8,7 @@ enableGitInfo = true
 
 [params]
   author = 'Jérémy Buget'
+  description= 'Site personnel de Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
 
 [markup]
   [markup.goldmark]
