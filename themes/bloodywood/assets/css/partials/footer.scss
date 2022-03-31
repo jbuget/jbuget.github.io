@@ -1,12 +1,23 @@
 @import "../colors";
 
+html[data-theme='light'] {
+	--page-footer-background: #{$grey3};
+	--page-footer-border-color: #{$grey6};
+}
+
+html[data-theme='dark'] {
+	--page-footer-background: #{$dark2};
+	--page-footer-border-color: #{$dark3};
+}
+
 .page-footer {
 	min-height: 60px;
 	display: flex;
 	flex-direction: column;
+	background-color: var(--page-footer-background);
 
 	&__links {
-		border-top: 1px solid $grey2;
+		border-top: 1px solid var(--page-footer-border-color);
 		padding: 2rem 0;
 	}
 
@@ -14,14 +25,18 @@
 		width: 100vw;
 		padding: 0.5rem 0;
 		font-size: 0.75rem;
-		border-top: 1px solid $grey2;
+		border-top: 1px solid var(--page-footer-border-color);
 		text-align: center;
 	}
 
 	.footer__links {
-		margin: 0;
+		margin: 0 0 1rem;
 		padding: 0;
 		list-style: none;
+
+		@media screen and (min-width: 992px) {
+		    margin-bottom: 0;
+		}
 	}
 
 	.footer__links-header {
