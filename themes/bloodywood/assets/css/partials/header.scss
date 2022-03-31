@@ -1,23 +1,19 @@
 @import "../colors";
 
 html[data-theme='light'] {
-
-	.page-header {
-		--border-bottom-color: #{$grey2};
-	}
+	--page-header-border-bottom-color: #{$grey2};
+	--page-header-navlink-background-hover: #1870f010;
 }
 
 html[data-theme='dark'] {
-
-	.page-header {
-		--border-bottom-color: #{$dark4};
-	}
+	--page-header-border-bottom-color: #{$dark4};
+	--page-header-navlink-background-hover: #3a3944;
 }
 
 .page-header {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid var(--border-bottom-color);
+	border-bottom: 1px solid var(--page-header-border-bottom-color);
 
 	.row {
 		display: flex;
@@ -72,7 +68,7 @@ html[data-theme='dark'] {
 
 		&:focus,
 		&:hover {
-			background-color: #1870f010;
+			background-color: var(--page-header-navlink-background-hover);
 		}
 	}
 }
