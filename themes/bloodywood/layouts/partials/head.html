@@ -70,4 +70,9 @@
   {{ $built := resources.Get "js/index.js" | js.Build $opts }}
   {{ $securedJS := $built | resources.Fingerprint "sha512" }}
   <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" integrity="{{ $securedJS.Data.Integrity }}" defer></script>
+
+  <link rel="preload" href="/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+<!--
+  <link rel="preload" href="/fonts/Nunito-Italic-VariableFont_wght" as="font" type="font/ttf">
+-->
 </head>
