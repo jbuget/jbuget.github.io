@@ -70,4 +70,7 @@
   {{ $built := resources.Get "js/index.js" | js.Build $opts }}
   {{ $securedJS := $built | resources.Fingerprint "sha512" }}
   <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" integrity="{{ $securedJS.Data.Integrity }}" defer></script>
+
+  <!-- Analytics -->
+  <script defer data-domain="jbuget.fr" src="https://analytics.jbuget.fr/js/plausible.js"></script>
 </head>
