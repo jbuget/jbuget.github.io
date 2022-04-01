@@ -9,9 +9,6 @@ enableGitInfo = true
 [params]
   author = 'Jérémy Buget'
   description= 'Site personnel de Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
-  [params.matomo]
-    url = 'https://analytics.jbuget.fr/'
-    id = 1
 
 [markup]
   [markup.goldmark]

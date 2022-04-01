@@ -5,6 +5,7 @@
 
   <!-- Title Tags -->
   <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Site.Params.Description }}" />
   <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}"/>
@@ -12,10 +13,10 @@
   <meta property="og:site_name" content="{{ .Site.Params.sitename }}"/>
 
   <!-- Description Tags -->
-  <meta name="description" content="{{ .Site.Params.description }}"/>
-  <meta itemprop="description" content="{{ .Site.Params.description }}"/>
-  <meta property="og:description" content="{{ .Site.Params.description }}"/>
-  <meta name="twitter:description" content="{{ .Site.Params.description }}"/>
+  <meta name="description" content="{{ .Params.description }}"/>
+  <meta itemprop="description" content="{{ .Params.description }}"/>
+  <meta property="og:description" content="{{ .Params.description }}"/>
+  <meta name="twitter:description" content="{{ .Params.description }}"/>
 
   <!-- Link Tags -->
   <base href="{{ .Permalink }}">
@@ -69,6 +70,4 @@
   {{ $built := resources.Get "js/index.js" | js.Build $opts }}
   {{ $securedJS := $built | resources.Fingerprint "sha512" }}
   <script type="text/javascript" src="{{ $securedJS.RelPermalink }}" integrity="{{ $securedJS.Data.Integrity }}" defer></script>
-
-  {{ partial "matomo-tracking" . }}
 </head>
