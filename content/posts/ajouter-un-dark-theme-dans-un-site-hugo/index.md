@@ -1,5 +1,5 @@
 ---
-title: Supporter le "mode sombre" dans un site Hugo
+title: Supporter le "mode sombre" dans un site Hugo (v1)
 categories: ["hugo"]
 date: 2022-03-29T15:42:47+02:00
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: "Theme Selector Part 2"
+title: Gérer des thèmes graphiques dans un site Web (v2)
 date: 2022-04-02T12:50:04+02:00
 categories: ["hugo"]
 date: 2022-04-02
