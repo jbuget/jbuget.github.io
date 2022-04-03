@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main class="posts-section">
+  <div class="container">
+    <div class="row">
+      <div class="posts">
+        <h1>{{ .Title }}</h1>
+        <ul class="posts__list" role="list">
+          {{ range .Pages }}
+          <li class="posts__item">
+            <a href='{{ .Permalink }}'> {{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

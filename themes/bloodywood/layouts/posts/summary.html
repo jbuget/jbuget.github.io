@@ -1,9 +1,11 @@
 <article class="posts-summary post-card" role="article">
   <header class="post-card__header">
     <h1 class="post-card__title"><a href='{{ .Permalink }}'> {{ .Title }}</a></h1>
-    <span class="post-card__category">{{ range .Params.categories }}{{ . | title }}{{ end }}</span>
-    · <span class="post-card__date"><time>{{ .PublishDate.Format "2 Janvier 2006"}}</time></span>
-    · <span class="post-card__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
+    <div class="post-card__meta">
+      {{ range .Params.categories }}<span class="post-card__category">{{ . | title }}</span>{{ end }}
+      · <span class="post-card__date"><time>{{ .PublishDate.Format "2 Janvier 2006"}}</time></span>
+      · <span class="post-card__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
+    </div>
   </header>
   <section class="post-card__body">
     <div class="post-card__content">{{ .Summary }}</div>
