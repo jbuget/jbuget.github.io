@@ -1,6 +1,6 @@
 ---
 title: "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose (part. 3)"
-date: 2022-04-07T17:45:00+02:00
+date: 2022-04-07T15:45:00+02:00
 draft: false
 categories: ["traefik", "ops", "infra", "docker", "vps"]
 summary: Dans cette partie, nous nous intéressons à la procédure pour ajouter, configurer et exposer un service managé via les libellés de conteneurs gérés avec Docker Compose. 
