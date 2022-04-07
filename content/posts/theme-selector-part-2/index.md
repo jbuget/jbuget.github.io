@@ -56,7 +56,7 @@ Bref, c'était très loin d'être optimal et j'ai décidé de revoir ma copie.
 
 ### Exemples
 
-Dans les retours importants qui m'ont été fait (merci à tous pour les feedbacks 🙏), j'ai notamment eu celui de [Vincent](https://vincenthardouin.dev/) (a.k.a. "La Relève") qui m'a pointé l'exemple de Mozilla et son site [MDN Web Docs](https://developer.mozilla.org/).
+Dans les retours importants qui m'ont été faits (merci à tous pour les feedbacks 🙏), j'ai notamment eu celui de [Vincent](https://vincenthardouin.dev/) (a.k.a. "La Relève") qui m'a pointé l'exemple de Mozilla et son site [MDN Web Docs](https://developer.mozilla.org/).
 
 Au moment où j'écris ces lignes, le menu de sélection du thème de mon site est "très fortement inspiré" du leur.
 
@@ -130,7 +130,7 @@ En termes d'attentes, l'objectif est d'avoir exactement le même comportement qu
 Je prends le parti d'avoir une solution la plus générique et agnostique possible.
 Intention ou idée : pouvoir simplement _componentiser_ (dans un [Web Component](https://developer.mozilla.org/fr/docs/Web/Web_Components)) le résultat final.
 
-Ainsi, tous les event listeners / handlers seront déclarés directement dans un fichier JS dédié : `theme-switcher-menu.js` (dans le répertoires des _assets_).
+Ainsi, tous les event listeners / handlers seront déclarés directement dans un fichier JS dédié : `theme-switcher-menu.js` (dans le répertoire des _assets_).
 
 ### Proposer un menu déroulant (plutôt qu'un bouton à bascule)
 
@@ -164,7 +164,7 @@ themeSwitcherMenuToggle.addEventListener('click', () => {
 
 ### Tenir compte du thème sélectionné
 
-À la différence du bouton à bascule simple, détecter l'option choisie par l'utilisateur nécessite de passer par un moeyn quelconque.
+À la différence du bouton à bascule simple, détecter l'option choisie par l'utilisateur nécessite de passer par un moyen quelconque.
 J'ai opté pour un attribut de donnée `data-theme-option` dont la valeur dépende de l'option.
 
 À l'initialisation de la page / exécution du script, l'idée consiste à associer un event handler pour chaque évènement `click` des 3 boutons-options possible.
@@ -192,7 +192,7 @@ themeSwitchMenuButtons.forEach((element) => {
 });
 ```
 
-> ℹ️ Je ne rentre pas ici dans le détail de la gestion des préférences système utilisateur via la Media Query `window.matchMedia("(prefers-color-scheme: dark)")` ou de la persistence du choix cross-visites via le _Local Storage_. Tout est dans l'article précédent.
+> ℹ️ Je ne rentre pas ici dans le détail de la gestion des préférences système utilisateur via la Media Query `window.matchMedia("(prefers-color-scheme: dark)")` ou de la persistance du choix cross-visites via le _Local Storage_. Tout est dans l'article précédent.
 
 ### Tenir compte de la navigation au clavier
 
