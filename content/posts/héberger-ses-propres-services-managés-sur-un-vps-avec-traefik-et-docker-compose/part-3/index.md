@@ -64,7 +64,7 @@ On obtient l'arborescence suivante :
 Éditer le fichier `docker-compose.yml` comme suit :
 
 ```yaml
-version: "3.8"
+version: '3'
 services:
   mail:
     image: bytemark/smtp
@@ -102,8 +102,6 @@ services:
       - plausible_db
       - plausible_events_db
       - mail
-    ports:
-      - 8000:8000
     env_file:
       - plausible-conf.env
     networks:
@@ -207,9 +205,9 @@ Comme pour Plausible, tout le nécessaire pour gérer notre instance de back-end
 Avec tous ces éléments en tête, on peut obtenir le fichier `docker-compose.yml` suivant :
 
 ```yaml
-# docker-compose.yml
+# ~/services/shlink/docker-compose.yml
 
-version: '3.8'
+version: '3'
 
 services:
   db:
@@ -257,7 +255,7 @@ networks:
 ```
 
 ```shell
-# shlink-conf.env
+# ~/services/shlink/shlink-conf.env
 
 # Postgres
 POSTGRES_USER=postmaster
