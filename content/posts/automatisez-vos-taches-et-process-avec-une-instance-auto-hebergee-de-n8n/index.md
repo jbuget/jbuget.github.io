@@ -234,7 +234,7 @@ Je redémarre mon instance de Træfik pour être sûr qu'il prenne en compte les
 cd ~/traefik
 docker-compose restart
 ```
-Je visite mon service en ligne https://n8n.mon-serveur.jbuguet.fr.
+Je visite mon service en ligne https://n8n.mon-serveur.jbuget.fr.
 🎉 It works!
 
 ![Écran de connexion de notre service managé n8n](login_screen.png)
