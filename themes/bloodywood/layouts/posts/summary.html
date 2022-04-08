@@ -3,7 +3,7 @@
     <h1 class="post-card__title"><a href='{{ .Permalink }}'> {{ .Title }}</a></h1>
     <div class="post-card__meta">
       {{ range .Params.categories }}<span class="post-card__category">{{ . | title }}</span>{{ end }}
-      · <span class="post-card__date"><time>{{ .PublishDate.Format "2 Janvier 2006"}}</time></span>
+      · <span class="post-card__date"><time>{{ .PublishDate | time.Format ":date_full" }}</time></span>
       · <span class="post-card__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
     </div>
   </header>
