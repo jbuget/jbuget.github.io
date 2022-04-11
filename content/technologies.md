@@ -1,5 +1,5 @@
 ---
-title: Stack technique
+title: Technologies
 date: 2017-03-23
 draft: false
 ---
@@ -88,7 +88,7 @@ Il s'agit d'une licence dite "permissive", au sens où "\[elle\] impose des rest
 Vous pouvez récupérer le code source, le modifier et même l'exploiter à toutes fins (dont commerciale).
 Ce faisant, vous êtes tenus de rendre disponible le code source du logiciel (en l'occurrence, ce site Web) modifié lorsque ce dernier est mis à disposition du public par le biais d’un réseau à distance.
 
-> 💡 Dans un monde idéal, j'aurais aimé séparer la licence du contenant (thème, scrips, ressources, configurations) de celle du contenu (dossier `/content` et `/data`) :
+> 💡 Dans un monde idéal, j'aurais aimé séparer la licence du contenant (thème, scripts, ressources, configurations) de celle du contenu (dossier `/content` et `/data`) :
 > couvrir les composants techniques avec une licence AGPL-3.0 et protéger le contenu intellectuel via une [licence CC-NC](https://creativecommons.org/licenses/by-nc/2.0/fr/)
 >
 > Dans les faits, pour rendre explicite cette intention, il semblerait que je doive gérer 2 entrepôts de code source.
