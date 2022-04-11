@@ -173,7 +173,7 @@ Dans ces conditions, on peut se contenter de n'installer et gérer que la partie
 Shlink propose une image Docker et un fichier `docker-compose.yml` (factuellement, plusieurs).
 L'étude du fichier Compose donne à penser que celui-ci n'est pas prêt à l'emploi et qu'il faille creuser un peu, pour sélectionner les briques qui nous siéent, ce qui n'est pas une mince affaire _a priori_.
 
-Je conseille de suivre [la documentation officielle](https://shlink.io/documentation/install-docker-image/) fournie par l'éditeur, pour installer sa propre iunstance locale via l'image Docker.
+Je conseille de suivre [la documentation officielle](https://shlink.io/documentation/install-docker-image/) fournie par l'éditeur, pour installer sa propre instance locale via l'image Docker.
 
 L'observation de [l'image Docker](https://github.com/shlinkio/shlink/blob/develop/Dockerfile) nous révèle que celle-ci contient tout le nécessaire : l'environnement PHP 8.x, les plugins PHP (PDO, cURL, Intl, etc.), un serveur web [openswoole](https://openswoole.com/).
 On voit que l'application supporte plusieurs bases de données, dont PostgreSQL que je préfère personnellement aux autres.
@@ -297,7 +297,7 @@ Si tout s'est bien passé, quand vous accédez à votre service - https://l.mon-
 
 Un prérequis indispensable à cette étape est la création d'une clé d'API pour accéder à notre back-end Shlink.
 
-La façon la plus rapide et simple que j'ai trouvée, consiste à utiliser le CLI Shlink embarqué dans l'image Docker que l'on utilise.
+La façon la plus rapide et simple que j'ai trouvé, consiste à utiliser le CLI Shlink embarqué dans l'image Docker que l'on utilise.
 
 ```shell
 # As "toor", from ~/services/shlink
@@ -331,7 +331,7 @@ Pour récapituler, nous avons :
 Pour aller plus loin, il faudrait :
 - mettre en place de l'authentification via [Authelia](https://www.authelia.com/docs/deployment/supported-proxies/traefik2.x.html)
 - [automatiser le tout](https://thoughtfuldragon.com/a-summary-of-how-i-automated-my-server-with-ansible-docker-and-traefik/) via Ansible
-- intégrer d'autres services (n8n, Bitwarden, Discourse, etc.)
+- intégrer d'autres services ([n8n](/posts/automatisez-vos-taches-et-process-avec-une-instance-auto-hebergee-de-n8n), Bitwarden, Discourse, etc.)
 
 ## Liens 
 
