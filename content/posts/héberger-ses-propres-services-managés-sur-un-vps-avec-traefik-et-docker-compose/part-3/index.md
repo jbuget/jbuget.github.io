@@ -26,7 +26,7 @@ summary: Dans cette partie, nous nous intéressons à la procédure pour ajouter
 
 La recette pour déployer et administrer un service Docker via Træfik est un peu toujours la même.
 
-1. Il faut commencer par étudier rapidement l'architecture de la solution pour comprendre quelle sont les briques principales (webapp, api, db, cache, etc.), celles secondaires, les variations d'installation possibles (utiliser telle ou telle base de données, tel ou tel web server, etc.).
+1. Il faut commencer par étudier rapidement l'architecture de la solution pour comprendre quelles sont les briques principales (webapp, api, db, cache, etc.), celles secondaires, les variations d'installation possibles (utiliser telle ou telle base de données, tel ou tel web server, etc.).
 2. Une fois qu'on est chaud, on commence par déclarer un enregistrement DNS de type `CNAME` pointant vers l'URL serveur `mon-serveur.jbuget.fr.` (histoire d'éviter des problèmes de génération de certificats SSL/Let's Encrypt) 
 3. On recherche au sein du projet ou de l'organisation GitHub / GitLab du matériel Docker, l'idéal étant de trouver un fichier `docker-compose.yml` proposé par l'éditeur et prêt à l'emploi
 4. Sur notre serveur, on crée un répertoire dédié pour y déclarer ou copier-coller le fichier `docker-compose.yml` correspondant
@@ -35,7 +35,7 @@ La recette pour déployer et administrer un service Docker via Træfik est un pe
 7. Si la stack comporte plusieurs composants qui doivent communiquer entre eux (cas commun), on prend soin de définir pour chaque composant les bons réseaux Docker ("internal" et/ou "web")
 8. Si le webserver écoute sur un port autre que 80, on pense à définir le libellé `traefik.http.services.<service>.loadbalancer.server.port=<port>` et à exposer le port en question
 9. En fin de fichier, on pense à déclarer le/les volumes et les réseaux utilisés, notamment le réseau "web"
-10. Il ne reste plus qu'à démarrer la stack ave cla commande `docker-compose up -d`
+10. Il ne reste plus qu'à démarrer la stack avec la commande `docker-compose up -d`
 
 ## Exemple 1 : Plausible
 
@@ -59,7 +59,7 @@ On obtient l'arborescence suivante :
 
 ![img_1.png](service_plausible_lsla.png)
 
-> 💡 Noter la présence du fichier `docker-compose.yml.orig` qui est unecopie du fichier initial, au cas où…
+> 💡 Noter la présence du fichier `docker-compose.yml.orig` qui est une copie du fichier initial, au cas où…
 
 Éditer le fichier `docker-compose.yml` comme suit :
 
@@ -318,7 +318,7 @@ Allez sur https://app.shlink.io et déclarez un nouveau serveur :
 
 ## Conclusion
 
-On arrive - enfin ! - au bout de cet série.
+On arrive - enfin ! - au bout de cette série.
 
 Pour récapituler, nous avons :
 - commandé, provisionné et sécurisé un serveur IaaS
@@ -326,7 +326,7 @@ Pour récapituler, nous avons :
 - installé Docker et Docker Compose
 - déclaré et démarré une instance de Træfik (via Docker & Compose)
 - configuré Træfik pour qu'il auto-découvre des services managés via Docker & Compose
-- défini et lancé divers services managés (Woami, Plausible, Shlink) en suivant la recette (en n'oubliant surtout pas le petit enregistrement DNS/CNAME qui va bien)
+- défini et lancé divers services managés (Whoami, Plausible, Shlink) en suivant la recette (en n'oubliant surtout pas le petit enregistrement DNS/CNAME qui va bien)
 
 Pour aller plus loin, il faudrait :
 - mettre en place de l'authentification via [Authelia](https://www.authelia.com/docs/deployment/supported-proxies/traefik2.x.html)
