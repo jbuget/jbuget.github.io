@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main role="main" class="posts-single">
-  <div class="container post">
-    <div class="row">
-      <section class="post__body">
+  <section class="post">
+    <div class="container">
+      <div class="row">
         <h1>{{ .Title }}</h1>
         <div class="post__meta">
           Par <span class="post__author">{{ .Site.Params.Author }}</span>
@@ -11,13 +11,15 @@
           · <span class="post__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
         </div>
         {{ .Content }}
-      </section>
+      </div>
     </div>
-    <div class="row">
-      <section class="post__related">
-        <a href="/posts">Revenir à la liste des articles</a>
-      </section>
+  </section>
+  <section class="post__related">
+    <div class="container">
+      <div class="row">
+        <a href="/posts">← Revenir à la liste des articles</a>
+      </div>
     </div>
-  </div>
+  </section>
 </main>
 {{ end }}

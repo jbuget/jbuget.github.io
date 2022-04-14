@@ -57,7 +57,7 @@ Traefik propose de générer et gérer 2 types de logs :
 - les logs Traefik, qui donnent des informations sur le fonctionnement et l'état interne de Traefik
 - les logs d'accès, qui donnent des informations sur les événements qui se sont produits sur le serveur d'hébergement (VPS)
 
-> ⚠️ **Toutes les logs sont effacées lorsque le conteneur Traefik est redémarré !**
+> ⚠️ **Tous les logs sont effacés lorsque le conteneur Traefik est redémarré !**
 > Pour vous prémunir contre ce mécanisme, vous pouvez utiliser un programme externe comme [`logrotate`](https://hub.docker.com/r/blacklabelops/logrotate/). 
 
 Exemple de configuration possible : 
@@ -118,13 +118,13 @@ Si vous disposez de suffisamment d'espace disque, n'hésitez pas à activer [le 
 
 ### 1.2. Activer et exploiter les access logs Traefik
 
-Par défaut, les access logs sont désactivées.
+Par défaut, les access logs sont désactivés.
 
 Vous pouvez facilement vous en rendre compte si vous avez activé le dashboard Traefik (section Features).
 
 ![img.png](img.png)
 
-Les access logs contiennent des informations sur tout le traffic qui passe par le serveur :
+Les access logs contiennent des informations sur tout le trafic qui passe par le serveur :
 - les requêtes
 - le service managé concerné (ex : shlink@docker)
 - les temps de réponse
@@ -256,7 +256,7 @@ Parmi les erreurs courantes, il y a le cas fréquent de la stack faisant interve
 Une bonne pratique avec Traefik et Docker consiste à [déclarer un réseau Docker externe](/posts/héberger-ses-propres-services-managés-sur-un-vps-avec-traefik-et-docker-compose/part-2/#1-prérequis--déclarer-un-réseau-docker-partagé-et-exposé).
 
 Une stack Docker Compose est souvent constitué d'un serveur Web (celui qu'on va exposer via les `labels` Traefik), d'une application et d'une ou plusieurs bases de données.
-Par mesure de sécurité et pour s'éviter une gestion des ports inter-stacks, une autre bonne pratique consiste à déclarer un réseau interne, grâce auquel les services & conteneurs pourront communiquer entre eux, ainsi que notre fameux réseau externe, accesible par les auutres stacks et par un réseau externe (ex : Internet). 
+Par mesure de sécurité et pour s'éviter une gestion des ports inter-stacks, une autre bonne pratique consiste à déclarer un réseau interne, grâce auquel les services & conteneurs pourront communiquer entre eux, ainsi que notre fameux réseau externe, accesible par les autres stacks et par un réseau externe (ex : Internet). 
 
 À partir du moment où le service exposé (API Node.js, serveur Apache ou NGINX) déclare plusieurs réseaux (propriété `networks` du service), il faut impérativement préciser le réseau Docker attaché à Traefik.
 
@@ -315,7 +315,7 @@ Et en ce qui concerne les labels Docker, c'est pire, il n'y a rien.
 Autre élément : lorsque l'on code du logiciel, il est très facile de mettre des tests unitaires et de se laisser guider par des méthodologies à base de test-first / TDD.
 C'est notablement plus compliqué (même si pas infaisable avec Ansible & cie) avec de l'infra.
 
-Moralité : si malgré les sections ci-dessus la page blanche persiste, vérifiez autant que nécesaire (et même plus encore) que vous n'avez tout simplement pas inverser le `t` et le `h` (ex : "auth", "height", "width").
+Moralité : si malgré les sections ci-dessus la page blanche persiste, vérifiez autant que nécessaire (et même plus encore) que vous n'avez tout simplement pas inverser le `t` et le `h` (ex : "auth", "height", "width").
 
 {{< tweet user="jbuget" id="1513839254039838722" >}}
 
@@ -378,7 +378,7 @@ $ ping mon_service.example.com
 $ traceroute mon_service.example.com
 ```
 
-Vous pouvez aussi suivre la propagation de vos modifications DNS via certains sirtes : 
+Vous pouvez aussi suivre la propagation de vos modifications DNS via certains sites : 
 - [DNSChecker.org](https://dnschecker.org/)
 - [WhatsMyDNS.net](https://www.whatsmydns.net/)
 
@@ -420,7 +420,7 @@ Il vous reste toutefois une dernière piste à explorer, et pas des moins agréa
 
 **Faites une pause !** 
 
-Combien de fois je me suis buté des heures sur un problème, avant d'abandonner le cœur et l'ego meurtris pour finalement torcher le problème en moins 5mn un peu plus tard ou le lendemain ?! 
+Combien de fois je me suis buté des heures sur un problème, avant d'abandonner le cœur et l'ego meurtris pour finalement plier le problème en moins 5mn un peu plus tard ou le lendemain ?! 
 
 Nous sommes d'accord : ce n'est pas vraiment le type de solutions rationnelles que l'on souhaite.
 Mais face à des problèmes de configuration serveur, c'est l'une des plus efficaces qu'il m'arrive encore d'éprouver.
@@ -434,3 +434,7 @@ Encore une fois, cette liste est loin d'être exhaustive.
 Je la mettrais à jour régulièrement s'il me vient de nouvelles idées.
 
 Et vous, quelles techniques utilisez-vous pour vous en sortir avec Traefik et Docker Compose ? 
+
+## Remerciements
+
+Un grand merci à [**Jonas**](https://twitter.com/jonasgrilleres) et **[Vincent](https://twitter.com/VincentHardouin)** (qui a aussi entamé [un blog](https://vincenthardouin.dev/)) pour l'idée d'article, les échanges et la relecture. 

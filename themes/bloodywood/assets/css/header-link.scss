@@ -1,0 +1,13 @@
+.header-link {
+	visibility: visible;
+}
+
+h2, h3, h4 {
+
+	&:hover {
+
+		.header-link {
+			visibility: visible;
+		}
+	}
+}
