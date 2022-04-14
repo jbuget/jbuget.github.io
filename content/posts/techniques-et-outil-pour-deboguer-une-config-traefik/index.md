@@ -1,7 +1,7 @@
 ---
-title: "Déboguer une config Traefik"
-date: 2022-04-13T11:36:35+02:00
-draft: true
+title: "Techniques et outil pour déboguer une config Traefik"
+date: 2022-04-15T00:20:00+02:00
+draft: false
 categories: ['traefik']
 summary: Traefik est le reverse proxy moderne de choix pour gérer une infrastructure fortement conteneurisée (via Docker ou Kubernetes). Cependant, déboguer une configuration Docker Compose managée par Traefik peut rapidement et pour longtemps devenir un casse-tête. Heureusement, il existe tout un tas d'outils, techniques et vérifications pour s'en sortir à moindre mal.   
 ---
