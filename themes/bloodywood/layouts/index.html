@@ -15,7 +15,7 @@
         <h2>Derniers articles de blog</h2>
         <div class="posts">
           <ul class="posts__list" role="list">
-            {{ range ( where .Site.RegularPages "Type" "posts" | first 5 ) }}
+            {{ range ( where .Site.RegularPages "Type" "posts" ) }}
             <li class="posts__item">
               {{ .Render "summary"}}
             </li>
