@@ -23,7 +23,20 @@ defaultContentLanguage = "fr"
         block = true
         title = true
     [markup.goldmark.renderer]
-      unsafe=true
+      unsafe = true
 
   [markup.highlight]
     style = 'monokailight'
+
+# Algolia's integration
+# See https://forestry.io/blog/search-with-algolia-in-hugo/
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+[params.algolia]
+  vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+  params = ["categories", "tags"]
+[outputs]
+  home = ["HTML", "RSS", "Algolia"]

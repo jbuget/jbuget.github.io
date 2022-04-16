@@ -16,4 +16,16 @@ cd jbuget.github.io
 hugo serve -D
 ```
 
+## Indexation
 
+Dans le répertoire `/themes/bloodywood/search/` :
+
+1. Copier / renommer le fichier `.env.example` en `.env` et renseigner les valeurs en conséquences. 
+2. Installer les dépendances :
+```shell
+$ npm install
+```
+3. Exécuter la commande :
+```shell
+$ npm run algolia
+```

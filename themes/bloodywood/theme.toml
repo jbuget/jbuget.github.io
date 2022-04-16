@@ -14,8 +14,3 @@ min_version = "0.41.0"
   name = "Jérémy Buget"
   homepage = "https://jbuget.fr"
 
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""

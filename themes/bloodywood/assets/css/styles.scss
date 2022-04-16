@@ -18,5 +18,6 @@
 /* Components */
 @import "header-link";
 @import "switch";
-@import "theme-switcher-menu";
+@import "./partials/algolia-autocomplete";
+@import "./partials/theme-switcher-menu";
 

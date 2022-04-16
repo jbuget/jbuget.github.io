@@ -1,0 +1,15 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "atomic-algolia": "^0.3.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "algolia": "(cd ../../.. && hugo) && atomic-algolia"
+  },
+  "author": "Jérémy Buget <contact@jbuget.fr>",
+  "license": "AGPL-3.0"
+}
