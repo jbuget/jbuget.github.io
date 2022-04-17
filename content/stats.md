@@ -2,7 +2,6 @@
 title: Statistiques
 date: 2017-03-23
 draft: false
-layout: stats
 ---
 Afin de comprendre l'audience du site et proposer un contenu et une expérience toujours plus qualitatifs et pertinents, j'ai mis en place un outillage de suivi du trafic.
 
@@ -17,10 +16,13 @@ L'éditeur s'en est d'ailleurs très largement expliqué dans [un article](https
 
 Pour aller plus loin encore et avoir le contrôle total des données, **j'ai pris le parti d'héberger ma propre instance de Plausible**.
 
-Celle-ci est hébergée sur une instance VPS chez OVH, dans le centre de données de Gravelines (GRA7) en France 🇫🇷 (4Go, 1vCore, 20Gio, 100Mbps).
+Celle-ci est hébergée sur une instance VPS chez [PulseHeberg](https://pulseheberg.com), dans le centre de données de Nice-Sophia Antipolis en France 🇫🇷 (4 vCPU, 4GB RAM, 500GB SATA).
 
 ## Liens
 
 - [Plausible, Simple and privacy-friendly Google Analytics alternative](https://plausible.io/docs/self-hosting)
 - [Plausible, l'outil d'analyse de trafic qui respecte votre vie privée](https://sylvain-bauvais.fr/blog/plausible-outil-analyse-audience-respect-vie-privee/)
 - [J’ai testé plausible pour suivre le trafic de mon site web](https://guersanguillaume.com/test-plausible-analytics/)
+
+<iframe plausible-embed src="https://analytics.jbuget.fr/share/jbuget.fr?auth=Qwt-UH8hF4WEvFhsaKdI2&embed=true&theme=system&background=transparent" scrolling="no" frameborder="0" loading="lazy" style="width: 1px; min-width: 100%; height: 1600px;"></iframe>
+<script async src="https://analytics.jbuget.fr/js/embed.host.js"></script>
