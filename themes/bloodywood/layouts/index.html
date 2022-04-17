@@ -12,16 +12,19 @@
   <section id="last-articles">
     <div class="container">
       <div class="row">
-        <h2>Derniers articles de blog</h2>
+        <h2>5 derniers articles de blog</h2>
         <div class="posts">
           <ul class="posts__list" role="list">
-            {{ range ( where .Site.RegularPages "Type" "posts" ) }}
-            <li class="posts__item">
-              {{ .Render "summary"}}
+            {{ range ( where .Site.RegularPages "Type" "posts" | first 5 ) }}
+            <li class="posts__item post-line">
+              <a class="post-line__link" href="{{ .RelPermalink }}">
+                <span class="post-line__title">{{ .Title }}</span>
+                <time class="post-line__date" datetime="{{ .Date }}">{{ .PublishDate | time.Format ":date_long" }}</time>
+              </a>
             </li>
             {{ end }}
           </ul>
-          <a href="/posts">Découvrir tous les articles</a>
+          <a class="link-to-all-posts" href="/posts">Découvrir tous les articles</a>
         </div>
       </div>
     </div>
