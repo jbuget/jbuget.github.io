@@ -1,9 +1,9 @@
 ---
-title: "Outils SQL / PostgreSQL en ligne"
-categories: ["sql", "postgresql"]
+title: "Outils en ligne d'aide à la gestion de bases de données relationnelles avec SQL / PostgreSQL"
+categories: ["database", "sql", "postgresql"]
 date: 2022-08-24T13:09:18+01:00
 draft: false
-summary: 
+summary: Il existe tout un tas d'outils en ligne bien pratiques pour comprendre, intervenir ou administrer une base de données et des requêtes. 
 ---
 
 ## Table des matières
@@ -24,7 +24,12 @@ summary:
 
 ## Introduction
 
+Le mieux, quand on administre une base de données relationnelle SQL / PostgreSQL, est d'utiliser les outils directement fournis par le [SGBD](https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_base_de_donn%C3%A9es).
 
+Parfois (souvent), ce n'est pas pratique, pertinent ou même possible de dégainer "l'artillerie lourde".
+Il existe des cas où des outils en ligne font l'affaire : la modélisation ou visualisation d'une base de données, l'analyse d'un plan d'exécution, la conception rapide ou le prototypage de requêtes avancées, etc.
+
+L'objet de cet article consiste à recenser quelques unes de ces situations et solutions (ainsi que des alternatives ou des liens pour aller plus loin).
 
 ## Avertissement
 
