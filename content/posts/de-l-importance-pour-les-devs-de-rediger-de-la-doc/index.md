@@ -2,7 +2,7 @@
 title: "De l'importance pour les développeurs·euses de rédiger de la documentation"
 categories: ["sotware craftsmanship", "développement", "documentation"]
 date: 2022-08-24T13:09:18+01:00
-draft: false
+draft: true
 summary: Les meilleurs développeurs et développeuses de ma connaissance sont aussi celles et ceux qui savent rédiger de la documentation (et pas que technique) et le font régulièrement.
 ---
 
