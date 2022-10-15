@@ -1,8 +1,8 @@
 ---
 title: "Maîtriser sa zone DNS grâce à DNSControl et GitHub Actions"
 categories: ["dns", "dnscontrol", "gandi", "nom de domaine"]
-date: 2022-10-13T21:04:56+01:00
-draft: true
+date: 2022-10-15T15:54:56+01:00
+draft: false
 summary: DNSControl est une solution open source de type "Infrastructure-as-code", éditée par [Stack Exchange](https://stackexchange.com/about) – l'éditeur de la plateforme [Stack Overflow](https://stackoverflow.com/) – dont le but est de fournir un panel d'outils techniques (en ligne de commande) inspirés des bonnes pratiques de développement telles que le versionning, des tests automatisés, l'intégration à des CI/CD, l'automatisation de tâches rébarbatives ou _dangereuses_, la variabilisation par environnement, etc.
 ---
 
