@@ -6,7 +6,7 @@
         <h1>{{ .Title }}</h1>
         <div class="post__meta">
           Par <span class="post__author">{{ .Site.Params.Author }}</span>
-          , le <span class="post__date"><time>{{ .PublishDate.Format "2 Janvier 2006"}}</time></span>
+          , le <span class="post__date"><time>{{ .PublishDate | time.Format ":date_long"}}</time></span>
           , dans <span class="post__category">{{ range .Params.categories }}{{ . | title }}{{ end }}</span>
           · <span class="post__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
         </div>
