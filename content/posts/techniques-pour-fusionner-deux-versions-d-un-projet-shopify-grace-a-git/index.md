@@ -69,11 +69,11 @@ La première chose que je fais est d'estimer la quantité de fichiers du projet,
 ```shell
 # pour la version Algolia
 $ find v_algolia -type f | wc -l
->     255
+      255
 
 # pour la version redesign
 $ find v_redesign -type f | wc -l
->     264
+      264
 ```
 
 Apprentissage : **le projet contient ~260 fichiers**, soit une taille plutôt raisonnable #rassurant.
@@ -94,7 +94,7 @@ Comme vous pouvez le constatez, on obtient une immonde – mais très détaillé
 
 C'est là où je dégaine ma seconde arme ! La commande `git diff --no-index --name-status <pathA> <pathB>` qui permet d'avoir une visualisation façon `git status`.
 
-```
+```shell
 $ git diff --no-index --name-status v_algolia v_redesign
 ```
 
@@ -128,7 +128,7 @@ Comme d'habitude, on peut coupler le tout à la commande `wc` pour compter les f
 ```shell
 # Dénombrer les fichiers en conflits
 $ git diff --no-index --name-status v_algolia v_redesign | grep "M\s" | wc -l
->     29
+      29
 ```
 
 On a donc 29 fichiers (~11%) en conflit. Let's gooooo 🚀🚀🚀!

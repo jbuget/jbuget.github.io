@@ -61,6 +61,7 @@ code {
 	&::before {
 		background: var(--code-before-background);
 		border-radius: 0.2rem;
+		border: 1px solid #{$grey2};
 		bottom: -0.1rem;
 		content: "";
 		left: 0;
