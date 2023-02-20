@@ -37,7 +37,7 @@ Apprentissages :
   - [Tout commence et finit avec Git](#tout-commence-et-finit-avec-git)
   - [Analyse graphique de divergences et résolution de conflits](#analyse-graphique-de-divergences-et-résolution-de-conflits)
   - [Documenter c'est gagner ✌](#documenter-cest-gagner-)
-  - [Courage, méthodologie, rigueur et patience sont sur un bateau… ✌](#courage-méthodologie-rigueur-et-patience-sont-sur-un-bateau)
+  - [Courage, méthodologie, rigueur et patience sont sur un bateau…](#courage-méthodologie-rigueur-et-patience-sont-sur-un-bateau)
 - [Épilogue](#épilogue)
 - [Conclusion](#conclusion)
 

@@ -53,19 +53,20 @@ blockquote {
 
 code {
 	display: inline-block;
-	padding: 0 0.3rem;
+	padding: 0.1rem 0.3rem;
 	position: relative;
+	font-size: 0.85rem;
 	color: var(--code-color);
 
 	&::before {
 		background: var(--code-before-background);
 		border-radius: 0.2rem;
-		bottom: 0.1em;
+		bottom: -0.1rem;
 		content: "";
 		left: 0;
 		position: absolute;
 		right: 0;
-		top: 0.1em;
+		top: -0.1rem;
 		z-index: -1;
 	}
 }
