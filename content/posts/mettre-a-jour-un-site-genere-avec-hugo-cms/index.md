@@ -16,9 +16,9 @@ Entre-temps, les choses ont évolué techniquement (Hugo a publié plusieurs ver
 
 Pour commencer, je me remémore ma version actuelle :
 
-```
+```shell
 $ hugo version
-> hugo v0.104.3+extended darwin/amd64 BuildDate=unknown
+hugo v0.104.3+extended darwin/amd64 BuildDate=unknown
 ```
 
 > Pour rappel, j'ai installé Hugo sur mon poste grâce à Homebrew.
@@ -38,35 +38,35 @@ Je consulte vite fait les changelogs depuis les 7+ versions. Il y a des choses i
 
 Il est temps de profiter de ces changements.
 
-```
+```shell
 $ brew upgrade hugo
 ```
 ![Résultat de la commande `brew upgrade hugo`](brew_upgrade_hugo.png)
 
 Il y a un avertissement à propos d'une bibliothèque devenue obsolète :
 
-```
+```shell
 > Warning: Use python-tabulate instead of deprecated libpython-tabulate
 ```
 
 Je ne maîtrise pas. Je cherche dans les sources du projet s'il est fait mention de `tabulate`.
 
-```
-grep -r tabulate .
+```shell
+$ grep -r tabulate .
 ```
 
 Aucun résultat. Tant mieux.
 
 Je l'ai vu dans les logs, mais je vérifie quand même la version obtenue :
 
-```
+```shell
 $ hugo version
 > hugo v0.110.0+extended darwin/amd64 BuildDate=unknown
 ```
 
 Plus qu'à vérifier que le projet compile et tourne toujours.
 
-```
+```shell
 $ hugo serve -D
 ```
 
@@ -78,7 +78,7 @@ Wouhou ! le projet démarre, sans un message de warning.
 
 Je commence par chercher les fichiers référençant l'ancienne version du CMS (0.104.3) :
 
-```
+```shell
 $ grep -r "0\.104\.3" .
 ```
 
@@ -94,7 +94,7 @@ Je mets à jour le numéro de version.
 
 Je relance le projet.
 
-```
+```shell
 $ hugo serve -D
 ```
 
