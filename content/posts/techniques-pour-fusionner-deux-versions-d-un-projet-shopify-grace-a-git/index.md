@@ -92,6 +92,14 @@ La commande `git diff --no-index <pathA> <pathB>` permet de comparer 2 ressource
 
 Comme vous pouvez le constatez, on obtient une immonde – mais très détaillée ! – bouillie de logs un peu absconse à interpréter. Disons que ça donne une idée générale.
 
+Il existe une option fort pratique qui permet de n'afficher en diff que les mots en divergence / conflit plutôt que toute la ligne : `--color-words`.
+
+![Résultat de la commande git diff --color-words](git_diff_color-words.png)
+
+> ❤️ Un immense merci à Jonathan (toujours lui) pour sa relecture du présent article et pour m'avoir (re-)fait découvrir cette option.
+
+Il n'en demeure pas moins que la quantité d'information à traiter se révèle conséquente.
+
 C'est là où je dégaine ma seconde arme ! La commande `git diff --no-index --name-status <pathA> <pathB>` qui permet d'avoir une visualisation façon `git status`.
 
 ```shell
