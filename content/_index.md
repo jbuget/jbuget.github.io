@@ -22,6 +22,6 @@ J’habite près de Paris avec ma femme et nos 3 enfants.
 
 Lorsque je trouve le courage, j'anime la chaîne Twitch **"[l'Atelier du Code](https://twitch.tv/jeremybuget)"** (le plus souvent, le lundi soir, à partir de 18h30).
 
-Vous pouvez me retrouver sur [Twitter](https://twitter.com/jbuget) (de moins en moins), [GitHub](https://github.com/jbuget), [LinkedIn](https://www.linkedin.com/in/jbuget/) ou depuis peu <a rel="me" href="https://mastodon.social/@jbuget">Mastodon</a>.
+Vous pouvez me retrouver sur [Twitter](https://twitter.com/jbuget) (de moins en moins), [GitHub](https://github.com/jbuget), [LinkedIn](https://www.linkedin.com/in/jbuget/) ou depuis peu <a rel="me" href="https://piaille.fr/@jbuget">Mastodon</a>.
 
 À très bientôt !
