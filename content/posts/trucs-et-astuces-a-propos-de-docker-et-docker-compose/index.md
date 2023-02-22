@@ -298,6 +298,14 @@ $ docker-compose exec postgres bash
 # SELECT * FROM information_schema.tables;
 ```
 
+Le moyen le plus simple reste encore de faire : 
+
+```shell
+# docker-compose exec <service> psql -U <user> -W <db>
+$ docker-compose exec postgres psql -U postgres -W postgres
+```
+Il vous sera alors demandé le mot de passe de l'utilisateur.
+
 ### Explorer une base MariaDB
 
 Soit la stack Compose suivante :
@@ -327,6 +335,35 @@ $ docker-compose exec mariadb bash
 > mariadb -p
 # use mariadb
 # show tables;
+```
+
+## Mettre à jour un service
+
+> 💡 Il est vivement recommandé de fixer la version de chaque service utilisé en production, pour s'épargner des problèmes de montée de version non-voulue / incontrôlée ou nécessitant une intervention dédiée ! 
+
+1/ Éditer le fichier `docker-compose.yml` pour spécifier la nouvelle version, ex : `shlinkio/shlink:3.5.2`.
+
+2/ Récupérer la nouvelle image :
+
+```shell
+$ docker-compose pull
+```
+
+3/ Redémarrer la stack :
+
+```shell
+$ docker-compose up -d --remove-orphans
+```
+
+L'option `--remove-orphans` permet de s'assurer de supprimer l'ancienne vrsion de l'image, qui devient de fait obsolète.
+
+4/ (optionnel) Dans le cas d'une application (⚠️ surtout pas d'une base de données), il peut arriver de devoir supprimer le volume.
+J'ai eu le cas récemment avec Shlink.
+C'est possible en faisant : 
+
+```shell
+# docker volume rm <volume>
+$ docker volume rm shlink_shlink
 ```
 
 ## Explorer les volumes
