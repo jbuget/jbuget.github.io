@@ -25,7 +25,10 @@ Celle-ci m'est bien pratique au quotidien pour gérer mes conteneurs, explorer l
   - [Ouvrir un terminal bash au sein d'un conteneur](#ouvrir-un-terminal-bash-au-sein-dun-conteneur)
   - [Explorer une base PostgreSQL](#explorer-une-base-postgresql)
   - [Explorer une base MariaDB](#explorer-une-base-mariadb)
+- [Mettre à jour un service](#mettre-à-jour-un-service)
 - [Explorer les volumes](#explorer-les-volumes)
+- [Connaître l'état du système lié à Docker](#conna%c3%aetre-l%c3%a9tat-du-syst%c3%a8me-li%c3%a9-%c3%a0-docker)
+  - [Connaître l'espace-disque consommé par les objets Docker](#conna%c3%aetre-lespace-disque-consomm%c3%a9-par-les-objets-docker)
 
 ## Arrêter / redémarrer Docker
 
@@ -385,4 +388,36 @@ $ docker volume inspect [container_id]
 ![Inspecter un volume Docker](docker_volume_inspect.png)
 
 > ⚠️ Vous devez avoir les droits "root" pour pouvoir naviguer dans le répertoire du volume en question.
+
+## Connaître l'état du système lié à Docker
+
+Docker propose une commande (ainsi que des sous-commandes) bien pratique(s) pour connaître / comprendre l'état du système ralatif au programme : `docker system [df|events|info|prune]`.
+
+> 💡 La commande `docker info` est en fait un alias de la commande `docker system info`.
+
+### Connaître l'espace-disque consommé par les objets Docker
+
+La technique la plus Unix pour connaître l'espace-disque requis par Docker est la suivante : 
+
+```shell
+$ sudo du -h --max-depth=0 /var/lib/docker/volumes && \
+    sudo du -h --max-depth=0 /var/lib/docker/image && \
+    sudo du -h --max-depth=0 /var/lib/docker/
+```
+
+L'inconvénient (en plus d'être moche et longue à taper) c'est qu'elle oblige à s'identifier en tant que `sudo`.
+
+Il existe une façon plus simple et pratique permettant d'obtenir le même résultat (en mieux !) : la sous-commande `docker system df`. 
+
+```shell
+$ docker system df
+```
+
+```text
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          33        27        10.22GB   1.924GB (18%)
+Containers      32        21        78.02MB   19.09MB (24%)
+Local Volumes   31        19        2.321GB   518.6MB (22%)
+Build Cache     0         0         0B        0B
+```
 

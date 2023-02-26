@@ -1,13 +1,11 @@
 ---
 title: "Je suis un développeur ennuyeux"
 categories: ["lifestyle", "boring coder", "chatgpt"]
-date: 2023-02-27T06:09:00+01:00
+date: 2023-02-26T23:17:00+01:00
 draft: false
 summary: Je suis un développeur ennuyeux qui privilégie des choix (techno, archi, infra, méthodo) simples et éprouvés à des alternatives plus créatives.
 ---
 Je suis un développeur ennuyeux. Je ne l'ai pas toujours été. Et lorsque c'est arrivé, je ne l'ai pas toujours assumé. Aujourd'hui encore, j'éprouve de temps en temps des diffcultés pour assumer cette posture ou évolution de nature.
-
-Je soupçonne certaines personnes qui me connaissent bien "d'assumer *ma* situation à ma place" et de l'exploiter pour *leur* profit 😉. Que ce soit pour les réfreiner sur des choix d'architectures ou de technos, à certains égards trop audacieux ou précoces. Ou pour mettre le holà ou (re-)cadrer certaines initiatives ou direction au sein de l'équipe, trop avant-gardistes ou mal-à-propos.
 
 ## Simple. Basique.
 
