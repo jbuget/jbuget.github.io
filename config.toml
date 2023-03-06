@@ -2,13 +2,9 @@ baseURL = 'https://jbuget.fr'
 languageCode = 'fr-fr'
 title = 'Jérémy Buget'
 theme = 'bloodywood'
+defaultContentLanguage = "fr"
 enableRobotsTXT = true
 enableGitInfo = true
-
-defaultContentLanguage = "fr"
-[language]
-  lang = 'fr'
-  languageName= 'Français'
 
 [params]
   author = 'Jérémy Buget'
