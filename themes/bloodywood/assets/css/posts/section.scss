@@ -16,4 +16,31 @@
 			padding: 0;
 		}
 	}
+
+	.post-line {
+		display: flex;
+		flex-direction: column;
+
+		@media screen and (min-width: 992px) {
+			flex-direction: row;
+		}
+
+		&__date {
+			display: inline-block;
+			flex: 1;
+
+			@media screen and (min-width: 992px) {
+				margin-right: 10px;
+			}
+		}
+
+		&__title {
+			flex: 8;
+			margin-bottom: 10px;
+
+			@media screen and (min-width: 992px) {
+				margin-bottom: 0;
+			}
+		}
+	}
 }

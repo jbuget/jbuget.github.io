@@ -4,13 +4,19 @@
     <div class="row">
       <div class="posts">
         <h1>{{ .Title }}</h1>
+
+        <!-- Groups content by month according to the "publishDate" field in front matter -->
+        {{ range .Pages.GroupByPublishDate "2006" }}
+        <h3>{{ .Key }}</h3>
         <ul class="posts__list" role="list">
           {{ range .Pages }}
-          <li class="posts__item">
-            <a href='{{ .Permalink }}'> {{ .Title }}</a>
+          <li class="posts__item post-line">
+            <time class="post-line__date" datetime="{{ .Date }}">{{ .PublishDate | time.Format "02 January" }}</time>
+            <a class="post-line__title" href='{{ .Permalink }}'> {{ .Title }}</a>
           </li>
           {{ end }}
         </ul>
+        {{ end }}
       </div>
     </div>
   </div>
