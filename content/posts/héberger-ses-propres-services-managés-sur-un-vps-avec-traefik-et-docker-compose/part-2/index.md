@@ -3,6 +3,15 @@ title: "Héberger ses propres services managés sur un VPS avec Træfik et Docke
 date: 2022-04-06T17:45:00+02:00
 draft: false
 categories: ["traefik", "ops", "infra", "docker", "vps"]
+keywords:
+- traefik
+- vps
+- ops
+- infrastructure
+- docker
+- docker compose
+- cloud
+- hosting
 summary: Træfik est une solution de reverse proxy qui permet d'obtenir une infrastructure en vue d'installer, configurer et exposer des services open source (ou propriétaires), de façon simple, rapide, sécurisée, standardisée, performante et sans surcoût (autre que le DNS et le VPS déjà payés).
 ---
 

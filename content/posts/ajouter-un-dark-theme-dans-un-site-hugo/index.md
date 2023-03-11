@@ -1,6 +1,11 @@
 ---
 title: Supporter le "mode sombre" dans un site Hugo (v1)
 categories: ["hugo"]
+keywords:
+- hugo
+- theme
+- dark theme
+- thème sombre
 date: 2022-03-29T15:42:47+02:00
 draft: false
 summary: Les thèmes sombres - a.k.a. dark themes - sont à la mode et la plupart des sites ou applications proposent une option en ce sens. L'occasion de voir comment implémenter ce type de fonctionnalités nécessitant du JavaScript côté front-end dans une application Hugo.

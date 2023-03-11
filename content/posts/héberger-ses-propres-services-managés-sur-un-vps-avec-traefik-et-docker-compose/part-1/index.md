@@ -3,6 +3,15 @@ title: "Héberger ses propres services managés sur un VPS avec Træfik et Docke
 date: 2022-04-05T17:45:00+02:00
 draft: false
 categories: ["traefik", "ops", "infra", "docker", "vps"]
+keywords:
+- traefik
+- vps
+- ops
+- infrastructure
+- docker
+- docker compose
+- cloud
+- hosting
 summary: Héberger et gérer sa propre infrastructure permet de conserver un maximum de contrôle sur les services que l'on expose, comment et à quel prix. Les offres d'hébergement et outils actuels simplifient et accélèrent grandement la mise en œuvre de solutions open source de qualité, de façon sécurisée. Il suffit d'un VPS, d'une instance Træfik (reverse proxy) et d'un peu de Docker / Docker Compose (gestionnaire de conteneurs).
 ---
 

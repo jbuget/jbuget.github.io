@@ -2,6 +2,15 @@
 title: "Trucs et astuces à propos de Docker et Docker Compose"
 date: 2022-04-11T08:15:00+02:00
 categories: ['docker', 'postgresql', 'mariadb']
+keywords:
+- vps
+- ops
+- infrastructure
+- docker
+- docker compose
+- database
+- postgresql
+- mariadb
 draft: false
 summary: Travailler avec Docker et Docker Compose n'est pas toujours une sinécure. Avec le temps, j'ai pu me développer une petite boîte à outil et connaissances. Celle-ci m'est bien pratique au quotidien pour gérer mes conteneurs, explorer les logs, gérer l'espace disque, etc.
 ---

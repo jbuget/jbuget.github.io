@@ -1,6 +1,11 @@
 ---
 title: "Comment mettre à jour facilement et rapidement un site Web géré avec Hugo CMS ?"
 categories: ["hugo", "homebrew", "netlify"]
+keywords:
+- hugo
+- version
+- homebrew
+- netlify
 date: 2023-02-18T12:28:00+01:00
 draft: false
 summary: Gérer les montées de version de framework peut être une vraie galère. Mais pas avec Hugo !

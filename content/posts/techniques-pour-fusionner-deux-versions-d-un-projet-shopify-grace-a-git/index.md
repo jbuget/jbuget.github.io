@@ -3,6 +3,11 @@ title: "Techniques pour fusionner 2 versions divergentes d'un projet Shopify gr�
 date: 2023-02-20T19:08:00+02:00
 draft: false
 categories: ['git', 'shopify']
+keywords:
+- git
+- diff
+- shopify
+- métholodogie
 summary: Git est un outil surpuissant qui regorge de commandes annexes et autres options magiques, telles que `git diff --no-index` et `git difftool`, bien pratiques pour fusionner des versions divergentes depuis plusieurs mois d'un même projet.
 ---
 

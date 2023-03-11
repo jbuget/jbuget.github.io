@@ -1,6 +1,10 @@
 ---
 title: "Internationalisation, dates et regroupement de contenu avec Hugo"
 categories: ["hugo"]
+keywords:
+- hugo
+- date
+- cms
 date: 2023-03-06T23:00:00+01:00
 draft: false
 summary: J'ai longtemps galéré à afficher correctement les dates de mes articles. Le plus dur était de trouver le bon point de départ dans la doc. Finalement, c'est relativement assez simple, mais surtout ultra puissant et satisfaisant.

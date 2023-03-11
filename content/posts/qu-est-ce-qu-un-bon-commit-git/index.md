@@ -1,6 +1,11 @@
 ---
 title: "Qu'est-ce qu'un bon commit Git"
 categories: ["git"]
+keywords:
+- git
+- commit git
+- bonnes pratiques
+- husky
 date: 2022-03-24T13:47:18+01:00
 draft: false
 summary: Pour des projets importants, long terme et multi-collaborateurs, bien gérer son historique Git est important. Cela passe nécessairement par avoir une bonne hygiène de commits Git. Voici mes 5 critères pour des commits de qualité.

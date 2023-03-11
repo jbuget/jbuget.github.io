@@ -1,6 +1,14 @@
 ---
 title: "Outils en ligne d'aide à la gestion de bases de données relationnelles avec SQL / PostgreSQL"
 categories: ["database", "sql", "postgresql"]
+keywords:
+- database
+- base de données
+- sql
+- postgresql
+- mysql
+- mariadb
+- outils
 date: 2022-08-24T13:09:18+01:00
 draft: false
 summary: Il existe tout un tas d'outils en ligne bien pratiques pour comprendre, intervenir ou administrer une base de données et des requêtes. 

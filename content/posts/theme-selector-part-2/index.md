@@ -2,6 +2,12 @@
 title: Gérer des thèmes graphiques dans un site Web (v2)
 date: 2022-04-02T12:50:04+02:00
 categories: ["hugo"]
+keywords:
+- hugo
+- theme
+- dark theme
+- thème sombre
+- menu déroulant
 date: 2022-04-02
 draft: false
 summary: Intégrer un button de choix du thème graphique, c'est bien ; proposer un menu de sélection du thème permettant de synchroniser à tout moment avec le thème système, c'est mieux !
