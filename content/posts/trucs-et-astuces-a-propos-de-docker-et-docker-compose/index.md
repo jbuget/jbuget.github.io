@@ -369,6 +369,11 @@ $ docker-compose up -d --remove-orphans
 
 L'option `--remove-orphans` permet de s'assurer de supprimer l'ancienne vrsion de l'image, qui devient de fait obsolète.
 
+> 💡 Si votre stack Docker comporte un service compilé depuis un fichier Dockerfile custom, vous pouvez forcer le rebuild de celui-ci grâce à la commande :
+> ```
+> $ docker-compose up -d --remove-orphans --force-recreate --build
+> ```
+
 4/ (optionnel) Dans le cas d'une application (⚠️ surtout pas d'une base de données), il peut arriver de devoir supprimer le volume.
 J'ai eu le cas récemment avec Shlink.
 C'est possible en faisant : 
