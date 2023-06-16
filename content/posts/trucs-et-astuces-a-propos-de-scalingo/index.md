@@ -8,8 +8,8 @@ keywords:
 - infrastructure
 - ops
 - devops
-draft: true
-summary: 
+draft: false
+summary: Scalingo est un service d'hébergement de sites et applications Web de type Plateform-as-a-Service (PaaS)
 ---
 
 ## TL;DR
@@ -17,7 +17,6 @@ summary:
 - Runtime :
   - [Ajouter des variables d'environnement depuis un fichier `.env`](#ajouter-des-variables-denvironnement-depuis-un-fichier-env)
   - [Déployer une application via une archive de code au format tar.gz](#déployer-une-application-via-une-archive-de-code-au-format-targz)
-  - [Reproduire le cycle de build de Scalingo sur son poste via `Herokuish`](#reproduire-le-cycle-de-build-de-scalingo-sur-son-poste-via-herokuish)
   - [Optimiser ses ressources via `Paastis`](#optimiser-ses-ressources-grâce-à-paastis)
   - [Ouvrir une session Bash sur un one-off container](#ouvrir-une-session-bash-sur-un-one-off-container)
 - Databases :
@@ -29,9 +28,17 @@ summary:
 - Misc :
   - [Localiser ses identifiants de connexion sur son poste](#localiser-ses-identifiants-de-connexion-sur-son-poste)
   - [Générer un `bearer token` d'API](#générer-un-bearer-token-dapi)
-  - faire tourner une stack ELK (?)
-  - [Notification] brancher les notifs sur Mattermost (via les wbhooks Slack)
-- bonne pratique : bien séparer dev / prod
+  - [Brancher les notifs Scalingo sur Slack, Discord ou Mattermost](#brancher-les-notifs-scalingo-sur-slack-discord-ou-mattermost)
+
+## Introduction
+
+[Scalingo](https://scalingo.com/) est un service d'hébergement de sites et applications Web de type Plateform-as-a-Service (PaaS).
+
+Voilà maintenant plusieurs années que j'utilise ce service pour tout type de besoin : des applications temporaires, des applications de recette jetables (a.k.a. *review apps*), des side-projects, des POC, des MVP, des petits services d'état, des systèmes entiers (plusieurs centaines de milliers d'utilisateurs par jour), etc.
+
+Avec le temps, la plateforme s'est considérablement développée, ainsi que mes connaissances ou outils l'exploitant.
+
+Dans cet article - que je ferai évolue avec le temps, un peu comme mes articles sur [Docker](/posts/trucs-et-astuces-a-propos-de-docker-et-docker-compose/) ou [Traefik](/posts/techniques-et-outil-pour-deboguer-une-config-traefik/) - je documente et partage les trucs qui me sont le plus utiles au quotidien ou lors de moments compliqués.
 
 
 ## Runtime
@@ -102,8 +109,6 @@ $ scalingo --app my-app deploy https://github.com/my-orga/my-app/archive/refs/he
 ```
 
 Si vous avez les droits sur l'application et que l'URL est correcte, alors, ça devrait déclencher un déploiement 🚀.
-
-### Reproduire le cycle de build de Scalingo sur son poste via `herokuish`
 
 ### Optimiser ses ressources via `Paastis`
 
@@ -306,6 +311,9 @@ Je vois 2 moyens :
 **TL;DR**
 
 ```shell
+# Vérifier avec quel compte on est connecté
+$ scalingo whoami #ou scalingo self
+
 # Lister les fichiers de config Scalingo liés à son compte sur son poste
 $ ls ~/.config/scalingo
 
@@ -315,7 +323,14 @@ $ cat ~/.config/scalingo/auth | jq
 
 **Explications**
 
-*A priori*, on n'a pas besoin de connaître ni de se servir de cette astuce… sauf dans certains cas (cf. plus loin). Mais encore une fois, il me paraît intéressant de noter et partager tous ces petits bouts de cojnaissances, accumulés au fils des ans.
+*A priori*, on n'a pas besoin de connaître ni de se servir de cette astuce… sauf dans certains cas (cf. plus loin). Mais encore une fois, il me paraît intéressant de noter et partager tous ces petits bouts de connaissances, accumulés au fils des ans.
+
+Avant toute chose, pour les personnes disposant de plusieurs comptes chez Scalingo (compte au boulot, compte perso, compte pour un side projet, etc.) il est facile de savoir avec quel compte on est connecté grâce à la commande `scalingo whoami`.
+
+```shell
+$ scalingo whoami
+-----> You are logged in as john-doe (john.doe@example.com)
+```
 
 Scalingo CLI respecte un standard qui veut que les utilitaires Unix nécessitant connexion ou configuration stockent leurs informations dans un répertoire `.config`, à la racine du compte utilisateur de l'OS.
 
@@ -366,7 +381,7 @@ Par exemple, lorsque l'on met en place un template de review apps pour un projet
 
 Un moyen pratique que nous avons trouvé - enfin, surtout [Jonathan Perret](https://twitter.com/jonathanperret) - est de faire un script Bash qui lance une boucle `for` avec autant de requêtes `POST` que nécessaire. Au préalable de ces appels HTTP, il est nécessaire de génrer un jeton d'appel sécurisé, a.k.a. `bearer token`.
 
-Pour ce faire, c'ets très simple : 
+Pour ce faire, c'est très simple : 
 1. on récupère le token de session contenu dans le fichier `auth` (cf. ci-dessus)
 2. on réalise un appel auprès de l'API Scalingo pour générer un bearer token
 3. on peut ensuite appeler l'API selon notre usage
@@ -377,6 +392,74 @@ Pour générer un bearer token, la commande est la suivante :
 BEARER_TOKEN=$(curl -su ":$(< ~/.config/scalingo/auth jq -r '.auth_config_data["auth.scalingo.com"].tokens.token')" -X POST https://auth.scalingo.com/v1/tokens/exchange|jq -r .token);
 ```
 
-// Pour des raisons de sécurité et de responsabilité, je préfère ne pas publier le code ici, etc.
+### Brancher les notifs Scalingo sur Slack, Discord ou Mattermost
 
-// TODO script bash
+**Explications**
+
+Scalingo permet de [recevoir des notifications](https://doc.scalingo.com/platform/app/notification) à propos d'un large panel d'évènements en rapport avec le déploiement ou l'exécution d'une application. La liste est vraiment conséquente et couvre un large spectre de situations susceptibles d'être monitorées *sur étagère*.
+
+![Évènements et alertes remontées par Scalingo](./scalingo_triggered_events.png)
+
+En revanche et une fois n'est pas coutume, la documentation officielle n'est ni généreuse, ni explicite, ni complète sur la façon de brancher les alertes à diverses messageries ou systèmes tiers.
+
+Par le passé, j'ai été amené à brancher les alertes Scalingo sur Slack (pour [Pix](https://pix.fr)), Discord ([Immersion Facilité](https://immersion-facile.beta.gouv.fr/)) ou Mattermost ([Carnet de bord](https://carnetdebord.inclusion.beta.gouv.fr)).
+
+Ça se passe en 2 étapes : 
+1. Déclarer un webhook dans la messagerie pour obtenir une URL de webhook entrant
+2. Renseigner cette URL dans un nouveau notifieur associé à l'app Scalingo
+
+#### Etape 1 : déclarer une nouvelle intégration de type webhook pour obtenir une URL
+
+**Slack**
+
+C'est d'un compliqué… [La doc officielle est ici](https://api.slack.com/messaging/webhooks).
+
+**1.** La première chose à faire est de déclarer une nouvelle application Slack au sein de l'espace de travail.
+
+**2.** Ensuite, il faut activer les webhooks.
+
+**3.** Puis il faut définir un nouveau webhook…
+
+![Ajout d'un nouveau webhook entrant dans Slack](./webhooks_slack.png)
+
+**4.** Pour enfin obtenir le graal : l'URL de webhook entrante 🙌
+
+```txt
+https://hooks.slack.com/services/MUvnc8Gg92c/hv8XZSCLPnP/bWT3jCadBdFEcvLsU9AnCZpn
+```
+
+**Discord**
+
+Prérequis : disposer des droits d'administration de l'espace Discord.
+
+Dans les paramètres du serveur Discord, dans la section "Applications > Intégrations", ajouter un nouveau webhook. Il faut spécifier le nom, le salon et une icône (optionnel).
+
+![Ajout d'un nouveau webhook entrant dans Discord](./webhooks_discord_2.png)
+
+On obtient une URL de webhook, ex :
+
+```txt
+https://discord.com/api/webhooks/99648495882345332489/3r6JYvepMUUu2ijW_6GWML37af3oXg4H9kQsgxQv23EpVxP_Cbeisq9JLZwVYhDK
+```
+
+**Mattermost**
+
+Comme pour Discord, il faut accéder à l'interface de gestion des intégrations et déclarer un nouveau webhook (nom + chaîne) pour obtenir une URL.
+
+> Le lien pour gérer les intégrations Mattermost n'est pas simple à trouver. Il se trouve dans le menu du serveur, tout en haut à gauche de l'interface.
+
+![Ajout d'un nouveau webhook entrant dans Mattermost](./webhooks_mattermost_2.png)
+
+Exemple d'URL :
+
+```txt
+https://mattermost.example.com/hooks/7QeQ8PSb4Q4SyvigWMZuYfXys7
+```
+
+#### Étape 2 : déclarer un notifieur associé à l'app Scalingo
+
+Dans les paramètres de l'application Scalingo, dans la section "Notifiers", ajouter un nouveau notifieur de type Slack.
+
+Il n'y a plus qu'à saisir l'URL obtenue précédemment et se laisser guider par l'interface.
+
+![Ajout d'un nouveau webhook entrant associé à l'application Scalingo](./webhooks_scalingo.png)
