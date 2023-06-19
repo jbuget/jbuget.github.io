@@ -324,6 +324,11 @@ Il ne reste plus qu'à saisir les informations de connexion, cf. ci-dessus.
 
 ![Adminer localement sur son poste grâce à Docker](./adminer_localhost.png)
 
+> 💡 Pour tester l'image Docker, je me suis placé dans un dossier temporaire généré grâce à la commande :
+> ```shell
+> $ cd `mktemp -d`
+> ```
+
 ## Misc
 
 ### Localiser ses identifiants de connexion sur son poste
