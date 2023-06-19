@@ -273,7 +273,7 @@ Exemple pour [l'extension PostgreSQL de VSCode](https://marketplace.visualstudio
 
 **Explications**
 
-Adminer est une application web qui permet, à l'instar de PHPMyAdmin ou PGAdmin, de se connecter, consulter, éditer et gérer à une base de données, via une interface en ligne bien pratique au quotidien. Fait notable : il s'agit d'un produit [open source](/todo), donc que l'on peut déployer, héberger et administrer soi-même.
+Adminer est une application web qui permet, à l'instar de PHPMyAdmin ou PGAdmin, de se connecter, consulter, éditer et gérer à une base de données, via une interface en ligne bien pratique au quotidien. Fait notable : il s'agit d'un produit [open source](https://www.adminer.org/), donc que l'on peut déployer, héberger et administrer soi-même.
 
 > 🛵 Autant que possible, je privilégie et préconise la ligne de commande via des clients tels que `psql` ou `mysql`, mais tout le monde n'est pas dev, et j'avoue que des fois, j'ai la flemme de me souvenir comment on fait VS. taper une URL 😄
 
@@ -301,8 +301,28 @@ Je vois 2 moyens :
 
 > ⚠️ Pour les mêmes raisons de sécurité, je déconseille vivement la première solution, que je cite, par souci d'être un minimum complet.
 
-// TODO
+```yaml
+# docker-compose.yml
+version: '3.1'
 
+services:
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+```
+
+```shell
+$ docker compose up -d
+```
+
+Attendre un peu que le conteneur soit bien initié et lancer puis accéder à http://localhost:8080.
+
+Il ne reste plus qu'à saisir les informations de connexion, cf. ci-dessus.
+
+![Adminer localement sur son poste grâce à Docker](./adminer_localhost.png)
 
 ## Misc
 
