@@ -13,15 +13,16 @@ summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est 
 
 ## TL;DR
 
-- Comprendre Git et ce qu'est un conflit de fusion
-- Découper intelligemment les travaux en amont
-- Communiquer, communiquer, communiquer
-- Synchroniser très souvent et régulièrement
-- Travailler sur des branches distantes
-- Faire des commits fréquents et atomqiques
-- Disposer d'un harnais de tests automisés et l'exécuter avant chaque commit / push
-- Standardiser et contrôler automatiquement des règles de code
-- Résoudre les conflits rapidement
+1. [Comprendre Git et ce qu'est un conflit de fusion](/)
+1. [Organiser intelligemment les travaux en amont](/)
+1. [Modulariser suffisamment son code](/)
+1. [Synchroniser son travail très souvent et régulièrement](/)
+1. [Travailler sur des branches séparées](/)
+1. [Faire des commits fréquents et atomqiques](/)
+1. [S'appuyer sur des tests automatisés exécutés avant chaque commit ou push](/)
+1. [Standardiser et contrôler automatiquement des règles de code](/)
+1. [Résoudre les conflits rapidement](/)
+1. [Communiquer, communiquer, communiquer](/)
 
 --- 
 
@@ -58,26 +59,69 @@ Ce ne sont là que quelques situations. Il en existe beaucoup d'autres, plus con
 
 Il existe tout plein de ressources très bien faites (et en français), expliquant comment résoudre un conflit de Git. Je n'aborderai pas ce sujet dans cet article.
 
-## 2. Découper intelligemment les travaux en amont
+Le souci des conflits de code que je vois sont les suivants : 
+- c'est une opération qui peut être compliquée, avec pour conséquence, si elle est n'est pas parfaite, d'introduire un bug ou une régression, ou de "perdre" une évolution ou fonctionnalité nouvellement ajoutée ;
+- c'est ce qui la rend stressante ;
+- d'autant plus qu'une telle situation intervient souvent à un moment inopportun. Ex : lorsque l'on voit le bout d'un chantier et qu'on ne souhaite qu'une chose, l'envoyer en validation (relecture de code, recette fonctionnelle). Ex : le matin, au moment de faire un rebasage routinier pour bien se lancer ("et mince ! je vais devoir perdre plusieurs minutes à me projeter sur le code des autres plutôt que juste reprendre où j'en étais la veille…")
+- c'est un évènement qui vient interrompre "[l'état de flow](https://www.cairn.info/revue-staps-2008-1-page-9.htm)" dans lequel on se situe parfois et qui entraîne un fort changement de colntexte (a.k.a. "context switching"). C'est coûteux en temps, en énergie, en motivation.
 
-## 3. Communiquer, communiquer, communiquer
+## 2. Organiser intelligemment les travaux en amont
 
-## 4. Synchroniser très souvent et régulièrement
+Les conflits de code proviennent de travaux plus ou moins parallèles, sur un même pans de code, plus ou moins étendu.
 
+Quelque soit le méthode de développement ou de gestion de projet qui est la vôtre, il existe toujours une phase en amont de la tâche / fonctionnalité / chantier de projection et d'organisation du travail de l'équipe et des équipiers (ou prestataires ou partenaires).
 
-## 5. Travailler sur des branches distantes
+Exemples de situations qu'il est possible d'éviter avec une organisation qui tient compte et tente de prévenir les conflits de code : 
+- lancer et gérer 2 chantiers conséquents par 2 sous-traitants indépendants dont l'impact porte sur tout ou grande partie du code (encore une fois, cf. [cette expérience](/posts/techniques-pour-fusionner-deux-versions-d-un-projet-shopify-grace-a-git/))
+- ajouter en continu des exigences ou critères d'acceptation à une MR / PR / branche ouverte depuis plusieurs semaines - les grosses branches qui durent sont une calamité
+- planifier un sprint technique - *NDLA : plus le temps passe, mois je suis fan de ce type de tactique, approche ou initiative* -  mêlant l'upgrade majeure du framework principal de l'application tout en menant un refactoring conséquent
+
+Au moment de la phase de planification des tâches, **se poser la question de l'intersection des modifications, fichiers, bouts d'application éventuellement impactés** peut économiser pas mal de ressources (et de soucis) à l'équipe. Je ne dis pas qu'il est toujours possible d'éviter tout conflit, mais le cas échéant, l'équipe est mieux armée et peut réagir plus rapidement, efficacement, sereinement.
+
+## 3. Modulariser suffisamment son code
+
+De ce que j'ai pu constater, les applications les plus modulaires ou modularisées comptent parmi celles qui permettent le mieux d'éviter les conflits de code.
+
+La contre-partie, c'est que ça fait beaucoup d'abstractions, de packages, de modules, de répertoires, de fichiers (parfois très similaires) à tenir compte. Ça induit une "charge mentale". Cela peut être intimidant et long à appréhender pour des profils juniors ou des nouveaux membres de l'équipe.
+
+L'intérêt des abstractions (interfaces, classes abstraires, wrapper, clients, etc.) c'est que ça pousse naturellement et en priorité les changements de code de l'équipe vers de l'ajout d'objets (fichiers, méthodes) plutôt que de la modification et la manipulation de l'existant.
+
+Il vaut mieux travailler sur des fonctions de petites tailles, bien distinctes les uns des autres et restreintes à une même typololgie de traitements / instruction, plutôt que sur une même fonction de 100-200 lignes mêlant des vérifications d'arguments, des contrôles de permissions et accès, des calculs métiers avancés, du stockage, du formattage, etc.
+
+Bref, vive [les principes SOLID](https://fr.wikipedia.org/wiki/SOLID_%28informatique%29) (*) !
+
+> (*) À mon sens, les principes SOLID sont valables dans tous les styles ou paradgimes de programmation, pas juste la Programmation Orientée Objet.
+
+## 4. Synchroniser son travail très souvent et régulièrement
+
+C'est la base d'une bonne hygiène Git : il faut rebaser très souvent et très régulièrement sa branche ou son code avec la branche principale.
+
+À titre perso, je le fais a minima tous les matins, sur chacune de mes branches (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
+
+Je préfère me prendre régulièrement une petite pichenette sur l'épaule, plutôt qu'une énorme tarte dans la tête au moment qui me convient le moins. 
+
+> Pour le coup, ce n'est pas comme dans le sport où l'on dit souvent qu'il vaut mieux prendre 1 fois 7-0 que 7 fois 1-0…
+
+## 5. Travailler sur des branches séparées
+
+C'est la base. Les mécanismes et fonctionnalités autours de la gestion des branches sont un élément central de Git, la façon dont le logiciel est conçu et implémenté. Ce serait dommage de passer à côté.
+
+Au-delà de la satisfaction intellectuelle de comprendre et mettre en œuvre les concepts inhérents au branching Git, exploiter les branches permet de simplifier senseiblement la gestion des conflits de code.
+
 
 
 ## 6. Faire des commits fréquents et atomqiques
 
 
-## 7. Disposer d'un harnais de tests automisés et l'exécuter avant chaque commit / push
+## 7. S'appuyer sur des tests automatisés exécutés avant chaque commit ou push
 
 
 ## 8. Standardiser et contrôler automatiquement des règles de code
 
 
 ## 9. Résoudre les conflits rapidement
+
+## 10. Communiquer, communiquer, communiquer
 
 
 
