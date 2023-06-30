@@ -98,28 +98,49 @@ C'est la base d'une bonne hygiène Git : il faut rebaser très souvent et très 
 
 À titre perso, je le fais a minima tous les matins, sur chacune de mes branches (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
 
-Je préfère me prendre régulièrement une petite pichenette sur l'épaule, plutôt qu'une énorme tarte dans la tête au moment qui me convient le moins. 
+Je préfère faire régulièrement des petits efforts, alors que je dispose de mes pleins moyens de concentration et motivation, plutôt que me prendre d'un coup une énorme charge imprévue, dans un moment et un état de relâchement (fin de tâche).  
 
-> Pour le coup, ce n'est pas comme dans le sport où l'on dit souvent qu'il vaut mieux prendre 1 fois 7-0 que 7 fois 1-0…
 
 ## 5. Travailler sur des branches séparées
 
 C'est la base. Les mécanismes et fonctionnalités autours de la gestion des branches sont un élément central de Git, la façon dont le logiciel est conçu et implémenté. Ce serait dommage de passer à côté.
 
-Au-delà de la satisfaction intellectuelle de comprendre et mettre en œuvre les concepts inhérents au branching Git, exploiter les branches permet de simplifier senseiblement la gestion des conflits de code.
+Au-delà de la satisfaction intellectuelle de comprendre et mettre en œuvre les concepts inhérents au branching Git, exploiter les branches permet de simplifier sensiblement la gestion des conflits de code.
 
+Mener des chantiers sur des branches parallèles permet d'éviter les conflits le temps de son développement. Ce qui est déjà un avantage.
 
+Ensuite, une fois qu'un développement est accompli, il est possible de *squash* les commits (rassembler plusieurs commits en un seul) pour n'avoir plus qu'un commit, et limiter là aussi le nombre de commits à confronter avec les autres branches et à gérer en cas de conflit.
 
-## 6. Faire des commits fréquents et atomqiques
+Personnellement, je ne suis pas particulièrement fan de squasher les commits d'une branche. Je n'ai absolument rien contre. Il y a des "pour" et des "contre". C'est une simple question de goût personnel.
 
+## 6. Faire des commits fréquents et atomiques
+
+> En vrai, ce point ne rentre pas complètement dans le cadre du sujet et concerne plutôt la résolution de conflits plutôt que leur prévention. Mais je ressens qu'il est quand même important de l'évoquer ici, et qu'il peut être utile pour la suite.
+
+[Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git)
 
 ## 7. S'appuyer sur des tests automatisés exécutés avant chaque commit ou push
 
+> Même cas que le point précédent.
+
+Disposer d'un harnais de tests conséquent, qui s'exécute rapidement et qui couvre les parties critiques, majeures ou essentielles du code permet de faire diminuer drastiquement tous les risques liés à la gestion de conflits Git.
+
+S'il s'exécute rapidement, qu'il est suffisamment stable et pratique à fixer, on aura plus facilement tendance à le lancer régulièrement. Cela va augmenter les chances de faire et pousser des commits vert (cf. point précédent). On va ainsi réduire drastiquement la difficulté et le risque de résoudre des conflits.
+
+Il existe un outil pour exécuter automatiquement des tâches avant chaque commit / push : Husky.
 
 ## 8. Standardiser et contrôler automatiquement des règles de code
 
+Mettre en place des outils de formattage de code tels que ESlint, Prettier.
+
+Mettre en place un outil de gestion de tâches pre/post-commits (ex : Husky)
+
+Mettre en place des règles d'organisation des imports (ex : par nombre de "dossiers" intermédiaire, par ordre alphabétique, par vendors / internals, etc.)
 
 ## 9. Résoudre les conflits rapidement
+
+En termes de gestion de conflits, il ne faut pas laisser une situation s'envenimer. C'est pareil avec Git. Plus on traîne à synchroniser une branche et résoudre les problèmes, plus ils vont s'accumuler et rendre la tâche compliquée, voire complexe et risquée.
+
 
 ## 10. Communiquer, communiquer, communiquer
 
