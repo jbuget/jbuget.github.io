@@ -92,16 +92,7 @@ Bref, vive [les principes SOLID](https://fr.wikipedia.org/wiki/SOLID_%28informat
 
 > (*) À mon sens, les principes SOLID sont valables dans tous les styles ou paradgimes de programmation, pas juste la Programmation Orientée Objet.
 
-## 4. Synchroniser son travail très souvent et régulièrement
-
-C'est la base d'une bonne hygiène Git : il faut rebaser très souvent et très régulièrement sa branche ou son code avec la branche principale.
-
-À titre perso, je le fais a minima tous les matins, sur chacune de mes branches (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
-
-Je préfère faire régulièrement des petits efforts, alors que je dispose de mes pleins moyens de concentration et motivation, plutôt que me prendre d'un coup une énorme charge imprévue, dans un moment et un état de relâchement (fin de tâche).  
-
-
-## 5. Travailler sur des branches séparées
+## 4. Travailler sur des branches séparées
 
 C'est la base. Les mécanismes et fonctionnalités autours de la gestion des branches sont un élément central de Git, la façon dont le logiciel est conçu et implémenté. Ce serait dommage de passer à côté.
 
@@ -113,13 +104,87 @@ Ensuite, une fois qu'un développement est accompli, il est possible de *squash*
 
 Personnellement, je ne suis pas particulièrement fan de squasher les commits d'une branche. Je n'ai absolument rien contre. Il y a des "pour" et des "contre". C'est une simple question de goût personnel.
 
-## 6. Faire des commits fréquents et atomiques
+## 5. Synchroniser son travail très souvent et régulièrement
 
-> En vrai, ce point ne rentre pas complètement dans le cadre du sujet et concerne plutôt la résolution de conflits plutôt que leur prévention. Mais je ressens qu'il est quand même important de l'évoquer ici, et qu'il peut être utile pour la suite.
+C'est la base d'une bonne hygiène Git : il faut rebaser très souvent et très régulièrement sa branche ou son code avec la branche principale.
 
-[Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git)
+À titre perso, je le fais a minima tous les matins, sur chacune de mes branches (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
 
-## 7. S'appuyer sur des tests automatisés exécutés avant chaque commit ou push
+Je préfère faire régulièrement des petits efforts, alors que je dispose de mes pleins moyens de concentration et motivation, plutôt que me prendre d'un coup une énorme charge imprévue, dans un moment et un état de relâchement (fin de tâche).  
+
+## 6. Résoudre les conflits rapidement
+
+Ce point s'inscrit dans la continuité du précédent.
+
+En termes de gestion de conflits, il ne faut pas laisser une situation s'envenimer. C'est pareil avec Git. Plus on traîne à synchroniser une branche et résoudre les problèmes, plus ils vont s'accumuler et rendre la tâche compliquée, voire complexe et risquée.
+
+## 7. Faire des commits fréquents et atomiques
+
+Une façon de résoudre les commits simplement et rapidement est d'effectuer des commits de qualité - cf. [Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git). Cela permet de fusionner et résoudre les conflits au fur et à mesure de l'avancement de votre travail.
+
+
+## x. Mettre en place des outils de contrôle et formattage de code
+
+Mécaniquement, moins il y a de changements dans le code, moins il y a de conflit. Une façon efficace de prévenir les conflits est donc de faire en sorte que chacun et chaque poste respectent scrupuleusement les mêmes règles de formattage ou d'organisation du code. 
+
+Il est très frustrant et gênant de faire un `git pull --rebase` ou de consulter les modifications de sa pull request et d'observer un paquet de changements sans intérêt tels que : ajout ou suppression de sauts de ligne, passage d'instruction sur plusieurs lignes, ajout ou suppression d'espaces, tabulations, points-virgules ou parenthèses, etc.
+
+Il existe des outils pour garantir que la forme du code, a.k.a. "sa consistence",  est la même pour tous, et limiter ces désagréments : 
+- [ESLint](https://eslint.org/) : outil d'analyse de code statique permettant d'identifier des erreurs dans du code JavaScript
+- [Prettier](https://prettier.io/) : formateur de code *dogmatique*
+- [Stylelint](https://stylelint.io/) : linter CSS
+- [Fichier `.editorconfig`](https://editorconfig.org/)
+
+> 💡 Tous ces outils proposent des plugins pour les principaux édtieurs de code du marché. Pour aller au bout de la démarche tout en améliorant son confort de confoort (raccourcissement de la boucle de feedback, etc.), je conseille que tous les membres d'uen équipe les installent sur son poste respectif.
+
+Liens : 
+- https://blog.theodo.com/2019/08/empower-your-dev-environment-with-eslint-prettier-and-editorconfig-with-no-conflicts/
+
+## x. Définir des standards, règles et normes d'équipes
+
+Bien que les outils de linting proposent par défaut une très grande quntité de règles, et malgré qu'il existe un nombre encore plus importants d'extensions ou modules qui se proposent de les compléter, il n'est parfois pas possible ou pertinent de déclarer une règle spécifique à son contexte.
+
+Dans ce cas, et toujours en vue de limiter les conflits de code, le plus simple est de définir une règle d'équipe, à transmettre et vérifier le plus régulèrement possible.
+
+Par le passé, avec une équipe, nous avons convenu que les imports suivraient l'ordre suivant : 
+1. les dépendances vendors en premier
+2. les dépendances du plus proche (nombre de `../`) à la plus éloignées
+3. par ordre alphabétique
+
+```javascript
+import vendor1 from 'vendor'
+import { method } from 'xyz'
+import sameLayerModule from 'sameLayerModule'
+import upperModule from '../upperModule'
+import firstFarModule from '../../../firstFarModule'
+import lastFarModule from '../../../lastFarModule'
+```
+
+Autre proposition de règle du même ordre : trier ses fonctions ou méthode par ordre alphabétique (ou pas typologie, ex : controller, vue, etc.) 
+
+Ce type de règle permet de décider plus vite, en tant que développeur, où insérer un import. 
+
+Par ailleurs, une telle répartition va naturellement diminuer le risque de voir du code inséré au même endroit. Et donc limiter les conflits.
+
+> 💡 En vrai, concernant l'ordre alphabétique, il existe une règle ESLint : [`sort-imports`](https://eslint.org/docs/latest/rules/sort-imports). Mais pour l'ordre par "éloignement", je n'ai encore rien trouvé.
+
+## x. Automatiser les traitements ou contrôles via les hooks Git
+
+Disposer de 
+
+
+Mettre en place un outil de gestion de tâches pre/post-commits (ex : Husky)
+
+Mettre en place des règles d'organisation des imports (ex : par nombre de "dossiers" intermédiaire, par ordre alphabétique, par vendors / internals, etc.)
+
+
+
+
+
+
+
+
+## x. S'appuyer sur des tests automatisés exécutés avant chaque commit ou push
 
 > Même cas que le point précédent.
 
@@ -129,23 +194,13 @@ S'il s'exécute rapidement, qu'il est suffisamment stable et pratique à fixer, 
 
 Il existe un outil pour exécuter automatiquement des tâches avant chaque commit / push : Husky.
 
-## 8. Standardiser et contrôler automatiquement des règles de code
-
-Mettre en place des outils de formattage de code tels que ESlint, Prettier.
-
-Mettre en place un outil de gestion de tâches pre/post-commits (ex : Husky)
-
-Mettre en place des règles d'organisation des imports (ex : par nombre de "dossiers" intermédiaire, par ordre alphabétique, par vendors / internals, etc.)
-
-## 9. Résoudre les conflits rapidement
-
-En termes de gestion de conflits, il ne faut pas laisser une situation s'envenimer. C'est pareil avec Git. Plus on traîne à synchroniser une branche et résoudre les problèmes, plus ils vont s'accumuler et rendre la tâche compliquée, voire complexe et risquée.
-
 
 ## 10. Communiquer, communiquer, communiquer
 
 
+## Conclusion
 
+Si vous vous organisez bien, que vos tâches et votre code sont bien découpés, que vous communiquez bien, que vous avez une bonne gestion des branches et une bonne hygiène Git (rebasages et synchronisations fréquentes, commits de qualité, résolution de conflits au plus tôt, etc.), que vous avez défini des standards (grâce à ESlint, Prettier, ou autres règles et normes d'équipe) et automatisé leur contrôle via les hooks Git (ou Husky), alors vous devriez sensiblement réduire le risque et la difficulté d'être confronté à des conflits de code.
 
 ************
 
