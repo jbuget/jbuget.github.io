@@ -6,8 +6,8 @@ keywords:
 - organisation
 - lifestyle
 - methodologie
-date: 2023-06-20T00:19:00+01:00
-draft: true
+date: 2023-07-04T00:06:00+01:00
+draft: false
 summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est rarement une situation agréable et peut parfois tourner au cauchemar. La meilleure façon de traiter les conflits efficacement est de les éviter, les réduire ou les prévenir autant que possible. Pour ce faire, il existe certaines techniques, bonnes pratiques, outils et autres astuces.
 ---
 
