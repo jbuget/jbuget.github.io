@@ -1,6 +1,6 @@
 ---
 title: "Comment éviter les conflits dans Git"
-categories: ["bonnes pratiques"]
+categories: ["git"]
 keywords:
 - git
 - organisation
