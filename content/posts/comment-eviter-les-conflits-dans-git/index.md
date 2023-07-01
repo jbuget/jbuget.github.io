@@ -11,21 +11,23 @@ draft: true
 summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est rarement une situation agréable et peut parfois tourner au cauchemar. La meilleure façon de traiter les conflits efficacement est de les éviter, les réduire ou les prévenir autant que possible. Pour ce faire, il existe certaines techniques, bonnes pratiques, outils et autres astuces.
 ---
 
-## TL;DR
+## Table des matières
 
-1. [Comprendre Git et ce qu'est un conflit de fusion](/)
-1. [Organiser intelligemment les travaux en amont](/)
-1. [Modulariser suffisamment son code](/)
-1. [Synchroniser son travail très souvent et régulièrement](/)
-1. [Travailler sur des branches séparées](/)
-1. [Faire des commits fréquents et atomqiques](/)
-1. [S'appuyer sur des tests automatisés exécutés avant chaque commit ou push](/)
-1. [Standardiser et contrôler automatiquement des règles de code](/)
-1. [Résoudre les conflits rapidement](/)
-1. [Communiquer, communiquer, communiquer](/)
+- [Introduction](#introduction)
+- [1. Comprendre Git et ce qu'est un conflit de fusion](#1-comprendre-git-et-ce-quest-un-conflit-de-fusion)
+- [2. Organiser intelligemment les travaux en amont](#2-organiser-intelligemment-les-travaux-en-amont)
+- [3. Modulariser suffisamment son code](#3-modulariser-suffisamment-son-code)
+- [4. Travailler sur des branches séparées](#4-travailler-sur-des-branches-séparées)
+- [5. Synchroniser son travail très souvent et régulièrement](#5-synchroniser-son-travail-très-souvent-et-régulièrement)
+- [6. Résoudre les conflits rapidement](#6-résoudre-les-conflits-rapidement)
+- [7. Faire des commits fréquents et atomiques](#7-faire-des-commits-fréquents-et-atomiques)
+- [8. Mettre en place des outils de contrôle et formatage de code](#8-mettre-en-place-des-outils-de-contrôle-et-formatage-de-code)
+- [9. Définir des standards, règles et normes d'équipes](#9-définir-des-standards-règles-et-normes-déquipes)
+- [10. Automatiser les traitements ou contrôles via les hooks Git](#10-automatiser-les-traitements-ou-contrôles-via-les-hooks-git)
+- [11. Communiquer, communiquer, communiquer](#10-communiquer-communiquer-communiquer)
+- [Conclusion](#conclusion)
 
---- 
-
+## Introduction
 
 Lorsque l'on travaille sur un projet en équipe, il est courant de rencontrer des conflits d'édition ou fusion de code. C'est une situation tout à fait "normale" de Git.
 
@@ -47,6 +49,8 @@ Aussi, il est primordial de comprendre ce qu'est un conflit de fusion (aussi app
 Le site d'Atlassian fournit [une bonne explication](https://www.atlassian.com/fr/git/tutorials/using-branches/merge-conflicts) :
 
 > Les conflits surviennent généralement lorsque deux personnes ont modifié les mêmes lignes dans un fichier, ou si un développeur a supprimé un fichier alors qu'un autre développeur le modifiait. Dans ces cas, Git ne peut pas déterminer automatiquement la version correcte. Les conflits n'affectent que le développeur qui effectue le merge, les autres membres de l'équipe ne sont pas conscients du conflit. Git marquera le fichier comme étant en conflit et arrêtera le processus de merge. Il incombe alors aux développeurs de résoudre le conflit.
+
+![Illustration basique d'un conflit de code. Src: https://www.teaching-materials.org/git/#/70](./merge-conflict.png)
 
 Il existe plusieurs situations classiques, récurrentes ou banales qui peuvent entraîner l'apparition d'un conflit parmi lesquelles : 
 - **modification concurrente** : quand plusieurs développeurs modifient la même ligne de code d'un même fichier et tentent de fusionner le changement sur une même branche ; quand on effectue un *cherry-pick de commit* et que les changements contenus dans celui-ci portent sur le même fichier ou ligne(s) de code
@@ -86,9 +90,9 @@ La contre-partie, c'est que ça fait beaucoup d'abstractions, de packages, de mo
 
 L'intérêt des abstractions (interfaces, classes abstraires, wrapper, clients, etc.) c'est que ça pousse naturellement et en priorité les changements de code de l'équipe vers de l'ajout d'objets (fichiers, méthodes) plutôt que de la modification et la manipulation de l'existant.
 
-Il vaut mieux travailler sur des fonctions de petites tailles, bien distinctes les uns des autres et restreintes à une même typololgie de traitements / instruction, plutôt que sur une même fonction de 100-200 lignes mêlant des vérifications d'arguments, des contrôles de permissions et accès, des calculs métiers avancés, du stockage, du formattage, etc.
+Il vaut mieux travailler sur des fonctions de petites tailles, bien distinctes les uns des autres et restreintes à une même typololgie de traitements / instruction, plutôt que sur une même fonction de 100-200 lignes mêlant des vérifications d'arguments, des contrôles de permissions et accès, des calculs métiers avancés, du stockage, du formatage, etc.
 
-Bref, vive [les principes SOLID](https://fr.wikipedia.org/wiki/SOLID_%28informatique%29) (*) !
+Bref, **vive [les principes SOLID](https://fr.wikipedia.org/wiki/SOLID_%28informatique%29) (*) !**
 
 > (*) À mon sens, les principes SOLID sont valables dans tous les styles ou paradgimes de programmation, pas juste la Programmation Orientée Objet.
 
@@ -98,7 +102,7 @@ C'est la base. Les mécanismes et fonctionnalités autours de la gestion des bra
 
 Au-delà de la satisfaction intellectuelle de comprendre et mettre en œuvre les concepts inhérents au branching Git, exploiter les branches permet de simplifier sensiblement la gestion des conflits de code.
 
-Mener des chantiers sur des branches parallèles permet d'éviter les conflits le temps de son développement. Ce qui est déjà un avantage.
+**Mener des chantiers sur des branches parallèles permet d'éviter les conflits le temps de son développement.** Ce qui est déjà un avantage.
 
 Ensuite, une fois qu'un développement est accompli, il est possible de *squash* les commits (rassembler plusieurs commits en un seul) pour n'avoir plus qu'un commit, et limiter là aussi le nombre de commits à confronter avec les autres branches et à gérer en cas de conflit.
 
@@ -108,7 +112,7 @@ Personnellement, je ne suis pas particulièrement fan de squasher les commits d'
 
 C'est la base d'une bonne hygiène Git : il faut rebaser très souvent et très régulièrement sa branche ou son code avec la branche principale.
 
-À titre perso, je le fais a minima tous les matins, sur chacune de mes branches (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
+À titre perso, je le fais **a minima tous les matins, sur chacune de mes branches** (en général, je n'en ai qu'une, mais lorsqu'elles sont petites, je peux en avoir plusieurs en parallèle). J'ai pris l'habitude ces dernières années de le faire aussi très souvent en fin de journée (dans le voyage du train).
 
 Je préfère faire régulièrement des petits efforts, alors que je dispose de mes pleins moyens de concentration et motivation, plutôt que me prendre d'un coup une énorme charge imprévue, dans un moment et un état de relâchement (fin de tâche).  
 
@@ -120,27 +124,29 @@ En termes de gestion de conflits, il ne faut pas laisser une situation s'envenim
 
 ## 7. Faire des commits fréquents et atomiques
 
-Une façon de résoudre les commits simplement et rapidement est d'effectuer des commits de qualité - cf. [Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git). Cela permet de fusionner et résoudre les conflits au fur et à mesure de l'avancement de votre travail.
+Une façon de résoudre les commits simplement et rapidement est d'effectuer des commits de qualité - cf. [Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git).
+
+Cela permet de fusionner et résoudre les conflits au fur et à mesure de l'avancement de votre travail.
 
 
-## x. Mettre en place des outils de contrôle et formattage de code
+## 8. Mettre en place des outils de contrôle et formatage de code
 
-Mécaniquement, moins il y a de changements dans le code, moins il y a de conflit. Une façon efficace de prévenir les conflits est donc de faire en sorte que chacun et chaque poste respectent scrupuleusement les mêmes règles de formattage ou d'organisation du code. 
+Mécaniquement, moins il y a de changements dans le code, moins il y a de conflits. Une façon efficace de prévenir les conflits est donc de faire en sorte que chacun et chaque poste respectent scrupuleusement les mêmes règles de formattage ou d'organisation du code. 
 
 Il est très frustrant et gênant de faire un `git pull --rebase` ou de consulter les modifications de sa pull request et d'observer un paquet de changements sans intérêt tels que : ajout ou suppression de sauts de ligne, passage d'instruction sur plusieurs lignes, ajout ou suppression d'espaces, tabulations, points-virgules ou parenthèses, etc.
 
 Il existe des outils pour garantir que la forme du code, a.k.a. "sa consistence",  est la même pour tous, et limiter ces désagréments : 
 - [ESLint](https://eslint.org/) : outil d'analyse de code statique permettant d'identifier des erreurs dans du code JavaScript
 - [Prettier](https://prettier.io/) : formateur de code *dogmatique*
-- [Stylelint](https://stylelint.io/) : linter CSS
-- [Fichier `.editorconfig`](https://editorconfig.org/)
+- [Stylelint](https://stylelint.io/) : un linter CSS extensible qui assure une consistence de code CSS, SCSS, Sass et Less
+- [EditorConfig](https://editorconfig.org/) : un fichier `.editorconfig` à mettre à la racine du projet et qui indique aux IDE (VScode, IntelliJ IDEA, etc.) quelles règles de formatage de code ils doivent suivre
 
-> 💡 Tous ces outils proposent des plugins pour les principaux édtieurs de code du marché. Pour aller au bout de la démarche tout en améliorant son confort de confoort (raccourcissement de la boucle de feedback, etc.), je conseille que tous les membres d'uen équipe les installent sur son poste respectif.
+> 💡 Tous ces outils proposent des plugins pour les principaux édtieurs de code du marché. Pour aller au bout de la démarche tout en améliorant son confort de confoort (raccourcissement de la boucle de feedback, etc.), je conseille que tous les membres d'une équipe les installent sur son poste respectif.
 
 Liens : 
 - https://blog.theodo.com/2019/08/empower-your-dev-environment-with-eslint-prettier-and-editorconfig-with-no-conflicts/
 
-## x. Définir des standards, règles et normes d'équipes
+## 9. Définir des standards, règles et normes d'équipes
 
 Bien que les outils de linting proposent par défaut une très grande quntité de règles, et malgré qu'il existe un nombre encore plus importants d'extensions ou modules qui se proposent de les compléter, il n'est parfois pas possible ou pertinent de déclarer une règle spécifique à son contexte.
 
@@ -168,56 +174,101 @@ Par ailleurs, une telle répartition va naturellement diminuer le risque de voir
 
 > 💡 En vrai, concernant l'ordre alphabétique, il existe une règle ESLint : [`sort-imports`](https://eslint.org/docs/latest/rules/sort-imports). Mais pour l'ordre par "éloignement", je n'ai encore rien trouvé.
 
-## x. Automatiser les traitements ou contrôles via les hooks Git
+## 10. Automatiser les traitements ou contrôles via les hooks Git
 
-Disposer de 
+Git propose un mécanisme appelé "[Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)" qui permet de définir et exécuter des traitements automatisés lors de certaines étapes ou phases importantes de sa gestion de source.
 
+Pour ce faire, il convient de définir des scripts shell (ou Perl, Python, etc. à préciser en première ligne du script, avec le `#!`) dans le répertoire `.git/hooks` à la racine du projet.
 
-Mettre en place un outil de gestion de tâches pre/post-commits (ex : Husky)
+![Listing des répertoires ".git" et ".git/hooks"](./git_hooks.png)
 
-Mettre en place des règles d'organisation des imports (ex : par nombre de "dossiers" intermédiaire, par ordre alphabétique, par vendors / internals, etc.)
+> ⚠️ Les scripts doivent être exécutables. Il faut donc bien penser à leur accorder les droits nécessaire (via `chmod +x`).
 
+Exemple de script hook avec le fichier **.git/hooks/pre-commit.sample** : 
 
+```shell
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
 
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
 
+# If you want to allow non-ASCII filenames set this variable to true.
+allownonascii=$(git config --type=bool hooks.allownonascii)
 
+# Redirect output to stderr.
+exec 1>&2
 
+# Cross platform projects tend to avoid non-ASCII filenames; prevent
+# them from being added to the repository. We exploit the fact that the
+# printable range starts at the space character and ends with tilde.
+if [ "$allownonascii" != "true" ] &&
+	# Note that the use of brackets around a tr range is ok here, (it's
+	# even required, for portability to Solaris 10's /usr/bin/tr), since
+	# the square bracket bytes happen to fall in the designated range.
+	test $(git diff --cached --name-only --diff-filter=A -z $against |
+	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
+then
+	cat <<\EOF
+Error: Attempt to add a non-ASCII file name.
 
+This can cause problems if you want to work with people on other platforms.
 
-## x. S'appuyer sur des tests automatisés exécutés avant chaque commit ou push
+To be portable it is advisable to rename the file.
 
-> Même cas que le point précédent.
+If you know what you are doing you can disable this check using:
 
-Disposer d'un harnais de tests conséquent, qui s'exécute rapidement et qui couvre les parties critiques, majeures ou essentielles du code permet de faire diminuer drastiquement tous les risques liés à la gestion de conflits Git.
+  git config hooks.allownonascii true
+EOF
+	exit 1
+fi
 
-S'il s'exécute rapidement, qu'il est suffisamment stable et pratique à fixer, on aura plus facilement tendance à le lancer régulièrement. Cela va augmenter les chances de faire et pousser des commits vert (cf. point précédent). On va ainsi réduire drastiquement la difficulté et le risque de résoudre des conflits.
+# If there are whitespace errors, print the offending file names and fail.
+exec git diff-index --check --cached $against --
+```
 
-Il existe un outil pour exécuter automatiquement des tâches avant chaque commit / push : Husky.
+Utiliser les hooks Git permet de limiter les conflits de code en automatisant les traitements tels que l'exécution des tests automatisés, les contrôles de linting et de formatage, etc.
 
+> ⚠️ Attention ! Le dossier `.git` n'est pas versionné et donc il faut que chaque membre d'équipe pense à importer / activer les scripts au sein de son propre dossier. Pour remédier à ce problème, il existe un utilitaire appelé [`Husky`](https://typicode.github.io/husky/), qui permet de gérer très facilement les hooks Git.
+
+Les hooks Git peuvent être définis côté client (sur la machine des développeuses·eurs) ou côté serveur.
+
+Côté client, les hooks les plus importants ou utiles : 
+- `pre-commit`
+- `prepare-commit-msg`
+- `commit-msg`
+- `post-commit`
+- `post-checkout`
+- `pre-rebase`
+
+Je vous invite à consulter l'article d'Atlassian - [Hooks Git 🇫🇷](https://www.atlassian.com/fr/git/tutorials/git-hooks) - qui est hyper détaillé et pratique à ce sujet.
 
 ## 10. Communiquer, communiquer, communiquer
 
+On en arrive à mon dernier point, qui est en fait sûrement le plus important de tous : la meilleure façon d'éviter les conflits (Git et au-delà) est de beaucoup et bien communiquer.
+
+Comme je l'ai dit en introduction, dès lors qu'on travaille en équipe, il arrive forcément un moment où l'on sera confronté à une fusion de code un peu plus délicate engendrant un conflit. Ce n'est pas une fatalité. C'est une situation normale. Pour peu qu'on fait l'effort de bien échanger, se donner les bonnes infos au bon moment, se montrer disponible pour répondre à des interrogations, faire les bons choix, en assumer les conséquences (régressions ?) ensemble, alors ça passe tout seul.
+
+Exemple de temps où la communication permet d'éviter un conflit : 
+- lors du découpage en tâches
+- lors de la conception technique
+- lors de la revue de code (écrit, orale)
+- dans les messages de commit
+- via un commentaire dans le code (perso, je préfère les détails dans les messages de commits, cf. item juste au-dessus)
+- juste avant un rebasage (ou si on se rend compte qu'un `git pull --rebase` provoque des conflits) etc.
 
 ## Conclusion
 
 Si vous vous organisez bien, que vos tâches et votre code sont bien découpés, que vous communiquez bien, que vous avez une bonne gestion des branches et une bonne hygiène Git (rebasages et synchronisations fréquentes, commits de qualité, résolution de conflits au plus tôt, etc.), que vous avez défini des standards (grâce à ESlint, Prettier, ou autres règles et normes d'équipe) et automatisé leur contrôle via les hooks Git (ou Husky), alors vous devriez sensiblement réduire le risque et la difficulté d'être confronté à des conflits de code.
 
-************
-
-Les conflits de fusion sont courants lorsqu'il s'agit de travailler avec Git, en particulier lorsque plusieurs développeurs modifient le même fichier simultanément. Voici quelques bonnes pratiques, astuces et outils pour prévenir ou éviter les conflits de fusion :
-
-Effectuez des mises à jour régulières : Assurez-vous de tirer régulièrement les dernières modifications du référentiel distant pour vous synchroniser avec les dernières mises à jour effectuées par d'autres développeurs. Cela réduit les chances de conflits lorsque vous fusionnez vos modifications.
-
-Travaillez sur des branches distinctes : Il est recommandé de créer des branches distinctes pour chaque fonctionnalité, correctif de bug ou tâche sur laquelle vous travaillez. Cela vous permet de travailler indépendamment des autres développeurs et de fusionner vos modifications plus facilement par la suite.
-
-Faites des commits fréquents et atomiques : Effectuez des commits réguliers et logiques pour diviser votre travail en modifications cohérentes et plus petites. Cela facilite la gestion des conflits, car vous pouvez fusionner et résoudre les conflits au fur et à mesure de l'avancement de votre travail.
-
-Utilisez des outils de gestion de code source : De nombreux outils de gestion de code source, tels que GitLab, GitHub ou Bitbucket, fournissent des fonctionnalités intégrées pour faciliter la collaboration et la résolution de conflits. Ils offrent des fonctionnalités telles que les demandes de fusion, les commentaires sur le code et la visualisation des différences entre les versions, ce qui facilite la détection et la résolution des conflits.
-
-Effectuez des tests avant de fusionner : Avant de fusionner vos modifications, assurez-vous de tester votre code localement pour vous assurer qu'il fonctionne correctement. Cela peut aider à identifier les conflits potentiels et les problèmes de compatibilité avant la fusion.
-
-Communiquez avec les autres développeurs : Si vous savez qu'un autre développeur travaille sur une partie du code sur laquelle vous allez également intervenir, communiquez avec lui pour coordonner vos efforts et éviter les conflits autant que possible.
-
-Résolvez les conflits rapidement : Si un conflit survient lors de la fusion, il est préférable de le résoudre rapidement. Utilisez des outils de résolution de conflits intégrés à Git pour comprendre les différences et prendre des décisions éclairées lors de la résolution.
-
-En respectant ces bonnes pratiques et en utilisant les outils et fonctionnalités appropriés, vous pouvez réduire les risques de conflits de fusion lors de votre travail avec Git.
