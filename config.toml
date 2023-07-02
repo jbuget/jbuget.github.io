@@ -5,6 +5,7 @@ theme = 'bloodywood'
 defaultContentLanguage = "fr"
 enableRobotsTXT = true
 enableGitInfo = true
+disqusShortname = 'jbuget'
 
 [params]
   author = 'Jérémy Buget'

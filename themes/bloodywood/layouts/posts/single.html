@@ -24,5 +24,12 @@
       </div>
     </div>
   </section>
+  <section class="post__comments">
+    <div class="container">
+      <div class="row">
+        {{ template "_internal/disqus.html" . }}
+      </div>
+    </div>
+  </section>
 </main>
 {{ end }}
