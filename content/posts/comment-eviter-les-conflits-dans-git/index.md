@@ -24,7 +24,7 @@ summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est 
 - [8. Mettre en place des outils de contrôle et formatage de code](#8-mettre-en-place-des-outils-de-contrôle-et-formatage-de-code)
 - [9. Définir des standards, règles et normes d'équipes](#9-définir-des-standards-règles-et-normes-déquipes)
 - [10. Automatiser les traitements ou contrôles via les hooks Git](#10-automatiser-les-traitements-ou-contrôles-via-les-hooks-git)
-- [11. Communiquer, communiquer, communiquer](#10-communiquer-communiquer-communiquer)
+- [11. Communiquer, communiquer, communiquer](#11-communiquer-communiquer-communiquer)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -124,7 +124,7 @@ En termes de gestion de conflits, il ne faut pas laisser une situation s'envenim
 
 ## 7. Faire des commits fréquents et atomiques
 
-Une façon de résoudre les commits simplement et rapidement est d'effectuer des commits de qualité - cf. [Qu'est-ce qu'un bon commit Git ?](posts/qu-est-ce-qu-un-bon-commit-git).
+Une façon de résoudre les commits simplement et rapidement est d'effectuer des commits de qualité - cf. [Qu'est-ce qu'un bon commit Git ?](/posts/qu-est-ce-qu-un-bon-commit-git).
 
 Cela permet de fusionner et résoudre les conflits au fur et à mesure de l'avancement de votre travail.
 
@@ -254,7 +254,7 @@ Côté client, les hooks les plus importants ou utiles :
 
 Je vous invite à consulter l'article d'Atlassian - [Hooks Git 🇫🇷](https://www.atlassian.com/fr/git/tutorials/git-hooks) - qui est hyper détaillé et pratique à ce sujet.
 
-## 10. Communiquer, communiquer, communiquer
+## 11. Communiquer, communiquer, communiquer
 
 On en arrive à mon dernier point, qui est en fait sûrement le plus important de tous : la meilleure façon d'éviter les conflits (Git et au-delà) est de beaucoup et bien communiquer.
 
