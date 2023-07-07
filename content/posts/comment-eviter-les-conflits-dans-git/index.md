@@ -24,7 +24,8 @@ summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est 
 - [8. Mettre en place des outils de contrôle et formatage de code](#8-mettre-en-place-des-outils-de-contrôle-et-formatage-de-code)
 - [9. Définir des standards, règles et normes d'équipes](#9-définir-des-standards-règles-et-normes-déquipes)
 - [10. Automatiser les traitements ou contrôles via les hooks Git](#10-automatiser-les-traitements-ou-contrôles-via-les-hooks-git)
-- [11. Communiquer, communiquer, communiquer](#11-communiquer-communiquer-communiquer)
+- [11. Mettre en place un pipeline d'intégration continue](#11-mettre-en-place-un-pipeline-dintégration-continue)
+- [12. Communiquer, communiquer, communiquer](#12-communiquer-communiquer-communiquer)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -107,6 +108,15 @@ Au-delà de la satisfaction intellectuelle de comprendre et mettre en œuvre les
 Ensuite, une fois qu'un développement est accompli, il est possible de *squash* les commits (rassembler plusieurs commits en un seul) pour n'avoir plus qu'un commit, et limiter là aussi le nombre de commits à confronter avec les autres branches et à gérer en cas de conflit.
 
 Personnellement, je ne suis pas particulièrement fan de squasher les commits d'une branche. Je n'ai absolument rien contre. Il y a des "pour" et des "contre". C'est une simple question de goût personnel.
+
+> **Edit. 06/07/2023** : [Stéphane](), un collègue chez BetaGouv, a évoqué la pratique "*[trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)*", qui fut son réflexe de pensée quand il a vu le titre de l'article. Effectivement, je n'en ai pas parlé.
+>
+> Ma raison : j'entends parler de trunk-based de temps en temps ces dernières années. Ça me rappelle le temps où je faisais du SVN et où on utilisait cette pratique. Je n'ai plus appliqué cette approche depuis que je suis passé à Git.
+>
+> Mon parti pris, c'est qu'une bonne gestion de branche est d'avoir des branches courtes et petites. Ça va dans mon approche d'avoir des US qui font 2-3 jours max de dev (hors review). (et du coup → #noestimate 🙌)
+>
+> Je trouve néanmoins important de le mentionner.
+
 
 ## 5. Synchroniser son travail très souvent et régulièrement
 
@@ -254,7 +264,12 @@ Côté client, les hooks les plus importants ou utiles :
 
 Je vous invite à consulter l'article d'Atlassian - [Hooks Git 🇫🇷](https://www.atlassian.com/fr/git/tutorials/git-hooks) - qui est hyper détaillé et pratique à ce sujet.
 
-## 11. Communiquer, communiquer, communiquer
+## 11. Mettre en place un pipeline d'intégration continue
+
+> Edit. 06/07/2023 : j'avais complètement zappé 
+
+
+## 12. Communiquer, communiquer, communiquer
 
 On en arrive à mon dernier point, qui est en fait sûrement le plus important de tous : la meilleure façon d'éviter les conflits (Git et au-delà) est de beaucoup et bien communiquer.
 
