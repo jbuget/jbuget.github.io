@@ -42,6 +42,8 @@ Récemment, un collègue – Louis-Jean, si tu passes par là 😘 – a monté 
 
 ## Présentation
 
+![Page d'accueil du site officiel de Typesense](./typesense_landing_page.png)
+
 Typesense est un moteur d'indexation et recherche distribué sous licence open source [GPLv3](https://github.com/typesense/typesense/blob/main/LICENSE.txt). C'est une alternative à Algolia (SaaS), ElasticSearch (ex-*vrai* open source), OpenSearch (fork open source de ElasticSearch initié et mené par Amazon) ou MeiliSearch (autre moteur open source).
 
 Typesense permet d'indexer des *collections* de *documents* afin de faire de la recherche full-text sur les champs définis / requêtés des documents indexés.
