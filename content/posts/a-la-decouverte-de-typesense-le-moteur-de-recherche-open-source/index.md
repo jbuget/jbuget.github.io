@@ -5,7 +5,7 @@ keywords:
 - typesense
 - search engine
 - open source
-date: 2023-07-13T00:35:00+00:00
+date: 2023-07-12T23:55:00+00:00
 draft: false
 summary: Typesense est un moteur d'indexation et recherche distribué sous licence open source. C'est une alternative crédible à Algolia (SaaS), ElasticSearch (ex-open source), OpenSearch (fork open source de ElasticSearch initié et mené par Amazon) ou MeiliSearch (autre moteur open source).
 ---
@@ -285,10 +285,9 @@ Contrairement à Algolia, Typesense ne propose pas de bibliothèques de composan
 
 Cependant, Typesense maintient et met à disposition [plusieurs clients dans différents langages](https://typesense.org/docs/guide/installing-a-client.html) (JavaScript, PHP, Python, etc.).
 
-Le plus simple, pour intégrer le moteur de recherche à son site, est de suivre [le guide officiel](https://typesense.org/docs/guide/building-a-search-application.html).
+Le plus simple, pour intégrer le moteur de recherche à son site, est de suivre [le guide officiel](https://typesense.org/docs/guide/building-a-search-application.html), et en particulier s'inspirer ou cloner [l'application de démo](https://github.com/typesense/typesense-instantsearch-demo) (ce que j'ai fait).
 
-
-https://github.com/typesense/typesense-instantsearch-demo 
+Pour voir ce qu'il est possible de faire simplement grâce à Typesense et InstantSearch, je vous invite à consulter [la page des démos en ligne](https://typesense.org/docs/overview/demos.html).
 
 ## Démonstration
 

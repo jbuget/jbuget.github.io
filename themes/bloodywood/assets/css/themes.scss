@@ -15,6 +15,7 @@ html[data-theme='light'] {
 	--blockquote-background: #{$grey3};
 	--code-color: #{$red1};
 	--code-before-background: #{$grey3};
+	--post-img-border: 1px solid #{grey2};
 }
 
 /* Dark */
@@ -26,5 +27,6 @@ html[data-theme='dark'] {
 	--blockquote-background: #{$dark2};
 	--code-color: #{$green1};
 	--code-before-background: #{$dark2};
+	--post-img-border: none;
 }
 
