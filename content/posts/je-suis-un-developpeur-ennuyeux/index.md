@@ -1,6 +1,6 @@
 ---
 title: "Je suis un développeur ennuyeux"
-categories: ["lifestyle", "boring coder", "chatgpt"]
+categories: ["lifestyle"]
 keywords:
 - développeur
 - web developer
@@ -8,6 +8,7 @@ keywords:
 - chatgpt
 date: 2023-02-26T23:17:00+01:00
 draft: false
+slug: boring-coder
 summary: Je suis un développeur ennuyeux qui privilégie des choix (techno, archi, infra, méthodo) simples et éprouvés à des alternatives plus créatives.
 ---
 Je suis un développeur ennuyeux. Je ne l'ai pas toujours été. Et lorsque c'est arrivé, je ne l'ai pas toujours assumé. Aujourd'hui encore, j'éprouve de temps en temps des diffcultés pour assumer cette posture ou évolution de nature.
