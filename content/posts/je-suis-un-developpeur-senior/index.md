@@ -106,9 +106,9 @@ Je pars du principe que ma carrière professionnelle fera 45 ans. Je suis pessim
 J'ai pris l'habitude de raconter qu'*il y a longtemps*, j'ai établi un plan en 3 étapes (de 15 ans) sur 45 ans :
 1. faire le nécessaire pour me trouver en capacité de monter une boîte à succès ✅ (et accessoirement, concevoir et élever 3 enfants… avant mes 35 ans ✅)
 2. réitérer à plusieurs reprises, dans plusieurs contextes, à plus grande échelle, des succès similaires pour asseoir mes compétences / convictions / capacités / méthodes / leviers afin d'acéquerir un pouvoir accru d'avoir de l'impact en masse sur des entreprises / sociétés
-3. exploiter au mieux et au maximum les ressources (réseau, expériences, expertises, pouvoirs) que j'aurais acquis au service du plus grand nombre
+3. exploiter au mieux et au maximum les ressources (réseau, expériences, expertises, pouvoirs) que j'aurais acquises au service du plus grand nombre
 
-J'ai bien comrpis que l'univers est imprévisible. Je n'irais pas jusqu'à dire que le monde évolue plus vite ou pire qu'avant. Je n'en sait rien. On baigne dans les risques tous plus gros et définitifs et irréversibles les uns que les autres : crise sanitaire, crise économique, crise écologique, guerre mondiale / nucléaire / totale, pour ne citer que les plus grandes menaces actuelles de l'humanité. Ce plan, je n'y crois pas plus que ça. Valeur n°4 du manifeste agile : l'adaptation au changemnt plutôt que le suivi stricte du plan. Je lui accorde néanmoins une valeur de cadre minimum viable, qui me permet de croire que je sais où je vais (et ainsi m'éviter de me poser trop souvent la question). D'autant plus, que jusqu'à présent, j'ai l'impression que ça fonctionne bien (ou alors, je me conforte à un quelconque biais de confirmation, le cas échéant, ma conscience s'en porte bien).
+J'ai bien comrpis que l'univers est imprévisible. Je n'irais pas jusqu'à dire que le monde évolue plus vite ou pire qu'avant. Je n'en sais rien. On baigne dans les risques tous plus gros et définitifs et irréversibles les uns que les autres : crise sanitaire, crise économique, crise écologique, guerre mondiale / nucléaire / totale, pour ne citer que les plus grandes menaces actuelles de l'humanité. Ce plan, je n'y crois pas plus que ça. Valeur n°4 du manifeste agile : l'adaptation au changement plus que le suivi (stricte) du plan. Je lui accorde néanmoins une valeur de cadre minimum viable, qui me permet de croire que je sais où je vais (et ainsi m'éviter de me poser trop souvent la question). D'autant plus, que jusqu'à présent, j'ai l'impression que ça fonctionne bien (ou alors, je me conforte à un quelconque biais de confirmation, le cas échéant, ma conscience s'en porte bien).
 
 Au-delà de cette macro-vision de carrière professionnelle, je poursuis actuellement ce que j'appelle "mon rêve citoyen". Que ce soit à travers Pix ou la Plateforme de l'inclusion, ainsi que mon activité au sein de la communauté BetaGouv, je continue de croire que je peux - modestement ou orgueilleusement, je laisse à chacun de le jjuger - contribuer à faire évoluer la *France du Numérique* dans le sens de l'Histoire et de la modernité. En termes de pratiques, de direction technique ou opérationnelle, de valeurs, culture ou philosophie. Je me suis mis un garde-fou : le jour où j'en ai marre, je m'autorise à abandonner, sans culpabilité.
 
@@ -119,3 +119,27 @@ Aujourd'hui, en tant que CTO d'un service public de plus de 100 personnes, je su
 Lorsque je resssens que j'atteins des limites de cette frustration, je me permets de débusquer un sujet au sein d'une équipe, proposer mon aide, prendre quelques jours de R&D ou coaching / formation / mentoring. Aussi, je code souvent sur des side-projects, un peu pour me maintenir à jour, mais surtout par amour de la technique. Il y a toujours un secret espoir de faire émerger un *big truc* (une lib, un SaaS, un projet communautaire), mais il ne compte en rien dans ma motivation à continuer de titiller le terminal et l'IDE à des heures indues (comme présentement).
 
 Finalement, c'est peut-être ça être un développeur sénior : savoir plein de choses pour en avoir vécues pleins ; ne plus devoir les pratiquer ou appliquer au quotidien ; avoir malgré tout la liberté et l'autorité de s'y addonner quand ça devient nécessaire ; continuer de pratiquer (et transmettre, à son rythme, soucieux de s'améliorer, encore, toujours ; ou juste, par amour de son métier.
+
+## Questions
+
+### À partir de quand est-on un dev senior ?
+
+- 9 ans
+- 9 contextes profonds
+- Adoubement par la profession : pairs séniors et clients
+- et quand on se sent sénior
+- on peut être sénior dans un contexte, et novice dans un autre
+
+### Qu'est-ce qu'on attend d'un dev senior ?
+
+- accompagner les nouveaux / jeunes
+- diminuer le doute, risque, stress ; un peu moins le temps même si un peu quand même
+- de l'image /rayonnement pour attirer (collègues, clients, investisseurs)
+- de l'impact collectif
+- du conseil + engagement au sein de l'orga
+- c'est à chaque orga de décider et fixer ses critères / attentes
+
+### Ce que répond ChatGPT 3.5 (un peu beaucoup de la merde)
+
+https://chat.openai.com/share/1a4f295c-286c-4ef4-8488-60bb79c1430e
+
