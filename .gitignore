@@ -5,4 +5,5 @@ node_modules
 resources/_gen
 public
 .DS_Store
-
+.vscode
+.history
