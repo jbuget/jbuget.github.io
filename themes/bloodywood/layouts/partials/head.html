@@ -62,7 +62,7 @@
   <!-- Styles -->
   {{ $styleOpts := dict "outputStyle" "compressed" }}
   {{ $styleSass := resources.Get "css/styles.scss" }}
-  {{ $styleCSS := $styleSass | resources.ToCSS $styleOpts | resources.Fingerprint "sha512" }}
+  {{ $styleCSS := $styleSass | css.Sass $styleOpts | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" >
 
   <!-- Scripts -->

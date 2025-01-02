@@ -219,7 +219,7 @@ Concrètement, cela revient à ajouter les lignes ci-dessous dans la partie `<he
 <head>
   <!-- ... autres instructions head -->
   {{ $styleSass := resources.Get "css/styles.scss" }}
-  {{ $styleCSS := $styleSass | resources.ToCSS }}
+  {{ $styleCSS := $styleSass | css.Sass }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
 </head>
 ```

@@ -23,23 +23,26 @@ Mais le mieux, c'est de le situer dans le répertoire `/assets` (ou `/themes/xxx
 
 ## Table des matières
 
+- [TL;DR](#tldr)
+- [Table des matières](#table-des-matières)
 - [Introduction](#introduction)
-- [1. Conception](#conception)
-  - [1.1. Existant](#11-existant) 
-  - [1.2. Pistes de réflexion](#12-pistes-de-réflexion) 
-  - [1.3. Solution retenue](#13-solution-retenue) 
+- [1. Conception](#1-conception)
+  - [1.1. Existant](#11-existant)
+  - [1.2. Pistes de réflexion](#12-pistes-de-réflexion)
+  - [1.3. Solution retenue](#13-solution-retenue)
 - [2. Préparation](#2-préparation)
   - [2.1. Gérer le JavaScript dans un site Hugo](#21-gérer-le-javascript-dans-un-site-hugo)
   - [2.2. Modulariser les ressources JavaScript](#22-modulariser-les-ressources-javascript)
   - [2.3. Optimiser les ressources JavaScript](#23-optimiser-les-ressources-javascript)
   - [2.4. Réflexion sur les dépendances externes](#24-réflexion-sur-les-dépendances-externes)
 - [3. Implémentation](#3-implémentation)
-  - [Découpage en tâches](#-découpage-en-taches)
+  - [Découpage en tâches](#découpage-en-tâches)
   - [1. Préparer les thèmes CSS](#1-préparer-les-thèmes-css)
-  - [2. Changer le thème en fonction d’un bouton](#2-changer-le-thème-en-fonction-dun-bouton)
-  - [3. Permettre à l’utilisateur de conserver son choix](#3-permettre-à-lutilisateur-de-conserver-son-choix)
-  - [4. Supporter les préférences système de l’utilisateur](#4-supporter-les-préférences-système-de-lutilisateur)
+  - [2. Changer le thème en fonction d'un bouton](#2-changer-le-thème-en-fonction-dun-bouton)
+  - [3. Permettre à l'utilisateur de conserver son choix](#3-permettre-à-lutilisateur-de-conserver-son-choix)
+  - [4. Supporter les préférences système de l'utilisateur](#4-supporter-les-préférences-système-de-lutilisateur)
   - [5. Ajouter une icône dynamique](#5-ajouter-une-icône-dynamique)
+- [Code final](#code-final)
 - [Conclusion](#conclusion)
 - [Liens](#liens)
 
@@ -562,7 +565,7 @@ Je ne rentre pas dans le détail de cette partie-là, qui n'est juste qu'un peu 
     
     <!-- Styles -->
     {{ $styleSass := resources.Get "css/styles.scss" }}
-    {{ $styleCSS := $styleSass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
+    {{ $styleCSS := $styleSass | css.Sass | resources.Minify | resources.Fingerprint "sha512" }}
     <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}">
     
     <!-- Scripts -->
