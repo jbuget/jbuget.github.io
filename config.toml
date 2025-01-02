@@ -24,3 +24,9 @@ disqusShortname = 'jbuget'
 
   [markup.highlight]
     style = 'monokailight'
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-PBZJVEY0RX'
+
+
