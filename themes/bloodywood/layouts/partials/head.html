@@ -55,7 +55,7 @@
 
   <!-- Custom and optimized FontAwesome icons kit -->
   {{ $faOpts := dict "outputStyle" "compressed" }}
-  {{ $faBundle := resources.Match "custom/fontawesome/css/*.css" | resources.Concat "css/fontawesome.css" | resources.ToCSS $faOpts }}
+  {{ $faBundle := resources.Match "custom/fontawesome/css/*.css" | resources.Concat "css/fontawesome.css" | css.Sass $faOpts }}
   {{ $faCSS := resources.Minify $faBundle | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $faCSS.RelPermalink }}" integrity="{{ $faCSS.Data.Integrity }}">
 
