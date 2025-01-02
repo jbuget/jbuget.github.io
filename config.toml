@@ -5,7 +5,6 @@ theme = 'bloodywood'
 defaultContentLanguage = "fr"
 enableRobotsTXT = true
 enableGitInfo = true
-disqusShortname = 'jbuget'
 
 [params]
   author = 'Jérémy Buget'
@@ -26,6 +25,8 @@ disqusShortname = 'jbuget'
     style = 'monokailight'
 
 [services]
+  [services.disqus]
+    shortname = 'jbuget'
   [services.googleAnalytics]
     id = 'G-PBZJVEY0RX'
 
