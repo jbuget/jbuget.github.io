@@ -7,3 +7,6 @@ public
 .DS_Store
 .vscode
 .history
+
+# Local Netlify folder
+.netlify

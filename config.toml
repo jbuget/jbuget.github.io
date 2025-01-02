@@ -29,5 +29,3 @@ enableGitInfo = true
     shortname = 'jbuget'
   [services.googleAnalytics]
     id = 'G-PBZJVEY0RX'
-
-
