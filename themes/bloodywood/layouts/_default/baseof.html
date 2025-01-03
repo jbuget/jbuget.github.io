@@ -3,6 +3,9 @@
 {{- partial "head.html" . -}}
 <body>
 {{- partial "header.html" . -}}
+<div id="search">
+  {{ partial "pagefind" }}
+</div>
 <div id="content">
   {{- block "main" . }}{{- end }}
 </div>
