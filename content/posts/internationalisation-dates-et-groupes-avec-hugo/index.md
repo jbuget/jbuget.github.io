@@ -21,6 +21,7 @@ J'ai été confronté à plusieurs problématiques :
 
 ## Table des matières
 
+- [Table des matières](#table-des-matières)
 - [Problème](#problème)
 - [Solution](#solution)
   - [1. Définir la langue du site et du contenu en français](#1-définir-la-langue-du-site-et-du-contenu-en-français)
@@ -183,7 +184,7 @@ Ce qui donne :
 ```html
 <!-- themes/bloodywood/layouts/posts/section.html -->
 {{ define "main" }}
-<main class="posts-section">
+<main class="posts-section" data-pagefind-body>
   <div class="container">
     <div class="row">
       <div class="posts">

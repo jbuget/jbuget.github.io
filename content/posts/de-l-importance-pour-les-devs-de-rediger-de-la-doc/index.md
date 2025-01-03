@@ -1,6 +1,6 @@
 ---
 title: "De l'importance pour les développeurs·euses de rédiger de la documentation"
-categories: ["sotware craftsmanship", "développement", "documentation"]
+categories: ["software craftsmanship", "développement", "documentation"]
 date: 2022-08-24T13:09:18+01:00
 draft: true
 summary: Les meilleurs développeurs et développeuses de ma connaissance sont aussi celles et ceux qui savent rédiger de la documentation (et pas que technique) et le font régulièrement.
@@ -8,9 +8,13 @@ summary: Les meilleurs développeurs et développeuses de ma connaissance sont a
 
 ## Table des matières
 
+- [Table des matières](#table-des-matières)
 - [Introduction](#introduction)
-- [Des logiciels opérationnels plus qu’une documentation exhaustive](#des-logiciels-opérationnels-plus-qu-une-documentation-exhaustive)
+- [Des logiciels opérationnels plus qu’une documentation exhaustive](#des-logiciels-opérationnels-plus-quune-documentation-exhaustive)
+- [L'histoire appartient aux vainqueurs (et à ceux qui l'écrivent)](#lhistoire-appartient-aux-vainqueurs-et-à-ceux-qui-lécrivent)
+- [Ce que l'on conçoit bien s’énonce clairement…](#ce-que-lon-conçoit-bien-sénonce-clairement)
 - [Conclusion](#conclusion)
+  - [Notes](#notes)
 
 ## Introduction
 

@@ -3,11 +3,11 @@
   <section class="post">
     <div class="container">
       <div class="row">
-        <h1>{{ .Title }}</h1>
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
         <div class="post__meta">
-          Par <span class="post__author">{{ .Site.Params.Author }}</span>
+          Par <span class="post__author" data-pagefind-filter="author">{{ .Site.Params.Author }}</span>
           , le <span class="post__date"><time>{{ .PublishDate | time.Format ":date_long"}}</time></span>
-          , dans <span class="post__category">{{ range .Params.categories }}{{ . | title }} {{ end }}</span>
+          , dans <span class="post__category">{{ range .Params.categories }}<span data-pagefind-filter="category">{{ . | title }} </span>{{ end }}</span>
           · <span class="post__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
         </div>
         {{ .Content }}

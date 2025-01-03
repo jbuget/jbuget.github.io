@@ -6,7 +6,7 @@
 <div id="search">
   {{ partial "pagefind" }}
 </div>
-<div id="content">
+<div id="content" data-pagefind-body>
   {{- block "main" . }}{{- end }}
 </div>
 {{- partial "footer.html" . -}}
