@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon CV</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .job-title {
+      font-weight: bold;
+    }
+    .date-range {
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="name">Nom Prénom</h1>
+  <p id="summary"></p>
+
+  <section id="experience">
+    <h2>Expérience</h2>
+    <div id="work-list"></div>
+  </section>
+
+  <section id="education">
+    <h2>Formation</h2>
+    <div id="education-list"></div>
+  </section>
+
+  <section id="skills">
+    <h2>Compétences</h2>
+    <ul id="skills-list"></ul>
+  </section>
+
+  <script>
+    fetch('resume.json')
+      .then(res => res.json())
+      .then(resume => {
+        document.getElementById('name').textContent = resume.basics.name;
+        document.getElementById('summary').textContent = resume.basics.summary || '';
+
+        const workList = document.getElementById('work-list');
+        resume.work?.forEach(job => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <p class="job-title">${job.position} — ${job.company}</p>
+            <p class="date-range">${job.startDate || ''} – ${job.endDate || 'Présent'}</p>
+            <p>${job.summary || ''}</p>
+          `;
+          workList.appendChild(div);
+        });
+
+        const educationList = document.getElementById('education-list');
+        resume.education?.forEach(edu => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <p class="job-title">${edu.institution} — ${edu.studyType} ${edu.area}</p>
+            <p class="date-range">${edu.startDate || ''} – ${edu.endDate || 'Présent'}</p>
+          `;
+          educationList.appendChild(div);
+        });
+
+        const skillsList = document.getElementById('skills-list');
+        resume.skills?.forEach(skill => {
+          const li = document.createElement('li');
+          li.textContent = `${skill.name} (${skill.level || 'niveau inconnu'})`;
+          skillsList.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
