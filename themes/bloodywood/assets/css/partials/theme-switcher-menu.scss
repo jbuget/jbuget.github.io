@@ -18,6 +18,7 @@ html[data-theme='dark'] {
 
 .theme-switcher-menu {
 	position: relative;
+	z-index: 1;
 
 	.hidden {
 		display: none;
