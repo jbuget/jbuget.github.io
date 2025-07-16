@@ -8,6 +8,7 @@
   <meta name="description" content="{{ .Site.Params.Description }}" />
   <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}"/>
+  <meta name="bluesky:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta property="og:site_name" content="{{ .Site.Params.sitename }}"/>
@@ -17,12 +18,14 @@
   <meta itemprop="description" content="{{ .Params.description }}"/>
   <meta property="og:description" content="{{ .Params.description }}"/>
   <meta name="twitter:description" content="{{ .Params.description }}"/>
+  <meta name="bluesky:description" content="{{ .Params.description }}"/>
 
   <!-- Link Tags -->
   <base href="{{ .Permalink }}">
   <link rel="canonical" href="{{ .Permalink }}" itemprop="url"/>
   <meta name="url" content="{{ .Permalink }}"/>
   <meta name="twitter:url" content="{{ .Permalink }}"/>
+  <meta name="bluesky:url" content="{{ .Permalink }}"/>
   <meta property="og:url" content="{{ .Permalink }}"/>
 
   <!-- Language Tags -->
@@ -38,11 +41,15 @@
   <meta property="og:image" content="{{ . | absURL }}"/>
   <meta name="twitter:image" content="{{ . | absURL }}"/>
   <meta name="twitter:image:src" content="{{ . | absURL }}"/>
+  <meta name="bluesky:image" content="{{ . | absURL }}"/>
+  <meta name="bluesky:image:src" content="{{ . | absURL }}"/>
   {{ else }}
   <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}"/>
   <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}"/>
   <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}"/>
   <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
+  <meta name="bluesky:image" content="{{ .Site.Params.ogimage | absURL }}"/>
+  <meta name="bluesky:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
   {{ end }}
 
   <!-- RSS -->

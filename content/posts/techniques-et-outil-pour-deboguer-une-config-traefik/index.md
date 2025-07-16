@@ -324,7 +324,7 @@ C'est notablement plus compliqué (même si pas infaisable avec Ansible & cie) a
 
 Moralité : si malgré les sections ci-dessus la page blanche persiste, vérifiez autant que nécessaire (et même plus encore) que vous n'avez tout simplement pas inverser le `t` et le `h` (ex : "auth", "height", "width").
 
-{{< tweet user="jbuget" id="1513839254039838722" >}}
+{{< x user="jbuget" id="1513839254039838722" >}}
 
 ## 3. Au niveau DNS / SSL
 
