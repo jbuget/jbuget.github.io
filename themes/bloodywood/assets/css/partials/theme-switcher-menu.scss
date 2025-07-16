@@ -82,6 +82,8 @@ html[data-theme='dark'] {
 		color: var(--text-color);
 		font-family: Nunito, Arial, sans-serif;
 		font-size: 1rem;
+	    pointer-events: none;
+        display: contents;
 	}
 }
 
