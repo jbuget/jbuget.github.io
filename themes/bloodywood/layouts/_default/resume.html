@@ -1,0 +1,226 @@
+{{ define "main" }}
+<main role="main">
+    <div class="container">
+        {{ with .Site.Data.resume }} {{ with .basics }}
+        <!-- En-tête avec informations personnelles -->
+        <div class="row">
+            <header class="resume-header">
+                <h1 data-pagefind-meta="title">{{ .name }}</h1>
+                {{ if .label }}
+                <h2>{{ .label }}</h2>
+                {{ end }} {{ if .summary }}
+                <p class="summary">{{ .summary }}</p>
+                {{ end }}
+
+                <div class="contact-info">
+                    {{ if .email }}
+                    <p><a href="mailto:{{ .email }}">{{ .email }}</a></p>
+                    {{ end }} {{ if .url }}
+                    <p>
+                        <a href="{{ .url }}" target="_blank" rel="noopener"
+                            >{{ .url }}</a
+                        >
+                    </p>
+                    {{ end }} {{ with .location }} {{ if .address }}
+                    <p>{{ .address }}</p>
+                    {{ end }} {{ end }}
+                </div>
+
+                {{ if .profiles }}
+                <div class="social-profiles">
+                    {{ range .profiles }}
+                    <a
+                        href="{{ .url }}"
+                        target="_blank"
+                        rel="noopener"
+                        title="{{ .network }}"
+                    >
+                        {{ if eq .network "LinkedIn" }}LI{{ end }} {{ if eq
+                        .network "Twitter" }}TW{{ end }} {{ if eq .network
+                        "Bluesky" }}BS{{ end }} {{ if eq .network "GitHub"
+                        }}GH{{ end }}
+                    </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </header>
+        </div>
+        {{ end }}
+
+        <!-- Expérience professionnelle -->
+        {{ if .work }}
+        <div class="row">
+            <section class="resume-section">
+                <h3>💼 Expérience professionnelle</h3>
+                {{ range .work }} {{ if .name }}
+                <article class="experience-item">
+                    <header>
+                        <h4>
+                            {{ .position }}
+                            <span class="company-separator">•</span> {{ .name }}
+                        </h4>
+                        <div class="meta-info">
+                            <time class="date">
+                                {{ .startDate | dateFormat "January 2006" }} -
+                                {{ if .endDate }}{{ .endDate | dateFormat
+                                "January 2006" }}{{ else }}Présent{{ end }}
+                            </time>
+                            {{ if .location }}
+                            <span class="location">{{ .location }}</span>
+                            {{ end }}
+                        </div>
+                    </header>
+
+                    {{ if .summary }}
+                    <div class="summary">{{ .summary | markdownify }}</div>
+                    {{ end }} {{ if .highlights }}
+                    <ul class="highlights">
+                        {{ range .highlights }}
+                        <li>{{ . | markdownify }}</li>
+                        {{ end }}
+                    </ul>
+                    {{ end }} {{ if .url }}
+                    <footer>
+                        <a
+                            href="{{ .url }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="company-link"
+                        >
+                            🔗 Voir l'entreprise
+                        </a>
+                    </footer>
+                    {{ end }}
+                </article>
+                {{ end }} {{ end }}
+            </section>
+        </div>
+        {{ end }}
+
+        <!-- Formation -->
+        {{ if .education }}
+        <div class="row">
+            <section class="resume-section">
+                <h3>🎓 Formation</h3>
+                {{ range .education }}
+                <article class="education-item">
+                    <header>
+                        <h4>
+                            {{ .studyType }}{{ if .area }} en {{ .area }}{{ end
+                            }}
+                        </h4>
+                        <p class="institution">{{ .institution }}</p>
+                        <time class="date"
+                            >{{ .startDate | dateFormat "2006" }} - {{ .endDate
+                            | dateFormat "2006" }}</time
+                        >
+                    </header>
+                    {{ if .score }}
+                    <p class="score">Mention : {{ .score }}</p>
+                    {{ end }} {{ if .courses }}
+                    <div class="courses">
+                        <strong>Cours principaux :</strong>
+                        <ul>
+                            {{ range .courses }}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                </article>
+                {{ end }}
+            </section>
+        </div>
+        {{ end }}
+
+        <!-- Compétences -->
+        {{ if .skills }}
+        <div class="row">
+            <section class="resume-section">
+                <h3>🛠️ Compétences</h3>
+                <div class="skills-container">
+                    <div class="skills-grid">
+                        {{ range .skills }} {{ if .name }}
+                        <span class="skill-tag" title="{{ .name }}"
+                            >{{ .name }}</span
+                        >
+                        {{ end }} {{ end }}
+                    </div>
+                </div>
+            </section>
+        </div>
+        {{ end }}
+
+        <!-- Projets -->
+        {{ if .projects }}
+        <div class="row">
+            <section class="resume-section">
+                <h3>🚀 Projets</h3>
+                {{ range .projects }}
+                <article class="project-item">
+                    <header>
+                        <h4>{{ .name }}</h4>
+                        {{ if .startDate }}
+                        <time class="date">
+                            {{ .startDate | dateFormat "2006" }}{{ if .endDate
+                            }} - {{ .endDate | dateFormat "2006" }}{{ end }}
+                        </time>
+                        {{ end }}
+                    </header>
+                    {{ if .summary }}
+                    <p class="project-description">
+                        {{ .summary | markdownify }}
+                    </p>
+                    {{ end }} {{ if .url }}
+                    <footer>
+                        <a
+                            href="{{ .url }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="project-link"
+                        >
+                            🔗 Voir le projet
+                        </a>
+                    </footer>
+                    {{ end }}
+                </article>
+                {{ end }}
+            </section>
+        </div>
+        {{ end }}
+
+        <!-- Langues -->
+        {{ if .languages }}
+        <div class="row">
+            <section class="resume-section">
+                <h3>🌍 Langues</h3>
+                <div class="languages">
+                    {{ range .languages }}
+                    <div class="language-item">
+                        <span class="language-name"
+                            >{{ .language | title }}</span
+                        >
+                        {{ if .fluency }}
+                        <span class="fluency-level">{{ .fluency }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </section>
+        </div>
+        {{ end }} {{ end }}
+
+        <!-- Action buttons -->
+        <div class="row">
+            <div class="resume-actions">
+                <button onclick="window.print()" class="btn btn-primary">
+                    🖨️ Imprimer le CV
+                </button>
+                <a href="/resume.pdf" class="btn btn-secondary" target="_blank">
+                    📄 Version PDF
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}
