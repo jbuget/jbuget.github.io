@@ -5,8 +5,7 @@
     "label": "CTO à La Plateforme de l’inclusion ~ inclusion.gouv.fr",
     "image": "",
     "email": "jbuget@gmail.com",
-    "phone": "",
-    "url": "",
+    "url": "https://jbuget.fr",
     "summary": "CTO. Coder. Streamer. Speaker. Writer. Papa pupuce.",
     "location": {
       "countryCode": "FR",
@@ -22,7 +21,13 @@
         "network": "Twitter",
         "username": "jbuget",
         "url": "https://twitter.com/jbuget"
+      },
+      {
+        "network": "Bluesky",
+        "username": "jbuget",
+        "url": "https://bsky.app/profile/jbuget.fr"
       }
+
     ]
   },
   "work": [
@@ -259,7 +264,7 @@
       "keywords": []
     },
     {
-      "name": "Framework Sping",
+      "name": "Framework Spring",
       "level": "",
       "keywords": []
     },
