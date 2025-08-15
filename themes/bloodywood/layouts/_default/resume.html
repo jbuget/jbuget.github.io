@@ -3,7 +3,7 @@
     <div class="container">
         {{ with .Site.Data.resume }} {{ with .basics }}
         <!-- En-tête avec informations personnelles -->
-        <div class="row">
+        <!-- <div class="row">
             <header class="resume-header">
                 <h1 data-pagefind-meta="title">{{ .name }}</h1>
                 {{ if .label }}
@@ -44,29 +44,45 @@
                 </div>
                 {{ end }}
             </header>
-        </div>
+        </div> -->
         {{ end }}
 
         <!-- Expérience professionnelle -->
         {{ if .work }}
         <div class="row">
-            <section class="resume-section">
-                <h3>💼 Expérience professionnelle</h3>
+            <section class="resume-section experiences">
+                <h2>Expérience professionnelle</h2>
                 {{ range .work }} {{ if .name }}
-                <article class="experience-item">
-                    <header>
-                        <h4>
-                            {{ .position }}
-                            <span class="company-separator">•</span> {{ .name }}
-                        </h4>
-                        <div class="meta-info">
-                            <time class="date">
-                                {{ .startDate | dateFormat "January 2006" }} -
-                                {{ if .endDate }}{{ .endDate | dateFormat
-                                "January 2006" }}{{ else }}Présent{{ end }}
-                            </time>
+                <article class="experience">
+                    <header class="experience__header">
+                        <h3 class="experience__title">
+                            <span class="experience__position">{{ .position }}</span>
+                            ·
+                            {{ if .url }}
+                            <a
+                                href="{{ .url }}"
+                                target="_blank"
+                                rel="noopener"
+                                class="experience__company"
+                                >{{ .name }}</a
+                            >
+                            {{ else }}
+                            <span class="experience__company">{{ .name }}</span>
+                            {{ end }}
+                        </h3>
+                        <div class="experience__meta">
+                            <div>
+                                <time class="date">
+                                    {{ .startDate | dateFormat "January 2006" }}
+                                    – {{ if .endDate }}{{ .endDate | dateFormat
+                                    "January 2006" }}{{ else }}Présent{{ end }}
+                                </time>
+                            </div>
+
                             {{ if .location }}
-                            <span class="location">{{ .location }}</span>
+                            <div class="experience__location">
+                                {{ .location }}
+                            </div>
                             {{ end }}
                         </div>
                     </header>
@@ -79,17 +95,6 @@
                         <li>{{ . | markdownify }}</li>
                         {{ end }}
                     </ul>
-                    {{ end }} {{ if .url }}
-                    <footer>
-                        <a
-                            href="{{ .url }}"
-                            target="_blank"
-                            rel="noopener"
-                            class="company-link"
-                        >
-                            🔗 Voir l'entreprise
-                        </a>
-                    </footer>
                     {{ end }}
                 </article>
                 {{ end }} {{ end }}
@@ -101,7 +106,7 @@
         {{ if .education }}
         <div class="row">
             <section class="resume-section">
-                <h3>🎓 Formation</h3>
+                <h2>Formation</h2>
                 {{ range .education }}
                 <article class="education-item">
                     <header>
@@ -137,7 +142,7 @@
         {{ if .skills }}
         <div class="row">
             <section class="resume-section">
-                <h3>🛠️ Compétences</h3>
+                <h2>Compétences</h2>
                 <div class="skills-container">
                     <div class="skills-grid">
                         {{ range .skills }} {{ if .name }}
@@ -155,7 +160,7 @@
         {{ if .projects }}
         <div class="row">
             <section class="resume-section">
-                <h3>🚀 Projets</h3>
+                <h2>Projets</h2>
                 {{ range .projects }}
                 <article class="project-item">
                     <header>
