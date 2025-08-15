@@ -1,19 +1,24 @@
 @import "./colors";
 
 .resume-section {
-    margin-top: 2rem;
-	padding-top: 2rem;
-	border-top: 1px solid $grey2;
-
-	&:first-of-type {
-		margin-top: 0;
-		padding-top: 0;
-		border-top: none;
-	}
+    margin-bottom: 4rem;
 }
 
+/* --- */
+/* Experience */
+/* --- */
+
 .experience {
-    margin-bottom: 2rem;
+   	border-top: 1px solid $grey2;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    
+    &:first-of-type {
+        margin-top: 0;
+		padding-top: 0;
+		border-top: none;        
+    }
 }
 
 .experience__title {
@@ -24,3 +29,55 @@
     margin-bottom: 1rem;
     color: $grey8;
 }
+
+.summary-container {
+    
+    p + ul {
+        margin-top: -1rem;
+    }
+}
+
+/* --- */
+/* Education */
+/* --- */
+
+.institution {
+   	border-top: 1px solid $grey2;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    
+    &:first-of-type {
+        margin-top: 0;
+		padding-top: 0;
+		border-top: none;        
+    }
+}
+
+.institution__name {
+    margin-bottom: 0rem;
+}
+
+/* --- */
+/* Skills */
+/* --- */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background: $blue1;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    cursor: default;
+    border-radius: 5px;
+    color: $grey1;
+    padding: 0 0.5rem;
+}
+

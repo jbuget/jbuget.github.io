@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main role="main">
     <div class="container">
+        <h1>Curriculum vitae</h1>
         {{ with .Site.Data.resume }} {{ with .basics }}
         <!-- En-tête avec informations personnelles -->
         <!-- <div class="row">
@@ -51,14 +52,15 @@
         {{ if .work }}
         <div class="row">
             <section class="resume-section experiences">
-                <h2>Expérience professionnelle</h2>
+                <h2>Expérience</h2>
                 {{ range .work }} {{ if .name }}
                 <article class="experience">
                     <header class="experience__header">
                         <h3 class="experience__title">
-                            <span class="experience__position">{{ .position }}</span>
-                            ·
-                            {{ if .url }}
+                            <span class="experience__position"
+                                >{{ .position }}</span
+                            >
+                            · {{ if .url }}
                             <a
                                 href="{{ .url }}"
                                 target="_blank"
@@ -72,10 +74,15 @@
                         </h3>
                         <div class="experience__meta">
                             <div>
-                                <time class="date">
+                                <time
+                                    class="date"
+                                    data-start="{{ .startDate }}"
+                                    data-end="{{ .endDate }}"
+                                >
                                     {{ .startDate | dateFormat "January 2006" }}
                                     – {{ if .endDate }}{{ .endDate | dateFormat
                                     "January 2006" }}{{ else }}Présent{{ end }}
+                                    <span class="duration"></span>
                                 </time>
                             </div>
 
@@ -88,7 +95,20 @@
                     </header>
 
                     {{ if .summary }}
-                    <div class="summary">{{ .summary | markdownify }}</div>
+                    <div class="summary-container">
+                        <div class="summary summary-truncated">
+                            {{ .summary | markdownify }}
+                        </div>
+                        <div class="summary summary-full" style="display: none">
+                            {{ .summary | markdownify }}
+                        </div>
+                        <button
+                            class="btn-toggle-summary"
+                            onclick="toggleSummary(this)"
+                        >
+                            Voir plus
+                        </button>
+                    </div>
                     {{ end }} {{ if .highlights }}
                     <ul class="highlights">
                         {{ range .highlights }}
@@ -105,33 +125,21 @@
         <!-- Formation -->
         {{ if .education }}
         <div class="row">
-            <section class="resume-section">
+            <section class="resume-section education">
                 <h2>Formation</h2>
                 {{ range .education }}
-                <article class="education-item">
-                    <header>
-                        <h4>
-                            {{ .studyType }}{{ if .area }} en {{ .area }}{{ end
-                            }}
-                        </h4>
-                        <p class="institution">{{ .institution }}</p>
-                        <time class="date"
-                            >{{ .startDate | dateFormat "2006" }} - {{ .endDate
-                            | dateFormat "2006" }}</time
-                        >
+                <article class="institution">
+                    <header class="institution__header">
+                        <h3 class="institution__name">{{ .institution }}</h3>
+                        <div class="institution__certificate">
+                            {{ .studyType }} {{ if .area }} en {{ .area }} {{
+                            end}}
+                        </div>
+                        <time class="date">
+                            {{ .startDate | dateFormat "2006" }} – {{ .endDate |
+                            dateFormat "2006" }}
+                        </time>
                     </header>
-                    {{ if .score }}
-                    <p class="score">Mention : {{ .score }}</p>
-                    {{ end }} {{ if .courses }}
-                    <div class="courses">
-                        <strong>Cours principaux :</strong>
-                        <ul>
-                            {{ range .courses }}
-                            <li>{{ . }}</li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                    {{ end }}
                 </article>
                 {{ end }}
             </section>
@@ -141,7 +149,7 @@
         <!-- Compétences -->
         {{ if .skills }}
         <div class="row">
-            <section class="resume-section">
+            <section class="resume-section skills">
                 <h2>Compétences</h2>
                 <div class="skills-container">
                     <div class="skills-grid">
@@ -194,26 +202,7 @@
         </div>
         {{ end }}
 
-        <!-- Langues -->
-        {{ if .languages }}
-        <div class="row">
-            <section class="resume-section">
-                <h3>🌍 Langues</h3>
-                <div class="languages">
-                    {{ range .languages }}
-                    <div class="language-item">
-                        <span class="language-name"
-                            >{{ .language | title }}</span
-                        >
-                        {{ if .fluency }}
-                        <span class="fluency-level">{{ .fluency }}</span>
-                        {{ end }}
-                    </div>
-                    {{ end }}
-                </div>
-            </section>
-        </div>
-        {{ end }} {{ end }}
+        {{ end }}
 
         <!-- Action buttons -->
         <div class="row">
@@ -228,4 +217,91 @@
         </div>
     </div>
 </main>
+
+<style>
+    .summary-truncated {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.4;
+    }
+
+    .btn-toggle-summary {
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin-top: 0.5em;
+        padding: 0;
+        text-decoration: underline;
+    }
+
+    .btn-toggle-summary:hover {
+        color: #0056b3;
+    }
+</style>
+
+<script>
+    function toggleSummary(button) {
+        const container = button.parentElement;
+        const truncated = container.querySelector(".summary-truncated");
+        const full = container.querySelector(".summary-full");
+
+        if (truncated.style.display === "none") {
+            // Montrer la version tronquée
+            truncated.style.display = "-webkit-box";
+            full.style.display = "none";
+            button.textContent = "Voir plus";
+        } else {
+            // Montrer la version complète
+            truncated.style.display = "none";
+            full.style.display = "block";
+            button.textContent = "Voir moins";
+        }
+    }
+
+    function calculateDuration(startDate, endDate) {
+        const start = new Date(startDate);
+        const end = endDate ? new Date(endDate) : new Date();
+
+        let years = end.getFullYear() - start.getFullYear();
+        let months = end.getMonth() - start.getMonth();
+
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        let duration = "";
+        if (years > 0) {
+            duration += years === 1 ? "1 an" : `${years} ans`;
+            if (months > 0) {
+                duration += " ";
+            }
+        }
+        if (months > 0) {
+            duration += months === 1 ? "1 mois" : `${months} mois`;
+        }
+
+        return duration ? ` · ${duration}` : "";
+    }
+
+    // Calculate durations on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        const timeElements = document.querySelectorAll("time.date[data-start]");
+        timeElements.forEach(function (timeElement) {
+            const startDate = timeElement.getAttribute("data-start");
+            const endDate = timeElement.getAttribute("data-end");
+            const durationSpan = timeElement.querySelector(".duration");
+
+            if (startDate && durationSpan) {
+                const duration = calculateDuration(startDate, endDate);
+                durationSpan.textContent = duration;
+            }
+        });
+    });
+</script>
+
 {{ end }}
