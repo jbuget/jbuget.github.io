@@ -1,5 +1,19 @@
 @import "./colors";
 
+/* --- */
+/* Accessibility */
+/* --- */
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 .resume-section {
     margin-bottom: 4rem;
 }
@@ -9,15 +23,34 @@
 /* --- */
 
 .experience {
-   	border-top: 1px solid $grey2;
+    border-top: 1px solid $grey2;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-top: 1.5rem;
-    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 4px;
+
     &:first-of-type {
         margin-top: 0;
-		padding-top: 0;
-		border-top: none;        
+        padding-top: 0;
+        border-top: none;
+    }
+
+    &:focus {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+    }
+
+    &::after {
+        content: " ▼ Voir plus";
+        @extend .sr-only;
+    }
+
+    &[aria-expanded="true"]::after {
+        content: " ▲ Voir moins";
+        @extend .sr-only;
     }
 }
 
@@ -31,7 +64,6 @@
 }
 
 .summary-container {
-    
     p + ul {
         margin-top: -1rem;
     }
@@ -42,15 +74,15 @@
 /* --- */
 
 .institution {
-   	border-top: 1px solid $grey2;
+    border-top: 1px solid $grey2;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-top: 1.5rem;
-    
+
     &:first-of-type {
         margin-top: 0;
-		padding-top: 0;
-		border-top: none;        
+        padding-top: 0;
+        border-top: none;
     }
 }
 
@@ -81,3 +113,42 @@
     padding: 0 0.5rem;
 }
 
+/* --- */
+/* Presentation */
+/* --- */
+
+.presentation-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $grey8;
+
+    p {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* --- */
+/* Summary Expandable */
+/* --- */
+
+.summary-expandable {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+    padding-bottom: 2em;
+    position: relative;
+    max-height: calc(1.4em * 3);
+
+    .experience[aria-expanded="true"] & {
+        display: block;
+        -webkit-line-clamp: none;
+        overflow: visible;
+        max-height: none;
+    }
+}

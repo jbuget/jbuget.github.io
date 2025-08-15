@@ -48,13 +48,32 @@
         </div> -->
         {{ end }}
 
+        <!-- Présentation -->
+        {{ if .basics.summary }}
+        <div class="row">
+            <section class="resume-section presentation">
+                <div class="presentation-content">
+                    {{ .basics.summary | markdownify }}
+                </div>
+            </section>
+        </div>
+        {{ end }}
+
         <!-- Expérience professionnelle -->
         {{ if .work }}
         <div class="row">
             <section class="resume-section experiences">
                 <h2>Expérience</h2>
                 {{ range .work }} {{ if .name }}
-                <article class="experience">
+                <article
+                    class="experience"
+                    tabindex="0"
+                    role="button"
+                    aria-expanded="false"
+                    onclick="toggleSummary(this)"
+                    onkeydown="handleKeyDown(event, this)"
+                    title="Cliquer pour voir plus/moins de détails"
+                >
                     <header class="experience__header">
                         <h3 class="experience__title">
                             <span class="experience__position"
@@ -96,20 +115,12 @@
 
                     {{ if .summary }}
                     <div class="summary-container">
-                        <div class="summary summary-truncated">
+                        <div class="summary summary-expandable">
                             {{ .summary | markdownify }}
                         </div>
-                        <div class="summary summary-full" style="display: none">
-                            {{ .summary | markdownify }}
-                        </div>
-                        <button
-                            class="btn-toggle-summary"
-                            onclick="toggleSummary(this)"
-                        >
-                            Voir plus
-                        </button>
                     </div>
-                    {{ end }} {{ if .highlights }}
+                    {{ end }} {{ if .highlights }} {{ end }} {{ if .highlights
+                    }}
                     <ul class="highlights">
                         {{ range .highlights }}
                         <li>{{ . | markdownify }}</li>
@@ -200,9 +211,7 @@
                 {{ end }}
             </section>
         </div>
-        {{ end }}
-
-        {{ end }}
+        {{ end }} {{ end }}
 
         <!-- Action buttons -->
         <div class="row">
@@ -218,49 +227,34 @@
     </div>
 </main>
 
-<style>
-    .summary-truncated {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-height: 1.4;
-    }
-
-    .btn-toggle-summary {
-        background: none;
-        border: none;
-        color: #007bff;
-        cursor: pointer;
-        font-size: 0.9em;
-        margin-top: 0.5em;
-        padding: 0;
-        text-decoration: underline;
-    }
-
-    .btn-toggle-summary:hover {
-        color: #0056b3;
-    }
-</style>
-
 <script>
-    function toggleSummary(button) {
-        const container = button.parentElement;
-        const truncated = container.querySelector(".summary-truncated");
-        const full = container.querySelector(".summary-full");
+    function toggleSummary(element, event) {
+        // Empêcher le toggle si on clique sur un lien
+        if (event && event.target.tagName === "A") {
+            return;
+        }
 
-        if (truncated.style.display === "none") {
-            // Montrer la version tronquée
-            truncated.style.display = "-webkit-box";
-            full.style.display = "none";
-            button.textContent = "Voir plus";
-        } else {
-            // Montrer la version complète
-            truncated.style.display = "none";
-            full.style.display = "block";
-            button.textContent = "Voir moins";
+        const isExpanded = element.getAttribute("aria-expanded") === "true";
+        element.setAttribute("aria-expanded", !isExpanded);
+    }
+
+    function handleKeyDown(event, element) {
+        // Activer avec Entrée ou Espace
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleSummary(element, event);
         }
     }
+
+    // Empêcher la propagation des clics sur les liens
+    document.addEventListener("DOMContentLoaded", function () {
+        const experienceLinks = document.querySelectorAll(".experience a");
+        experienceLinks.forEach((link) => {
+            link.addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+    });
 
     function calculateDuration(startDate, endDate) {
         const start = new Date(startDate);
