@@ -27,30 +27,11 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-top: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    border-radius: 4px;
 
     &:first-of-type {
         margin-top: 0;
         padding-top: 0;
         border-top: none;
-    }
-
-    &:focus {
-        outline: 2px solid #007bff;
-        outline-offset: 2px;
-    }
-
-    &::after {
-        content: " ▼ Voir plus";
-        @extend .sr-only;
-    }
-
-    &[aria-expanded="true"]::after {
-        content: " ▲ Voir moins";
-        @extend .sr-only;
     }
 }
 
@@ -175,26 +156,4 @@
     color: $blue1;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.85rem;
-}
-
-/* --- */
-/* Summary Expandable */
-/* --- */
-
-.summary-expandable {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-height: 1.4;
-    padding-bottom: 2em;
-    position: relative;
-    max-height: calc(1.4em * 3);
-
-    .experience[aria-expanded="true"] & {
-        display: block;
-        -webkit-line-clamp: none;
-        overflow: visible;
-        max-height: none;
-    }
 }

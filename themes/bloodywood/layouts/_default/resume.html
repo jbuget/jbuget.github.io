@@ -106,15 +106,7 @@
             <section class="resume-section experiences">
                 <h2>Expérience</h2>
                 {{ range .work }} {{ if .name }}
-                <article
-                    class="experience"
-                    tabindex="0"
-                    role="button"
-                    aria-expanded="false"
-                    onclick="toggleSummary(this)"
-                    onkeydown="handleKeyDown(event, this)"
-                    title="Cliquer pour voir plus/moins de détails"
-                >
+                <article class="experience">
                     <header class="experience__header">
                         <h3 class="experience__title">
                             <span class="experience__position"
@@ -156,12 +148,9 @@
 
                     {{ if .summary }}
                     <div class="summary-container">
-                        <div class="summary summary-expandable">
-                            {{ .summary | markdownify }}
-                        </div>
+                        <div class="summary">{{ .summary | markdownify }}</div>
                     </div>
-                    {{ end }} {{ if .highlights }} {{ end }} {{ if .highlights
-                    }}
+                    {{ end }} {{ if .highlights }}
                     <ul class="highlights">
                         {{ range .highlights }}
                         <li>{{ . | markdownify }}</li>
@@ -231,34 +220,6 @@
 </main>
 
 <script>
-    function toggleSummary(element, event) {
-        // Empêcher le toggle si on clique sur un lien
-        if (event && event.target.tagName === "A") {
-            return;
-        }
-
-        const isExpanded = element.getAttribute("aria-expanded") === "true";
-        element.setAttribute("aria-expanded", !isExpanded);
-    }
-
-    function handleKeyDown(event, element) {
-        // Activer avec Entrée ou Espace
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            toggleSummary(element, event);
-        }
-    }
-
-    // Empêcher la propagation des clics sur les liens
-    document.addEventListener("DOMContentLoaded", function () {
-        const experienceLinks = document.querySelectorAll(".experience a");
-        experienceLinks.forEach((link) => {
-            link.addEventListener("click", function (event) {
-                event.stopPropagation();
-            });
-        });
-    });
-
     function calculateDuration(startDate, endDate) {
         const start = new Date(startDate);
         const end = endDate ? new Date(endDate) : new Date();
