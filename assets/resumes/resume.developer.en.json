@@ -18,6 +18,11 @@
         "url": "https://www.linkedin.com/in/jbuget/"
       },
       {
+        "network": "GiHub",
+        "username": "jbuget",
+        "url": "https://github.com/jbuget"
+      },
+      {
         "network": "CodinGame",
         "username": "jbuget",
         "url": "https://www.codingame.com/profile/8380d1e36b678496bb5742cafa095f3c8437914"
@@ -26,11 +31,6 @@
         "network": "Bluesky",
         "username": "jbuget",
         "url": "https://bsky.app/profile/jbuget.fr"
-      },
-      {
-        "network": "GiHub",
-        "username": "jbuget",
-        "url": "https://github.com/jbuget"
       }
     ]
   },

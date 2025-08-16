@@ -6,7 +6,7 @@
     "image": "",
     "email": "contact@jbuget.fr",
     "url": "https://jbuget.fr",
-    "summary": "CTO. Builder. Leader. Speaker. Writer. Father.",
+    "summary": "CTO & technical co-founder with 20+ years of experience leading engineering teams and building large-scale digital platforms for the public and private sectors. I thrive at the crossroads of technology, strategy, and people: structuring organizations, scaling product teams, and creating resilient architectures. From launching and growing Pix, the national platform for digital skills, to steering La Plateforme de l’inclusion as CTO, I’ve consistently delivered impactful services at national scale, balancing innovation, reliability, and cybersecurity. Passionate about engineering culture and mentorship, I help teams grow, make bold technical choices, and turn vision into sustainable products that matter.",
     "location": {
       "countryCode": "FR",
       "address": "France"
@@ -18,6 +18,11 @@
         "url": "https://www.linkedin.com/in/jbuget/"
       },
       {
+        "network": "GiHub",
+        "username": "jbuget",
+        "url": "https://github.com/jbuget"
+      },
+      {
         "network": "CodinGame",
         "username": "jbuget",
         "url": "https://www.codingame.com/profile/8380d1e36b678496bb5742cafa095f3c8437914"
@@ -26,11 +31,6 @@
         "network": "Bluesky",
         "username": "jbuget",
         "url": "https://bsky.app/profile/jbuget.fr"
-      },
-      {
-        "network": "GiHub",
-        "username": "jbuget",
-        "url": "https://github.com/jbuget"
       }
     ]
   },

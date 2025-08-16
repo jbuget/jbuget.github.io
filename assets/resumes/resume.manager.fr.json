@@ -6,7 +6,7 @@
     "image": "",
     "email": "contact@jbuget.fr",
     "url": "https://jbuget.fr",
-    "summary": "CTO. Coder. Streamer. Speaker. Writer. Papa pupuce.",
+    "summary": "CTO & cofondateur technique avec plus de 20 ans d’expérience dans la direction d’équipes d’ingénierie et la création de plateformes numériques à grande échelle, dans le public comme dans le privé. J’évolue à l’intersection de la technique, de la stratégie et de l’humain : structurer des organisations, faire grandir des équipes produit, concevoir des architectures robustes et sécurisées. De la création et du déploiement de Pix, service public national d’évaluation des compétences numériques, à la direction de La Plateforme de l’inclusion en tant que CTO, j’ai toujours eu à cœur de livrer des services à fort impact, conciliant innovation, fiabilité et cybersécurité. Passionné par la culture engineering et le mentoring, j’accompagne les équipes pour les aider à grandir, faire des choix techniques ambitieux et transformer une vision en produits durables qui comptent.",
     "location": {
       "countryCode": "FR",
       "address": "France"
@@ -18,6 +18,11 @@
         "url": "https://www.linkedin.com/in/jbuget/"
       },
       {
+        "network": "GiHub",
+        "username": "jbuget",
+        "url": "https://github.com/jbuget"
+      },
+      {
         "network": "CodinGame",
         "username": "jbuget",
         "url": "https://www.codingame.com/profile/8380d1e36b678496bb5742cafa095f3c8437914"
@@ -26,11 +31,6 @@
         "network": "Bluesky",
         "username": "jbuget",
         "url": "https://bsky.app/profile/jbuget.fr"
-      },
-      {
-        "network": "GiHub",
-        "username": "jbuget",
-        "url": "https://github.com/jbuget"
       }
     ]
   },
