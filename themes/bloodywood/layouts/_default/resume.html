@@ -1,8 +1,10 @@
 {{ define "main" }}
 <main role="main">
     <div class="container">
-        <h1>Curriculum vitae</h1>
-        {{ with .Site.Data.resume }} {{ with .basics }}
+        {{ $resume := resources.Get "resumes/resume.manager.fr.json" |
+        transform.Unmarshal }} {{ with $resume }} {{ with .basics }}
+
+        <h1>{{ .label }}</h1>
         <!-- En-tête avec informations personnelles -->
         <!-- <div class="row">
             <header class="resume-header">
