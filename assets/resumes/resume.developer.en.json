@@ -4,9 +4,9 @@
     "name": "Jérémy Buget",
     "label": "Principal / Staff Engineer – Full-stack & Architecture",
     "image": "",
-    "email": "jbuget@gmail.com",
+    "email": "contact@jbuget.fr",
     "url": "https://jbuget.fr",
-    "summary": "Ingénieur logiciel senior, passionné par le développement, l’architecture et le mentoring technique. 20+ ans d’expérience en back-end, front-end et infrastructure. Habitué à concevoir et livrer des applications web complexes, robustes et scalables, tout en accompagnant de près les équipes dans leurs choix techniques, leur organisation et leurs bonnes pratiques. À la recherche d’un poste opérationnel de Principal Engineer, Staff Engineer ou Engineering Manager hands-on.",
+    "summary": "Senior software engineer passionate about development, architecture, and technical mentoring. 20+ years of experience across back-end, front-end, and infrastructure. Skilled in designing and delivering complex, robust, and scalable web applications, while closely supporting teams in technical decision-making, organization, and best practices. Currently seeking a hands-on role as Principal Engineer, Staff Engineer, or Engineering Manager.",
     "location": {
       "countryCode": "FR",
       "address": "France"
@@ -35,80 +35,97 @@
       "position": "Principal Engineer / CTO",
       "startDate": "2022-05-01",
       "endDate": "2025-08-31",
-      "summary": "Pilotage et contribution directe à la conception, au développement et à la maintenance des services de la Plateforme (Python/Django, TypeScript/SvelteKit, PostgreSQL, Redis). Participation active au code sur plusieurs projets critiques (nouvelles features, migrations complexes, intégrations API, automatisations). Conception et mise en œuvre d’architectures scalables et sécurisées sur Scalingo/Clever Cloud/Scaleway. Mise en place d’outils DevOps et CI/CD, amélioration des performances, réduction de la dette technique, mise en place de tests automatisés. Mentoring technique rapproché des équipes (pair-programming, revues de code, accompagnement sur le design applicatif et les bonnes pratiques). Supervision des chantiers de cybersécurité (homologation RGS, outillage, sensibilisation).",
-      "highlights": [
-        "Contribution régulière au code (features, bugfix, refactoring)",
-        "Architecture et implémentation de nouvelles API et intégrations",
-        "Optimisation des performances back-end et front-end",
-        "Mise en place d’outillage DevOps et CI/CD",
-        "Mentoring technique de développeurs seniors et juniors"
-      ],
+      "location": "Paris, France",
       "url": "https://www.linkedin.com/company/inclusion-gouv/",
-      "location": "Paris, France"
+      "summary": "Led and contributed directly to the design, development, and maintenance of public service platforms (Python/Django, TypeScript/SvelteKit, PostgreSQL, Redis). Hands-on coding on critical projects (new features, complex migrations, API integrations, automation). Designed and deployed secure, scalable architectures on Scalingo, Clever Cloud, and Scaleway. Implemented DevOps tooling and CI/CD pipelines, improved performance, reduced technical debt, and introduced automated testing. Provided close technical mentoring to teams through pair programming, code reviews, application design guidance, and best practices.",
+      "highlights": [
+        "Regular code contributions (features, bug fixes, refactoring)",
+        "Designed and implemented new APIs and integrations",
+        "Optimized back-end and front-end performance",
+        "Set up DevOps tooling and CI/CD pipelines",
+        "Mentored senior and junior developers"
+      ]
     },
     {
       "name": "Pix",
       "position": "Co-founder & Lead Engineer / CTO",
       "startDate": "2016-06-01",
       "endDate": "2022-04-30",
-      "summary": "Co-fondateur et principal architecte technique de Pix. Développement intensif côté back-end (Node.js/Hapi.js, PostgreSQL, Redis) et front-end (Ember, Nuxt/Vue). Conception et mise en œuvre d’une architecture modulaire et hautement disponible, déploiement sur Scalingo/AWS, mise en place de pipelines CI/CD et automatisations. Supervision et participation aux développements sur des sujets critiques (sécurité, performance, accessibilité, interopérabilité). Encadrement technique des équipes produit : coaching, revues de code, accompagnement sur l’architecture et la qualité logicielle.",
-      "highlights": [
-        "Développement full-stack et mise en production de nouvelles fonctionnalités",
-        "Optimisation de la base de données PostgreSQL et tuning des requêtes",
-        "Intégrations API complexes et automatisations",
-        "Mise en place et évolution d’une architecture scalable",
-        "Encadrement et mentorat technique d’équipes pluridisciplinaires"
-      ],
+      "location": "Paris Region, France",
       "url": "https://www.linkedin.com/company/gip-pix/",
-      "location": "Région de Paris, France"
+      "summary": "Co-founder and principal technical architect of Pix, the French public platform for digital skills assessment and certification. Hands-on full-stack development: back-end (Node.js/Hapi.js, PostgreSQL, Redis) and front-end (Ember, Nuxt/Vue). Designed and implemented a modular, highly available architecture deployed on Scalingo and AWS, with CI/CD pipelines and automation. Supervised and contributed to critical developments (security, performance, accessibility, interoperability). Provided technical leadership and coaching for product teams, ensuring strong software architecture and code quality.",
+      "highlights": [
+        "Full-stack development and production deployment of new features",
+        "Optimized PostgreSQL database and tuned queries",
+        "Built complex API integrations and automation pipelines",
+        "Implemented and evolved scalable architecture",
+        "Coached and mentored multidisciplinary product teams"
+      ]
     },
     {
       "name": "OCTO Technology",
-      "position": "Leader de la tribu WEBF",
+      "position": "Tribe Leader – WEBF",
       "startDate": "2016-06-01",
       "endDate": "2017-12-31",
-      "summary": "Encadrement technique et développement d’applications web front-end complexes (Vue.js, Ember.js, Backbone.js). Mise en place de bonnes pratiques (TDD, CI/CD, DDD) et accompagnement d’équipes clientes.",
+      "location": "Paris Region, France",
       "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "summary": "Technical leadership and development of complex front-end web applications (Vue.js, Ember.js, Backbone.js). Introduced best practices (TDD, CI/CD, DDD) and supported client teams in adopting modern web development approaches."
     },
     {
       "name": "OCTO Technology",
-      "position": "Senior software engineer",
+      "position": "Senior Software Engineer",
       "startDate": "2013-02-01",
       "endDate": "2017-12-31",
-      "summary": "Lead dev et tech lead sur des projets web from scratch (Java, Node.js, PostgreSQL). Coaching agile et formation technique.",
+      "location": "Paris Region, France",
       "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "summary": "Tech lead and lead developer on several web projects built from scratch (Java, Node.js, PostgreSQL). Provided agile coaching and technical training."
     },
     {
       "name": "VISEO",
-      "position": "Software engineer & ScrumMaster",
+      "position": "Software Engineer & ScrumMaster",
       "startDate": "2010-03-01",
       "endDate": "2013-01-31",
-      "summary": "Développement Java et web, ScrumMaster et formateur interne.",
+      "location": "Paris / La Défense, France",
       "url": "https://www.linkedin.com/company/viseo/",
-      "location": "Paris / La Défense"
+      "summary": "Delivered Java and web projects, facilitated agile teams as ScrumMaster, and conducted internal training sessions."
     },
     {
       "name": "People in action",
-      "position": "Software engineer",
+      "position": "Software Engineer",
       "startDate": "2007-09-01",
       "endDate": "2010-02-28",
-      "summary": "Développement full-stack Java/J2EE, Flex/Air, MySQL, intégration continue.",
+      "location": "Paris, France",
       "url": "https://www.linkedin.com/company/people-in-action/",
-      "location": "Paris"
+      "summary": "Full-stack development with Java/J2EE, Flex/Air, MySQL, and continuous integration practices."
     }
   ],
   "skills": [
-    { "name": "Full-stack development", "keywords": ["Python", "Django", "Node.js", "TypeScript", "SvelteKit", "Vue.js", "Ember.js"] },
-    { "name": "Architecture logicielle", "keywords": ["API REST/GraphQL", "microservices", "scalabilité", "sécurité"] },
-    { "name": "Bases de données", "keywords": ["PostgreSQL", "Redis", "optimisation requêtes", "indexation"] },
-    { "name": "DevOps & CI/CD", "keywords": ["Scalingo", "Clever Cloud", "AWS", "Docker", "GitHub Actions", "Ansible"] },
-    { "name": "Tests & qualité", "keywords": ["TDD", "BDD", "tests unitaires et e2e", "revues de code"] },
-    { "name": "Mentoring & accompagnement technique" }
+    {
+      "name": "Full-stack Development",
+      "keywords": ["Python", "Django", "Node.js", "TypeScript", "SvelteKit", "Vue.js", "Ember.js"]
+    },
+    {
+      "name": "Software Architecture",
+      "keywords": ["REST/GraphQL APIs", "microservices", "scalability", "security"]
+    },
+    {
+      "name": "Databases",
+      "keywords": ["PostgreSQL", "Redis", "query optimization", "indexing"]
+    },
+    {
+      "name": "DevOps & CI/CD",
+      "keywords": ["Scalingo", "Clever Cloud", "AWS", "Docker", "GitHub Actions", "Ansible"]
+    },
+    {
+      "name": "Testing & Quality",
+      "keywords": ["TDD", "BDD", "unit & e2e testing", "code reviews"]
+    },
+    {
+      "name": "Mentoring & Technical Coaching"
+    }
   ],
   "languages": [
-    { "language": "fr", "fluency": "Native Speaker" },
-    { "language": "en", "fluency": "Professional working proficiency" }
+    { "language": "French", "fluency": "Native Speaker" },
+    { "language": "English", "fluency": "Professional Working Proficiency" }
   ]
 }
