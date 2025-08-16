@@ -175,44 +175,6 @@
                 </div>
             </section>
         </div>
-        {{ end }}
-
-        <!-- Projets -->
-        {{ if .projects }}
-        <div class="row">
-            <section class="resume-section">
-                <h2>Projets</h2>
-                {{ range .projects }}
-                <article class="project-item">
-                    <header>
-                        <h4>{{ .name }}</h4>
-                        {{ if .startDate }}
-                        <time class="date">
-                            {{ .startDate | dateFormat "2006" }}{{ if .endDate
-                            }} - {{ .endDate | dateFormat "2006" }}{{ end }}
-                        </time>
-                        {{ end }}
-                    </header>
-                    {{ if .summary }}
-                    <p class="project-description">
-                        {{ .summary | markdownify }}
-                    </p>
-                    {{ end }} {{ if .url }}
-                    <footer>
-                        <a
-                            href="{{ .url }}"
-                            target="_blank"
-                            rel="noopener"
-                            class="project-link"
-                        >
-                            🔗 Voir le projet
-                        </a>
-                    </footer>
-                    {{ end }}
-                </article>
-                {{ end }}
-            </section>
-        </div>
         {{ end }} {{ end }}
 
         <!-- Action buttons -->
