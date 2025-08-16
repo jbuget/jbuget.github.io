@@ -4,18 +4,18 @@ resumes:
     fr:
       title: "Version française 🇫🇷"
       description: "Version française du CV orientation management"
-      url: "/resume/"
+      url: "/resume/manager/fr"
     en:
       title: "English version 🇬🇧"
       description: "English version of management-focused resume"
-      url: "/en/resume/"
+      url: "/resume/manager/en"
   - type: "developer"
     title: "Principal engineer / Staff engineer / Senior software engineer"
     fr:
       title: "Version française 🇫🇷"
       description: "Version française du CV orientation développement"
-      url: "/resume/developer/"
+      url: "/resume/developer/fr"
     en:
       title: "English version 🇬🇧"
       description: "English version of development-focused resume"
-      url: "/en/resume/developer/"
+      url: "/resume/developer/en"

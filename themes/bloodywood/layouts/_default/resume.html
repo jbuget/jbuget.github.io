@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main role="main">
     <div class="container">
-        {{ $resume := resources.Get "resumes/resume.manager.fr.json" |
-        transform.Unmarshal }} {{ with $resume }} {{ with .basics }}
+        {{ $resume := resources.Get .Params.resume_file | transform.Unmarshal }}
+        {{ with $resume }} {{ with .basics }}
 
         <h1>{{ .label }}</h1>
         <!-- En-tête avec informations personnelles -->
