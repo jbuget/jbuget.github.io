@@ -132,6 +132,52 @@
 }
 
 /* --- */
+/* Profiles */
+/* --- */
+
+.profiles-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.profile {
+    width: 100%;
+}
+
+.profile-link {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid $grey2;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $blue1;
+        background-color: rgba($blue1, 0.05);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.profile-network {
+    font-weight: 600;
+    color: $grey8;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.profile-username {
+    color: $blue1;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+}
+
+/* --- */
 /* Summary Expandable */
 /* --- */
 

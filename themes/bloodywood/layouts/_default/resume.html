@@ -61,6 +61,45 @@
         </div>
         {{ end }}
 
+        <!-- Profils -->
+        {{ if .basics.profiles }}
+        <div class="row">
+            <section class="resume-section profiles">
+                <h2>Profils</h2>
+                <div class="profiles-container">
+                    {{ range .basics.profiles }}
+                    <div class="profile">
+                        {{ if .url }}
+                        <a
+                            href="{{ .url }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="profile-link"
+                        >
+                            <span class="profile-network">{{ .network }}</span>
+                            {{ if .username }}
+                            <span class="profile-username"
+                                >{{ .username }}</span
+                            >
+                            {{ end }}
+                        </a>
+                        {{ else }}
+                        <div class="profile-link">
+                            <span class="profile-network">{{ .network }}</span>
+                            {{ if .username }}
+                            <span class="profile-username"
+                                >{{ .username }}</span
+                            >
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </section>
+        </div>
+        {{ end }}
+
         <!-- Expérience professionnelle -->
         {{ if .work }}
         <div class="row">
