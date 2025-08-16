@@ -1,0 +1,39 @@
+{{ define "main" }}
+<main role="main">
+    <div class="container">
+        <h1 class="resumes__title">{{ .Title }}</h1>
+
+        {{ if .Content }}
+        <div class="resumes__description">{{ .Content }}</div>
+        {{ end }}
+
+        <div class="resumes">
+            {{ range .Site.Data.resumes.resumes }}
+            <div class="resume">
+                <div class="resume__title">{{ .title }}</div>
+
+                <div class="resume__versions">
+                    {{ if .fr }}
+                    <div class="resume__version">
+                        <div class="resume__version-title">
+                            <a href="{{ .fr.url }}" class="resume__link"
+                                >{{ .fr.title }}</a
+                            >
+                        </div>
+                    </div>
+                    {{ end }} {{ if .en }}
+                    <div class="resume__version">
+                        <div class="resume__version-title">
+                            <a href="{{ .en.url }}" class="resume__link"
+                                >{{ .en.title }}</a
+                            >
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</main>
+{{ end }}

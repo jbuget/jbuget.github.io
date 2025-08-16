@@ -1,0 +1,21 @@
+resumes:
+  - type: "manager"
+    title: "CTO / Head of engineering / Engineering manager"
+    fr:
+      title: "Version française 🇫🇷"
+      description: "Version française du CV orientation management"
+      url: "/resume/"
+    en:
+      title: "English version 🇬🇧"
+      description: "English version of management-focused resume"
+      url: "/en/resume/"
+  - type: "developer"
+    title: "Principal engineer / Staff engineer / Senior software engineer"
+    fr:
+      title: "Version française 🇫🇷"
+      description: "Version française du CV orientation développement"
+      url: "/resume/developer/"
+    en:
+      title: "English version 🇬🇧"
+      description: "English version of development-focused resume"
+      url: "/en/resume/developer/"
