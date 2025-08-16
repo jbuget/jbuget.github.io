@@ -51,6 +51,7 @@
         "Mise en œuvre d'une instance n8n et de workflows (métier, marketing, techniques, support, plateforme)",
         "Supervision et contribution au décommissionnement d'une application déployée sur plusieurs départements",
         "Migration et unification de plusieurs systèmes de messagerie d'entreprise (Mattermost, Discord) vers une solution unique (Slack)",
+        "Acquisition et mise en œuvre d'un domaine gouvernemental : inclusion.gouv.fr",
         "Mise en place de la suite Google Workspace à l'échelle de l'entreprise",
         "Migration et unification sur plusieurs produits vers une même suite de gestion d'envoi des emails / SMS (Brevo)",
         "Mise en place d’outillage DevOps et CI/CD (Git, Shell scripts, Sentry.io, Datadog, GitHub Actions)",
@@ -58,24 +59,31 @@
         "Recrutement, renfort et management de plusieurs équipes produit",
         "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
       ],
-      "url": "https://www.linkedin.com/company/inclusion-gouv/",
+      "url": "https://inclusion.gouv.fr",
       "location": "Paris, France"
     },
     {
       "name": "Pix",
-      "position": "Co-founder & Lead Engineer / CTO",
+      "position": "Co-founder & Principal Engineer / CTO",
       "startDate": "2016-06-01",
       "endDate": "2022-04-30",
-      "summary": "En tant que Co-fondateur, premier développeur puis CTO de Pix, j'ai contribué à concevoir, mettre en œuvre et déployer la plateforme au niveau national (France), puis francophone (Maghreb) et européen (Belgique). La solution a déjà été utilisée par +2M usagers qui ont ainsi pu évaluer, développer et certifier leurs compétences numériques (~150K visiteurs/jour).\n\nLes premières années ont consisté à poser les bases techniques (architecture clients-serveur *API-first*, mono-repo, Clean Architecture, infrastructure, pipelines CI/CD, outillage SRE / observability, web analytics, dispositifs et mesures de sécurité, tenue de charge et WebPerf, etc.). Puis est venu le temps du passage à l'échelle : recrutement, mentoring / coaching, management, splits / création d'équipes sur le modèle Team Topologies, animation de communautés de pratique. Jusqu'aux responsabilités plus stratégiques, de mise en conformité (RGPD, RGS, RGAA) ou de rayonnement de l'organisation (participation à des conférences tech, publication du [blog technique](https://engineering.pix.fr/), organisation d'évènements tech internes ou avec des partenaires).",
+      "summary": "En tant que Co-fondateur, premier développeur puis CTO de Pix, j'ai contribué à concevoir, mettre en œuvre et déployer la plateforme au niveau national (France), puis francophone (Maghreb) et européen (Belgique). La solution a déjà été utilisée par +2M usagers qui ont ainsi pu évaluer, développer et certifier leurs compétences numériques (~150K visiteurs/jour).\n\nLes premières années ont consisté à poser les bases techniques (architecture clients-serveur *API-first*, [mono-repo](https://github.com/1024pix/pix), Clean Architecture, infrastructure, pipelines CI/CD, outillage SRE / observability, web analytics, dispositifs et mesures de sécurité, tenue de charge et WebPerf, etc.). Puis est venu le temps du passage à l'échelle : recrutement, mentoring / coaching, management, splits / création d'équipes sur le modèle Team Topologies, animation de communautés de pratique. Jusqu'aux responsabilités plus stratégiques, de mise en conformité (RGPD, RGS, RGAA) ou de rayonnement de l'organisation (participation à des conférences tech, publication du [blog technique](https://engineering.pix.fr/), organisation d'évènements tech internes ou avec des partenaires).",
       "highlights": [
-        "Développement full-stack et mise en production de nouvelles fonctionnalités",
-        "Optimisation de la base de données PostgreSQL et tuning des requêtes",
-        "Intégrations API complexes et automatisations",
-        "Mise en place et évolution d’une architecture scalable",
-        "Encadrement et mentorat technique d’équipes pluridisciplinaires"
+        "Open labs réguliers les premiers mois pour évaluer les maquettes et premières versions (POC, MVP, MVF)",
+        "Initialisation de la stack et développement des premières briques : Pix App et Pix API",
+        "Développement full-stack et mise en production des modules et fonctionnalités principales",
+        "Optimisations régulières de la base de données PostgreSQL (tuning de requêtes ORM/SQL), des algorithmes, de l'architecture et de l'infrastructure pour tenir la charge grandissante ou les pics de trafics exceptionnels",
+        "Intégrations d'API, connecteurs et modules d'authentification tierces : EduConnect, PoleEmploiConnect, FranceConnect Agents",
+        "Mise en place d'outils, process et scripts SRE (observability, monitoring, alerting)",
+        "Recretement, encadrement, mentorat et management technique d’équipes pluridisciplinaires",
+        "Architecture et mise en œuvre de dispositifs techniques généraux : caches (plusieurs niveaux), sécurité, WAF, accessibilité",
+        "Manipulation de l'arthitecture applicative pour en extraire et permettre une meilleure évolutivité des modules clés : Pix Orga, Pix Certif, Pix Editor, Pix Accounts, Pix Data, etc.",
+        "Diverses missions et activités plus stratégiques, administratives ou de rayonnement",
+        "Mise en place de tout l'outillage de productivité des différents services : suite bureautique (Google Workspace), suite documentaire collaborative (Confluence), messagerie d'entreprise connectée à tout l'outillage technique (Slack + custom apps + webhooks), suite d'outils UX/UI, etc.", 
+        "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
       ],
-      "url": "https://www.linkedin.com/company/gip-pix/",
-      "location": "Région de Paris, France"
+      "url": "https://pix.fr",
+      "location": "Paris, France"
     },
     {
       "name": "OCTO Technology",
