@@ -19,6 +19,33 @@
 }
 
 /* --- */
+/* Breadcrumb */
+/* --- */
+
+.breadcrumb {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.breadcrumb-text {
+    color: $grey8;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.breadcrumb-link {
+    color: $blue1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $grey8;
+        text-decoration: underline;
+    }
+}
+
+/* --- */
 /* Experience */
 /* --- */
 

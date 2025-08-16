@@ -1,6 +1,25 @@
 {{ define "main" }}
 <main role="main">
     <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            {{ $resumesData := index .Site.Data.resumes "resumes" }} {{
+            $currentType := "" }} {{ $currentLang := "" }} {{ if in
+            .RelPermalink "/developer/" }} {{ $currentType = "developer" }} {{
+            else if in .RelPermalink "/manager/" }} {{ $currentType = "manager"
+            }} {{ end }} {{ if in .RelPermalink "/fr" }} {{ $currentLang = "fr"
+            }} {{ else if in .RelPermalink "/en" }} {{ $currentLang = "en" }} {{
+            end }} {{ range $resumesData }} {{ if eq .type $currentType }} {{
+            $versionTitle := "" }} {{ if eq
+            $currentLang "fr" }} {{ $versionTitle = .fr.title }} {{ else if eq
+            $currentLang "en" }} {{ $versionTitle = .en.title }} {{ end }}
+
+            <span class="breadcrumb-text"
+                ><a href="/resumes/" class="breadcrumb-link">curriculum vitæ</a>
+                / {{ .type }} – {{ $versionTitle }}</span
+            ></span>
+            {{ end }} {{ end }}
+        </nav>
         {{ $resume := resources.Get .Params.resume_file | transform.Unmarshal }}
         {{ with $resume }} {{ with .basics }}
 
