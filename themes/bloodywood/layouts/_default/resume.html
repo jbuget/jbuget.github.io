@@ -96,20 +96,10 @@
                             class="profile-link"
                         >
                             <span class="profile-network">{{ .network }}</span>
-                            {{ if .username }}
-                            <span class="profile-username"
-                                >@{{ .username }}</span
-                            >
-                            {{ end }}
                         </a>
                         {{ else }}
                         <div class="profile-link">
                             <span class="profile-network">{{ .network }}</span>
-                            {{ if .username }}
-                            <span class="profile-username"
-                                >@{{ .username }}</span
-                            >
-                            {{ end }}
                         </div>
                         {{ end }}
                     </div>

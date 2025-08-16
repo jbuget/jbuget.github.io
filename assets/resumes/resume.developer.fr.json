@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jérémy Buget",
-    "label": "Principal / Staff Engineer – Full-stack & Architecture",
+    "label": "Principal / Staff / Senior software engineer",
     "image": "",
     "email": "contact@jbuget.fr",
     "url": "https://jbuget.fr",
@@ -16,6 +16,11 @@
         "network": "LinkedIn",
         "username": "jbuget",
         "url": "https://www.linkedin.com/in/jbuget/"
+      },
+      {
+        "network": "Malt",
+        "username": "jeremybuget",
+        "url": "https://www.malt.fr/profile/jeremybuget?overview"
       },
       {
         "network": "GiHub",
