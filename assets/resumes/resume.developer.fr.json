@@ -90,36 +90,70 @@
       "position": "Leader de la tribu WEBF",
       "startDate": "2016-06-01",
       "endDate": "2017-12-31",
-      "summary": "Encadrement technique et développement d’applications web front-end complexes (Vue.js, Ember.js, Backbone.js). Mise en place de bonnes pratiques (TDD, CI/CD, DDD) et accompagnement d’équipes clientes.",
+      "summary": "Au sein d'OCTO Technology, la tribu WEBF est dédiée au développement, au conseil, à la formation et à l'accompagnement à la mise en œuvre stratégique et opérationnelle d'applications Web front-end. J'ai intégré la tribu puis en ai pris le leadership suite au départ du fondateur principal et historique. En tant que Leader de tribu, j'ai contribué à son développement (passage de 6 consultants à 21 en 18 mois), participé activement à la veille technologique et à l'animation de la tribu, accompli un rôle d'encadrement technique et suis intervenu en mission en tant que développeur web front-end senior sur des application métier critiques complexes (Vue.js, Ember.js, Backbone.js, Java/J2E, Spring/Hibernates).",
       "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "location": "Région de Paris, France",
+      "highlights": [
+        "Création de projets de veilles ou pratiques internes : benchmark de différentes technologies SPA/MPA (Vue.js, React.js, Ember.js, Elm), Job board interne, boussoles des frameworks et technologies JS",
+        "Tenue d'une veille technique et méthodologique active partagée à l'ensemble de l'organisation, nos partenaires et nos clients",
+        "Création d'une offre de service complète : « conseiller, réaliser, éclairer et former aux technologies Web front-end »",
+        "Publication d'articles techniques et retours d'expérience sur le blog d'OCTO Technology", 
+        "Participation active au programme OCTO Skool, avec la création et l'animation d'une formation autour du langage JavaScript, son écosystème et les bonnes pratiques à l'état de l'art",
+        "Management, coaching et mentoring des collaborateurs membres de la tribu"
+      ]
     },
     {
       "name": "OCTO Technology",
       "position": "Senior software engineer",
       "startDate": "2013-02-01",
       "endDate": "2017-12-31",
-      "summary": "Lead dev et tech lead sur des projets web from scratch (Java, Node.js, PostgreSQL). Coaching agile et formation technique.",
-      "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "summary": "En tant que consultant senior chez OCTO Technology – cabinet de conseil et réalisation – j'ai été amené à réaliser tout types de mmissions, allant du leadership technique (tech lead sur plusieurs projets), à l'expertise avancée (tests end-to-end ou de charge / perf), en passant par des missions de R&D ou de conseil (études préalable, dossiers de cadrage, audit technique dans le cadre de due deal, etc.). J'ai aussi été amené à contribuer à la vie interne de l'entreprise (animation d'ateliers, de formations ou partage de REX) et à intervenir en avant-vente (cadrage / chiffrage, entretiens short list lors d'appels d'offre ou en avant-vente).",
+      "url": "https://octo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement d’une plateforme de Startup d’État (cf. expérience « CTO Pix » ci-dessus)",
+        "Cadrage foncionnel et technique puis réalisation / tech leading de la refonte complète du site de billeterie de Roland-Garros",
+        "Développement d’une plateforme numérique innovante de produits d’assurance premium / Lean Startup *by the book*",
+        "Développement d’une plateforme de formulaire santé en ligne pour SwissLife",
+        "Audit logiciel (~5 millions de lignes de code) pour Allianz",
+        "Coaching d’une équipe projet chez CNP Assurances",
+        "Coaching agile de deux équipes projet chez TF1",
+        "Présentation « Initiation à WebAssembly »",
+        "Animation du séminaire d’introduction à l’agilité pour les nouveaux arrivants chez OCTO",
+        "Formation « Introduction aux bases de JavaScript pour les OCTO skoolers (nouveaux consultants juniors) »",
+        "Étude de l’état de l’art du développement Web pour Fortuneo",
+        "Animation d'une formation interne sur le framework Spring"
+      ]
     },
     {
-      "name": "VISEO",
+      "name": "Objet Direct, racheté par VISEO",
       "position": "Software engineer & ScrumMaster",
       "startDate": "2010-03-01",
       "endDate": "2013-01-31",
-      "summary": "Développement Java et web, ScrumMaster et formateur interne.",
-      "url": "https://www.linkedin.com/company/viseo/",
-      "location": "Paris / La Défense"
+      "summary": "En tant que consultant confirmé pour Objet Direct, société de conseil dans le numérique (ESN), puis de VISEO suite à l'acquisition de la première par la deuxième, j'ai participé au développement de plusieurs applications métier  Java/J2E et web. J'ai aussi été amené à assumer des rôles et missions de ScrumMaster et formateur interne.",
+      "url": "https://www.viseo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une application de vidéo-surveillance via Internet/Mobile (avant l'arrivée de l'iPhone)",
+        "Développement full-stack d'une plateforme vitrine de produits financier, multi-domaines, multi-pays (FR, EN, DE, ES, IT)",
+        "Participation à plusieurs missions d'avant-vente",
+        "Création et animation de formations internes sur Hibernate et Spring framework"
+      ]
     },
     {
       "name": "People in action",
       "position": "Software engineer",
       "startDate": "2007-09-01",
       "endDate": "2010-02-28",
-      "summary": "Développement full-stack Java/J2EE, Flex/Air, MySQL, intégration continue.",
+      "summary": "En tant que stagiaire puis ingénieur logiciel junior au sein de cette petite structure (20+ personnes), j'ai été amené à participer au développement de plusieurs applications full-stack Java/J2EE, Flex/Air et MySQL",
       "url": "https://www.linkedin.com/company/people-in-action/",
-      "location": "Paris"
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une plateforme internationale de suivi de la performance et des indicateurs clé pour l'institut allemand d'études de marché GFK",
+        "Développement full-stack d'une application middle-office en milieu bancaire pour Rotschild",
+        "Développement full-stack d'une application interne de gestion du temps (CRA)",
+        "Développement d'un artefact boilerplate pour boostrapper rapidement des projets Java/J2E + Flex/Air/ActionScript"
+      ]
     }
   ],
   "skills": [
