@@ -98,7 +98,7 @@
                             <span class="profile-network">{{ .network }}</span>
                             {{ if .username }}
                             <span class="profile-username"
-                                >{{ .username }}</span
+                                >@{{ .username }}</span
                             >
                             {{ end }}
                         </a>
@@ -107,7 +107,7 @@
                             <span class="profile-network">{{ .network }}</span>
                             {{ if .username }}
                             <span class="profile-username"
-                                >{{ .username }}</span
+                                >@{{ .username }}</span
                             >
                             {{ end }}
                         </div>
@@ -170,6 +170,7 @@
                         <div class="summary">{{ .summary | markdownify }}</div>
                     </div>
                     {{ end }} {{ if .highlights }}
+                    <h4>Réalisations et faits marquants :</h4>
                     <ul class="highlights">
                         {{ range .highlights }}
                         <li>{{ . | markdownify }}</li>

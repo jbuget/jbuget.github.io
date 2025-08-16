@@ -37,16 +37,26 @@
   "work": [
     {
       "name": "La Plateforme de l'inclusion",
-      "position": "Principal Engineer / CTO",
+      "position": "Principal Engineer / CTO hands-on de transition",
       "startDate": "2022-05-01",
       "endDate": "2025-08-31",
-      "summary": "Pilotage et contribution directe à la conception, au développement et à la maintenance des services de la Plateforme (Python/Django, TypeScript/SvelteKit, PostgreSQL, Redis). Participation active au code sur plusieurs projets critiques (nouvelles features, migrations complexes, intégrations API, automatisations). Conception et mise en œuvre d’architectures scalables et sécurisées sur Scalingo/Clever Cloud/Scaleway. Mise en place d’outils DevOps et CI/CD, amélioration des performances, réduction de la dette technique, mise en place de tests automatisés. Mentoring technique rapproché des équipes (pair-programming, revues de code, accompagnement sur le design applicatif et les bonnes pratiques). Supervision des chantiers de cybersécurité (homologation RGS, outillage, sensibilisation).",
+      "summary": "En tant que CTO de transition *hands-on*, j'ai œuvré à la consitution, la structuration et la pérennisation du groupement d'intérêt public Plateforme de l'inclusion. Ma mission a consisté principalement en la mise en place ou la migration sur un plan aussi opérationnel que stratégique, d'outils et briques techniques vers des solutions unifiées pour tous les produits ou projets (~12) internes ou publiques de la PDI, sur tout type de problématiques (métier, plateforme, productivité).\n\nDans ce cadre, j'ai été amené à très souvent mettre les mains dans le code, intervenir lors de réflexions techniques et participer au support pour le travail auquel j'ai contribué auprès des équipes / collaborateurs (~120) / partenaires / utilisateurs (100K visiteurs/jour).",
       "highlights": [
-        "Contribution régulière au code (features, bugfix, refactoring)",
-        "Architecture et implémentation de nouvelles API et intégrations",
-        "Optimisation des performances back-end et front-end",
-        "Mise en place d’outillage DevOps et CI/CD",
-        "Mentoring technique de développeurs seniors et juniors"
+        "Contribution régulière au [code](https://github.com/gip-inclusion) (features, bugfix, refactoring) sur plusieurs projets (Python / Django / FastAPI, Svelte / Sveltekit, JavaScript / Typescript / Node.js) en suivant les bonnes pratiques d'artisanat logiciel (DDD, TDD, pair/mob-programming, Extreme programming, etc.)",
+        "Architecture et implémentation de nouvelles API (REST, GraphQL) et intégrations (Webhooks, automations)",
+        "Optimisation des performances back-end, front-end, data (PotsgreSQL) et ressources machines (Linux / Docker)",
+        "Déploiement et passage à l'échelle d'une solution unique de web analytics (Matomo) auto-hébergée pour tous les produits au sein de l'organisation (1M events/jour)",
+        "Supervision et accompagnement à la migration d'infrastructure de plusieurs projets (depuis le SI Pôle emploi ou la Fabrique numérique des Ministères Sociaux vers Scalingo / Clever Cloud / Scaleway)",
+        "Mise en place, maintenance et suivi d'évolution de plusieurs instances Metabase",
+        "Mise en œuvre d'une instance n8n et de workflows (métier, marketing, techniques, support, plateforme)",
+        "Supervision et contribution au décommissionnement d'une application déployée sur plusieurs départements",
+        "Migration et unification de plusieurs systèmes de messagerie d'entreprise (Mattermost, Discord) vers une solution unique (Slack)",
+        "Mise en place de la suite Google Workspace à l'échelle de l'entreprise",
+        "Migration et unification sur plusieurs produits vers une même suite de gestion d'envoi des emails / SMS (Brevo)",
+        "Mise en place d’outillage DevOps et CI/CD (Git, Shell scripts, Sentry.io, Datadog, GitHub Actions)",
+        "Mentoring technique de développeurs seniors et juniors",
+        "Recrutement, renfort et management de plusieurs équipes produit",
+        "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
       ],
       "url": "https://www.linkedin.com/company/inclusion-gouv/",
       "location": "Paris, France"
@@ -56,7 +66,7 @@
       "position": "Co-founder & Lead Engineer / CTO",
       "startDate": "2016-06-01",
       "endDate": "2022-04-30",
-      "summary": "Co-fondateur et principal architecte technique de Pix. Développement intensif côté back-end (Node.js/Hapi.js, PostgreSQL, Redis) et front-end (Ember, Nuxt/Vue). Conception et mise en œuvre d’une architecture modulaire et hautement disponible, déploiement sur Scalingo/AWS, mise en place de pipelines CI/CD et automatisations. Supervision et participation aux développements sur des sujets critiques (sécurité, performance, accessibilité, interopérabilité). Encadrement technique des équipes produit : coaching, revues de code, accompagnement sur l’architecture et la qualité logicielle.",
+      "summary": "En tant que Co-fondateur, premier développeur puis CTO de Pix, j'ai contribué à concevoir, mettre en œuvre et déployer la plateforme au niveau national (France), puis francophone (Maghreb) et européen (Belgique). La solution a déjà été utilisée par +2M usagers qui ont ainsi pu évaluer, développer et certifier leurs compétences numériques (~150K visiteurs/jour).\n\nLes premières années ont consisté à poser les bases techniques (architecture clients-serveur *API-first*, mono-repo, Clean Architecture, infrastructure, pipelines CI/CD, outillage SRE / observability, web analytics, dispositifs et mesures de sécurité, tenue de charge et WebPerf, etc.). Puis est venu le temps du passage à l'échelle : recrutement, mentoring / coaching, management, splits / création d'équipes sur le modèle Team Topologies, animation de communautés de pratique. Jusqu'aux responsabilités plus stratégiques, de mise en conformité (RGPD, RGS, RGAA) ou de rayonnement de l'organisation (participation à des conférences tech, publication du [blog technique](https://engineering.pix.fr/), organisation d'évènements tech internes ou avec des partenaires).",
       "highlights": [
         "Développement full-stack et mise en production de nouvelles fonctionnalités",
         "Optimisation de la base de données PostgreSQL et tuning des requêtes",
@@ -105,11 +115,46 @@
     }
   ],
   "skills": [
-    { "name": "Full-stack development", "keywords": ["Python", "Django", "Node.js", "TypeScript", "SvelteKit", "Vue.js", "Ember.js"] },
-    { "name": "Architecture logicielle", "keywords": ["API REST/GraphQL", "microservices", "scalabilité", "sécurité"] },
-    { "name": "Bases de données", "keywords": ["PostgreSQL", "Redis", "optimisation requêtes", "indexation"] },
-    { "name": "DevOps & CI/CD", "keywords": ["Scalingo", "Clever Cloud", "AWS", "Docker", "GitHub Actions", "Ansible"] },
-    { "name": "Tests & qualité", "keywords": ["TDD", "BDD", "tests unitaires et e2e", "revues de code"] },
+    {
+      "name": "Full-stack development",
+      "keywords": [
+        "Python",
+        "Django",
+        "Node.js",
+        "TypeScript",
+        "SvelteKit",
+        "Vue.js",
+        "Ember.js"
+      ]
+    },
+    {
+      "name": "Architecture logicielle",
+      "keywords": [
+        "API REST/GraphQL",
+        "microservices",
+        "scalabilité",
+        "sécurité"
+      ]
+    },
+    {
+      "name": "Bases de données",
+      "keywords": ["PostgreSQL", "Redis", "optimisation requêtes", "indexation"]
+    },
+    {
+      "name": "DevOps & CI/CD",
+      "keywords": [
+        "Scalingo",
+        "Clever Cloud",
+        "AWS",
+        "Docker",
+        "GitHub Actions",
+        "Ansible"
+      ]
+    },
+    {
+      "name": "Tests & qualité",
+      "keywords": ["TDD", "BDD", "tests unitaires et e2e", "revues de code"]
+    },
     { "name": "Mentoring & accompagnement technique" }
   ],
   "languages": [
