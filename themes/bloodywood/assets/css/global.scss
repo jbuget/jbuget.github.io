@@ -1,81 +1,102 @@
 @import "colors";
 @import "themes";
 
-*, :after, :before {
-	box-sizing: border-box;
+*,
+:after,
+:before {
+    box-sizing: border-box;
 }
 
 html {
-	font-family: Nunito, sans-serif;
-	font-size: 18px;
-	background: var(--background-color);
-	color: var(--text-color);
-	overflow-wrap: anywhere;
+    font-family: Nunito, sans-serif;
+    font-size: 18px;
+    background: var(--background-color);
+    color: var(--text-color);
+    overflow-wrap: anywhere;
 }
 
 body {
-	margin: 0;
+    margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 1.5rem 0 1rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 1.5rem 0 1rem;
 
-	&:first-child {
-		margin-top: 0;
-	}
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
-p, ol, ul {
-	margin: 0 0 1.5rem;
+p,
+ol,
+ul {
+    margin: 0 0 1.5rem;
 
-	&:last-child {
-		margin-bottom: 0;
-	}
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 li {
-	margin-top: 0.3rem;
-	margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 pre {
-	overflow: auto;
+    overflow: auto;
 }
 
 blockquote {
-	background: var(--blockquote-background);
-	margin: 0 0 1rem;
-	padding: 1rem 1.5rem;
-	border-left: 3px solid #0594cb;
-	overflow: auto;
-	border-radius: 0.25rem;
+    background: var(--blockquote-background);
+    margin: 0 0 1rem;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid #0594cb;
+    overflow: auto;
+    border-radius: 0.25rem;
 }
 
 code {
-	display: inline-block;
-	padding: 0.1rem 0.3rem;
-	position: relative;
-	font-size: 0.85rem;
-	color: var(--code-color);
+    display: inline-block;
+    padding: 0.1rem 0.3rem;
+    position: relative;
+    font-size: 0.85rem;
+    color: var(--code-color);
 
-	&::before {
-		background: var(--code-before-background);
-		border-radius: 0.2rem;
-		border: 1px solid #{$grey2};
-		bottom: -0.1rem;
-		content: "";
-		left: 0;
-		position: absolute;
-		right: 0;
-		top: -0.1rem;
-		z-index: -1;
-	}
+    &::before {
+        background: var(--code-before-background);
+        border-radius: 0.2rem;
+        border: 1px solid #{$grey2};
+        bottom: -0.1rem;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -0.1rem;
+        z-index: -1;
+    }
 }
 
 a {
-	color: var(--link-color);
+    color: var(--link-color);
 }
 
 main {
-	padding: 2rem 0;
+    padding: 2rem 0;
+}
+
+/* --- */
+/* Print styles */
+/* --- */
+
+@media print {
+    .page-header nav,
+    #search,
+    footer {
+        display: none !important;
+    }
 }

@@ -112,7 +112,7 @@
         margin-bottom: 1rem;
         opacity: 1;
         max-height: 1000px;
-        
+
         h4 {
             margin-bottom: 0.75rem;
         }
@@ -271,4 +271,33 @@
     border-left: 3px solid $blue1;
     font-size: 1rem;
     line-height: 1.6;
+}
+
+/* --- */
+/* Print styles */
+/* --- */
+
+@media print {
+    .breadcrumb {
+        display: none;
+    }
+
+    .experience__toggle-link {
+        display: none;
+    }
+
+    .experience__highlights {
+        opacity: 1;
+        max-height: none;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        h4 {
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .resume-actions {
+        display: none;
+    }
 }
