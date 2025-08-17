@@ -161,14 +161,6 @@
                     </div>
                     {{ end }}
 
-                    {{ if index . "x-keywords" }}
-                    <div class="experience__keywords">
-                        {{ range index . "x-keywords" }}
-                        <span class="keyword-tag">{{ . }}</span>
-                        {{ end }}
-                    </div>
-                    {{ end }}
-
                     {{ if .highlights }}
                     <a href="#" class="experience__toggle-link" aria-expanded="false">
                         <span class="toggle-content">▸ Voir les réalisations marquantes</span>
@@ -185,6 +177,14 @@
                         </ul>
                     </div>
                     {{ end }}
+                    {{ if index . "x-keywords" }}
+                    <div class="experience__keywords">
+                        {{ range index . "x-keywords" }}
+                        <span class="keyword-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
                 </article>
                 {{ end }} {{ end }}
             </section>
@@ -241,7 +241,7 @@
                 {{ range .references }}
                 <article class="reference">
                     <div class="reference__content">
-                        <h3 class="reference__name">{{ .name }}</h3>
+                        <h4 class="reference__name">{{ .name }}</h4>
                         <blockquote class="reference__quote">
                             "{{ .reference }}"
                         </blockquote>
