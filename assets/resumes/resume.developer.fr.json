@@ -64,6 +64,33 @@
         "Recrutement, renfort et management de plusieurs équipes produit",
         "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
       ],
+      "x-keywords": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "Wagtail",
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "SvelteKit",
+        "Tailwind",
+        "PostgreSQL",
+        "Redis",
+        "Hasura",
+        "Grist",
+        "Docker",
+        "Scalingo",
+        "Clever Cloud",
+        "Scaleway",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "Bash",
+        "Unix"
+      ],
       "url": "https://inclusion.gouv.fr",
       "location": "Paris, France"
     },
@@ -84,8 +111,33 @@
         "Architecture et mise en œuvre de dispositifs techniques généraux : caches (plusieurs niveaux), sécurité, WAF, accessibilité",
         "Manipulation de l'arthitecture applicative pour en extraire et permettre une meilleure évolutivité des modules clés : Pix Orga, Pix Certif, Pix Editor, Pix Accounts, Pix Data, etc.",
         "Diverses missions et activités plus stratégiques, administratives ou de rayonnement",
-        "Mise en place de tout l'outillage de productivité des différents services : suite bureautique (Google Workspace), suite documentaire collaborative (Confluence), messagerie d'entreprise connectée à tout l'outillage technique (Slack + custom apps + webhooks), suite d'outils UX/UI, etc.", 
+        "Mise en place de tout l'outillage de productivité des différents services : suite bureautique (Google Workspace), suite documentaire collaborative (Confluence), messagerie d'entreprise connectée à tout l'outillage technique (Slack + custom apps + webhooks), suite d'outils UX/UI, etc.",
         "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Knex.js",
+        "Ember.js",
+        "Nuxt.js",
+        "Prismic",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "OVH",
+        "Scaleway",
+        "Airtable",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "CircleCI",
+        "Bash",
+        "Unix"
       ],
       "url": "https://pix.fr",
       "location": "Paris, France"
@@ -102,7 +154,7 @@
         "Création de projets de veilles ou pratiques internes : benchmark de différentes technologies SPA/MPA (Vue.js, React.js, Ember.js, Elm), Job board interne, boussoles des frameworks et technologies JS",
         "Tenue d'une veille technique et méthodologique active partagée à l'ensemble de l'organisation, nos partenaires et nos clients",
         "Création d'une offre de service complète : « conseiller, réaliser, éclairer et former aux technologies Web front-end »",
-        "Publication d'articles techniques et retours d'expérience sur le blog d'OCTO Technology", 
+        "Publication d'articles techniques et retours d'expérience sur le blog d'OCTO Technology",
         "Participation active au programme OCTO Skool, avec la création et l'animation d'une formation autour du langage JavaScript, son écosystème et les bonnes pratiques à l'état de l'art",
         "Management, coaching et mentoring des collaborateurs membres de la tribu"
       ]
@@ -128,6 +180,36 @@
         "Formation « Introduction aux bases de JavaScript pour les OCTO skoolers (nouveaux consultants juniors) »",
         "Étude de l’état de l’art du développement Web pour Fortuneo",
         "Animation d'une formation interne sur le framework Spring"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Backbone.js",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "Play Framework",
+        "PostgreSQL",
+        "SQL Server",
+        "MariaDB",
+        "Tomcat",
+        "WebLogic",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "ELK",
+        "OVH",
+        "Brevo",
+        "Sentry",
+        "Grafana",
+        "Jenkins",
+        "SonarQube",
+        "Artillery",
+        "Gatling",
+        "Bash",
+        "Unix"
       ]
     },
     {
@@ -143,6 +225,28 @@
         "Développement full-stack d'une plateforme vitrine de produits financier, multi-domaines, multi-pays (FR, EN, DE, ES, IT)",
         "Participation à plusieurs missions d'avant-vente",
         "Création et animation de formations internes sur Hibernate et Spring framework"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Angular",
+        "Apache Wicket",
+        "HippoCMS",
+        "C/C++",
+        "QT",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "OVH",
+        "Jenkins",
+        "SonarQube",
+        "Zabix",
+        "VMware",
+        "Bash",
+        "Unix"
       ]
     },
     {
@@ -158,6 +262,20 @@
         "Développement full-stack d'une application middle-office en milieu bancaire pour Rotschild",
         "Développement full-stack d'une application interne de gestion du temps (CRA)",
         "Développement d'un artefact boilerplate pour boostrapper rapidement des projets Java/J2E + Flex/Air/ActionScript"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Java/J2E",
+        "JSF",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "Jenkins",
+        "SonarQube",
+        "VMware",
+        "Bash",
+        "Unix"
       ]
     }
   ],
@@ -204,16 +322,20 @@
     },
     { "name": "Mentoring & accompagnement technique" }
   ],
-  "references": [{
+  "references": [
+    {
       "name": "Vincent Hardouin (Pix, 24/10/2023)",
       "reference": "J'ai travaillé avec Jérémy chez Pix. Je suis très impressionné par ses compétences et son professionnalisme. Dans les faits, Jérémy sait parfaitement comprendre un besoin utilisateur et trouver une solution adéquate, qu'elle nécessite du développement ou non.\n\nGrâce à ses différentes expériences, Jérémy a une bonne vision du développement logiciel : il sait mettre en place une architecture avec du sens et pérenne dans le temps. Il sait prendre des décisions et les argumenter.\n\nPour le développement, Jérémy sait manier ses outils, ce qui fait de lui une personne efficace (IDE, pratique de développement : TDD, BDD, archi hexagonale, clean archi, clean code, … ).\n\nEnfin, le travail de Jérémy est d'une très bonne qualité. Je suis très content d'avoir travaillé à ses côtés et je le recommande vivement à toute personne qui cherche un professionnel compétent et fiable."
-    }, {
+    },
+    {
       "name": "Guillaume Lagorce (Hey GUL, 10/03/2023)",
       "reference": "J'ai eu la chance de travailler avec Jérémy au sein de contextes variés, d'abord en tant que collègue chez Octo, puis en tant que partenaire (développeur freelance) au sein du GIP Pix dont Jérémy était le CTO.\n\nJ'ai pu à chaque fois bénéficier de ses nombreuses qualités et compétences : rigueur, bonne humeur, exigence et excellence.\n\nPlus que tout, j'ai apprécié la confiance et l'autonomie que Jérémy place en ses collègues / partenaires, participant à la création d'équipes réellement agiles.\n\nJérémy sait poser les bonnes questions, prendre du recul sur sa propre situation et solliciter les expertises de toutes et tous, quel que soit le parcours de chacune et chacun.\n\nSi vous cherchez un développeur expérimenté et si la qualité de votre produit est un impératif, ne cherchez plus : contactez Jérémy."
-    }, {
+    },
+    {
       "name": "Romain Detre (Baage, 28/02/2023)",
       "reference": "Jeremy intervient régulièrement pour nous en tant qu'expert technique. Nous le recommandons vivement. Il est très à l'écoute.\n\nSon sens de l'analyse et ses actions en découlant sont à chaque fois très pertinentes et structurées.\n\nUn réel plaisir de travailler avec ce grand professionnel, qui a le goût du travail bien fait et aime faire partager sa passion."
-    }],
+    }
+  ],
   "languages": [
     { "language": "fr", "fluency": "Native Speaker" },
     { "language": "en", "fluency": "Professional working proficiency" }
