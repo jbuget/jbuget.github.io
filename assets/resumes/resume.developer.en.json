@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jérémy Buget",
-    "label": "Principal / Staff Engineer – Full-stack & Architecture",
+    "label": "Principal / Staff / Senior Software Engineer",
     "image": "",
     "email": "contact@jbuget.fr",
     "url": "https://jbuget.fr",
-    "summary": "Senior software engineer passionate about development, architecture, and technical mentoring. 20+ years of experience across back-end, front-end, and infrastructure. Skilled in designing and delivering complex, robust, and scalable web applications, while closely supporting teams in technical decision-making, organization, and best practices.",
+    "summary": "Senior software engineer, passionate about development, architecture, and technical mentoring. 20+ years of experience in back-end, front-end, and infrastructure. Used to designing and delivering complex, robust, and scalable web applications, while closely supporting teams in their technical decisions, organization, and best practices.",
     "location": {
       "countryCode": "FR",
       "address": "France"
@@ -42,100 +42,329 @@
   "work": [
     {
       "name": "La Plateforme de l'inclusion",
-      "position": "Principal Engineer / CTO",
+      "position": "Principal Engineer / CTO hands-on de transition",
       "startDate": "2022-05-01",
       "endDate": "2025-08-31",
-      "location": "Paris, France",
-      "url": "https://www.linkedin.com/company/inclusion-gouv/",
-      "summary": "Led and contributed directly to the design, development, and maintenance of public service platforms (Python/Django, TypeScript/SvelteKit, PostgreSQL, Redis). Hands-on coding on critical projects (new features, complex migrations, API integrations, automation). Designed and deployed secure, scalable architectures on Scalingo, Clever Cloud, and Scaleway. Implemented DevOps tooling and CI/CD pipelines, improved performance, reduced technical debt, and introduced automated testing. Provided close technical mentoring to teams through pair programming, code reviews, application design guidance, and best practices.",
+      "summary": "As a hands-on interim CTO, I worked on the creation, structuring, and long-term sustainability of the public interest group Plateforme de l'inclusion. My mission mainly consisted of setting up or migrating, both operationally and strategically, tools and technical components to unified solutions for all internal and public projects (~12) of the PDI, covering all types of challenges (business, platform, productivity).\n\nIn this context, I often got hands-on with the code, contributed to technical discussions, and supported the work delivered with teams (~120), partners, and users (100K visitors/day).",
       "highlights": [
-        "Regular code contributions (features, bug fixes, refactoring)",
-        "Designed and implemented new APIs and integrations",
-        "Optimized back-end and front-end performance",
-        "Set up DevOps tooling and CI/CD pipelines",
-        "Mentored senior and junior developers"
-      ]
+        "Contribution régulière au [code](https://github.com/gip-inclusion) (features, bugfix, refactoring) sur plusieurs projets (Python / Django / FastAPI, Svelte / Sveltekit, JavaScript / Typescript / Node.js) en suivant les bonnes pratiques d'artisanat logiciel (DDD, TDD, pair/mob-programming, Extreme programming, etc.)",
+        "Architecture et implémentation de nouvelles API (REST, GraphQL) et intégrations (Webhooks, automations)",
+        "Optimisation des performances back-end, front-end, data (PotsgreSQL) et ressources machines (Linux / Docker)",
+        "Déploiement et passage à l'échelle d'une solution unique de web analytics (Matomo) auto-hébergée pour tous les produits au sein de l'organisation (1M events/jour)",
+        "Supervision et accompagnement à la migration d'infrastructure de plusieurs projets (depuis le SI Pôle emploi ou la Fabrique numérique des Ministères Sociaux vers Scalingo / Clever Cloud / Scaleway)",
+        "Mise en place, maintenance et suivi d'évolution de plusieurs instances Metabase",
+        "Mise en œuvre d'une instance n8n et de workflows (métier, marketing, techniques, support, plateforme)",
+        "Supervision et contribution au décommissionnement d'une application déployée sur plusieurs départements",
+        "Migration et unification de plusieurs systèmes de messagerie d'entreprise (Mattermost, Discord) vers une solution unique (Slack)",
+        "Acquisition et mise en œuvre d'un domaine gouvernemental : inclusion.gouv.fr",
+        "Mise en place de la suite Google Workspace à l'échelle de l'entreprise",
+        "Migration et unification sur plusieurs produits vers une même suite de gestion d'envoi des emails / SMS (Brevo)",
+        "Mise en place d’outillage DevOps et CI/CD (Git, Shell scripts, Sentry.io, Datadog, GitHub Actions)",
+        "Mentoring technique de développeurs seniors et juniors",
+        "Recrutement, renfort et management de plusieurs équipes produit",
+        "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
+      ],
+      "x-keywords": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "Wagtail",
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "SvelteKit",
+        "Tailwind",
+        "PostgreSQL",
+        "Redis",
+        "Hasura",
+        "Grist",
+        "Docker",
+        "Scalingo",
+        "Clever Cloud",
+        "Scaleway",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "Git",
+        "GitHub",
+        "Bash",
+        "Unix"
+      ],
+      "url": "https://inclusion.gouv.fr",
+      "location": "Paris, France"
     },
     {
       "name": "Pix",
-      "position": "Co-founder & Lead Engineer / CTO",
+      "position": "Co-founder & Principal Engineer / CTO",
       "startDate": "2016-06-01",
       "endDate": "2022-04-30",
-      "location": "Paris Region, France",
-      "url": "https://www.linkedin.com/company/gip-pix/",
-      "summary": "Co-founder and principal technical architect of Pix, the French public platform for digital skills assessment and certification. Hands-on full-stack development: back-end (Node.js/Hapi.js, PostgreSQL, Redis) and front-end (Ember, Nuxt/Vue). Designed and implemented a modular, highly available architecture deployed on Scalingo and AWS, with CI/CD pipelines and automation. Supervised and contributed to critical developments (security, performance, accessibility, interoperability). Provided technical leadership and coaching for product teams, ensuring strong software architecture and code quality.",
+      "summary": "As co-founder, first developer, then CTO of Pix, I helped design, implement, and deploy the platform at the national level (France), then francophone (Maghreb) and European (Belgium). The solution has already been used by more than 2M users to assess, develop, and certify their digital skills (~150K visitors/day).\n\nThe early years were dedicated to laying the technical foundations (API-first client-server architecture, mono-repo, Clean Architecture, infrastructure, CI/CD pipelines, SRE/observability tooling, web analytics, security measures, performance, and scalability). Later, the focus shifted to scaling up: hiring, mentoring/coaching, management, team splits and creation based on the Team Topologies model, and building communities of practice. Responsibilities also expanded to compliance (GDPR, RGS, RGAA) and external visibility (tech conferences, publishing the tech blog, organizing events).",
       "highlights": [
-        "Full-stack development and production deployment of new features",
-        "Optimized PostgreSQL database and tuned queries",
-        "Built complex API integrations and automation pipelines",
-        "Implemented and evolved scalable architecture",
-        "Coached and mentored multidisciplinary product teams"
+        "Open labs réguliers les premiers mois pour évaluer les maquettes et premières versions (POC, MVP, MVF)",
+        "Initialisation de la stack et développement des premières briques : Pix App et Pix API",
+        "Développement full-stack et mise en production des modules et fonctionnalités principales",
+        "Optimisations régulières de la base de données PostgreSQL (tuning de requêtes ORM/SQL), des algorithmes, de l'architecture et de l'infrastructure pour tenir la charge grandissante ou les pics de trafics exceptionnels",
+        "Intégrations d'API, connecteurs et modules d'authentification tierces : EduConnect, PoleEmploiConnect, FranceConnect Agents",
+        "Mise en place d'outils, process et scripts SRE (observability, monitoring, alerting)",
+        "Recretement, encadrement, mentorat et management technique d’équipes pluridisciplinaires",
+        "Architecture et mise en œuvre de dispositifs techniques généraux : caches (plusieurs niveaux), sécurité, WAF, accessibilité",
+        "Manipulation de l'architecture applicative pour en extraire et permettre une meilleure évolutivité des modules clés : Pix Orga, Pix Certif, Pix Editor, Pix Accounts, Pix Data, etc.",
+        "Diverses missions et activités plus stratégiques, administratives ou de rayonnement",
+        "Mise en place de tout l'outillage de productivité des différents services : suite bureautique (Google Workspace), suite documentaire collaborative (Confluence), messagerie d'entreprise connectée à tout l'outillage technique (Slack + custom apps + webhooks), suite d'outils UX/UI, etc.",
+        "Animation et leadership de la communauté tech (devs, ops, data, engineers)"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Knex.js",
+        "Ember.js",
+        "Nuxt.js",
+        "Prismic",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "OVH",
+        "Scaleway",
+        "Airtable",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "CircleCI",
+        "Git",
+        "GitHub",
+        "Bash",
+        "Unix"
+      ],
+      "url": "https://pix.fr",
+      "location": "Paris, France"
+    },
+    {
+      "name": "OCTO Technology",
+      "position": "Leader de la tribu WEBF",
+      "startDate": "2016-06-01",
+      "endDate": "2017-12-31",
+      "summary": "Within OCTO Technology, the WEBF tribe was dedicated to development, consulting, training, and operational/strategic implementation of web front-end applications. I joined the tribe and later took over its leadership after the departure of its founder. As tribe leader, I contributed to its growth (from 6 to 21 consultants in 18 months), drove tech watch and knowledge sharing, provided technical leadership, and delivered as a senior front-end web developer on complex, business-critical applications.",
+      "url": "https://www.linkedin.com/company/octo-technology/",
+      "location": "Région de Paris, France",
+      "highlights": [
+        "Création de projets de veilles ou pratiques internes : benchmark de différentes technologies SPA/MPA (Vue.js, React.js, Ember.js, Elm), Job board interne, boussoles des frameworks et technologies JS",
+        "Tenue d'une veille technique et méthodologique active partagée à l'ensemble de l'organisation, nos partenaires et nos clients",
+        "Création d'une offre de service complète : « conseiller, réaliser, éclairer et former aux technologies Web front-end »",
+        "Publication d'articles techniques et retours d'expérience sur le blog d'OCTO Technology",
+        "Participation active au programme OCTO Skool, avec la création et l'animation d'une formation autour du langage JavaScript, son écosystème et les bonnes pratiques à l'état de l'art",
+        "Management, coaching et mentoring des collaborateurs membres de la tribu"
       ]
     },
     {
       "name": "OCTO Technology",
-      "position": "Tribe Leader – WEBF",
-      "startDate": "2016-06-01",
-      "endDate": "2017-12-31",
-      "location": "Paris Region, France",
-      "url": "https://www.linkedin.com/company/octo-technology/",
-      "summary": "Technical leadership and development of complex front-end web applications (Vue.js, Ember.js, Backbone.js). Introduced best practices (TDD, CI/CD, DDD) and supported client teams in adopting modern web development approaches."
-    },
-    {
-      "name": "OCTO Technology",
-      "position": "Senior Software Engineer",
+      "position": "Senior software engineer",
       "startDate": "2013-02-01",
       "endDate": "2017-12-31",
-      "location": "Paris Region, France",
-      "url": "https://www.linkedin.com/company/octo-technology/",
-      "summary": "Tech lead and lead developer on several web projects built from scratch (Java, Node.js, PostgreSQL). Provided agile coaching and technical training."
+      "summary": "Within OCTO Technology, the WEBF tribe was dedicated to development, consulting, training, and operational/strategic implementation of web front-end applications. I joined the tribe and later took over its leadership after the departure of its founder. As tribe leader, I contributed to its growth (from 6 to 21 consultants in 18 months), drove tech watch and knowledge sharing, provided technical leadership, and delivered as a senior front-end web developer on complex, business-critical applications.",
+      "url": "https://octo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement d’une plateforme de Startup d’État (cf. expérience « CTO Pix » ci-dessus)",
+        "Cadrage foncionnel et technique puis réalisation / tech leading de la refonte complète du site de billeterie de Roland-Garros",
+        "Développement d’une plateforme numérique innovante de produits d’assurance premium / Lean Startup *by the book*",
+        "Développement d’une plateforme de formulaire santé en ligne pour SwissLife",
+        "Audit logiciel (~5 millions de lignes de code) pour Allianz",
+        "Coaching d’une équipe projet chez CNP Assurances",
+        "Coaching agile de deux équipes projet chez TF1",
+        "Présentation « Initiation à WebAssembly »",
+        "Animation du séminaire d’introduction à l’agilité pour les nouveaux arrivants chez OCTO",
+        "Formation « Introduction aux bases de JavaScript pour les OCTO skoolers (nouveaux consultants juniors) »",
+        "Étude de l’état de l’art du développement Web pour Fortuneo",
+        "Animation d'une formation interne sur le framework Spring"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Backbone.js",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "Play Framework",
+        "PostgreSQL",
+        "SQL Server",
+        "MariaDB",
+        "Tomcat",
+        "WebLogic",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "ELK",
+        "OVH",
+        "Brevo",
+        "Sentry",
+        "Grafana",
+        "Jenkins",
+        "SonarQube",
+        "Artillery",
+        "Gatling",
+        "Git",
+        "GitHub",
+        "Bash",
+        "Unix"
+      ]
     },
     {
-      "name": "VISEO",
-      "position": "Software Engineer & ScrumMaster",
+      "name": "Objet Direct, racheté par VISEO",
+      "position": "Software engineer & ScrumMaster",
       "startDate": "2010-03-01",
       "endDate": "2013-01-31",
-      "location": "Paris / La Défense, France",
-      "url": "https://www.linkedin.com/company/viseo/",
-      "summary": "Delivered Java and web projects, facilitated agile teams as ScrumMaster, and conducted internal training sessions."
+      "summary": "As a consultant for Objet Direct, a digital consulting company (ESN), later acquired by VISEO, I participated in the development of several Java/J2E and web business applications. I also took on ScrumMaster and internal trainer roles.",
+      "url": "https://www.viseo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une application de vidéo-surveillance via Internet/Mobile (avant l'arrivée de l'iPhone)",
+        "Développement full-stack d'une plateforme vitrine de produits financier, multi-domaines, multi-pays (FR, EN, DE, ES, IT)",
+        "Participation à plusieurs missions d'avant-vente",
+        "Création et animation de formations internes sur Hibernate et Spring framework"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Angular",
+        "Apache Wicket",
+        "HippoCMS",
+        "C/C++",
+        "QT",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "OVH",
+        "Jenkins",
+        "SonarQube",
+        "Zabix",
+        "VMware",
+        "Git",
+        "SVN",
+        "Bash",
+        "Unix"
+      ]
     },
     {
       "name": "People in action",
-      "position": "Software Engineer",
+      "position": "Software engineer",
       "startDate": "2007-09-01",
       "endDate": "2010-02-28",
-      "location": "Paris, France",
+      "summary": "As an intern and then junior software engineer within this small company (20+ employees), I contributed to the development of several full-stack Java/J2EE, Flex/Air, and MySQL applications.",
       "url": "https://www.linkedin.com/company/people-in-action/",
-      "summary": "Full-stack development with Java/J2EE, Flex/Air, MySQL, and continuous integration practices."
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une plateforme internationale de suivi de la performance et des indicateurs clé pour l'institut allemand d'études de marché GFK",
+        "Développement full-stack d'une application middle-office en milieu bancaire pour Rotschild",
+        "Développement full-stack d'une application interne de gestion du temps (CRA)",
+        "Développement d'un artefact boilerplate pour boostrapper rapidement des projets Java/J2E + Flex/Air/ActionScript"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Java/J2E",
+        "JSF",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "Jenkins",
+        "SonarQube",
+        "VMware",
+        "SVN",
+        "Bash",
+        "Unix"
+      ]
     }
   ],
   "skills": [
     {
-      "name": "Full-stack Development",
-      "keywords": ["Python", "Django", "Node.js", "TypeScript", "SvelteKit", "Vue.js", "Ember.js"]
+      "name": "Full-stack development",
+      "keywords": [
+        "Python",
+        "Django",
+        "Node.js",
+        "TypeScript",
+        "SvelteKit",
+        "Vue.js",
+        "Ember.js"
+      ]
     },
     {
       "name": "Software Architecture",
-      "keywords": ["REST/GraphQL APIs", "microservices", "scalability", "security"]
+      "keywords": [
+        "REST/GraphQL APIs",
+        "microservices",
+        "scalability",
+        "security"
+      ]
     },
     {
       "name": "Databases",
-      "keywords": ["PostgreSQL", "Redis", "query optimization", "indexing"]
+      "keywords": [
+        "PostgreSQL",
+        "Redis",
+        "query optimization",
+        "indexing"
+      ]
     },
     {
       "name": "DevOps & CI/CD",
-      "keywords": ["Scalingo", "Clever Cloud", "AWS", "Docker", "GitHub Actions", "Ansible"]
+      "keywords": [
+        "Scalingo",
+        "Clever Cloud",
+        "AWS",
+        "Docker",
+        "GitHub Actions",
+        "Ansible"
+      ]
     },
     {
       "name": "Testing & Quality",
-      "keywords": ["TDD", "BDD", "unit & e2e testing", "code reviews"]
+      "keywords": [
+        "TDD",
+        "BDD",
+        "unit and e2e testing",
+        "code reviews"
+      ]
     },
     {
-      "name": "Mentoring & Technical Coaching"
+      "name": "Mentoring & Technical Guidance"
+    }
+  ],
+  "references": [
+    {
+      "name": "Vincent Hardouin (Pix, 24/10/2023)",
+      "reference": "I worked with Jérémy at Pix. I was very impressed by his skills and professionalism. Jérémy perfectly understands user needs and finds the right solution, whether it requires development or not.\n\nThanks to his diverse experiences, Jérémy has a solid vision of software development: he knows how to design meaningful and sustainable architectures and can make and explain decisions clearly.\n\nAs for development, Jérémy masters his tools, making him very effective (IDE, development practices: TDD, BDD, hexagonal architecture, clean architecture, clean code, etc.).\n\nFinally, Jérémy’s work is of excellent quality. I am very happy to have worked alongside him and strongly recommend him to anyone looking for a competent and reliable professional."
+    },
+    {
+      "name": "Guillaume Lagorce (Hey GUL, 10/03/2023)",
+      "reference": "I had the chance to work with Jérémy in various contexts, first as a colleague at Octo, then as a partner (freelance developer) within GIP Pix where Jérémy was CTO.\n\nEach time, I benefited from his many qualities: rigor, good humor, high standards, and excellence.\n\nMost of all, I appreciated the trust and autonomy Jérémy gives his colleagues and partners, helping create truly agile teams.\n\nHe knows how to ask the right questions, take a step back, and seek expertise from everyone, regardless of background.\n\nIf you are looking for an experienced developer and product quality is a must, look no further: contact Jérémy."
+    },
+    {
+      "name": "Romain Detre (Baage, 28/02/2023)",
+      "reference": "Jérémy regularly works with us as a technical expert. We highly recommend him. He is very attentive.\n\nHis analytical skills and actions are always relevant and structured.\n\nA real pleasure to work with such a professional, who values quality work and enjoys sharing his passion."
     }
   ],
   "languages": [
-    { "language": "French", "fluency": "Native Speaker" },
-    { "language": "English", "fluency": "Professional Working Proficiency" }
+    {
+      "language": "French",
+      "fluency": "Native Speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Professional working proficiency"
+    }
   ]
 }
