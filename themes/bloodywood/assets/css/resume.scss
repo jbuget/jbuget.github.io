@@ -184,3 +184,35 @@
     font-family: "JetBrains Mono", monospace;
     font-size: 0.85rem;
 }
+
+/* --- */
+/* References */
+/* --- */
+
+.reference {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+    &:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+}
+
+.reference__name {
+    margin-bottom: 0.5rem;
+    color: $grey8;
+    font-size: 1.1rem;
+}
+
+.reference__quote {
+    font-style: italic;
+    color: $grey8;
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 3px solid $blue1;
+    font-size: 1rem;
+    line-height: 1.6;
+}

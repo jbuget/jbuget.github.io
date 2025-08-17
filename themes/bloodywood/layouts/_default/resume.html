@@ -213,7 +213,28 @@
                 </div>
             </section>
         </div>
-        {{ end }} {{ end }}
+        {{ end }}
+
+        <!-- Références -->
+        {{ if .references }}
+        <div class="row">
+            <section class="resume-section references">
+                <h2>Références</h2>
+                {{ range .references }}
+                <article class="reference">
+                    <div class="reference__content">
+                        <h3 class="reference__name">{{ .name }}</h3>
+                        <blockquote class="reference__quote">
+                            "{{ .reference }}"
+                        </blockquote>
+                    </div>
+                </article>
+                {{ end }}
+            </section>
+        </div>
+        {{ end }}
+
+        {{ end }}
 
         <!-- Action buttons -->
         <div class="row">

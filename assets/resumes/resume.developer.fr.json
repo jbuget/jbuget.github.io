@@ -204,6 +204,16 @@
     },
     { "name": "Mentoring & accompagnement technique" }
   ],
+  "references": [{
+      "name": "Vincent Hardouin (Pix, 24/10/2023)",
+      "reference": "J'ai travaillé avec Jérémy chez Pix. Je suis très impressionné par ses compétences et son professionnalisme. Dans les faits, Jérémy sait parfaitement comprendre un besoin utilisateur et trouver une solution adéquate, qu'elle nécessite du développement ou non.\n\nGrâce à ses différentes expériences, Jérémy a une bonne vision du développement logiciel : il sait mettre en place une architecture avec du sens et pérenne dans le temps. Il sait prendre des décisions et les argumenter.\n\nPour le développement, Jérémy sait manier ses outils, ce qui fait de lui une personne efficace (IDE, pratique de développement : TDD, BDD, archi hexagonale, clean archi, clean code, … ).\n\nEnfin, le travail de Jérémy est d'une très bonne qualité. Je suis très content d'avoir travaillé à ses côtés et je le recommande vivement à toute personne qui cherche un professionnel compétent et fiable."
+    }, {
+      "name": "Guillaume Lagorce (Hey GUL, 10/03/2023)",
+      "reference": "J'ai eu la chance de travailler avec Jérémy au sein de contextes variés, d'abord en tant que collègue chez Octo, puis en tant que partenaire (développeur freelance) au sein du GIP Pix dont Jérémy était le CTO.\n\nJ'ai pu à chaque fois bénéficier de ses nombreuses qualités et compétences : rigueur, bonne humeur, exigence et excellence.\n\nPlus que tout, j'ai apprécié la confiance et l'autonomie que Jérémy place en ses collègues / partenaires, participant à la création d'équipes réellement agiles.\n\nJérémy sait poser les bonnes questions, prendre du recul sur sa propre situation et solliciter les expertises de toutes et tous, quel que soit le parcours de chacune et chacun.\n\nSi vous cherchez un développeur expérimenté et si la qualité de votre produit est un impératif, ne cherchez plus : contactez Jérémy."
+    }, {
+      "name": "Romain Detre (Baage, 28/02/2023)",
+      "reference": "Jeremy intervient régulièrement pour nous en tant qu'expert technique. Nous le recommandons vivement. Il est très à l'écoute.\n\nSon sens de l'analyse et ses actions en découlant sont à chaque fois très pertinentes et structurées.\n\nUn réel plaisir de travailler avec ce grand professionnel, qui a le goût du travail bien fait et aime faire partager sa passion."
+    }],
   "languages": [
     { "language": "fr", "fluency": "Native Speaker" },
     { "language": "en", "fluency": "Professional working proficiency" }
