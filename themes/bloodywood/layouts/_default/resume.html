@@ -159,13 +159,6 @@
                     <div class="summary-container">
                         <div class="summary">{{ .summary | markdownify }}</div>
                     </div>
-                    {{ end }} {{ if .highlights }}
-                    <h4>Réalisations marquantes :</h4>
-                    <ul class="highlights">
-                        {{ range .highlights }}
-                        <li>{{ . | markdownify }}</li>
-                        {{ end }}
-                    </ul>
                     {{ end }}
 
                     {{ if index . "x-keywords" }}
@@ -173,6 +166,23 @@
                         {{ range index . "x-keywords" }}
                         <span class="keyword-tag">{{ . }}</span>
                         {{ end }}
+                    </div>
+                    {{ end }}
+
+                    {{ if .highlights }}
+                    <a href="#" class="experience__toggle-link" aria-expanded="false">
+                        <span class="toggle-content">▸ Voir les réalisations marquantes</span>
+                    </a>
+                    {{ end }}
+
+                    {{ if .highlights }}
+                    <div class="experience__highlights">
+                        <h4>Réalisations marquantes :</h4>
+                        <ul class="highlights">
+                            {{ range .highlights }}
+                            <li>{{ . | markdownify }}</li>
+                            {{ end }}
+                        </ul>
                     </div>
                     {{ end }}
                 </article>
@@ -297,6 +307,28 @@
                 const duration = calculateDuration(startDate, endDate);
                 durationSpan.textContent = duration;
             }
+        });
+
+        // Handle experience toggle links
+        const toggleLinks = document.querySelectorAll(".experience__toggle-link");
+        toggleLinks.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const experience = link.closest(".experience");
+                const highlights = experience.querySelector(".experience__highlights");
+                const toggleContent = link.querySelector(".toggle-content");
+                const isExpanded = link.getAttribute("aria-expanded") === "true";
+
+                if (isExpanded) {
+                    highlights.classList.remove("expanded");
+                    link.setAttribute("aria-expanded", "false");
+                    toggleContent.textContent = "▸ Voir les réalisations marquantes";
+                } else {
+                    highlights.classList.add("expanded");
+                    link.setAttribute("aria-expanded", "true");
+                    toggleContent.textContent = "▾ Cacher les réalisations marquantes";
+                }
+            });
         });
     });
 </script>

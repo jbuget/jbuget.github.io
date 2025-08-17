@@ -77,8 +77,36 @@
     }
 }
 
+.experience__toggle-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: $orange1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $grey8;
+        text-decoration: underline;
+    }
+}
+
+.experience__highlights {
+    margin-top: 1rem;
+    overflow: hidden;
+    transition: all 0.7s ease;
+    opacity: 0;
+    max-height: 0;
+
+    &.expanded {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
 .experience__keywords {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
