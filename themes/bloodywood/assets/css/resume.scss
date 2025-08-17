@@ -22,9 +22,16 @@
 /* Breadcrumb */
 /* --- */
 
-.breadcrumb {
+.breadcrumb-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
+}
+
+.breadcrumb {
+    flex: 1;
 }
 
 .breadcrumb-text {
@@ -278,7 +285,7 @@
 /* --- */
 
 @media print {
-    .breadcrumb {
+    .breadcrumb-container {
         display: none;
     }
 
@@ -300,4 +307,12 @@
     .resume-actions {
         display: none;
     }
+}
+
+/* --- */
+/* Buttons */
+/* --- */
+
+.btn {
+    cursor: pointer;
 }
