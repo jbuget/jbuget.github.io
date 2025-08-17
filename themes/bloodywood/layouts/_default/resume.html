@@ -160,12 +160,20 @@
                         <div class="summary">{{ .summary | markdownify }}</div>
                     </div>
                     {{ end }} {{ if .highlights }}
-                    <h4>Réalisations et faits marquants :</h4>
+                    <h4>Réalisations marquantes :</h4>
                     <ul class="highlights">
                         {{ range .highlights }}
                         <li>{{ . | markdownify }}</li>
                         {{ end }}
                     </ul>
+                    {{ end }}
+
+                    {{ if index . "x-keywords" }}
+                    <div class="experience__keywords">
+                        {{ range index . "x-keywords" }}
+                        <span class="keyword-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
                     {{ end }}
                 </article>
                 {{ end }} {{ end }}

@@ -77,6 +77,23 @@
     }
 }
 
+.experience__keywords {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.keyword-tag {
+    background: rgba($blue1, 0.1);
+    color: $blue1;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    border: 1px solid rgba($blue1, 0.2);
+}
+
 /* --- */
 /* Education */
 /* --- */
@@ -110,15 +127,14 @@
 }
 
 .skill-tag {
-    background: $blue1;
-    color: white;
-    font-size: 0.9rem;
+    background: rgba($orange1, 0.1);
+    color: $orange1;
+    font-size: 0.75rem;
     font-weight: 500;
-    border: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    border: 1px solid rgba($orange1, 0.2);
     cursor: default;
-    border-radius: 5px;
-    color: $grey1;
-    padding: 0 0.5rem;
 }
 
 /* --- */

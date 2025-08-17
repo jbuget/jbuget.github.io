@@ -88,6 +88,8 @@
         "Brevo",
         "Sentry",
         "Datadog",
+        "Git",
+        "GitHub",
         "Bash",
         "Unix"
       ],
@@ -136,6 +138,8 @@
         "Sentry",
         "Datadog",
         "CircleCI",
+        "Git",
+        "GitHub",
         "Bash",
         "Unix"
       ],
@@ -208,6 +212,8 @@
         "SonarQube",
         "Artillery",
         "Gatling",
+        "Git",
+        "GitHub",
         "Bash",
         "Unix"
       ]
@@ -245,6 +251,8 @@
         "SonarQube",
         "Zabix",
         "VMware",
+        "Git",
+        "SVN",
         "Bash",
         "Unix"
       ]
@@ -274,6 +282,7 @@
         "Jenkins",
         "SonarQube",
         "VMware",
+        "SVN",
         "Bash",
         "Unix"
       ]
