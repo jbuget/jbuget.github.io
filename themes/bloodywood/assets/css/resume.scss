@@ -16,6 +16,8 @@
 
 .resume-section {
     margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $grey6;
 }
 
 /* --- */
@@ -57,7 +59,7 @@
 /* --- */
 
 .experience {
-    border-top: 1px solid $grey2;
+    border-top: 1px dotted $grey6;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-top: 1.5rem;
@@ -167,22 +169,74 @@
 /* Skills */
 /* --- */
 
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+.skills-groups-list {
     margin-top: 1.5rem;
 }
 
+.skill-group {
+    margin-bottom: 2rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.skill-group-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+}
+
+.skill-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
 .skill-tag {
-    background: rgba($orange1, 0.1);
-    color: $orange1;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    padding: 0.2rem 0.4rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 3px;
-    border: 1px solid rgba($orange1, 0.2);
     cursor: default;
+
+    // Group-specific colors
+    &.group-0 {
+        background: rgba($blue1, 0.1);
+        color: $blue1;
+        border: 1px solid rgba($blue1, 0.2);
+    }
+
+    &.group-1 {
+        background: rgba($orange1, 0.1);
+        color: $orange1;
+        border: 1px solid rgba($orange1, 0.2);
+    }
+
+    &.group-2 {
+        background: rgba(#28a745, 0.1);
+        color: #28a745;
+        border: 1px solid rgba(#28a745, 0.2);
+    }
+
+    &.group-3 {
+        background: rgba(#dc3545, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(#dc3545, 0.2);
+    }
+
+    &.group-4 {
+        background: rgba(#6f42c1, 0.1);
+        color: #6f42c1;
+        border: 1px solid rgba(#6f42c1, 0.2);
+    }
+
+    &.group-5 {
+        background: rgba(#fd7e14, 0.1);
+        color: #fd7e14;
+        border: 1px solid rgba(#fd7e14, 0.2);
+    }
 }
 
 /* --- */

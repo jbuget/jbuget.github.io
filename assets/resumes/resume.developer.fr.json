@@ -290,46 +290,105 @@
   ],
   "skills": [
     {
-      "name": "Full-stack development",
+      "name": "Technologies",
       "keywords": [
-        "Python",
-        "Django",
         "Node.js",
         "TypeScript",
+        "JavaScript",
+        "Express.js",
+        "Fastify",
+        "Prisma ORM",
+        "Knex.js",
+        "Java",
+        "Spring",
+        "Hibernate",
+        "Python",
+        "Django",
         "SvelteKit",
         "Vue.js",
-        "Ember.js"
+        "Ember.js",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Airtable",
+        "Grist"
       ]
     },
     {
       "name": "Architecture logicielle",
       "keywords": [
-        "API REST/GraphQL",
+        "API REST",
+        "GraphQL",
+        "Webhook",
+        "domain-driven architecture",
+        "clean/hexagonal architecture",
         "microservices",
         "scalabilité",
-        "sécurité"
+        "sécurité",
+        "Open API"
       ]
     },
     {
       "name": "Bases de données",
-      "keywords": ["PostgreSQL", "Redis", "optimisation requêtes", "indexation"]
+      "keywords": [
+        "SQL",
+        "PostgreSQL",
+        "Redis",
+        "modélisation",
+        "indexation",
+        "optimisation"
+      ]
     },
     {
       "name": "DevOps & CI/CD",
       "keywords": [
+        "Linux",
+        "Scripts Shell",
+        "Docker",
+        "sysadmin",
+        "DNS",
+        "CDN",
+        "WAF",
+        "SMTP",
         "Scalingo",
         "Clever Cloud",
+        "Scaleway",
+        "OVH",
         "AWS",
-        "Docker",
+        "CircleCI",
         "GitHub Actions",
-        "Ansible"
+        "Jenkins",
+        "Ansible",
+        "Sentry",
+        "Datadog",
+        "ELK"
       ]
     },
     {
       "name": "Tests & qualité",
-      "keywords": ["TDD", "BDD", "tests unitaires et e2e", "revues de code"]
+      "keywords": [
+        "TDD",
+        "BDD",
+        "tests unitaires",
+        "tests E2E",
+        "tests de charge/perf",
+        "pair/mob programming",
+        "revues de code",
+        "standards de code"
+      ]
     },
-    { "name": "Mentoring & accompagnement technique" }
+    { 
+      "name": "Gestion de projet / produit",
+      "keywords": [
+        "méthodes agiles",
+        "Extreme Programming",
+        "Lean",
+        "Kanban",
+        "Lean Startup",
+        "Scrum",
+        "ScrumMaster"
+      ]
+    }
   ],
   "references": [
     {

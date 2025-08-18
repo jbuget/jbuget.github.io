@@ -227,12 +227,19 @@
             <section class="resume-section skills">
                 <h2>Compétences</h2>
                 <div class="skills-container">
-                    <div class="skills-grid">
-                        {{ range .skills }} {{ if .name }}
-                        <span class="skill-tag" title="{{ .name }}"
-                            >{{ .name }}</span
-                        >
-                        {{ end }} {{ end }}
+                    <div class="skills-groups-list">
+                        {{ range $groupIndex, $skillGroup := .skills }}
+                        <div class="skill-group">
+                            <h4 class="skill-group-title">{{ $skillGroup.name }}</h4>
+                            {{ if $skillGroup.keywords }}
+                            <div class="skill-keywords">
+                                {{ range $skillGroup.keywords }}
+                                <span class="skill-tag group-{{ $groupIndex }}" title="{{ . }}">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
                     </div>
                 </div>
             </section>
