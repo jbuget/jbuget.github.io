@@ -127,58 +127,118 @@
   "publications": [],
   "skills": [
     {
-      "name": "Full-stack development",
+      "name": "Technologies",
       "keywords": [
-        "Python",
-        "Django",
         "Node.js",
         "TypeScript",
+        "JavaScript",
+        "Express.js",
+        "Fastify",
+        "Prisma ORM",
+        "Knex.js",
+        "Java",
+        "Spring",
+        "Hibernate",
+        "Python",
+        "Django",
         "SvelteKit",
         "Vue.js",
-        "Ember.js"
+        "Ember.js",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Airtable",
+        "Grist"
       ]
     },
     {
-      "name": "Software Architecture",
+      "name": "Architecture logicielle",
       "keywords": [
-        "REST/GraphQL APIs",
+        "API REST",
+        "GraphQL",
+        "Webhook",
+        "domain-driven architecture",
+        "clean/hexagonal architecture",
         "microservices",
-        "scalability",
-        "security"
+        "scalabilité",
+        "sécurité",
+        "Open API"
       ]
     },
     {
-      "name": "Databases",
-      "keywords": ["PostgreSQL", "Redis", "query optimization", "indexing"]
+      "name": "Bases de données",
+      "keywords": [
+        "SQL",
+        "PostgreSQL",
+        "Redis",
+        "modélisation",
+        "indexation",
+        "optimisation"
+      ]
     },
     {
       "name": "DevOps & CI/CD",
       "keywords": [
+        "Linux",
+        "Scripts Shell",
+        "Docker",
+        "sysadmin",
+        "DNS",
+        "CDN",
+        "WAF",
+        "SMTP",
         "Scalingo",
         "Clever Cloud",
+        "Scaleway",
+        "OVH",
         "AWS",
-        "Docker",
+        "CircleCI",
         "GitHub Actions",
-        "Ansible"
+        "Jenkins",
+        "Ansible",
+        "Sentry",
+        "Datadog",
+        "ELK"
       ]
     },
     {
-      "name": "Testing & Quality",
-      "keywords": ["TDD", "BDD", "unit and e2e testing", "code reviews"]
+      "name": "Tests & qualité",
+      "keywords": [
+        "TDD",
+        "BDD",
+        "tests unitaires",
+        "tests E2E",
+        "tests de charge/perf",
+        "pair/mob programming",
+        "revues de code",
+        "standards de code"
+      ]
+    },
+    { 
+      "name": "Gestion de projet / produit",
+      "keywords": [
+        "méthodes agiles",
+        "Extreme Programming",
+        "Lean",
+        "Kanban",
+        "Lean Startup",
+        "Scrum",
+        "ScrumMaster"
+      ]
     }
   ],
   "references": [
     {
       "name": "Vincent Hardouin (Pix, 24/10/2023)",
-      "reference": "I worked with Jérémy at Pix. I was very impressed by his skills and professionalism. Jérémy perfectly understands user needs and finds the right solution, whether it requires development or not.\n\nThanks to his diverse experiences, Jérémy has a solid vision of software development: he knows how to design meaningful and sustainable architectures and can make and explain decisions clearly.\n\nAs for development, Jérémy masters his tools, making him very effective (IDE, development practices: TDD, BDD, hexagonal architecture, clean architecture, clean code, etc.).\n\nFinally, Jérémy’s work is of excellent quality. I am very happy to have worked alongside him and strongly recommend him to anyone looking for a competent and reliable professional."
+      "reference": "J'ai travaillé avec Jérémy chez Pix. Je suis très impressionné par ses compétences et son professionnalisme. Dans les faits, Jérémy sait parfaitement comprendre un besoin utilisateur et trouver une solution adéquate, qu'elle nécessite du développement ou non.\n\nGrâce à ses différentes expériences, Jérémy a une bonne vision du développement logiciel : il sait mettre en place une architecture avec du sens et pérenne dans le temps. Il sait prendre des décisions et les argumenter.\n\nPour le développement, Jérémy sait manier ses outils, ce qui fait de lui une personne efficace (IDE, pratique de développement : TDD, BDD, archi hexagonale, clean archi, clean code, … ).\n\nEnfin, le travail de Jérémy est d'une très bonne qualité. Je suis très content d'avoir travaillé à ses côtés et je le recommande vivement à toute personne qui cherche un professionnel compétent et fiable."
     },
     {
       "name": "Guillaume Lagorce (Hey GUL, 10/03/2023)",
-      "reference": "I had the chance to work with Jérémy in various contexts, first as a colleague at Octo, then as a partner (freelance developer) within GIP Pix where Jérémy was CTO.\n\nEach time, I benefited from his many qualities: rigor, good humor, high standards, and excellence.\n\nMost of all, I appreciated the trust and autonomy Jérémy gives his colleagues and partners, helping create truly agile teams.\n\nHe knows how to ask the right questions, take a step back, and seek expertise from everyone, regardless of background.\n\nIf you are looking for an experienced developer and product quality is a must, look no further: contact Jérémy."
+      "reference": "J'ai eu la chance de travailler avec Jérémy au sein de contextes variés, d'abord en tant que collègue chez Octo, puis en tant que partenaire (développeur freelance) au sein du GIP Pix dont Jérémy était le CTO.\n\nJ'ai pu à chaque fois bénéficier de ses nombreuses qualités et compétences : rigueur, bonne humeur, exigence et excellence.\n\nPlus que tout, j'ai apprécié la confiance et l'autonomie que Jérémy place en ses collègues / partenaires, participant à la création d'équipes réellement agiles.\n\nJérémy sait poser les bonnes questions, prendre du recul sur sa propre situation et solliciter les expertises de toutes et tous, quel que soit le parcours de chacune et chacun.\n\nSi vous cherchez un développeur expérimenté et si la qualité de votre produit est un impératif, ne cherchez plus : contactez Jérémy."
     },
     {
       "name": "Romain Detre (Baage, 28/02/2023)",
-      "reference": "Jérémy regularly works with us as a technical expert. We highly recommend him. He is very attentive.\n\nHis analytical skills and actions are always relevant and structured.\n\nA real pleasure to work with such a professional, who values quality work and enjoys sharing his passion."
+      "reference": "Jeremy intervient régulièrement pour nous en tant qu'expert technique. Nous le recommandons vivement. Il est très à l'écoute.\n\nSon sens de l'analyse et ses actions en découlant sont à chaque fois très pertinentes et structurées.\n\nUn réel plaisir de travailler avec ce grand professionnel, qui a le goût du travail bien fait et aime faire partager sa passion."
     }
   ],
   "languages": [
