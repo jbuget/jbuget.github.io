@@ -165,9 +165,6 @@
     {
       "name": "Testing & Quality",
       "keywords": ["TDD", "BDD", "unit and e2e testing", "code reviews"]
-    },
-    {
-      "name": "Mentoring & Technical Guidance"
     }
   ],
   "references": [
