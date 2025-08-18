@@ -37,7 +37,15 @@
         "username": "jbuget",
         "url": "https://bsky.app/profile/jbuget.fr"
       }
-    ]
+    ],
+    "driving": {
+      "license": ["Permis B"]
+    },
+    "x-workPreferences": {
+      "remote": true,
+      "hybrid": true,
+      "onsite": false
+    }
   },
   "work": [
     {
@@ -378,7 +386,7 @@
         "standards de code"
       ]
     },
-    { 
+    {
       "name": "Gestion de projet / produit",
       "keywords": [
         "méthodes agiles",
@@ -426,7 +434,26 @@
     }
   ],
   "languages": [
-    { "language": "fr", "fluency": "Native Speaker" },
-    { "language": "en", "fluency": "Professional working proficiency" }
+    { "language": "fr", "fluency": "Langue maternelle" },
+    { "language": "en", "fluency": "Maîtrise professionnelle" },
+    { "language": "it", "fluency": "Niveau conversationnel" }
+  ],
+  "interests": [
+    {
+      "name": "Sport",
+      "keywords": ["Football", "Tennis", "Course à pied", "Escalade"]
+    },
+    {
+      "name": "Loisirs",
+      "keywords": ["Echecs", "Cartomagie", "Jeux vidéo", "Mixologie"]
+    },
+    {
+      "name": "Engagement",
+      "keywords": [
+        "Mentorat tech (bénévole)",
+        "Live coding (Twitch)",
+        "Vie associative de la ville"
+      ]
+    }
   ]
 }
