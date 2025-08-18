@@ -415,7 +415,7 @@
   ],
   "education": [
     {
-      "institution": "EPITA: Ingénierie Informatique",
+      "institution": "EPITA",
       "area": "Multimedia et Technologies de l'Information",
       "studyType": "Master 1 (CTI)",
       "startDate": "2003-01-01",
@@ -433,6 +433,13 @@
       "courses": []
     }
   ],
+  "certificates": [
+    {
+      "name": "Certified ScrumMaster® CSM® (ScrumAlliance®)",
+      "date": "2011-02-01",
+      "issuer": "AgilBee"
+    }
+  ],
   "languages": [
     { "language": "fr", "fluency": "Langue maternelle" },
     { "language": "en", "fluency": "Maîtrise professionnelle" },
@@ -440,20 +447,29 @@
   ],
   "interests": [
     {
-      "name": "Sport",
-      "keywords": ["Football", "Tennis", "Course à pied", "Escalade"]
-    },
-    {
-      "name": "Loisirs",
-      "keywords": ["Echecs", "Cartomagie", "Jeux vidéo", "Mixologie"]
-    },
-    {
       "name": "Engagement",
       "keywords": [
         "Mentorat tech (bénévole)",
         "Live coding (Twitch)",
-        "Vie associative de la ville"
+        "Vie associative de quartier"
+      ]
+    },
+    {
+      "name": "Pratique sportive",
+      "keywords": ["Football", "Tennis", "Course à pied", "Escalade"]
+    },
+    {
+      "name": "Loisirs",
+      "keywords": ["Echecs", "Cartomagie", "Jeux vidéo", "Mixologie", "Randonnée en famille"]
+    },
+    {
+      "name": "Culture",
+      "keywords": [
+        "Science-fiction",
+        "Littérature asiatique",
+        "Astronomie"
       ]
     }
+
   ]
 }

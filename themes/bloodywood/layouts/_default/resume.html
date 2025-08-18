@@ -197,17 +197,37 @@
         </div>
         {{ end }}
 
-        <!-- Formation -->
-        {{ if .education }}
+        <!-- Formation et certifications -->
+        {{ if or .education .certificates }}
         <div class="row">
             <section class="resume-section education">
-                <h2>Formation</h2>
+                <h2>Formation et certifications</h2>
+
+                <!-- Certificats -->
+                {{ if .certificates }}
+                {{ range .certificates }}
+                <article class="institution">
+                    <header class="institution__header">
+                        <h4 class="institution__name">{{ .name }}</h4>
+                        <div class="institution__certificate">
+                            {{ if .issuer }}{{ .issuer }}{{ end }}
+                        </div>
+                        <time class="date">
+                            {{ .date | dateFormat "2006" }}
+                        </time>
+                    </header>
+                </article>
+                {{ end }}
+                {{ end }}
+
+                <!-- Formation -->
+                {{ if .education }}
                 {{ range .education }}
                 <article class="institution">
                     <header class="institution__header">
                         <h4 class="institution__name">{{ .institution }}</h4>
                         <div class="institution__certificate">
-                            {{ .studyType }} {{ if .area }} en {{ .area }} {{
+                            {{ .studyType }}{{ if .area }}, {{ .area }} {{
                             end}}
                         </div>
                         <time class="date">
@@ -216,6 +236,7 @@
                         </time>
                     </header>
                 </article>
+                {{ end }}
                 {{ end }}
             </section>
         </div>
@@ -261,6 +282,22 @@
                     </div>
                 </article>
                 {{ end }}
+            </section>
+        </div>
+        {{ end }}
+
+        <!-- Centres d'intérêts -->
+        {{ if .interests }}
+        <div class="row">
+            <section class="resume-section interests">
+                <h2>Centres d'intérêts</h2>
+                <div class="interests-simple">
+                    {{ range .interests }}
+                    <div class="interest-line">
+                        <strong>{{ .name }} :</strong> {{ delimit .keywords ", " }}
+                    </div>
+                    {{ end }}
+                </div>
             </section>
         </div>
         {{ end }}

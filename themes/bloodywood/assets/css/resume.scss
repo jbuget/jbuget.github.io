@@ -242,6 +242,27 @@
 }
 
 /* --- */
+/* Interests */
+/* --- */
+
+.interests-simple {
+    margin-top: 1.5rem;
+}
+
+.interest-line {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    strong {
+        color: black;
+    }
+}
+
+/* --- */
 /* Presentation */
 /* --- */
 
