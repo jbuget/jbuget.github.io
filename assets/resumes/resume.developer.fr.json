@@ -404,6 +404,26 @@
       "reference": "Jeremy intervient régulièrement pour nous en tant qu'expert technique. Nous le recommandons vivement. Il est très à l'écoute.\n\nSon sens de l'analyse et ses actions en découlant sont à chaque fois très pertinentes et structurées.\n\nUn réel plaisir de travailler avec ce grand professionnel, qui a le goût du travail bien fait et aime faire partager sa passion."
     }
   ],
+  "education": [
+    {
+      "institution": "EPITA: Ingénierie Informatique",
+      "area": "Multimedia et Technologies de l'Information",
+      "studyType": "Master 1 (CTI)",
+      "startDate": "2003-01-01",
+      "endDate": "2008-12-31",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Lycée Sainte-Geneviève",
+      "area": "Mathématiques",
+      "studyType": "Baccalauréat",
+      "startDate": "1990-01-01",
+      "endDate": "2003-12-31",
+      "score": "",
+      "courses": []
+    }
+  ],
   "languages": [
     { "language": "fr", "fluency": "Native Speaker" },
     { "language": "en", "fluency": "Professional working proficiency" }
