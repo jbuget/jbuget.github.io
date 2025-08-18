@@ -127,259 +127,61 @@
   "publications": [],
   "skills": [
     {
-      "name": "Leadership & management",
-      "level": "",
-      "keywords": []
+      "name": "Full-stack development",
+      "keywords": [
+        "Python",
+        "Django",
+        "Node.js",
+        "TypeScript",
+        "SvelteKit",
+        "Vue.js",
+        "Ember.js"
+      ]
     },
     {
-      "name": "Gestion de la relation avec les parties prenantes",
-      "level": "",
-      "keywords": []
+      "name": "Software Architecture",
+      "keywords": [
+        "REST/GraphQL APIs",
+        "microservices",
+        "scalability",
+        "security"
+      ]
     },
     {
-      "name": "Direction technique",
-      "level": "",
-      "keywords": []
+      "name": "Databases",
+      "keywords": ["PostgreSQL", "Redis", "query optimization", "indexing"]
     },
     {
-      "name": "Vision stratégique",
-      "level": "",
-      "keywords": []
+      "name": "DevOps & CI/CD",
+      "keywords": [
+        "Scalingo",
+        "Clever Cloud",
+        "AWS",
+        "Docker",
+        "GitHub Actions",
+        "Ansible"
+      ]
     },
     {
-      "name": "OCTO Technology",
-      "level": "",
-      "keywords": []
+      "name": "Testing & Quality",
+      "keywords": ["TDD", "BDD", "unit and e2e testing", "code reviews"]
     },
     {
-      "name": "Animation d’équipes",
-      "level": "",
-      "keywords": []
+      "name": "Mentoring & Technical Guidance"
+    }
+  ],
+  "references": [
+    {
+      "name": "Vincent Hardouin (Pix, 24/10/2023)",
+      "reference": "I worked with Jérémy at Pix. I was very impressed by his skills and professionalism. Jérémy perfectly understands user needs and finds the right solution, whether it requires development or not.\n\nThanks to his diverse experiences, Jérémy has a solid vision of software development: he knows how to design meaningful and sustainable architectures and can make and explain decisions clearly.\n\nAs for development, Jérémy masters his tools, making him very effective (IDE, development practices: TDD, BDD, hexagonal architecture, clean architecture, clean code, etc.).\n\nFinally, Jérémy’s work is of excellent quality. I am very happy to have worked alongside him and strongly recommend him to anyone looking for a competent and reliable professional."
     },
     {
-      "name": "Backbone.js",
-      "level": "",
-      "keywords": []
+      "name": "Guillaume Lagorce (Hey GUL, 10/03/2023)",
+      "reference": "I had the chance to work with Jérémy in various contexts, first as a colleague at Octo, then as a partner (freelance developer) within GIP Pix where Jérémy was CTO.\n\nEach time, I benefited from his many qualities: rigor, good humor, high standards, and excellence.\n\nMost of all, I appreciated the trust and autonomy Jérémy gives his colleagues and partners, helping create truly agile teams.\n\nHe knows how to ask the right questions, take a step back, and seek expertise from everyone, regardless of background.\n\nIf you are looking for an experienced developer and product quality is a must, look no further: contact Jérémy."
     },
     {
-      "name": "HTML",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "CircleCI",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Coaching",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "BDD",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "TDD",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Git",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "DDD",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Facilitateur",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Maven",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "JavaScript",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Web Development",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Scrum",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "UX",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Formateur",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Test Driven Development",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "GitHub",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Java",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Software Craftsmanship",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Docker",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "REST",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Express.js",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Méthodes agiles",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Framework Spring",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Ansible",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Ember.js",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Hibernate",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Hapi.js",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Management",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "PostgreSQL",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Vue.js",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "CSS",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Mocha",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Leadership",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Webpack",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "XP",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Oracle SQL Developer",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Gestion du changement",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Mentor",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Chai",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Spring",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Bower",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Rayonnement",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Architecture logicielle",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Tomcat",
-      "level": "",
-      "keywords": []
+      "name": "Romain Detre (Baage, 28/02/2023)",
+      "reference": "Jérémy regularly works with us as a technical expert. We highly recommend him. He is very attentive.\n\nHis analytical skills and actions are always relevant and structured.\n\nA real pleasure to work with such a professional, who values quality work and enjoys sharing his passion."
     }
   ],
   "languages": [
@@ -389,16 +191,6 @@
     }
   ],
   "interests": [],
-  "references": [],
-  "projects": [
-    {
-      "name": "EasyMock",
-      "startDate": "2003-01-01",
-      "summary": "I'm the actual lead developer and originally the creator of the class mocking mechanic.",
-      "url": "http://easymock.org",
-      "endDate": "2003-12-31"
-    }
-  ],
   "meta": {
     "version": "v1.0.0",
     "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
