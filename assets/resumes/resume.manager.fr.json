@@ -45,9 +45,47 @@
       "position": "Chief Technology Officer",
       "startDate": "2022-05-01",
       "endDate": "2025-08-31",
-      "highlights": [],
-      "summary": "La Plateforme de l’inclusion est un opérateur de service public qui regroupe des services numériques d’intérêt général pour l’inclusion dans l’emploi, pour la plupart issus de BetaGouv, l'incubateur de Startups d'État de la DINUM. À l’intersection entre France Travail, les collectivités territoriales, les entreprises et les acteurs et structures de l’insertion, la mission du groupement (d'intérêt public) est de faciliter la vie des personnes éloignées de l’emploi et de celles et ceux qui les accompagnent.\n\nMes activités au sein de la Plateforme :\n- structuration de l'organisation générale : constitution de l'équipe transverse / direction, mise en place de groupes de décision horizontaux (les Cercles), conseil dans la création & split d'équipes produit\n- contribution à la vision stratégique de l'opérateur sur les volets techniques et produits et à sa mise en œuvre\n- unification, mutualisation et optimisation de ressources transverses ou partagées entre les équipes (Brevo, Matomo, Sentry, Bitwarden, etc.)\n- administration et gestion de la facturation des outils et licences de production\n- développement de la cybersécurité (recrutement et supervision d'un RSSI opérationnel, conduite de programmes d'homologation RGS, participation à l'élaboration de plusieurs AIPD, mise en place d'outils de sécurité et de campagnes de sensibilisation / formation)\n- animation des communautés de pratiques (technique, mise en place et animation du Cercle Outils)\n- accompagnement opérationnel (expertise technique, recrutement, management, support) de certaines équipes à des moments clé (exploration, scaling, décommissionnement)\n- représentation de la Plateforme à des fins de rayonnement auprès de partenaires, sponsors, fournisseurs ou usagers\n\nTechnologies principales :\n- Python / Django\n- Typescript / Svelte / Sveltekit\n- PostgreSQL / Redis \n- Scalingo / Clever Cloud / Scaleway / Docker\n- Brevo / Tipimail / Mailjet\n- Metabase / Matomo / Datadog / Sentry\n- Unix / Git (la base de tout)",
-      "url": "https://www.linkedin.com/company/inclusion-gouv/",
+      "summary": "La Plateforme de l’inclusion est un opérateur de service public qui regroupe des services numériques d’intérêt général pour l’inclusion dans l’emploi, pour la plupart issus de BetaGouv, l'incubateur de Startups d'État de la DINUM. À l’intersection entre France Travail, les collectivités territoriales, les entreprises et les acteurs et structures de l’insertion, la mission du groupement (d'intérêt public) est de faciliter la vie des personnes éloignées de l’emploi et de celles et ceux qui les accompagnent.\n\nEn tant que CTO, mon rôle a été de contribuer à démarrer, structurer, fédérer et pérenniser la structure, en intervenant sur les volets stratégiques, organisationnels, techniques et méthodologiques, en tranverse ou directement au sein des équipes.",
+      "highlights": [
+        "Structuration de l'organisation générale : constitution de l'équipe transverse / direction, mise en place de groupes de décision horizontaux (les Cercles), conseil dans la création & split d'équipes produit",
+        "Contribution à la vision stratégique de l'opérateur sur les volets techniques et produits et à sa mise en œuvre",
+        "Unification, mutualisation et optimisation de ressources transverses ou partagées entre les équipes (Brevo, Matomo, Sentry, Bitwarden, etc.)",
+        "Administration et gestion de la facturation des outils et licences de production",
+        "Développement de la cybersécurité (recrutement et supervision d'un RSSI opérationnel, conduite de programmes d'homologation RGS, participation à l'élaboration de plusieurs AIPD, mise en place d'outils de sécurité et de campagnes de sensibilisation / formation)",
+        "Animation des communautés de pratiques (technique, mise en place et animation du Cercle Outils)",
+        "Accompagnement opérationnel (expertise technique, recrutement, management, support) de certaines équipes à des moments clé (exploration, scaling, décommissionnement)",
+        "Représentation de la Plateforme à des fins de rayonnement auprès de partenaires, sponsors, fournisseurs ou usagers"
+      ],
+      "x-keywords": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "Wagtail",
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "SvelteKit",
+        "Tailwind",
+        "PostgreSQL",
+        "Redis",
+        "Hasura",
+        "Grist",
+        "Docker",
+        "Scalingo",
+        "Clever Cloud",
+        "Scaleway",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "Git",
+        "GitHub",
+        "Bash",
+        "Unix"
+      ],
+      "url": "https://inclusion.gouv.fr",
       "location": "Paris, France"
     },
     {
@@ -55,75 +93,196 @@
       "position": "Co-founder & CTO",
       "startDate": "2016-06-01",
       "endDate": "2022-04-30",
-      "highlights": [],
-      "summary": "Pix est le service public Français d'évaluation et de certification des compétences numériques pour tout un chacun tout au long de sa vie. Pix permet à quiconque le souhaite de mesurer, développer et valoriser ses compétences numériques à travers une plateforme Web innovante, moderne, ludique et pédagogique. \n\nMes activités au sein de Pix ont évolué à mesure que le GIP s’est développé :\n- benchmark du marché des solutions d’évaluation de compétences numériques\n- conception et mise en œuvre de la stack technique\n- constitution et développement d’une équipe d’ingénierie logicielle\n- mise en place d’une organisation, de pratiques et d’une culture agile mêlant XP, Scrum, Kanban, Lean Development, Lean Startup\n- animation, facilitation ou formation relatifs aux rituels et autres ateliers collaboratifs de l’équipe\n- réorganisation de l’équipe tech en multiples équipes produit, autonomes et responsables\n- pilotage des développements de la plateforme en accord avec les ambitions et enjeux du GIP\n- supervision des chantiers techniques critiques (sécurité, performance, robustesse, accessibilité, interopérabilité, extensibilité, internationalisation, etc.)\n- recrutement, staffing et management des collaborateurs au sein des équipes produits\n- représentation et soutien technique privilégié auprès des autres pôles, partenaires et prospects \n- participation à l’élaboration et à l’exécution de la stratégie opérationnelle de Pix\n\nTechnologies principales : \n- front : Ember, Nuxt/Vue\n- back : Node.js, Hapi.js, Bookshelf\n- DB : PostgreSQL, Redis, Airtable, Prismic\n- infra : Scalingo, Dokku, OVH, AWS\n- DNS : Gandi, OVH, Nameshield\n- data : Matomo, Metabase, Datadog, scripts\n- workflow : GitHub, CircleCI, LambdaTest, StoryBook\n- tests : Mocha, Qunit, Chai, Sinon\n- outillage : Jira, Confluence, Slack, FreshDesk, Google Suite, Microsoft 365\n- autres : Sendinblue, Sentry, Discourse, NextCloud",
-      "url": "https://www.linkedin.com/company/gip-pix/",
-      "location": "Région de Paris, France"
+      "summary": "Pix est le service public Français d'évaluation et de certification des compétences numériques pour tout un chacun tout au long de sa vie. Pix permet à chacun·e (~2M usagers, ~100K visiteurs/jour) de mesurer, développer et valoriser ses compétences numériques à travers une plateforme Web innovante, moderne, ludique et pédagogique.\n\nEn tant que CTO de la plateforme, mon rôle, mon action et ma posture ont fortement évolué au fil de mon aventure et du développement de la structure (de 4 à 140 collaborateurs en 6 ans) : consultant sénior (via OCTO Technology, lors de la phase de recherche & étude), développeur / architecte, lead dev / recruteur / manager, DSI.",
+      "highlights": [
+        "Benchmark du marché des solutions d’évaluation de compétences numériques",
+        "Conception et mise en œuvre de la stack technique",
+        "Constitution et développement d’une équipe d’ingénierie logicielle",
+        "Mise en place d’une organisation, de pratiques et d’une culture agile mêlant XP,Lean, Kanban, Scrum, Lean Startup",
+        "Animation, facilitation ou formation relatifs aux rituels et autres ateliers collaboratifs de l’équipe",
+        "Réorganisation de l’équipe tech en multiples équipes produit, autonomes et responsables",
+        "Pilotage des développements de la plateforme en accord avec les ambitions et enjeux du GIP",
+        "Supervision des chantiers techniques critiques : sécurité, performance, robustesse, accessibilité, interopérabilité, extensibilité, internationalisation, etc.",
+        "Recrutement, staffing et management des collaborateurs au sein des équipes produits",
+        "Représentation et soutien technique privilégié auprès des autres pôles, partenaires et prospects",
+        "Participation à l’élaboration et à l’exécution de la stratégie opérationnelle de Pix"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Knex.js",
+        "Ember.js",
+        "Nuxt.js",
+        "Prismic",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "OVH",
+        "Scaleway",
+        "Airtable",
+        "Matomo",
+        "Metabase",
+        "n8n",
+        "Brevo",
+        "Sentry",
+        "Datadog",
+        "CircleCI",
+        "Git",
+        "GitHub",
+        "Discourse",
+        "NextCloud",
+        "Confluence",
+        "Bash",
+        "Unix"
+      ],
+      "url": "https://pix.fr",
+      "location": "Paris, France"
     },
     {
       "name": "OCTO Technology",
       "position": "Leader de la tribu WEBF",
       "startDate": "2016-06-01",
       "endDate": "2017-12-31",
-      "highlights": [],
-      "summary": "WEBF est la tribu d'OCTO Technology dédiée au développement d'applications web front-end (sites vitrines, applications métier, riches ou complexes). La mission de la tribu est de « guider nos clients, nos coéquipiers et la communauté technique à travers la jungle du Web ». \n\nEn tant que leader de l'équipe (16 personnes), mon rôle a consisté à faire émerger et porter la vision de la tribu, veiller à son bon développement (staffing, TACE, ROI) et d’aider chaque membre à apprendre, à s’épanouir, grandir et rayonner, au sein de l'organisation et à travers toute l'entreprise.\n\nTechnologies principales :\n* HTML / JavaScript / CSS\n* Vue / Ember.js / Backbone.js\n* protocoles et standards du Web (HTTP, REST, GraphQL, JSON:API)\n* méthodologies agiles & produit\n* méthodes d'artisanat logiciel appliquées au dev web front-end (DDD, XP, TDD, CI / CD)",
+      "summary": "WEBF est la tribu d'OCTO Technology dédiée au développement d'applications web front-end (sites vitrines, applications métier, riches ou complexes). La mission de la tribu est de « guider nos clients, nos coéquipiers et la communauté technique à travers la jungle du Web ». \n\nEn tant que leader de l'équipe (16 personnes), mon rôle a consisté à faire émerger et porter la vision de la tribu, veiller à son bon développement (staffing, TACE, ROI) et d’aider chaque membre à apprendre, à s’épanouir, grandir et rayonner, au sein de l'organisation et à travers toute l'entreprise.",
+      "highlights": [
+        "Création de projets de veilles ou pratiques internes : benchmark de différentes technologies SPA/MPA (Vue.js, React.js, Ember.js, Elm), Job board interne, boussoles des frameworks et technologies JS",
+        "Tenue d'une veille technique et méthodologique active partagée à l'organisation, nos partenaires et nos clients",
+        "Création d'une offre de service complète : « conseiller, réaliser, éclairer et former aux technologies Web front-end »",
+        "Publication d'articles techniques et retours d'expérience sur le blog d'OCTO Technology",
+        "Participation active au programme OCTO Skool, ",
+        "Création et animation d'une formation autour de JavaScript, son écosystème et les bonnes pratiques à l'état de l'art",
+        "Management, coaching et mentoring des collaborateurs membres de la tribu"
+      ],
       "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "location": "Paris, France"
     },
     {
       "name": "OCTO Technology",
       "position": "Senior software engineer",
       "startDate": "2013-02-01",
       "endDate": "2017-12-31",
-      "highlights": [],
-      "summary": "OCTO Technology est un cabinet de conseil spécialisé dans les nouvelles technologies et les enjeux de la transformation digitale.\n\nEn tant que lead dev / tech lead :\n- Réponses aux appels d’offres et phases de pré-vente\n- (2016/2017) Développement (from scratch) d’une plateforme de Startup d’État (cf. expérience « CTO Pix » ci-dessus)\n- (2015/2016) Développement (from scratch) de la billetterie en ligne de Roland-Garros\n- (2014) Développement (from scratch) d’une plateforme numérique innovante de produits d’assurance premium / Lean Startup, Java, OracleSQL\n- (2013) Développement (from scratch) d’une plateforme de formulaire santé en ligne pour SwissLife // agile, Java, OracleSQL\n\nEn tant que consultant :\n- (2015/2016) Coaching d’une équipe projet chez CNP Assurances\n- (2015) Coaching agile de deux équipes projet chez TF1\n- (2014) Étude de l’état de l’art du développement Web pour Fortuneo\n- (2013) Audit logiciel (~5 millions de lignes de code) pour Allianz\n\nEn tant que formateur :\n- (2017) Initiation à WebAssembly\n- (2016 / 2017) Introduction aux bases de JavaScript pour les OCTO skoolers (nouveaux consultants juniors)\n- (2017) Séminaire d’introduction à l’agilité pour les nouveaux arrivants chez OCTO\n- (2013) Formation sur le framework Spring",
-      "url": "https://www.linkedin.com/company/octo-technology/",
-      "location": "Région de Paris, France"
+      "summary": "En tant que consultant senior chez OCTO Technology – cabinet de conseil et réalisation – j'ai été amené à réaliser tout types de mmissions, allant du leadership technique (tech lead sur plusieurs projets), à l'expertise avancée (tests end-to-end ou de charge / perf), en passant par des missions de R&D ou de conseil (études préalable, dossiers de cadrage, audit technique dans le cadre de due deal, etc.). J'ai aussi été amené à contribuer à la vie interne de l'entreprise (animation d'ateliers, de formations ou partage de REX) et à intervenir en avant-vente (cadrage / chiffrage, entretiens short list lors d'appels d'offre ou en avant-vente).",
+      "url": "https://octo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement d’une plateforme de Startup d’État (cf. expérience « CTO Pix » ci-dessus)",
+        "Cadrage 360° puis réalisation / tech leading de la refonte complète du site de billeterie de Roland-Garros",
+        "Développement d’une plateforme numérique innovante de produits d’assurance premium / Lean Startup *by the book*",
+        "Développement d’une plateforme de formulaire santé en ligne pour SwissLife",
+        "Audit logiciel (~5 millions de lignes de code) pour Allianz",
+        "Coaching d’une équipe projet chez CNP Assurances",
+        "Coaching agile de deux équipes projet chez TF1",
+        "Présentation « Initiation à WebAssembly »",
+        "Animation du séminaire d’introduction à l’agilité pour les nouveaux arrivants chez OCTO",
+        "Formation « Introduction aux bases de JavaScript pour les OCTO skoolers (nouveaux consultants juniors) »",
+        "Étude de l’état de l’art du développement Web pour Fortuneo",
+        "Animation d'une formation interne sur le framework Spring"
+      ],
+      "x-keywords": [
+        "JavaScript",
+        "Typescript",
+        "Node.js",
+        "Backbone.js",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "Play Framework",
+        "PostgreSQL",
+        "SQL Server",
+        "MariaDB",
+        "Tomcat",
+        "WebLogic",
+        "Redis",
+        "Docker",
+        "Scalingo",
+        "ELK",
+        "OVH",
+        "Brevo",
+        "Sentry",
+        "Grafana",
+        "Jenkins",
+        "SonarQube",
+        "Artillery",
+        "Gatling",
+        "Git",
+        "GitHub",
+        "Bash",
+        "Unix"
+      ]
     },
     {
-      "name": "VISEO",
+      "name": "Objet Direct, racheté par VISEO",
       "position": "Software engineer & ScrumMaster",
       "startDate": "2010-03-01",
       "endDate": "2013-01-31",
-      "highlights": [],
-      "summary": "VISEO est une entreprise de services du numérique (ESN) internationale qui accompagne les organisations dans leur transformation digitale. Elle combine conseil, développement sur mesure et intégration de solutions, avec une expertise héritée d’Objet Direct dans les technologies Java/JEE, les architectures web et les méthodes agiles.\n\nMissions principales :\n- Missions de réalisations (dev. Web / Java / RIA)\n- Animation d'équipes projet agiles (en tant que ScrumMaster)\n- Animation de formations internes (Spring en particulier)",
-      "url": "https://www.linkedin.com/company/viseo/",
-      "location": "Paris / La Défense"
+      "summary": "En tant que consultant confirmé pour Objet Direct, société de conseil dans le numérique (ESN), puis de VISEO suite à l'acquisition de la première par la deuxième, j'ai participé au développement de plusieurs applications métier  Java/J2E et web. J'ai aussi été amené à assumer des rôles et missions de ScrumMaster et formateur interne.",
+      "url": "https://www.viseo.com",
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une application de vidéo-surveillance via Internet/Mobile (avant l'arrivée de l'iPhone)",
+        "Développement full-stack d'une plateforme multi-pays de produits financier pour la Société Générale",
+        "Participation à plusieurs missions d'avant-vente",
+        "Création et animation de formations internes sur Hibernate et Spring framework"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Angular",
+        "Apache Wicket",
+        "HippoCMS",
+        "C/C++",
+        "QT",
+        "Java/J2E",
+        "Spring",
+        "SpringBoot",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "OVH",
+        "Jenkins",
+        "SonarQube",
+        "Zabix",
+        "VMware",
+        "Git",
+        "SVN",
+        "Bash",
+        "Unix"
+      ]
     },
     {
       "name": "People in action",
       "position": "Software engineer",
       "startDate": "2007-09-01",
       "endDate": "2010-02-28",
-      "highlights": [],
-      "summary": "Il s’agissait de mon tout premier poste après mes études. J’y ai découvert et appris le développement Web full stack avec des technologies telles que Java/J2EE, Adobe Flex/Air, Apache Tomcat, MySQL, VM Ware, Jenkins, Maven, Eclipse, etc.\n\nJ’ai également été formé aux méthodologies et pratiques agiles, comme l’eXtreme Programming, le TDD, le BDD/ATDD, les revues de code, le SCRUM, le Kanban, le DDD, etc.",
+      "summary": "En tant que stagiaire puis ingénieur logiciel junior au sein de cette petite structure (20+ personnes), j'ai été amené à participer au développement de plusieurs applications full-stack Java/J2EE, Flex/Air et MySQL",
       "url": "https://www.linkedin.com/company/people-in-action/",
-      "location": "Paris"
+      "location": "Paris, France",
+      "highlights": [
+        "Développement full-stack d'une plateforme internationale de suivi de la performance et des indicateurs clé pour l'institut allemand d'études de marché GFK",
+        "Développement full-stack d'une application middle-office en milieu bancaire pour Rotschild",
+        "Développement full-stack d'une application interne de gestion du temps (CRA)",
+        "Développement d'un artefact boilerplate pour boostrapper rapidement des projets Java/J2E + Flex/Air/ActionScript"
+      ],
+      "x-keywords": [
+        "Flex/Air",
+        "Java/J2E",
+        "JSF",
+        "Hibernate",
+        "PostgreSQL",
+        "MySQL",
+        "Tomcat",
+        "Jenkins",
+        "SonarQube",
+        "VMware",
+        "SVN",
+        "Bash",
+        "Unix"
+      ]
     }
   ],
-  "volunteer": [],
-  "education": [
-    {
-      "institution": "EPITA: Ingénierie Informatique",
-      "area": "Multimedia et Technologies de l'Information",
-      "studyType": "Master 1 (CTI)",
-      "startDate": "2003-01-01",
-      "endDate": "2008-12-31",
-      "score": "",
-      "courses": []
-    },
-    {
-      "institution": "Lycée Sainte-Geneviève",
-      "area": "Mathématiques",
-      "studyType": "Baccalauréat",
-      "startDate": "1990-01-01",
-      "endDate": "2003-12-31",
-      "score": "",
-      "courses": []
-    }
-  ],
-  "awards": [],
-  "certificates": [],
   "publications": [],
   "skills": [
     {
@@ -241,13 +400,64 @@
       "reference": "Jeremy intervient régulièrement pour nous en tant qu'expert technique. Nous le recommandons vivement. Il est très à l'écoute.\n\nSon sens de l'analyse et ses actions en découlant sont à chaque fois très pertinentes et structurées.\n\nUn réel plaisir de travailler avec ce grand professionnel, qui a le goût du travail bien fait et aime faire partager sa passion."
     }
   ],
-  "languages": [
+  "education": [
     {
-      "language": "fr",
-      "fluency": "Native Speaker"
+      "institution": "EPITA",
+      "area": "Multimedia et Technologies de l'Information",
+      "studyType": "Master 1 (CTI)",
+      "startDate": "2003-01-01",
+      "endDate": "2008-12-31",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Lycée Sainte-Geneviève",
+      "area": "spé. Mathématiques",
+      "studyType": "Baccalauréat S",
+      "startDate": "1990-01-01",
+      "endDate": "2003-12-31",
+      "score": "",
+      "courses": []
     }
   ],
-  "interests": [],
+  "certificates": [
+    {
+      "name": "Certified ScrumMaster® CSM® (ScrumAlliance®)",
+      "date": "2011-02-01",
+      "issuer": "AgilBee"
+    }
+  ],
+  "languages": [
+    { "language": "fr", "fluency": "Langue maternelle" },
+    { "language": "en", "fluency": "Maîtrise professionnelle" },
+    { "language": "it", "fluency": "Niveau conversationnel" }
+  ],
+  "interests": [
+    {
+      "name": "Engagement",
+      "keywords": [
+        "Mentorat tech (bénévole)",
+        "Live coding (Twitch)",
+        "Vie associative de quartier"
+      ]
+    },
+    {
+      "name": "Pratique sportive",
+      "keywords": ["Football", "Tennis", "Course à pied", "Escalade"]
+    },
+    {
+      "name": "Loisirs",
+      "keywords": ["Echecs", "Cartomagie", "Jeux vidéo", "Mixologie", "Randonnée en famille"]
+    },
+    {
+      "name": "Culture",
+      "keywords": [
+        "Science-fiction",
+        "Littérature asiatique",
+        "Astronomie"
+      ]
+    }
+  ],
   "meta": {
     "version": "v1.0.0",
     "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
