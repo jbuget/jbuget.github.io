@@ -39,7 +39,7 @@ meta:
 
 ## TL&DR;
 
-Dans le cadre d’une recherche d’emploi un peu hybride, j’ai récemment dû rédiger plusieurs CV, mettant à chaque fois en avant un type de profil particulier, le tout dans  plusieurs langues. Plutôt que tout miser sur LinkedIn, qui verrouille complètement les données de profil qu’on y injecte et qui n’offre aucune API Profile pour rendre la chose pratique, je me suis basé sur le format JSON Resume, dont la spécification, la communauté et l’écosystème me permettent aujourd’hui d’intégrer et gérer simplement une CVthèque sur mon site web, dont la génération de PDF.
+Dans le cadre d’une recherche d’emploi un peu hybride, j’ai récemment dû rédiger plusieurs CV, mettant à chaque fois en avant un type de profil particulier, le tout dans  plusieurs langues. Plutôt que tout miser sur LinkedIn, qui verrouille complètement les données de profil qu’on y injecte et qui n’offre aucune API Profile pour rendre la chose pratique, je me suis basé sur le format JSON Resume, dont la spécification, la communauté et l’écosystème me permettent aujourd’hui d’intégrer et gérer simplement une CVthèque sur mon site web (cf. page "[Curriculum Vitæ](/resumes)"), dont la génération de PDF.
 
 ## Table des matières
 
