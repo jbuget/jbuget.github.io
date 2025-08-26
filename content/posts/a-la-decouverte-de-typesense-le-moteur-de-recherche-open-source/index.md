@@ -42,7 +42,7 @@ Récemment, un collègue – Louis-Jean, si tu passes par là 😘 – a monté 
 
 ## Présentation
 
-![Page d'accueil du site officiel de Typesense](./typesense_landing_page.png)
+![Page d'accueil du site officiel de Typesense](typesense_landing_page.png)
 
 Typesense est un moteur d'indexation et recherche distribué sous licence open source [GPLv3](https://github.com/typesense/typesense/blob/main/LICENSE.txt). C'est une alternative à Algolia (SaaS), ElasticSearch (ex-*vrai* open source), OpenSearch (fork open source de ElasticSearch initié et mené par Amazon) ou MeiliSearch (autre moteur open source).
 
@@ -265,7 +265,7 @@ Contrairement à la CLI, celle-ci semble être en maintenance active (dernier co
 
 > 🤩 J'ai même réussi à l'importer et la faire fonctionner parfaitement dans mon instance de [Hoppscotch](https://hoppscotch.com/) (une alternative open source de Postman, que je valide et recommande à 1000%) !
 
-![Collection Typesense dans Hoppscotch](./hoppscotch.png)
+![Collection Typesense dans Hoppscotch](hoppscotch.png)
 
 ### Dashboard
 
@@ -277,7 +277,7 @@ La même équipe expose gratuitement [une instance](https://bfritscher.github.io
 
 > ⚠️ Attention ! Il s'agit d'une application pure front-end (avec des appels AJAX) qui vous demande de saisir vos identifiants de serveur Typesense. On ne peut jamais être certain de ce qui est déployé sur Internet. L'application me paraît saine à utiliser mais pour des systèmes complexes et critiques en production, je déconseille l'usage de cette application au profit de votre propre client ou isntance.
 
-![Typesense Dashboard](./typesense-dashboard.png)
+![Typesense Dashboard](typesense-dashboard.png)
 
 Typesense Dashboard est plutôt complet et permet de connaître l'état du système (ressources consommées, mémoire, etc.), de gérer (CRUD) les collections et documents, d'effectuer des recherches, de tester des requêtes, etc.
 
@@ -335,7 +335,7 @@ On vérifie dans un premier temps que le fichier contient bien des données et l
 $ cat ./data/structures.json | jq ".[0]"
 ```
 
-![](./cat_structures_jq.png)
+![cat_structures_jq](cat_structures_jq.png)
 
 **3/ Injecter les données dans Typesense**
 
@@ -420,7 +420,7 @@ On déclenche l'import grâce à Node :
 $ node populateTypesenseIndex_structures
 ```
 
-![Résultat de l'import des "structures" dans Typesense](./insert_structures.png)
+![Résultat de l'import des "structures" dans Typesense](insert_structures.png)
 
 **4/ Développer l'application cliente**
 
@@ -512,7 +512,7 @@ $ npm start
 
 Accéder à l'interface à l'interface via l'URL : [http://localhost:3000](http://localhost:3000).
 
-![Rendu final pour la recherche des structures exploitant le "numérique"](./webapp_recherche.png)
+![Rendu final pour la recherche des structures exploitant le "numérique"](webapp_recherche.png)
 
 ### Résultat
 
