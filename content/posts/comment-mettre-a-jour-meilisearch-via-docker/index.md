@@ -9,8 +9,8 @@ keywords: ["Meilisearch", "Docker", "mise à jour", "self-hosted", "open-source"
 
 ## Table des matières
 - [Introduction](#introduction)
-- [Problème pour la montée de version de la v1.11 à la v1.14](#problème-pour-la-montée-de-version-de-la-v111-à-la-v114)
-- [Solution pour la montée de version de la v1.11 à la v1.14](#solution-pour-la-montée-de-version-de-la-v111-à-la-v114)
+- [Problème pour la montée de version avant la v1.12](#problème-pour-la-montée-de-version-avant-la-v112)
+- [Solution pour la montée de version avant la v1.12](#solution-pour-la-montée-de-version-avant-la-v112)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -41,10 +41,20 @@ volumes:
   meili_data:
 ```
 
-## Problème pour la montée de version de la v1.11 à la v1.14
+## Problème pour la montée de version avant la v1.12
 
-Lorsque j'ai repris mes travaux, mon premier réflexe a été de voir s'il n'y avait pas une nouvelle version et effectivement, c'est bien le cas. Meilisearch est désormais en v1.14 et a, entre temps, sorti des évolutions qui m'intéressent :consolidation de la recherche hybride, amélioration des performances + optimisation de consommation des ressources pour traiter de plus grands volumes de données, support d'attributs filtrables et enrichissement des embeddings, etc.
-{.cons}
+Lorsque j'ai repris mes travaux, mon premier réflexe a été de voir s'il n'y avait pas une nouvelle version et effectivement, c'est bien le cas. Meilisearch est désormais en v1.19 et a, entre temps, sorti des évolutions qui m'intéressent : consolidation de la recherche hybride, amélioration des performances + optimisation de consommation des ressources pour traiter de plus grands volumes de données, support d'attributs filtrables et enrichissement des embeddings, etc.
+{.pros}
+
+> À partir de la version 1.12, Meilisearch propose une fonctionnalité expérimentale **`--experimental-dumpless-upgrade`** qui fonctionne très bien (à tout le moins sur une base avec un index de 90K documents). Tout ce qui suit devient alors inutile et le plus simple est de mettre à jour directement la version de l'image et définir la commande de lancement du service dans le docker-compose.yml tel que :
+> 
+> ```yaml
+> services:
+>   meilisearch:
+>     image: getmeili/meilisearch:v1.19
+>     # ...
+>     command: meilisearch --experimental-dumpless-upgrade
+> ```
 
 J'ai donc modifié la version de l'image dans le fichier **docker-compose.yml**. Et là, c'est le drame….
 
@@ -64,7 +74,7 @@ La documentation, pour une instance *self-hosted*, indique 2 procédures : une e
 
 Partant de la v1.11 (et passant trop vite à la v1.14), je n'ai malheureusement pas testé la montée de version dumpless.
 
-## Solution pour la montée de version de la v1.11 à la v1.14
+## Solution pour la montée de version avant la v1.12
 
 En revanche, je suis parvenu à effecteur la montée de version via le dump de données.
 
