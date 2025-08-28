@@ -15,7 +15,7 @@ keywords: ["Meilisearch", "Docker", "mise à jour", "self-hosted", "open-source"
 
 ## Introduction
 
-[**Meilisearch**](https://www.meilisearch.com) est un logiciel open-source de moteur de recherche. La solution supporte plusieurs types de recherche : full-text, vectorielle / sémantique, hybride, multimodale, géospatiale. Il s'agit d'une alternative très intéressante à **Algolia** (trop cher), **Elasticsearch** / **OpenSearch** (très compliqué), **Typesense** (plus complet), **Qdrant** (plus spécifique).
+[**Meilisearch**](https://www.meilisearch.com) est un logiciel open-source de moteur de recherche. La solution supporte plusieurs types de recherche : full-text, vectorielle / sémantique, hybride, multimodale, géospatiale. Il s'agit d'une alternative très intéressante à **Algolia** (trop cher), **Elasticsearch** / **OpenSearch** (très compliqué), **Typesense** (moins complet), **Qdrant** (plus spécifique).
 
 > 💡 Pour rappel, j'ai rédigé un article intitulé ["À la découverte de Typesense"](/posts/a-la-decouverte-de-typesense-le-moteur-de-recherche-open-source) pour celles et ceux qui veulent tester via Docker / Træfik.
 
