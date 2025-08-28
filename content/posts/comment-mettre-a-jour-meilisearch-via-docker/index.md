@@ -58,7 +58,7 @@ Comme tout bon informaticien qui se respecte, c'est seulement à partir de cet i
 Autant, la documentation et la prise en main générale de l'outil sont hyper simples, claires et rapides ; autant la procédure de montée de version est étonnament décevante et peu pratique.
 {.cons}
 
-L'idée, c'est de générer un dump des données depuis l'ancienne version, pour ensuite supprimer les données (😰) avant de relancer l'instance en version supérieure en spécifiant le dump à ré-importer. En tant qu'opérateur de la solution, c'est vraiment stressant. Et encore ! là, je ne fais que jouer avec de la donnée peu importante, sur une instance locale de test…
+**L'idée, c'est de générer un dump des données depuis l'ancienne version, pour ensuite supprimer les données (😰) avant de relancer l'instance en version supérieure en spécifiant le dump à ré-importer.** En tant qu'opérateur de la solution, c'est vraiment stressant. Et encore ! là, je ne fais que jouer avec de la donnée peu importante, sur une instance locale de test…
 
 La documentation, pour une instance *self-hosted*, indique 2 procédures : une expérimentale, depuis la v1.12, qui permet de se passer de la génération d'un dump complet ; et l'autre, la classique, avec génération + import d'un dump complet.
 
