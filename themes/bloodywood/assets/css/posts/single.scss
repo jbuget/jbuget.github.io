@@ -60,6 +60,10 @@
 				left: -1rem;
 			}
 		}
+		
+		&.underlined {
+		    text-decoration: underline;
+		}
 	}
 
 	p > img {
