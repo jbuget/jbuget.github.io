@@ -1,5 +1,5 @@
 ---
-title: Site personnel de Jérémy Buget, software engineer & leader
+title: Jérémy Buget, software engineer & leader
 ---
 
 👋 Salut ! je suis Jérémy, ingénieur logiciel spécialisé dans le développement Web depuis 2007.
