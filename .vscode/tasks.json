@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Hugo: Serve",
+      "type": "shell",
+      "command": "hugo serve -D",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Hugo: Build",
+      "type": "shell",
+      "command": "hugo --gc --minify",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: Build with Search",
+      "type": "shell",
+      "command": "hugo --gc --minify && npx -y pagefind --site public",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: New Post",
+      "type": "shell",
+      "command": "hugo new posts/${input:postSlug}/index.md",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "postSlug",
+      "description": "Enter post slug (kebab-case)",
+      "default": "mon-nouvel-article",
+      "type": "promptString"
+    }
+  ]
+}

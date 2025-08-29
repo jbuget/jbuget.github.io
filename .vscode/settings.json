@@ -1,0 +1,72 @@
+{
+  "nuxt.isNuxtApp": false,
+  
+  // Files
+  "files.associations": {
+    "*.md": "markdown",
+    "*.toml": "toml",
+    "*.yaml": "yaml",
+    "*.yml": "yaml"
+  },
+  "files.exclude": {
+    "**/public": true,
+    "**/resources": true,
+    "**/.hugo_build.lock": true
+  },
+  "files.watcherExclude": {
+    "**/public/**": true,
+    "**/resources/**": true
+  },
+
+  // Markdown
+  "markdown.preview.breaks": true,
+  "markdown.validate.enabled": true,
+  "markdown.suggest.paths.enabled": true,
+  "markdown.updateLinksOnFileMove.enabled": "prompt",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+
+  // Hugo specific
+  "hugo.server.renderToDisk": true,
+  "emmet.includeLanguages": {
+    "hugo": "html"
+  },
+
+  // French language support
+  "spellright.language": ["fr", "en"],
+  "spellright.documentTypes": ["markdown", "plaintext"],
+  "cSpell.language": "fr,en",
+  "cSpell.words": [
+    "hugo",
+    "netlify",
+    "pagefind",
+    "bloodywood",
+    "toml",
+    "frontmatter",
+    "jbuget",
+    "shortcode",
+    "goldmark"
+  ],
+
+  // Editor
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  
+  // Search
+  "search.exclude": {
+    "**/public": true,
+    "**/resources": true,
+    "**/.git": true
+  },
+
+  // Terminal
+  "terminal.integrated.cwd": "${workspaceFolder}"
+}
