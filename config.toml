@@ -37,11 +37,6 @@ enableEmoji = true
 
   [markup.highlight]
     style = 'monokailight'
-    lineNos = true
-    lineNumbersInTable = true
-    noClasses = false
-    codeFences = true
-    guessSyntax = true
 
   [markup.tableOfContents]
     endLevel = 4
