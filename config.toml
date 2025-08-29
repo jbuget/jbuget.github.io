@@ -15,9 +15,11 @@ enableEmoji = true
 
 [params]
   author = 'Jérémy Buget'
-  description = 'Site personnel de Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
+  description = 'Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
   keywords = ["développement", "CTO", "management", "engineering", "tech", "blog"]
   images = ["/jbu_profile_linkedin.jpg"]
+  ogimage = "/jbu_profile_linkedin.jpg"
+  sitename = "Jérémy Buget"
 
 [params.social]
   github = "jbuget"
