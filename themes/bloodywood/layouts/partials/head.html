@@ -57,8 +57,8 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
-  <!-- Preloaded fonts -->
-  <link rel="preload" href="/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Preloaded fonts - only preload most critical font -->
+  <link rel="preload" href="/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- Custom and optimized FontAwesome icons kit -->
   {{ $faOpts := dict "outputStyle" "compressed" }}
