@@ -1,6 +1,6 @@
 ---
 title: "Faire de la recherche hybride avec Meilisearch"
-draft: false
+draft: true
 date: "2025-08-28T09:00:00+02:00"
 ---
 
