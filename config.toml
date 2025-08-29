@@ -6,9 +6,21 @@ defaultContentLanguage = "fr"
 enableRobotsTXT = true
 enableGitInfo = true
 
+# Performance & Build optimizations
+buildDrafts = false
+buildFuture = false
+canonifyURLs = false
+disableHugoGeneratorInject = false
+enableEmoji = true
+
 [params]
   author = 'Jérémy Buget'
-  description= 'Site personnel de Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
+  description = 'Site personnel de Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
+  keywords = ["développement", "CTO", "management", "engineering", "tech", "blog"]
+  images = ["/android-chrome-512x512.png"]
+  
+[params.social]
+  github = "jbuget"
 
 [markup]
   [markup.goldmark]
@@ -20,9 +32,60 @@ enableGitInfo = true
         title = true
     [markup.goldmark.renderer]
       unsafe = true
+      hardWraps = false
+      xhtml = false
 
   [markup.highlight]
     style = 'monokailight'
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+
+# Multilingual configuration
+[languages]
+  [languages.fr]
+    languageCode = 'fr-FR'
+    languageName = 'Français'
+    title = 'Jérémy Buget'
+    weight = 1
+    
+  [languages.en]
+    languageCode = 'en-US' 
+    languageName = 'English'
+    title = 'Jérémy Buget'
+    weight = 2
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  topic = "topics"
+
+# Output formats
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = "application/rss"
+    baseName = "feed"
+
+# Sitemap configuration
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+# Security
+[security]
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^git$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
 
 [services]
   [services.disqus]
