@@ -488,3 +488,28 @@ Dans les paramètres de l'application Scalingo, dans la section "Notifiers", ajo
 Il n'y a plus qu'à saisir l'URL obtenue précédemment et se laisser guider par l'interface.
 
 ![Ajout d'un nouveau webhook entrant associé à l'application Scalingo](./webhooks_scalingo.png)
+
+### Configurer le CLI
+
+Avec son compte Scalingo, il est possible d'être associé à des apps sur plusieurs zones : osc-fr1 (défaut), SecNum Cloud (osc-secnum-fr1), HDS, etc.
+
+Lorsque l'on utilise le CLI, il faut toujours spécifier la région, avec l'option `--region <osc-secnum-fr1>`. Par défaut, la région sélectionnée est "osc-fr1". 
+
+Si on est amené à travailler principalement sur une autre région (ex : "osc-secnum-fr1"), il peut être intéressant de modifier ce paramètre. Pour ce faire, il existe plusieurs façons : 
+
+**1/ définir la variable d'environnement `SCALINGO_REGION=osc-secnum-fr1` dans son shell**
+
+Vous pouvez définir la région en exportant la variable SCALINGO_REGION dans votre shell.
+```
+export SCALINGO_REGION=osc-fr1
+```
+Ensuite, rechargez votre shell :
+```
+source ~/.bashrc
+```
+
+**2/ modifier le fichier "~/.config/scalingo/config.json"**
+
+```json
+{"region":"osc--secnum-fr1"}
+```
