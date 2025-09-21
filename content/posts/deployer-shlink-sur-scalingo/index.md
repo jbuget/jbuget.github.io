@@ -91,11 +91,11 @@ Ensuite, et c’est encore plus important, les données et la maîtrise de l’o
 
 À l’inverse, il existe des projets open source qui permettent d’héberger soi-même son raccourcisseur d’URL. L’avantage est évident : on garde le contrôle sur ses données et on peut personnaliser la solution selon ses besoins.
 Parmi les plus connus, on peut citer :
-- YOURLS : historique et très extensible grâce à ses nombreux plugins (11,5K ⭐️, en PHP) ;
-- Kutt : une interface simple et claire, facile à prendre en main (10,1K ⭐️, en Node.js) ;
-- Sink : dans la même philosophie que Shlink, avec un socle moderne (5,3K ⭐️, en Nuxt.js / TypeScript) ;
-- WR.DO : très riche en fonctionnalités, proche de ce qu’on trouve dans des solutions SaaS comme TinyURL (1,9K ⭐️, en Nuxt.js / TypeScript) ;
-- et bien sûr Shlink, dont je vais parler ici plus en détail (4,3K ⭐️, en PHP).
+- [YOURLS](https://yourls.org/) : historique et très extensible grâce à ses nombreux plugins (11,5K ⭐️, en PHP) ;
+- [Kutt](https://kutt.it/) : une interface simple et claire, facile à prendre en main (10,1K ⭐️, en Node.js) ;
+- [Sink](https://sink.cool/) : dans la même philosophie que Shlink, avec un socle moderne (5,3K ⭐️, en Nuxt.js / TypeScript) ;
+- [WR.DO](https://wr.do/) : très riche en fonctionnalités, proche de ce qu’on trouve dans des solutions SaaS comme TinyURL (1,9K ⭐️, en Nuxt.js / TypeScript) ;
+- et bien sûr [Shlink](https://shlink.io/), dont je vais parler ici plus en détail (4,3K ⭐️, en PHP).
 
 Ces solutions ne se valent pas toutes. Certaines sont très puissantes, mais demandent une vraie expertise pour être installées et maintenues. D’autres sont plus accessibles, mais peuvent vite atteindre leurs limites dans un contexte professionnel. Le choix dépend donc beaucoup de vos besoins et de votre capacité à les opérer.
 
