@@ -4,41 +4,70 @@ draft: true
 date: "2025-08-28T09:00:00+02:00"
 ---
 
+## Table des matières
+
+- [Introduction](#introduction)
+- [Faire tourner une instance Meilisearch avec Docker](#1-faire-tourner-une-instance-meilisearch-avec-docker)
+- [Administrer une instance Meilisearch](#2-administrer-une-instance-meilisearch)
+- [Conclusion](#conclusion)
+
+## Introduction
+
 Je continue de creuser [**Meilisearch**](https://www.meilisearch.com), le moteur de recherche hybride (full-text et IA-powered) open-source, alternative à Algolia, Typesense et Elasticsearch. Dans cet article, nous allons voir comment définir et alimenter un index avec près de 90K documents depuis un fichier de données JSON récupéré sur data.gouv.fr (il y a un peu de taff),  comment mettre en place la recherche mixte (textuelle + vectorielle) et ce que ça donne comme résultat.
+
+<br/>
 
 ## 1. Faire tourner une instance Meilisearch avec Docker
 
+Une façon très simple de faire est de déclarer un service Meilisearch via Docker Compose :
+
 ```yaml
+# docker-compose.yml
 services:
   meilisearch:
     image: getmeili/meilisearch:v1.19
-    container_name: meilisearch
-    restart: unless-stopped
     ports:
       - "7700:7700"
     environment:
       MEILI_MASTER_KEY: "myMasterKey"   # à personnaliser
     volumes:
       - meili_data:/meili_data
-    command: meilisearch --experimental-dumpless-upgrade
+    command: meilisearch
 
 volumes:
   meili_data:
 ```
 
-Dans Meilisearch (version Community Edition), toute l'administration se passe en ligne de commande (CLI ou API HTTP). Personnellement, mon moyen de prédilection est de faire des requêtes HTTP avec `cURL` et `jq` (pour formatter et manipuler les données JSON en réponse).
+Il ne reste plus qu'à démarrer la stack : 
+
+```shell
+docker compose up -d
+```
+
+L'application est accessible à l'URL : [http://localhost:7000](http://localhost:7000).
+
+![Instance toute propre de Meilisearch sous Docker Compose](meilisearch-services-injected.png)
+
+<br>
+
+## 2. Administrer une instance Meilisearch
+
+L'administration d'une instance *Community Edition* de Meilisearch, se fait via une API ou un CLI. Personnellement, mon moyen de prédilection est de faire des requêtes HTTP avec `cURL` et `jq` (pour formatter et manipuler les données JSON en réponse).
 
 > 💡 Avec cURL, j'utilise l'option `-s | --silent` afin de ne pas être pollué par les informations de progression de récupération des données.
 
-Pour toute requête de l'API Meilisearch, il faut passer la master key en header `AUTHORIZATION` #sécurité.
-{.pros}
+Pour des questions de sécurité, toute requête de l'API Meilisearch DOIT spécifier le header `AUTHORIZATION` de type **"Bearer"** avec pour valeur la **master key** (définie grâce à la variable `MEILI_MASTER_KEY` dans le fichier docker-compose.yml ci-dessus).
+
+**Request :**
 
 ```shell
-$ curl -s -X GET 'localhost:7700/indexes' \
-  -s -H "Authorization: Bearer myMasterKey" \
-  | jq
+curl -s -X GET 'localhost:7700/indexes' -H "Authorization: Bearer myMasterKey" | jq
+```
 
-> {
+**Response :**
+
+```shell
+{
   "results": [
     {
       "uid": "services",
@@ -53,12 +82,17 @@ $ curl -s -X GET 'localhost:7700/indexes' \
 }
 ```
 
+L'API de référence est consultable à l'URL : [Meilisearch API reference](https://www.meilisearch.com/docs/reference/api/overview).
 
+<br>
 
+## 3. Injecter des données
 
-## 2. Récupérer les données
+### 3.1. Identifier et récupérer les données
 
 Pour notre cas d'étude, j'ai décidé d'exploiter des données que je connais bien : l'ensemble des **services d'insertion socio-professionnelles** – alias "offre des services de l'inclusion" – référencés par la Plateforme de l'inclusion, et régulièrement mis à jour et à disposition dans la plateforme de l'état data.gouv.fr (cf. lien vers le fichier de données). Pour compléter un peu plus l'expérience et aller un cran plus loin, je vais aussi récupérer les données des **structures de l'inclusion**.
+
+![Données de data·inclusion depuis data.gouv.fr](data-gouv-di-services.png)
 
 Les 2 sources de données en question :
 * [liste des services](https://www.data.gouv.fr/datasets/referentiel-de-loffre-dinsertion-sociale-et-professionnelle-data-inclusion/#/resources/0eac1faa-66f9-4e49-8fb3-f0721027d89f) – +80K documents / 235Mo
@@ -66,31 +100,33 @@ Les 2 sources de données en question :
 * [liste des structures](https://www.data.gouv.fr/datasets/referentiel-de-loffre-dinsertion-sociale-et-professionnelle-data-inclusion/#/resources/0eac1faa-66f9-4e49-8fb3-f0721027d89f) – +60K documents / 101Mo
   * **~/Downloads/structures-inclusion-2025-08-25.json**
 
-![Données de data·inclusion depuis data.gouv.fr](data-gouv-di-services.png)
-
-## 3. Déclarer les indexes
-
 À ce stade, nous disposons du contenant (Meilisearch) et d'un contenu (gros fichier JSON). Le prochain objectif est d'injecter les données (services et structures) dans le système.
 
+### 3.2. Analyser et adapter les données
+
+### 3.5. Déclarer les indexes et importer les données
 Pour cela, nous définissons 2 indexes : `/services` et `structures`.
 
 > 💡 Dans Meilisearch (et plus généralement dans les systèmes de moteur de recherche), **un index est une base de données optimisée pour la recherche, qui regroupe des documents partageant la même structure** et sur laquelle on exécute les requêtes full-text, vectorielles ou hybrides.
 
-Dans Meilisearch (version Community Edition), toute l'administration se passe en ligne de commande (CLI ou requêtes HTTP / cURL). Personnellement, je passe pas
-
 De façon pratique, Meilisearch créée automatiquement un index s'il n'existe pas au moment d'injecter des documents. Personnellement, je préfère déclarer les indexes moi-même, car je préfère avoir le contrôle et que dès que l'on utilise réellement la solution, il faut le plus souvent, à un moment ou un autre, paramétrer l'index.
-{.pros}
 
 La commande pour **déclarer un index** :
 
+**Request :**
+
 ```shell
-$ curl -s -X POST 'http://localhost:7700/indexes' \
+curl -s -X POST 'http://localhost:7700/indexes' \
   -H "Authorization: Bearer myMasterKey" \
   -H 'Content-Type: application/json' \
   --data '{"uid":"services","primaryKey":"id"}' \
   | jq
+```
 
-> {
+**Response :**
+
+```shell
+{
   "taskUid": 19,
   "indexUid": "services",
   "status": "enqueued",
@@ -101,12 +137,18 @@ $ curl -s -X POST 'http://localhost:7700/indexes' \
 
 En cas de problème ou d'erreur, il est possible de **supprimer un index** grâce à la ressource `DELETE /indexes/{index_name}` :
 
+**Request :**
+
 ```shell
-$ curl -s -X DELETE 'http://localhost:7700/indexes/services' \
+curl -s -X DELETE 'http://localhost:7700/indexes/services' \
   -H "Authorization: Bearer myMasterKey" \
   | jq
+```
 
-> {
+**Response :**
+
+```shell
+{
   "taskUid": 16,
   "indexUid": "services",
   "status": "enqueued",
@@ -117,10 +159,18 @@ $ curl -s -X DELETE 'http://localhost:7700/indexes/services' \
 
 Après la création des 2 indexes, le listing des indexes devrait ressembler à :
 
-```shell
-$ curl -s -X GET 'localhost:7700/indexes' -H "Authorization: Bearer myMasterKey" | jq
+**Request :**
 
-> {
+```shell
+curl -s -X GET 'localhost:7700/indexes' \
+  -H "Authorization: Bearer myMasterKey" \
+  | jq
+```
+
+**Response :**
+
+```shell
+{
   "results": [
     {
       "uid": "services",
@@ -143,18 +193,27 @@ $ curl -s -X GET 'localhost:7700/indexes' -H "Authorization: Bearer myMasterKey"
 
 Tout est prêt pour importer notre premier jeu de données, les services.
 
+### 3.7. Consulter et valider les données
+
+
 ## 4. Injecter les données
 
 Pour **injecter des documents dans un index**, il faut utiliser la commande :
 
+**Request :**
+
 ```shell
-$ curl -X POST 'http://localhost:7700/indexes/services/documents' \
+curl -X POST 'http://localhost:7700/indexes/services/documents' \
   -H "Authorization: Bearer myMasterKey" \
   -H 'Content-Type: application/json' \
   --data-binary "@${HOME}/Downloads/services-inclusion-2025-08-25.json" \
   | jq
+```
 
-> {
+**Response :**
+
+```shell
+{
   "taskUid": 21,
   "indexUid": "services",
   "status": "enqueued",
@@ -166,20 +225,34 @@ $ curl -X POST 'http://localhost:7700/indexes/services/documents' \
 Toujours dans un souci de simplifier la vie des développeurs, Meilisearch tente de détecter un champs ID pour en faire la `primaryKey` de l'index. Il se trouve que le schéma de notre jeu de données possède déjà un champs ID. Tout devrait bien se passer. Pour s'en assurer, on peut lire le début du fichier de données :
 {.pros}
 
-```shell
-$ head -c 1000 ~/Downloads/services-inclusion-2025-08-25.json
+**Request :**
 
-> [{"id":"Mednum-BFC_mednumBFC_TL_206_-mediation-numerique","structure_id":"Mednum-BFC_mednumBFC_TL_206_","source":"mediation-numerique","nom":"Médiation numérique","presentation_resume":"Le V  Fourmilière des Savoir-Faire propose des services : numérique, accompagner les démarches de santé, devenir autonome dans les démarches administratives, réaliser des démarches administratives avec un accompagnement.","presentation_detail":"Le V  Fourmilière des Savoir-Faire propose des services : numérique, accompagner les démarches de santé, devenir autonome dans les démarches administratives, réaliser des démarches administratives avec un accompagnement.","types":["accompagnement"],"thematiques":["numerique","numerique--realiser-des-demarches-administratives-avec-un-accompagnement","numerique--devenir-autonome-dans-les-demarches-administratives","numerique--accompagner-les-demarches-de-sante"],"prise_rdv":null,"frais":[],"frais_autres":null,"profils":[],"profils_precisions":null,"%
+```shell
+head -c 1000 ~/Downloads/services-inclusion-2025-08-25.json
+```
+
+**Response :**
+
+```shell
+[{"id":"Mednum-BFC_mednumBFC_TL_206_-mediation-numerique","structure_id":"Mednum-BFC_mednumBFC_TL_206_","source":"mediation-numerique","nom":"Médiation numérique","presentation_resume":"Le V  Fourmilière des Savoir-Faire propose des services : numérique, accompagner les démarches de santé, devenir autonome dans les démarches administratives, réaliser des démarches administratives avec un accompagnement.","presentation_detail":"Le V  Fourmilière des Savoir-Faire propose des services : numérique, accompagner les démarches de santé, devenir autonome dans les démarches administratives, réaliser des démarches administratives avec un accompagnement.","types":["accompagnement"],"thematiques":["numerique","numerique--realiser-des-demarches-administratives-avec-un-accompagnement","numerique--devenir-autonome-dans-les-demarches-administratives","numerique--accompagner-les-demarches-de-sante"],"prise_rdv":null,"frais":[],"frais_autres":null,"profils":[],"profils_precisions":null,"%
 ```
 
 La commande `POST /indexes/services/documents` s'est finie sans afficher aucune erreur. On pourrait donc se satisfaire que tout a fonctionné du premier coup. Malheureusement, ce n'est pas le cas 😩.
 
 Chaque opération effectuée dans Meilisearch prend la forme d'une `Task`, avec différents statuts, qu'il est possible de suivre :
 
-```shell
-$ curl -s -X GET 'localhost:7700/tasks' -H "Authorization: Bearer myMasterKey" | jq
+**Request :**
 
-> {
+```shell
+curl -s -X GET 'localhost:7700/tasks' \
+  -H "Authorization: Bearer myMasterKey" \
+  | jq
+```
+
+**Response :**
+
+```shell
+{
   "results": [
     {
       "uid": 21,
