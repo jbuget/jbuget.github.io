@@ -31,11 +31,9 @@ author: "Jérémy Buget"
 
 ## TL;DR
 
-Cet article explique comment mettre en place Shlink sur Scalingo pour créer des liens courts et en suivre l’usage simplement.
-On part d’une application prête à déployer et on la relie à un domaine personnalisé pour une adresse propre et mémorisable.
-Le déploiement est rapide et reproductible, les mises à jour se font sans surprise.
-À la fin, on dispose d’un raccourcisseur d’URL fiable, hébergé en France, administrable via une interface Web.
-Dans cet article, je partage aussi des retours concrets pour éviter les pièges et garder un service rapide et stable.
+Cet article explique pourquoi et comment mettre en place Shlink, une solution open-source pour créer des liens courts et en suivre l’usage simplement, sur Scalingo, un hébergeur PaaS français.
+Pour ce faire, j'ai été amené à développer un buildpack ainsi qu'une application de déploiement sur Scalingo.
+En fin d'article, je partage quelques retours sur cette expérience, notamment par rapport à ma compréhension et au développement d'un builkpack.
 
 **Table des matières**
 
@@ -96,9 +94,10 @@ En bref, un raccourcisseur d’URL est souvent perçu comme un simple outil prat
 Quand on cherche une solution pour gérer des liens courts, on se rend vite compte qu’il existe beaucoup d’outils différents.
 Globalement, on peut les ranger dans deux grandes catégories : les services SaaS clés en main et les solutions open source à héberger soi-même.
 
-Du côté des services SaaS, on retrouve des acteurs bien connus comme Bitly, Rebrandly ou TinyURL. Leur force, c’est la simplicité : on crée un compte, et en quelques minutes on peut commencer à générer des liens courts. Pas besoin de serveurs, pas besoin de configuration compliquée.
-Mais cette simplicité a un prix. D’abord, un prix littéral : dès qu’on veut aller un peu plus loin — statistiques avancées, redirections conditionnelles, domaine personnalisé —, il faut passer sur des offres payantes parfois coûteuses.
-Ensuite, et c’est encore plus important, les données et la maîtrise de l’outil restent entre les mains du fournisseur. Ça peut vite devenir un problème pour des organisations qui doivent respecter des contraintes légales (RGPD par exemple) ou qui veulent éviter de dépendre d’un service externe pour quelque chose d’aussi central que leurs liens de communication.
+Du côté des services SaaS, on retrouve des acteurs bien connus comme [Bitly](https://bitly.com/), [Rebrandly](https://www.rebrandly.com/) ou [TinyURL](https://tinyurl.com/). Leur force, c’est la simplicité : on crée un compte, et en quelques minutes on peut commencer à générer des liens courts. Pas besoin de serveurs, pas besoin de configuration compliquée.
+
+Mais **cette simplicité a un prix**. D’abord, un prix littéral : dès qu’on veut aller un peu plus loin — statistiques avancées, redirections conditionnelles, domaine personnalisé —, il faut passer sur des offres payantes parfois coûteuses.
+Ensuite, et c’est encore plus important, les données et la maîtrise de l’outil restent entre les mains du fournisseur. Ça peut vite devenir **un problème pour des organisations qui doivent respecter des contraintes légales** (RGPD par exemple) ou qui veulent éviter de **dépendre d’un service externe** pour quelque chose d’aussi central que leurs liens de communication.
 
 À l’inverse, il existe des projets open source qui permettent d’héberger soi-même son raccourcisseur d’URL. L’avantage est évident : on garde le contrôle sur ses données et on peut personnaliser la solution selon ses besoins.
 Parmi les plus connus, on peut citer :
@@ -120,6 +119,8 @@ Enfin, **l’architecture de Shlink est volontairement simple et sûre**. Il rep
 
 En résumé, Shlink réussit à trouver le bon équilibre : il offre la liberté et la souveraineté d’une solution open source, sans sacrifier la simplicité et la puissance qu’on attend généralement d’un service commercial. C’est ce qui en fait, selon moi, un excellent choix pour toute organisation qui veut mettre en place un raccourcisseur d’URL fiable, sécurisé et évolutif, tout en restant maître de ses données et de ses usages.
 
+![Détail des statistiques d'un lien raccourci](link-visits.png)
+
 ## Scalingo, un hébergeur Platform-as-a-Service français 🇫🇷
 
 Lorsqu’on décide d’héberger soi-même une application open source, plusieurs approches sont possibles. On peut installer un serveur ou un cluster (physique ou virtuel), configurer l’environnement à la main, gérer la base de données, la sécurité, les sauvegardes, la supervision, etc. Mais cela demande du temps, des compétences et une équipe technique disponible. Dans de nombreuses organisations — publiques comme privées ou personnelles —, cette approche devient vite lourde et coûteuse, surtout lorsqu’il s’agit de services périphériques mais stratégiques comme un raccourcisseur d’URL.
@@ -129,6 +130,8 @@ Cela fait des années que je déploie tout type d'applications Web (spécifiques
 Si vous souhaitez avoir un aperçu très complet de Scalingo, et pour ne pas alourdir inutilement cet article, je vous recommande chaudement de lire l'article de Stéphane Robert "[Scalingo : plateforme PaaS française souveraine](https://blog.stephane-robert.info/docs/cloud/scalingo/)" ou directement [la documentation officielle de l'éditeur](https://doc.scalingo.com/).
 
 En bref, quand on manque d'une équipe, de compétences et de motivation à gérer soi-même de l'infra, et qu'on a des besoins / velléités de cloud souverain, Scalingo est une solution d'hébergement idéale 💪.
+
+![Scalingo](scalingo.png)
 
 ## Auto-héberger une instance Shlink sur Scalingo
 
@@ -255,6 +258,8 @@ scalingo --app shlink-mondomaine-fr domains-add s.mondomaine.fr
 
 Scalingo gérera automatiquement le HTTPS via Let’s Encrypt une fois le domaine actif.
 
+> ⚠️ Il faut bien penser à activer l'option "Force HTTPS" dans les paramètres de routing.
+
 ### 5. Déployer le code
 
 Deux approches sont possibles pour déployer votre application Shlink sur Scalingo.
@@ -307,7 +312,7 @@ Développer un buildpack spécifique est une tâche pas si compliquée en soi, m
 
 La première chose à faire est de regarder sur GitHub / Internet s'il n'existe pas de buildpack officiel ou maintenu par la communauté pour le service concerné. Avec Google et ChatGPT, il peut être intéressant de jeter un œil à [l'organisation GitHub de Scalingo](https://github.com/orgs/Scalingo/repositories?q=buildpack) (avec le filtre "buildpack").
 
-> Dans le cas de Shlink, j'ai bien trouvé un projet [betagouv/shlink-buildpack](https://github.com/betagouv/shlink-buildpack/) (avec son pendant applicatif [betagouv/shlink-app](https://github.com/betagouv/shlink-app/)) mais il ne me paraît pas maintenu d'une part ; et d'autre part, je ne suis pas fan de l'approche retenue. Ce buidlpack part du code source de Shlink pour le compiler. Personnellement, lorsque j'intègre un service tiers, je privilégie de partir de la distribution pré-compilée / packagée. J'ai remarqué que ça accélère le temps de build (télécharger des fichiers vs. les télécharger + compiler des sources) ; les binaires obtenus sont souvent mieux optimisés ; les distributions fournissent le plus souvent des outils d'administration pratiques.
+> 💡 Dans le cas de Shlink, j'ai bien trouvé un projet [betagouv/shlink-buildpack](https://github.com/betagouv/shlink-buildpack/) (avec son pendant applicatif [betagouv/shlink-app](https://github.com/betagouv/shlink-app/)) mais il ne me paraît pas maintenu d'une part ; et d'autre part, je ne suis pas fan de l'approche retenue. Ce buidlpack part du code source de Shlink pour le compiler. Personnellement, lorsque j'intègre un service tiers, je privilégie de partir de la distribution pré-compilée / packagée. J'ai remarqué que ça accélère le temps de build (télécharger des fichiers vs. les télécharger + compiler des sources) ; les binaires obtenus sont souvent mieux optimisés ; les distributions fournissent le plus souvent des outils d'administration pratiques.
 
 Si vous ne trouvez pas votre bonheur (le buildpack n'existe pas, ou l'existant ne vous satisfait pas – ex : il manque d'options de personnalisation / optimisation), alors il n'y a plus le choix : il faut se lancer dans le développement de son propre buildpack. Pour ce faire, le meilleur point de départ (pour un hébergement sur Scalingo) est de partir de [la documentation officielle de l'éditeur](https://doc.scalingo.com/platform/deployment/buildpacks/custom).
 
@@ -335,7 +340,7 @@ cd /buildpack
 ./bin/release
 ```
 
-💡 Si l'application déployée est multi-buildpacks – exemple ici, la distribution Shlink nécessite d'avoir un environnement PHP prêt à l'emploi pour exécuter certaines commandes au démarrage de l'instance –, vous pouvez récupérer et invoquer [le projet multi-buildpack officiel](https://github.com/Scalingo/multi-buildpack) fourni par Scalingo plutôt que le vôtre.
+> 💡 Si l'application déployée est multi-buildpacks – exemple ici, la distribution Shlink nécessite d'avoir un environnement PHP prêt à l'emploi pour exécuter certaines commandes au démarrage de l'instance –, vous pouvez récupérer et invoquer [le projet multi-buildpack officiel](https://github.com/Scalingo/multi-buildpack) fourni par Scalingo plutôt que le vôtre.
 
 
 ### Développement du buildpack shlink-buildpack
