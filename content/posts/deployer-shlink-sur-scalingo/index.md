@@ -29,8 +29,17 @@ author: "Jérémy Buget"
 # disableShare: false
 ---
 
+## TL;DR
+
+Cet article explique comment mettre en place Shlink sur Scalingo pour créer des liens courts et en suivre l’usage simplement.
+On part d’une application prête à déployer et on la relie à un domaine personnalisé pour une adresse propre et mémorisable.
+Le déploiement est rapide et reproductible, les mises à jour se font sans surprise.
+À la fin, on dispose d’un raccourcisseur d’URL fiable, hébergé en France, administrable via une interface Web.
+Dans cet article, je partage aussi des retours concrets pour éviter les pièges et garder un service rapide et stable.
+
 **Table des matières**
 
+- [TL;DR](#tldr)
 - [Introduction](#introduction)
 - [Pourquoi un raccourcisseur d'URL ?](#pourquoi-un-raccourcisseur-durl-)
 - [Shlink, la solution open source de gestion de liens raccourcis](#shlink-la-solution-open-source-de-gestion-de-liens-raccourcis)
@@ -65,6 +74,8 @@ author: "Jérémy Buget"
 ## Introduction
 
 Régulièrement, je vois apparaître le besoin de la part des équipes marketing / déploiement / support de pouvoir raccourcir, contrôler et suivre des URLs. La solution que j'ai pris l'habitude de mettre en place est [Shlink](https://shlink.io), qui se présente sous la forme d'un serveur back-end + API en PHP. Parce que j'aime bien héberger ce type d'applications sur une infrastructure de type Plateform-as-a-Service, j'ai développé récemment un buildpack de Shlink pour Scalingo, le PaaS français souverain.
+
+![Dashboard Shlink pour le domaine l.jbuget.fr](dashboard-shlink.png)
 
 ## Pourquoi un raccourcisseur d'URL ?
 
