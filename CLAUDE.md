@@ -28,7 +28,7 @@ hugo --gc --minify && npx pagefind --site 'public'
 This is a personal blog/portfolio site built with [Hugo](https://gohugo.io/) static site generator.
 
 ### Key Components
-- **Hugo version**: 0.148.2 (specified in netlify.toml)
+- **Hugo version**: 0.151.0 (specified in netlify.toml)
 - **Theme**: Custom theme called "Bloodywood" (located in `themes/bloodywood/`)
 - **Search**: Pagefind for client-side search functionality
 - **Hosting**: Netlify with automatic deployments
