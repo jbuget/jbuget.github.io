@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main role="main">
+  <div class="container">
+    <div class="row">
+      <article class="contact contact--success">
+        <header class="contact__header">
+          <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+        </header>
+        <div class="contact__intro">
+          {{ .Content }}
+        </div>
+        <a class="contact__back" href="/contact/">← Retour au formulaire de contact</a>
+      </article>
+    </div>
+  </div>
+</main>
+{{ end }}

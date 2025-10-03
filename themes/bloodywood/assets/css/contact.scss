@@ -1,0 +1,116 @@
+.contact {
+  width: 100%;
+}
+
+.contact__header h1 {
+  margin-bottom: 1rem;
+}
+
+.contact__intro {
+  max-width: 60ch;
+  margin-bottom: 2rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(36, 41, 47, 0.12);
+  border-radius: 12px;
+  background: rgba(36, 41, 47, 0.03);
+}
+
+html[data-theme='dark'] .contact__form {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.contact__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 680px) {
+  .contact__grid {
+    flex-direction: row;
+  }
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.contact__field label {
+  font-weight: 600;
+}
+
+.contact__field input,
+.contact__field textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(36, 41, 47, 0.16);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+html[data-theme='dark'] .contact__field input,
+html[data-theme='dark'] .contact__field textarea {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.contact__field textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.contact__field--hidden {
+  display: none;
+}
+
+.contact__submit {
+  align-self: flex-start;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #1870f0;
+  cursor: pointer;
+  transition: background 120ms ease-in-out, transform 120ms ease-in-out;
+}
+
+.contact__submit:hover,
+.contact__submit:focus {
+  background: #094fb9;
+  transform: translateY(-1px);
+}
+
+.contact__privacy {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(36, 41, 47, 0.7);
+}
+
+html[data-theme='dark'] .contact__privacy {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact__back {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--link-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact--success .contact__intro {
+  margin-bottom: 1.5rem;
+}
