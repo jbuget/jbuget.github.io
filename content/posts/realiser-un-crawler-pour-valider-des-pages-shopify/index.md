@@ -1,12 +1,26 @@
 ---
 title: "Réaliser un crawler pour valider des pages d'un site e-commerce avec Shopify"
-draft: false
+slug: "realiser-un-crawler-pour-valider-des-pages-shopify"
 date: "2025-10-02T09:00:00+02:00"
+lastmod: "2025-10-02T09:00:00+02:00"
+draft: false
+description: "Comment j'ai construit un crawler Shopify en Node.js pour vérifier la présence des fiches PDF produit : Playwright, Cheerio, gestion du rate limit et retours d'expérience sur le vibe coding."
+summary: "Retour d'expérience sur la création d'un CLI Node.js qui contrôle les pages produits Shopify, gère le rate limit et vérifie les liens PDF avant mise en production."
+keywords:
+- shopify
+- crawler
+- node.js
+- playwright
+- cheerio
+- pdf
+- automation
+- cli
+tags: ["Shopify", "Crawler", "Node.js", "Playwright", "Cheerio", "Automation", "CLI"]
+categories: ["shopify", "node.js", "automation"]
 ---
 
 ## Table des matières
 
-- [Table des matières](#table-des-matières)
 - [Problème](#problème)
 - [Solution](#solution)
 - [Retour d'expérience](#retour-dexpérience)
@@ -15,15 +29,14 @@ date: "2025-10-02T09:00:00+02:00"
   - [3. Analyse d'une page HTML](#3-analyse-dune-page-html)
   - [4. Validation des PDF](#4-validation-des-pdf)
   - [5. Input / Output](#5-input--output)
-  - [6. Vibe-coding](#6-vibe-coding)
-  - [7. Exécution d'un CLI Node.js](#7-exécution-dun-cli-nodejs)
+  - [6. Exécution d'un CLI Node.js](#6-exécution-dun-cli-nodejs)
 - [Conclusion](#conclusion)
 
 ## Problème
 
-Récemment, j'ai été amené à développer un petit outil pour automatiser la validation en masse de pages produit d'un site e-commerce refondu avec Shopify. Le site propose plusieurs milliers de références (~5000), dans plusieurs langues. Le projet de refonte arrive à son terme, avec une mise en production est prévue pour très bientôt. Un des critères de validité bloquants d'une page produit est la présence de 2 liens vers les fiches ((1)techniques et (2)de sécurité) vers les documents PDF respectifs, valides et accessibles (hébergés chez OVH).
+Récemment, j'ai été amené à développer un petit outil pour automatiser la validation en masse de pages produit d'un site e-commerce refondu avec Shopify. Le site propose plusieurs milliers de références (~5000), dans plusieurs langues. Le projet de refonte arrive à son terme, avec une mise en production est prévue pour très bientôt. Un des critères de validité bloquants d'une page produit est la présence de 2 liens vers les fiches (1) techniques et (2) de sécurité vers les documents PDF respectifs, valides et accessibles (hébergés chez OVH).
 
-Effectuer un tel type de vérification sur un tel volume est un travail colossal (plusieurs jours) ; fastidieux (où le risque d'erreurs ou de problèmes est élevé) ; avec une plus-value intrinsèque personnelle et collective quasi nulle (personne n'y gagne aucune compétence ou connaissance professionnelle rentable).
+Pour un humain, effectuer un tel type de vérification sur un tel volume est un travail colossal (plusieurs jours) ; fastidieux (où le risque d'erreurs ou de problèmes est élevé) ; avec une plus-value intrinsèque personnelle et collective quasi nulle (personne n'y gagne aucune compétence, connaissance professionnelle ou dynamique inter-personnelle profitable).
 
 Mais surtout, c'est le genre de petites tâches qui s'automatise très facilement et *relativement* rapidement. Je mets un bémol, car les pièges ou situations imprévues sont nombreuses. D'où l'intérêt pour moi de consigner mes quelques apprentissages et de les partager.
 
@@ -48,7 +61,7 @@ Usage: shopify-product-page-validator [options]
 CLI pour valider la présence des fiches PDF sur les pages produits
 
 Options:
-  -i, --input <path>     Fichier CSV d'entrée (default: "input/products.csv")
+  -i, --input <path>     Fichier CSV d’entrée (default: "input/products.csv")
   -o, --output <path>    Fichier CSV de sortie (default: "output/results.csv")
   -d, --delay <ms>       Délai entre les requêtes HTTP (ms) (default: "200")
   --skip-pdf-validation  Désactive la vérification des liens PDF
@@ -61,7 +74,7 @@ Options:
 ### 1. Rate limit et IP-ban
 Avec une configuration de 8 agents de validation concurrents max, cela m'a pris 1h20 pour vérifier un premier lot de 1690 produits. Cela peut paraître lent (c'est mon cas), mais – malheureusement – c'est voulu.
 
-Au tout début, je me contentais d'appeler l'API Node Fetch (via la fonction `fetch`) dès que possible, pour chaque URL. 
+Au tout début, je me contentais d'appeler [l'API Node Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) (via la fonction `fetch`) dès que possible, pour chaque URL. 
 Très vite j'ai eu des [erreurs HTTP `429`](https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/429) ("Too Many Requests") qui indique que le serveur cible (Shopify pour les pages produit, OVH pour les documents PDF) estime que je le surcharge et préfère me refuser l'accès à ses ressources pour éviter de finir saturé.
 C'était surtout vrai pour OVH et les fiches PDF de sécurité et technique.
 
@@ -70,7 +83,7 @@ J'ai tenté (sans grand espoir) de modifier l'en-tête `User-Agent` en option de
 J'ai fini par :
 
 1. forcer un délai entre 2 requêtes HTTP effectuées par le programme
-2. charger les pages HTML via le toolkit Playwright plutôt que directement via la méthode `fetch`
+2. charger les pages HTML via le toolkit [Playwright](https://playwright.dev/) plutôt que directement via la méthode `fetch`
 
 ### 2. Traitements post-rendu HTML
 
@@ -98,7 +111,7 @@ Ces 2 points ont été résolu en laissant Playwright afficher la page produit c
 
 Notre CLI est un programme Node.js. 
 De base, il n'a pas accès aux API Web / HTML des navigateurs.
-Pour pouvoir parcourir, analyser ou jouer avec une page HTML côté backend, il existe une bibliothèque, Cheerio, qui permet de charger une page ou une arborescence DOM.
+Pour pouvoir parcourir, analyser ou jouer avec une page HTML côté backend, il existe une bibliothèque, [Cheerio](https://cheerio.js.org/), qui permet de charger une page ou une arborescence DOM.
 
 > J'en profite pour dire que, par rapport au problème précédent, j'ai tenté la méthode `fromUrl` de Cheerio, mais je me suis retrouvé dans le cas où la page chargée contenait par défaut les 2 liens PDF et renvoyait toujours [OK] même quand il étaient supprimés juste après. Donc, non, Playwright est bien la seule solution valable
 
@@ -122,14 +135,46 @@ const html = await page.content();
 
 // Cheerio
 const $ = load(html);
+const section = $('.page__content.rte.text-subtext.product-documentation').first();
+const links = section.children('a');
 ```
 
 ### 4. Validation des PDF
 
 Si on revient du côté des liens et des fiches PDF, ma première implémentation, naïve, consistait à faire un `fetch(GET)` sur les 2 liens PDF de la page produit.
-Ca ralentissait énormément les traitements.
+Ca ralentissait énormément les traitements, en plus de consommer inutilement d'autres ressources (stockage, bande-passante).
+
 J'avais déjà été confronté à cette problématique dans le passé.
-La solution qui avait fonctionné à l'époque et qui me paraît toujourd d'actualité et pertinente pour mon besoin est d'effectuer une [requête `HEAD`](https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods/HEAD) (qui se contente de vérifier l'accessibilité de la ressource et récupérer les metadonnées de la cible) plutôt qu'une requête `GET`.
+La solution qui avait fonctionné à l'époque et qui me paraît toujours d'actualité et pertinente pour mon besoin est d'effectuer une [requête `HEAD`](https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods/HEAD) (qui se contente de vérifier l'accessibilité de la ressource et récupérer les metadonnées de la cible) plutôt qu'une requête `GET`.
+
+Une fois que la requête HEAD est complétée, alors on accomplit quelques vérifications supplémentaires (content-type et media extension). 
+
+```javascript
+async function isValidPdfLink(baseUrl: string, href: string, delayMs: number): Promise<boolean> {
+    try {
+        const absoluteUrl = resolveUrl(baseUrl, href);
+        const response = await fetchWithDelay(absoluteUrl, {
+            method: 'HEAD',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:115.0) Gecko/20100101 Firefox/115.0',
+      },
+        }, delayMs);
+        if (!response.ok) {
+            return false;
+        }
+        const contentType = response.headers.get('content-type') ?? '';
+        const contentDisposition = response.headers.get('content-disposition') ?? '';
+        const finalUrl = response.url ?? absoluteUrl;
+        const isPdfHeader = contentType.toLowerCase().includes('application/pdf')
+            || contentDisposition.toLowerCase().includes('application/pdf')
+            || contentDisposition.toLowerCase().includes('.pdf');
+        const isPdfUrl = /\.pdf(?:[?#]|$)/i.test(finalUrl);
+        return isPdfHeader || isPdfUrl;
+    } catch (error) {
+        return false;
+    }
+}
+```
 
 
 ### 5. Input / Output
@@ -139,43 +184,33 @@ Le programme s'attend à ce que le fichier input contienne l'en-tête "URL".
 
 En vrai, pour l'input, j'aurais pu me contenter d'un fichier texte avec une URL par ligne.
 
-J'aurais pu utiliser la lib [**csv**](https://csv.js.org/) pour me simplifier la vie mais…
+J'aurais pu utiliser la lib [**csv**](https://csv.js.org/) pour me simplifier la vie.
 
-### 6. Vibe-coding
+**Input :**
+```plaintext
+URL
+https://mon-site-shopify/products/product-A
+https://mon-site-shopify/products/product-B
+https://mon-site-shopify/products/product-C
+https://mon-site-shopify/products/product-E
+https://mon-site-shopify/products/product-F
+```
 
-J'ai tenté de mener ce projet en full vibe coding, cette pratique consistant à se contenter d'indiquer à une IA (dans mon cas Open AI / Codex pour VS Code) nos intentions, et la laisser gérer seule le code.
+**Output :**
+```plaintext
+URL;result;comments
+https://mon-site-shopify/products/product-A;OK
+https://mon-site-shopify/products/product-B;KO;Redirection client vers https://mon-site-shopify.fr/
+https://mon-site-shopify/products/product-C;KO;Section product-documentation absente (fiche de sécurité et technique manquantes)
+https://mon-site-shopify/products/product-E;KO;Fiche technique manquante
+https://mon-site-shopify/products/product-F;KO;Lien fiche de sécurité invalide
 
-Cela fait 4 mois maintenant que je m'y suis mis, d'abord sur Anthropic API > Claude Code puis sur Codex + VS Code (mon combo actuel).
-
-Pour commencer, j'ai beau avoir 20+ années de code (à la sauce Extrem Programming / Software Carftsmanship), aujourd'hui je ne pourrais plus m'en passer.
-
-CEPENDANT ! j'ai pu constater que tout est loin d'être parfait (pour le moment).
-Cet article n'a pas vocation à parler plus que ça de l'IA et du vibe-coding.
-
-En très bref, ça permet de démarrer très vite sur des bonnes bases, et d'avoir rapidement des premiers résultats encourageants.
-Ça permet de casser le sentiment psychologique douloureux d'être face à un défi technique qui nous dépasse (aussi appelé "syndrôme de la page blanche" ou en "syndrôme de l'imposteur").
-Mais le code généré devient rapidement un gros plat de spaghetti, quelque soit l'effort porté à bien découper et contextualiser + détailler chaque demande/attendu.
-Pire encore, ça rend flemmard, impatient, frustré et dispersé.
-Je me suis revu commen en 2010, quand je devais attendre 2mn30 que le programme compile sur les vieux postes de dev de mes clients d'alors, à papillonner et me perdre sur Internet, en attendant que l'agent me fournisse une réponse.
-
-Et lorsque les vrais premiers problèmes de consistence / cohérence / fonctionnels apparaissent, on s'est finalement tellement peu impliqué dans le code, qu'on ne le maîtrise pas du tout et qu'on se prend d'un coup une montagne de complexité dans la tronche.
-
-Dernier point de détail, mais pour un humain c'est important : quand l'agent se trompe, ça m'énerve.
-Surtout quand il soutient un résultat et que de mon côté j'en obtiens un différent.
-Sauf que l'IA ne perd rien dans ce conflit, alors que moi, je perds du temps, de la concention, de la motivation, de l'énergie, de la sérénité, etc.
-Bref, en cas de désaccord, ça me coûte à moi bien plus qu'à *lui*.
-
-Encore une fois, je n'en suis qu'au début de mon apprentissage de cet OUTIL TROP PUISSANT qu'est l'IA (pour le code) et je me rends bien compte que c'est un changement de paradigme professionnel important.
-J'imagine qu'il me faut beaucoup dés-apprendre pour pouvoir ré-apprendre correctement.
-
-Moralité : comme l'a indiqué une étude récente portant sur la productivité réelle des développeurs avec l'IA, au final, à mesure que la complexité (rate limit + ban, règles métier de validation, augmentation de la code base) progressait je ne pense pas avoir gagné tant de temps que ça. Au mieux, 10-15% en 8h (mais je n'en suis même pas si sûr).
+```
 
 
-### 7. Exécution d'un CLI Node.js
+### 6. Exécution d'un CLI Node.js
 
 Peut-être que je suis le dernier imbécile sur Terre qui ne le savait pas, mais lorsqu'on développe un programme et surtout une CLI avec Node.js, il est possible d'utiliser npx directement sans même désormais à avoir à générer de lien symbolique, comme il y a longtemps.
-
-J'ai découvert seulement récemment qu'on peut déclarer des binaires (cf. option `bin`) appelables directement via npx.
 
 ```json
 {
