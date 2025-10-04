@@ -2,17 +2,12 @@
 
 /* https://highlightjs.readthedocs.io/en/latest/theme-guide.html#defining-a-theme */
 .highlight {
-
-	pre {
-		padding: 1rem;
-		background-color: $grey3;
-		border: 1px solid $grey2;
-		margin: 1.5rem 0;
-		font-size: 15px;
-	}
-
-	code {
-		color: $dark6;
-	}
+  pre {
+    padding: 1rem;
+    background-color: $grey3;
+    border: 1px solid $grey2;
+    margin: 1.5rem 0;
+    font-size: 15px;
+    border-radius: 1rem;
+  }
 }
-

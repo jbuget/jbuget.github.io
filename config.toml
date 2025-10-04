@@ -38,7 +38,7 @@ enableEmoji = true
       xhtml = false
 
   [markup.highlight]
-    style = 'monokailight'
+    style = 'catppuccin-frappe'
 
   [markup.tableOfContents]
     endLevel = 4
