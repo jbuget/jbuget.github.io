@@ -82,14 +82,15 @@ C'est ainsi que j'ai réalisé un petit chatbot capable d'interroger un corpus p
 - J'ai développé **une webapp chatbot-like** toute simple pour poser des questions et afficher les réponses
 - Le code source est disponible sur GitHub : [jbuget/ia-custom-chatbot](https://github.com/jbuget/ia-custom-chatbot)
 
-![Capture d'écran du chatbot (question + réponse)](chatbot_inclusion_pmsmp-definition.png)
-
+![Diagramme de flux de l'application](ia_custom_chatbot.jpg)
 
 ## Objectifs
 
 Mon objectif, à travers ce POC (proof of concept), était de **comprendre comment exploiter l'IA d'un point de vue véritablement métier, plus seulement comme outil de production ou aide à la création**. Je souhaitais aussi découvrir les solutions envisageables, évaluer leur potentiel et me confronter à leurs limites / contraintes.
 
 Concrètement, je voulais concevoir une API / webapp capable de d'interagir (écouter et répondre) en langage naturel, avec des utilisateurs spécifiques d'un domaine, pour répondre le plus précisément à des questions métier, en s'appuyant et en citant des sources que j'aurais au préalable collectées et indexées.
+
+![Capture d'écran du chatbot (question + réponse)](chatbot_inclusion_pmsmp-definition.png)
 
 ## Cas d'usage
 
