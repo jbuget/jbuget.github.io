@@ -83,6 +83,28 @@
 			margin: 0 0 2rem;
 		}
 
+		&__toc {
+			background: var(--code-background-color);
+			border: 1px solid $grey2;
+			border-radius: 5px;
+			padding: 1rem 1.25rem;
+			margin: 0 0 2rem;
+
+			h2 {
+				margin: 0 0 0.75rem;
+				padding: 0;
+				border: none;
+				font-size: 1.1rem;
+			}
+
+			nav#TableOfContents {
+				ul {
+					margin: 0;
+					padding-left: 1.25rem;
+				}
+			}
+		}
+
 		&__author,
 		&__date,
 		&__category {

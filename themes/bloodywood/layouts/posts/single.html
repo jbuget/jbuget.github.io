@@ -10,6 +10,12 @@
           , dans <span class="post__category">{{ range .Params.categories }}<span data-pagefind-filter="category">{{ . | title }} </span>{{ end }}</span>
           · <span class="post__reading-time">{{ math.Round (div (countwords .Content) 220.0) }} minutes</span>
         </div>
+        {{ if .Params.toc }}
+        <aside class="post__toc">
+          <h2>Table des matières</h2>
+          {{ .TableOfContents }}
+        </aside>
+        {{ end }}
         {{ .Content }}
       </div>
     </div>
