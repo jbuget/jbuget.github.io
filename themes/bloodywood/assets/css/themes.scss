@@ -16,6 +16,12 @@ html[data-theme='light'] {
 	--code-color: #{$red1};
 	--code-before-background: #{$grey3};
 	--post-img-border: 1px solid #{grey2};
+	--table-header-background: #f6f8fa;
+	--table-header-text: #24292f;
+	--table-row-odd-background: #fff;
+	--table-row-even-background: #f6f8fa;
+	--table-row-hover-background: #eaeef2;
+	--table-border: #d0d7de;
 }
 
 /* Dark */
@@ -28,5 +34,11 @@ html[data-theme='dark'] {
 	--code-color: #{$green1};
 	--code-before-background: #{$dark2};
 	--post-img-border: none;
+	--table-header-background: #161b22;
+	--table-header-text: #{$dark5};
+	--table-row-odd-background: #{$dark1};
+	--table-row-even-background: #{$dark2};
+	--table-row-hover-background: #21262d;
+	--table-border: #30363d;
 }
 
