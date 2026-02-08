@@ -1,7 +1,7 @@
 ---
 title: "Mesurer la valeur et l'impact d'un service numérique"
 date: "2026-02-08T10:00:00+01:00"
-draft: true
+draft: false
 toc: true
 categories: ["Produit", "Management", "Tech"]
 keywords: ["métriques", "KPI", "impact", "produit", "3U", "North Star Metric", "vanity metrics", "Goodhart", "HEART", "AARRR", "product analytics", "SQL", "leading indicator", "lagging indicator"]
