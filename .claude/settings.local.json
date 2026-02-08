@@ -4,7 +4,9 @@
       "Bash(hugo serve:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "WebSearch",
+      "WebFetch(domain:fr.wiki.isit-europe.org)"
     ],
     "deny": [],
     "ask": []
