@@ -2,6 +2,7 @@
 title: "Automatisez vos tâches et process avec une instance auto-hébergée de n8n"
 date: 2022-04-08
 draft: false
+toc: true
 categories: ["traefik", "ops", "infra", "docker", "vps", "n8n"]
 summary: n8n est une plateforme open source d'automatisation des tâches, alternative à Zapier, Integromat ou IFTTT. Il est très facile de déployer et gérer sa propre instance grâce sur un VPS grâce à Træfik et Docker Compose.
 ---
@@ -9,16 +10,6 @@ summary: n8n est une plateforme open source d'automatisation des tâches, altern
 ## TLDR
 
 [**n8n**](https://n8n.io) est une solution open source d'automatisation des tâches via un éditeur de workflows. Au même titre que Zapier, IFTTT ou Integromat, ses concurrents privés et payants leaders du marchés, n8n est souvent catégorisé dans les outils Low-Code. Il reste toutefois possible de développer ses propres connecteurs, via les connecteurs proposés ou directement dans le code source.   
-
-## Table des matières
-
-- [Présentation](#présentation)
-- [Installation](#installation)
-  - [Étude de la solution](#étude-de-la-solution)
-  - [Prérequis](#prérequis)
-  - [Mise en œuvre](#mise-en-œuvre)
-- [Conclusion](#liens)
-- [Liens](#liens)
 
 ## Présentation
 

@@ -2,6 +2,7 @@
 title: "Ce que je retiens de la conférence ai-PULSE 2025 dédiée à l'IA européenne"
 date: "2025-12-07T12:46:05+01:00"
 draft: false
+toc: true
 categories: ["IA", "Conférence"]
 keywords: ["IA", "AI", "ai-PULSE", "Scaleway", "Europe", "robotique", "voice tech", "agents"]
 summary: "Retour d’expérience sur ai-PULSE 2025 : keynotes de Yann Le Cun et Pim de Witte, annonces Scaleway, robotique incarnée, modèles vocaux et visions européennes de l’IA."
@@ -120,7 +121,7 @@ Avant de nous quitter, Neels a ajouté des axes de progrès sur lesquels ils tra
 
 Il a souligné un autre problème auquel on ne pense pas tout de suite : la gestion du son de la foule, très compliquée pour l’IA vocale.
 
-## Résumé de conférences
+## Les autres conférences
 
 Il s’agissait de la dernière keynote généraliste de la matinée. La suite de la conférence a consisté à enchaîner des sessions de 15-30mn sur des sujets beaucoup plus précis et pointus. 
 

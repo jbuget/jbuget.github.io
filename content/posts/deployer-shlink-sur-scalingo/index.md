@@ -5,6 +5,7 @@ slug: "deployer-shlink-sur-scalingo"
 date: "2025-09-18T09:30:00+02:00"
 lastmod: "2025-09-19T09:00:00+02:00"
 draft: false
+toc: true
 
 # SEO
 description: "Guide complet pour auto‑héberger Shlink, le raccourcisseur d’URL open source, sur Scalingo. Buildpack custom, configuration PostgreSQL/Redis, variables d’environnement, domaine personnalisé et retours d’expérience."
@@ -34,40 +35,6 @@ author: "Jérémy Buget"
 Cet article explique pourquoi et comment mettre en place Shlink, une solution open-source pour créer des liens courts et en suivre l’usage simplement, sur Scalingo, un hébergeur PaaS français.
 Pour ce faire, j'ai été amené à développer un buildpack ainsi qu'une application de déploiement sur Scalingo.
 En fin d'article, je partage quelques retours sur cette expérience, notamment par rapport à ma compréhension et au développement d'un builkpack.
-
-**Table des matières**
-
-- [TL;DR](#tldr)
-- [Introduction](#introduction)
-- [Pourquoi un raccourcisseur d'URL ?](#pourquoi-un-raccourcisseur-durl-)
-- [Shlink, la solution open source de gestion de liens raccourcis](#shlink-la-solution-open-source-de-gestion-de-liens-raccourcis)
-- [Scalingo, un hébergeur Platform-as-a-Service français 🇫🇷](#scalingo-un-hébergeur-platform-as-a-service-français-)
-- [Auto-héberger une instance Shlink sur Scalingo](#auto-héberger-une-instance-shlink-sur-scalingo)
-  - [1. Prérequis](#1-prérequis)
-  - [2. Créer l’application dans Scalingo](#2-créer-lapplication-dans-scalingo)
-    - [2.1. Déclarer l’application](#21-déclarer-lapplication)
-    - [2.2. Ajouter PostgreSQL](#22-ajouter-postgresql)
-    - [2.2. Ajouter Redis](#22-ajouter-redis)
-  - [3. Configurer les variables d’environnement](#3-configurer-les-variables-denvironnement)
-  - [4. Configurer le nom de domaine](#4-configurer-le-nom-de-domaine)
-    - [4.1. Chez votre hébergeur DNS](#41-chez-votre-hébergeur-dns)
-    - [4.2. Dans Scalingo](#42-dans-scalingo)
-  - [5. Déployer le code](#5-déployer-le-code)
-    - [Option 1 : via GitHub (recommandé)](#option-1--via-github-recommandé)
-    - [Option 2 : via la CLI Scalingo](#option-2--via-la-cli-scalingo)
-  - [6. Vérifier et administrer votre instance](#6-vérifier-et-administrer-votre-instance)
-- [Le coin de la technique](#le-coin-de-la-technique)
-  - [La technologie *buildpack*](#la-technologie-buildpack)
-  - [Développement d'un *custom buildpack* pour Scalingo](#développement-dun-custom-buildpack-pour-scalingo)
-  - [Développement du buildpack shlink-buildpack](#développement-du-buildpack-shlink-buildpack)
-    - [Comment intégrer un environnement (PHP, Node.js, Java, etc.) requis par un buildpack](#comment-intégrer-un-environnement-php-nodejs-java-etc-requis-par-un-buildpack)
-    - [Optimisation du build](#optimisation-du-build)
-  - [Développement de l'app shlink-scalingo](#développement-de-lapp-shlink-scalingo)
-    - [Le cas RoadRunner (RR)](#le-cas-roadrunner-rr)
-    - [Problème de rate-limit de GitHub](#problème-de-rate-limit-de-github)
-    - [Problème de délai au démarrage](#problème-de-délai-au-démarrage)
-    - [Problème de caches de templates au démarrage](#problème-de-caches-de-templates-au-démarrage)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

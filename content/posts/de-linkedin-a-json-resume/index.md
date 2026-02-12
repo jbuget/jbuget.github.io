@@ -4,6 +4,7 @@ slug: "de-linkedin-a-json-resume-cvtheque-libre-personnalisee"
 date: "2025-08-26T21:00:00+02:00"
 lastmod: "2025-08-26T21:00:00+02:00"
 draft: false
+toc: true
 description: "LinkedIn enferme vos données. Voici comment j’ai utilisé JSON Resume pour bâtir une CVthèque libre, exportable et intégrée à mon site web."
 summary: "Retour d’expérience : quitter la dépendance à LinkedIn, adopter JSON Resume, automatiser la génération de PDF et intégrer sa CVthèque sur son site."
 keywords: ["JSON Resume", "LinkedIn", "CVthèque", "CV", "open source", "PDF", "site web", "SGE", "GEO", "SEO"]
@@ -40,18 +41,6 @@ meta:
 ## TL&DR;
 
 Dans le cadre d’une recherche d’emploi un peu hybride, j’ai récemment dû rédiger plusieurs CV, mettant à chaque fois en avant un type de profil particulier, le tout dans  plusieurs langues. Plutôt que tout miser sur LinkedIn, qui verrouille complètement les données de profil qu’on y injecte et qui n’offre aucune API Profile pour rendre la chose pratique, je me suis basé sur le format JSON Resume, dont la spécification, la communauté et l’écosystème me permettent aujourd’hui d’intégrer et gérer simplement une CVthèque sur mon site web (cf. page "[Curriculum Vitæ](/resumes)"), dont la génération de PDF.
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [LinkedIn et les autres plateformes de recrutement](#linkedin-et-les-autres-plateformes-de-recrutement)
-- [Une stratégie de gestion du contenu basée sur LinkedIn inadaptée](#une-strategie-de-gestion-du-contenu-basee-sur-linkedin-inadaptee)
-- [From LinkedIn to JSON Resume](#from-linkedin-to-json-resume)
-- [JSON Resume et autres formats de structure de CV](#json-resume-et-autres-formats-de-structure-de-cv)
-- [From JSON Resume to PDF](#from-json-resume-to-pdf)
-- [Nouvelle stratégie, avec moins de LinkedIn et plus de CVs](#nouvelle-strategie-avec-moins-de-linkedin-et-plus-de-cvs)
-- [Nouvelle section pour mon site web : *ma* CVthèque](#nouvelle-section-pour-mon-site-web-ma-cvtheque)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

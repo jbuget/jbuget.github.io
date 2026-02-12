@@ -8,6 +8,7 @@ keywords:
 - husky
 date: 2022-03-24T13:47:18+01:00
 draft: false
+toc: true
 summary: Pour des projets importants, long terme et multi-collaborateurs, bien gérer son historique Git est important. Cela passe nécessairement par avoir une bonne hygiène de commits Git. Voici mes 5 critères pour des commits de qualité.
 ---
 
@@ -21,21 +22,6 @@ Cela passe nécessairement par pousser de bons commits.
 - il doit avoir une taille raisonnable (nombre, nature et quantité de fichiers/LoC impactés)
 - il comporte un changement complet
 - il est bien nommé et décrit
-
-## Table des matières
-
-- [Introduction](#introduction)
-  - [Qu'est-ce qu'un commit Git ?](#quest-ce-quun-_commit_-git-)
-  - [Dans quel cas et pourquoi le sujet est-il important ?](#dans-quel-cas-et-pourquoi-le-sujet-est-il-important-)
-- [Critères de qualité d'un commit Git](#critères-de-qualité-dun-commit-git)
-  - [a. Un bon commit doit être entièrement “vert”](#a-un-bon-commit-doit-être-entièrement-vert)
-  - [b. Un bon commit doit se restreindre à une intention unique claire](#b-un-bon-commit-doit-se-restreindre-à-une-intention-unique-claire)
-  - [c. Un bon commit doit avoir une taille raisonnable](#c-un-bon-commit-doit-avoir-une-taille-raisonnable)
-  - [d. Un bon commit doit contenir un changement complet](#d-un-bon-commit-doit-contenir-un-changement-complet)
-  - [e. Un bon commit doit avoir un _bon message_](#e-un-bon-commit-doit-avoir-un-_bon-message_)
-- [Bonus : quelques bonnes pratiques courantes](#bonus--quelques-bonnes-pratiques-courantes)
-- [Conclusion](#conclusion)
-- [Liens](#liens)
 
 ## Introduction
 

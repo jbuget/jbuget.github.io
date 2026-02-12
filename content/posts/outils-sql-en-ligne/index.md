@@ -11,23 +11,9 @@ keywords:
 - outils
 date: 2022-08-24T13:09:18+01:00
 draft: false
+toc: true
 summary: Il existe tout un tas d'outils en ligne bien pratiques pour comprendre, intervenir ou administrer une base de données et des requêtes. 
 ---
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [Avertissement](#avertissement)
-- [Apprendre le langage SQL / dialect PostgreSQL](#apprendre-le-langage-sql--dialect-postgresql)
-- [Modéliser une base de données](#modéliser-une-base-de-données)
-- [Visualiser une base de données](#visualiser-une-base-de-données)
-- [Compiler / valider / vérifier des instructions SQL](#compiler--valider--vérifier-des-instructions-sql)
-- [Comprendre et analyser un plan d'exécution](#comprendre-et-analyser-un-plan-dexécution)
-- [Bonus](#bonus)
-    - [1. Comprendre l'attaque par injection SQL](#1-comprendre-lattaque-par-injection-sql)
-    - [2. Optimiser les paramètres d'une base PostgreSQL](#2-optimiser-les-paramètres-dune-base-postgresql)
-    - [3. Ressources pour aller plus loin avec PostgreSQL](#3-ressources-pour-aller-plus-loin-avec-postgresql)
-- [Conclusion](#conclusion)
 
 
 ## Introduction

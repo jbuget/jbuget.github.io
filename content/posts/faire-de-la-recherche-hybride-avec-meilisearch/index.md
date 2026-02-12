@@ -1,15 +1,9 @@
 ---
 title: "Faire de la recherche hybride avec Meilisearch"
 draft: true
+toc: true
 date: "2025-08-28T09:00:00+02:00"
 ---
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [Faire tourner une instance Meilisearch avec Docker](#1-faire-tourner-une-instance-meilisearch-avec-docker)
-- [Administrer une instance Meilisearch](#2-administrer-une-instance-meilisearch)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

@@ -4,6 +4,7 @@ slug: "realiser-un-crawler-pour-valider-des-pages-shopify"
 date: "2025-10-02T09:00:00+02:00"
 lastmod: "2025-10-02T09:00:00+02:00"
 draft: false
+toc: true
 description: "Comment j'ai construit un crawler Shopify en Node.js pour vérifier la présence des fiches PDF produit : Playwright, Cheerio, gestion du rate limit et retours d'expérience sur le vibe coding."
 summary: "Retour d'expérience sur la création d'un CLI Node.js qui contrôle les pages produits Shopify, gère le rate limit et vérifie les liens PDF avant mise en production."
 keywords:
@@ -18,19 +19,6 @@ keywords:
 tags: ["Shopify", "Crawler", "Node.js", "Playwright", "Cheerio", "Automation", "CLI"]
 categories: ["shopify", "node.js", "automation"]
 ---
-
-## Table des matières
-
-- [Problème](#problème)
-- [Solution](#solution)
-- [Retour d'expérience](#retour-dexpérience)
-  - [1. Rate limit et IP-ban](#1-rate-limit-et-ip-ban)
-  - [2. Traitements post-rendu HTML](#2-traitements-post-rendu-html)
-  - [3. Analyse d'une page HTML](#3-analyse-dune-page-html)
-  - [4. Validation des PDF](#4-validation-des-pdf)
-  - [5. Input / Output](#5-input--output)
-  - [6. Exécution d'un CLI Node.js](#6-exécution-dun-cli-nodejs)
-- [Conclusion](#conclusion)
 
 ## Problème
 

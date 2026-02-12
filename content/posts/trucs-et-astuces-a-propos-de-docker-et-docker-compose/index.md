@@ -12,6 +12,7 @@ keywords:
 - postgresql
 - mariadb
 draft: false
+toc: true
 summary: Travailler avec Docker et Docker Compose n'est pas toujours une sinécure. Avec le temps, j'ai pu me développer une petite boîte à outil et connaissances. Celle-ci m'est bien pratique au quotidien pour gérer mes conteneurs, explorer les logs, gérer l'espace disque, etc.
 ---
 
@@ -20,24 +21,6 @@ summary: Travailler avec Docker et Docker Compose n'est pas toujours une sinécu
 Travailler avec Docker et Docker Compose n'est pas toujours une sinécure.
 Avec le temps, j'ai pu me développer une petite boîte à outil et connaissances.
 Celle-ci m'est bien pratique au quotidien pour gérer mes conteneurs, explorer les logs, gérer l'espace disque, etc.
-
-## Table des matières
-
-- [Arrêter / redémarrer Docker](#arrêter--redémarrer-docker)
-- [Affichage des conteneurs Docker](#affichage-des-conteneurs-docker)
-- [Gestion des logs](#gestion-des-logs)
-  - [Afficher les logs de conteneurs](#afficher-les-logs-de-conteneurs)
-  - [Logging drivers et rotation de logs](#logging-drivers-et-rotation-de-logs)
-  - [Modifier le _logging driver_ par défaut](#modifier-le-_logging-driver_-par-défaut)
-- [Libérer de l'espace disque](#libérer-de-lespace-disque)
-- [Se connecter à un conteneur](#se-connecter-à-un-conteneur)
-  - [Ouvrir un terminal bash au sein d'un conteneur](#ouvrir-un-terminal-bash-au-sein-dun-conteneur)
-  - [Explorer une base PostgreSQL](#explorer-une-base-postgresql)
-  - [Explorer une base MariaDB](#explorer-une-base-mariadb)
-- [Mettre à jour un service](#mettre-à-jour-un-service)
-- [Explorer les volumes](#explorer-les-volumes)
-- [Connaître l'état du système lié à Docker](#conna%c3%aetre-l%c3%a9tat-du-syst%c3%a8me-li%c3%a9-%c3%a0-docker)
-  - [Connaître l'espace-disque consommé par les objets Docker](#conna%c3%aetre-lespace-disque-consomm%c3%a9-par-les-objets-docker)
 
 ## Arrêter / redémarrer Docker
 

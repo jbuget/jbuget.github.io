@@ -8,25 +8,10 @@ keywords:
 - methodologie
 date: 2023-07-02T14:10:00+01:00
 draft: false
+toc: true
 summary: Rencontrer des conflits de fusion avec Git et devoir les résoudre est rarement une situation agréable et peut parfois tourner au cauchemar. La meilleure façon de traiter les conflits efficacement est de les éviter, les réduire ou les prévenir autant que possible. Pour ce faire, il existe certaines techniques, bonnes pratiques, outils et autres astuces.
 ---
 
-## Table des matières
-
-- [Introduction](#introduction)
-- [1. Comprendre Git et ce qu'est un conflit de fusion](#1-comprendre-git-et-ce-quest-un-conflit-de-fusion)
-- [2. Organiser intelligemment les travaux en amont](#2-organiser-intelligemment-les-travaux-en-amont)
-- [3. Modulariser suffisamment son code](#3-modulariser-suffisamment-son-code)
-- [4. Travailler sur des branches séparées](#4-travailler-sur-des-branches-séparées)
-- [5. Synchroniser son travail très souvent et régulièrement](#5-synchroniser-son-travail-très-souvent-et-régulièrement)
-- [6. Résoudre les conflits rapidement](#6-résoudre-les-conflits-rapidement)
-- [7. Faire des commits fréquents et atomiques](#7-faire-des-commits-fréquents-et-atomiques)
-- [8. Mettre en place des outils de contrôle et formatage de code](#8-mettre-en-place-des-outils-de-contrôle-et-formatage-de-code)
-- [9. Définir des standards, règles et normes d'équipes](#9-définir-des-standards-règles-et-normes-déquipes)
-- [10. Automatiser les traitements ou contrôles via les hooks Git](#10-automatiser-les-traitements-ou-contrôles-via-les-hooks-git)
-- [11. Mettre en place un pipeline d'intégration continue](#11-mettre-en-place-un-pipeline-dintégration-continue)
-- [12. Communiquer, communiquer, communiquer](#12-communiquer-communiquer-communiquer)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

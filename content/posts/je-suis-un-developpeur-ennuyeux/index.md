@@ -8,6 +8,7 @@ keywords:
 - chatgpt
 date: 2023-02-26T23:17:00+01:00
 draft: false
+toc: true
 slug: boring-coder
 summary: Je suis un développeur ennuyeux qui privilégie des choix (techno, archi, infra, méthodo) simples et éprouvés à des alternatives plus créatives.
 ---

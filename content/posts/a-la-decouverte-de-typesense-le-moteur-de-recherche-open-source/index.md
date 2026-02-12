@@ -7,32 +7,9 @@ keywords:
 - open source
 date: 2023-07-12T23:55:00+00:00
 draft: false
+toc: true
 summary: Typesense est un moteur d'indexation et recherche distribué sous licence open source. C'est une alternative crédible à Algolia (SaaS), ElasticSearch (ex-open source), OpenSearch (fork open source de ElasticSearch initié et mené par Amazon) ou MeiliSearch (autre moteur open source).
 ---
-
-## Table des matières
-
-- [Table des matières](#table-des-matières)
-- [Introduction](#introduction)
-- [Présentation](#présentation)
-- [Installation](#installation)
-  - [1/ Configurer la zone DNS](#1-configurer-la-zone-dns)
-  - [2/ Définir la stack Docker Compose](#2-définir-la-stack-docker-compose)
-  - [3/ Démarrer les services Traefik et Typesense](#3-démarrer-les-services-traefik-et-typesense)
-  - [(option) Installation locale avec Docker](#option-installation-locale-avec-docker)
-- [Usage](#usage)
-- [Administration](#administration)
-  - [Endpoints](#endpoints)
-  - [CLI](#cli)
-  - [Collection Postman](#collection-postman)
-  - [Dashboard](#dashboard)
-- [Intégration](#intégration)
-- [Démonstration](#démonstration)
-  - [Contexte](#contexte)
-  - [Déroulement](#déroulement)
-  - [Résultat](#résultat)
-- [Conclusion](#conclusion)
-
 
 ## Introduction
 

@@ -2,6 +2,7 @@
 title: "Pièges et erreurs fréquentes avec Metabase"
 date: 2024-08-29T19:46:40+02:00
 draft: true
+toc: true
 ---
 
 > *« Sans maîtrise, la puissance n'est rien. »* -- [Pirelli](https://www.youtube.com/watch?v=GlwRMdmeoFE)

@@ -2,6 +2,7 @@
 title: "Techniques et outil pour déboguer une config Traefik"
 date: 2022-04-15T00:20:00+02:00
 draft: false
+toc: true
 categories: ['traefik']
 keywords:
 - traefik
@@ -20,28 +21,6 @@ Traefik est le reverse proxy moderne de choix pour gérer une infrastructure for
 Cependant, déboguer une configuration Docker Compose managée par Traefik peut rapidement et pour longtemps devenir un casse-tête.
 
 Heureusement, il existe tout un tas d'outils, techniques et vérifications pour s'en sortir à moindre mal.
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [1. Au niveau de Traefik](#1-au-niveau-de-traefik)
-  - [1.1. Activer et exploiter les logs Traefik](#11-activer-et-exploiter-les-logs-traefik)
-  - [1.2. Activer et exploiter les access logs Traefik](#12-activer-et-exploiter-les-access-logs-traefik)
-  - [1.3. Activer l'API Traefik et son mode debug](#13-activer-lapi-traefik-et-son-mode-debug)
-- [2. Au niveau du service](#2-au-niveau-du-service)
-  - [2.1. Vérifier que le conteneur du service tourne bien](#21-vérifier-que-le-conteneur-du-service-tourne-bien) 
-  - [2.2. Vérifier les logs docker-compose](#22-vérifier-les-logs-docker-compose) 
-  - [2.3. Vérifier les copier-coller malheureux](#23-vérifier-les-copier-coller-malheureux) 
-  - [2.4. Vérifier la déclaration du réseau en cas de multiples réseaux](#24-vérifier-la-déclaration-du-réseau-en-cas-de-multiples-réseaux) 
-  - [2.5. Vérifier l’exposition du port quand l’app web écoute sur un port particulier](#25-vérifier-l-exposition-du-port-quand-l-app-web-écoute-sur-un-port-autre-que-80-ou-443) 
-  - [2.6. Vérifier les fautes de typo dans les labels](#26-vérifier-les-fautes-de-typo-dans-les-labels) 
-- [3. Au niveau DNS / SSL](#3-au-niveau-dns--ssl)
-  - [3.1. Vérifier que l’entrée a été ajoutée au fichier Let’s Encrypt](#31-vérifier-que-lentrée-a-été-ajoutée-au-fichier-lets-encrypt)
-  - [3.2. Vérifier la configuration DNS](#32-vérifier-la-configuration-dns)
-  - [3.3. Vérifier la propagation DNS](#33-vérifier-la-propagation-dns)
-  - [3.4. Vider le cache DNS / browser / local (utiliser un VPN)](#34-vider-le-cache-dns--browser--local-utiliser-un-vpn)
-- [4. La solution ultime](#4-la-solution-ultime) 
-- [Conclusion](#conclusion)
 
 ## Introduction
 

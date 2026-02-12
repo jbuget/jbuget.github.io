@@ -8,6 +8,7 @@ keywords:
 - netlify
 date: 2023-02-18T12:28:00+01:00
 draft: false
+toc: true
 summary: Gérer les montées de version de framework peut être une vraie galère. Mais pas avec Hugo !
 ---
 

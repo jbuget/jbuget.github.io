@@ -9,6 +9,7 @@ keywords:
 - ops
 - devops
 draft: false
+toc: true
 summary: Scalingo est un service d'hébergement de sites et applications Web de type Plateform-as-a-Service (PaaS)
 ---
 

@@ -1,6 +1,7 @@
 ---
 date: 2025-10-15T09:02:00+02:00
 draft: false
+toc: true
 params:
   author: Jérémy Buget
 title: Développer un agent IA custom
@@ -33,29 +34,6 @@ meta:
   keywords: ["chatbot", "IA", "open-weight", "RAG", "Ollama", "FastAPI", "pgvector", "Sentence Transformers"]
 
 ---
-
-## Table des matières
-- [Introduction](#introduction)
-- [TL;DR](#tldr)
-- [Objectifs](#objectifs)
-- [Cas d'usage](#cas-dusage)
-- [Conditions opérationnelles et matérielles](#conditions-opérationnelles-et-matérielles)
-- [Collecte de données](#collecte-de-données)
-- [Indexation vectorielle](#indexation-vectorielle)
-  - [1. Choix du système de gestion de base de données (SGBD)](#1-choix-du-système-de-gestion-de-base-de-données-sgbd)
-  - [2. Création de la base + table](#2-création-de-la-base--table)
-  - [3. Indexation des documents](#3-indexation-des-documents)
-    - [3.1) Vectorisation des topics](#31-vectorisation-des-topics)
-    - [3.2) Insertion des documents en base](#32-insertion-des-documents-en-base)
-- [Conception de l'API](#conception-de-lapi)
-- [Recherche sémantique par comparaison vectorielle](#recherche-sémantique-par-comparaison-vectorielle)
-- [Génération de la réponse](#génération-de-la-réponse)
-  - [1. Instructions système](#1-instructions-système)
-  - [2. Instructions utilisateur](#2-instructions-utilisateur)
-  - [3. RAG](#3-rag)
-- [IHM](#ihm)
-- [Conclusion](#conclusion)
-
 
 ## Introduction
 

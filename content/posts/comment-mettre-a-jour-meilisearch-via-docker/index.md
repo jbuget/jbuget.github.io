@@ -2,16 +2,11 @@
 title: "Comment mettre à jour Meilisearch via Docker"
 date: "2025-08-28T09:00:00+02:00"
 draft: false
+toc: true
 description: "Retour d’expérience : procédure détaillée pour mettre à jour une instance Meilisearch auto-hébergée dans Docker, de la v1.11 à la v1.14."
 summary: "Meilisearch évolue rapidement. Voici comment j’ai réussi à mettre à jour mon instance Docker de la v1.11 à la v1.14, en passant par la génération d’un dump et son import dans la nouvelle version."
 keywords: ["Meilisearch", "Docker", "mise à jour", "self-hosted", "open-source", "full-text search", "hybrid search"]
 ---
-
-## Table des matières
-- [Introduction](#introduction)
-- [Problème pour la montée de version avant la v1.12](#problème-pour-la-montée-de-version-avant-la-v112)
-- [Solution pour la montée de version avant la v1.12](#solution-pour-la-montée-de-version-avant-la-v112)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

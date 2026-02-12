@@ -8,6 +8,7 @@ keywords:
 - thème sombre
 date: 2022-03-29T15:42:47+02:00
 draft: false
+toc: true
 summary: Les thèmes sombres - a.k.a. dark themes - sont à la mode et la plupart des sites ou applications proposent une option en ce sens. L'occasion de voir comment implémenter ce type de fonctionnalités nécessitant du JavaScript côté front-end dans une application Hugo.
 ---
 
@@ -21,30 +22,6 @@ Un tel mécanisme nécessite de gérer du JavaScript dans le site, qui va se bra
 Le code JS peut être placé et invoqué tel quel dans le répertoire `/static` (ou `/themes/xxx/static`).
 Mais le mieux, c'est de le situer dans le répertoire `/assets` (ou `/themes/xxx/assets`) afin de pouvoir bénéficier des fonctionnalités fournies par les Pipes Hugo, notamment celles en rapport avec ESBuild (tree shaking, minification, sourcemaps, fingerprinting, etc.).
 
-## Table des matières
-
-- [TL;DR](#tldr)
-- [Table des matières](#table-des-matières)
-- [Introduction](#introduction)
-- [1. Conception](#1-conception)
-  - [1.1. Existant](#11-existant)
-  - [1.2. Pistes de réflexion](#12-pistes-de-réflexion)
-  - [1.3. Solution retenue](#13-solution-retenue)
-- [2. Préparation](#2-préparation)
-  - [2.1. Gérer le JavaScript dans un site Hugo](#21-gérer-le-javascript-dans-un-site-hugo)
-  - [2.2. Modulariser les ressources JavaScript](#22-modulariser-les-ressources-javascript)
-  - [2.3. Optimiser les ressources JavaScript](#23-optimiser-les-ressources-javascript)
-  - [2.4. Réflexion sur les dépendances externes](#24-réflexion-sur-les-dépendances-externes)
-- [3. Implémentation](#3-implémentation)
-  - [Découpage en tâches](#découpage-en-tâches)
-  - [1. Préparer les thèmes CSS](#1-préparer-les-thèmes-css)
-  - [2. Changer le thème en fonction d'un bouton](#2-changer-le-thème-en-fonction-dun-bouton)
-  - [3. Permettre à l'utilisateur de conserver son choix](#3-permettre-à-lutilisateur-de-conserver-son-choix)
-  - [4. Supporter les préférences système de l'utilisateur](#4-supporter-les-préférences-système-de-lutilisateur)
-  - [5. Ajouter une icône dynamique](#5-ajouter-une-icône-dynamique)
-- [Code final](#code-final)
-- [Conclusion](#conclusion)
-- [Liens](#liens)
 
 ## Introduction
 

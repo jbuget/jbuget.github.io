@@ -7,16 +7,9 @@ keywords:
 - agilité
 date: 2025-04-04T00:00:00+01:00
 draft: true
+toc: true
 summary: Retour d'expérience sur le pilotage de projet agile en suivant l'approche "no estimate"
 ---
-
-## Table des matières
-
-- [Table des matières](#table-des-matières)
-- [Introduction](#introduction)
-- [](#)
-- [](#-1)
-- [Conclusion](#conclusion)
 
 
 ## Introduction

@@ -2,6 +2,7 @@
 title: "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose (part. 2)"
 date: 2022-04-06T17:45:00+02:00
 draft: false
+toc: true
 categories: ["traefik", "ops", "infra", "docker", "vps"]
 keywords:
 - traefik
@@ -17,19 +18,6 @@ summary: Træfik est une solution de reverse proxy qui permet d'obtenir une infr
 
 > 📚 Cet article fait partie de la série "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose".
 > Voir : [part. 1](../part-1) / [part. 2](../part-2) / [part. 3](../part-3)
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [Objectif](#objectif)
-- [Solution](#solution)
-- [Réalisation](#réalisation)
-  - [1. Prérequis : déclarer un réseau Docker partagé et exposé](#1-prérequis--déclarer-un-réseau-docker-partagé-et-exposé)
-  - [2. Configurer le DNS de notre premier service managé](#2-prérequis--configurer-le-dns-de-notre-premier-service-managé)
-  - [3. Faire tourner une instance de Træfik](#3-faire-tourner-une-instance-de-træfik)
-  - [4. Quelques explications](#4-quelques-explications)
-  - [5. Go live!](#5-go-live)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

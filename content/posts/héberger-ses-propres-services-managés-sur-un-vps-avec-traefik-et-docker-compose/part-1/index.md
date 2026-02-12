@@ -2,6 +2,7 @@
 title: "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose (part. 1)"
 date: 2022-04-05T17:45:00+02:00
 draft: false
+toc: true
 categories: ["traefik", "ops", "infra", "docker", "vps"]
 keywords:
 - traefik
@@ -25,19 +26,6 @@ Héberger et gérer sa propre infrastructure permet de conserver un maximum de c
 Les offres d'hébergement et outils actuels simplifient et accélèrent grandement la mise en œuvre de solutions open source de qualité, de façon sécurisée.
 
 Il suffit d'un VPS, d'une instance Træfik (reverse proxy), d'un peu de Docker / Docker Compose (gestionnaire de conteneurs) et de quelques variables d'environnement pour créer de la magie.
-
-## Table des matières
-
-- [Introduction](#introduction)
-- [Prérequis](#prérequis)
-- [1. Commande et installation du VPS](#1-commande-du-vps)
-- [2. Premiers pas & sécurisation de l'environnement](#2-premiers-pas--sécurisation-de-l-environnement)
-  - [2.1. Vérifier la connexion](#21-vérifier-la-connexion)
-  - [2.2. Brancher un nom de domaine](#22-brancher-un-nom-de-domaine)
-  - [2.3. Sécuriser le serveur](#23-sécuriser-le-serveur)
-  - [2.4. Installer Docker](#24-installer-docker)
-  - [2.5. Installer Docker Compose](#25-installer-docker-compose)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

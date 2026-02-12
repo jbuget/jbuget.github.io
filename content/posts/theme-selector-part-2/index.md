@@ -10,6 +10,7 @@ keywords:
 - menu déroulant
 date: 2022-04-02
 draft: false
+toc: true
 summary: Intégrer un button de choix du thème graphique, c'est bien ; proposer un menu de sélection du thème permettant de synchroniser à tout moment avec le thème système, c'est mieux !
 ---
 
@@ -21,23 +22,6 @@ J'aime beaucoup la façon dont le site [MDN Web Docs](https://developer.mozilla.
 
 Le [code final](#code-final) est disponible en fin d'article.
 
-## Table des matières
-
-- [Introduction](#introduction)
-  - [Exemples](#exemples)
-- [Conception](#conception)
-  - [Visuel](#visuel)
-  - [Comportements](#comportements)
-  - [Autres](#autres)
-- [Réalisation](#réalisation)
-  - [Général](#général) 
-  - [Proposer un menu déroulant (plutôt qu'un bouton à bascule)](#proposer-un-menu-déroulant-plutôt-quun-bouton-à-bascule)
-  - [Tenir compte du thème sélectionné](#tenir-compte-du-thème-sélectionné)
-  - [Tenir compte de la navigation au clavier](#tenir-compte-de-la-navigation-au-clavier)
-  - [Tenir compte du "click" (souris)](#tenir-compte-du-click-souris)
-  - [Tenir compte de la "touche d'échappement" (clavier)](#tenir-compte-de-la-touche-déchappement-clavier)
-  - [Code final](#code-final)
-- [Conclusion](#conclusion)
 
 ## Introduction
 

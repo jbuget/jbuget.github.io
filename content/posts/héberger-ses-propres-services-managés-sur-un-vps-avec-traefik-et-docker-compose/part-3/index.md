@@ -2,6 +2,7 @@
 title: "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose (part. 3)"
 date: 2022-04-07T15:45:00+02:00
 draft: false
+toc: true
 categories: ["traefik", "ops", "infra", "docker", "vps"]
 keywords:
 - traefik
@@ -18,18 +19,6 @@ summary: Dans cette partie, nous nous intéressons à la procédure pour ajouter
 > 📚 Cet article fait partie de la série "Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose".
 > Voir : [part. 1](../part-1) / [part. 2](../part-2) / [part. 3](../part-3)
 
-## Table des matières
-
-- [Procédure](#procédure)
-- [Exemple 1 : Plausible](#exemple-1--plausible)
-- [Exemple 2 : Shlink](#exemple-2--shlink)
-  - [2.1. Comprendre le projet](#21-comprendre-le-projet)
-  - [2.2. Définir une entrée DNS](#22-définir-une-entrée-dns)
-  - [2.3. Générer une clé GeoLite2](#23-générer-une-clé-geolite2)
-  - [2.4. Créer et éditer les fichiers Docker Compose et de configuration](#24-créer-et-éditer-les-fichiers-docker-compose-et-de-configuration)
-  - [2.5. Utilisation du client Web en ligne fourni par Shlink](#25-utilisation-du-client-web-en-ligne-fourni-par-shlink)
-- [Conclusion](#conclusion)
-- [Liens](#liens)
 
 ## Procédure
 

@@ -2,6 +2,7 @@
 title: "Techniques pour fusionner 2 versions divergentes d'un projet Shopify grâce à Git"
 date: 2023-02-20T19:08:00+02:00
 draft: false
+toc: true
 categories: ['git', 'shopify']
 keywords:
 - git
@@ -30,21 +31,6 @@ Apprentissages :
 - la parallélisation a un coût
 - ne JAMAIS sous-estimer une piste
 - bien connaître l'environnement permet de s'économiser bien des heures et soucis
-
-## Table des matières
-
-- [La mission](#la-mission)
-- [Préparatifs](#préparatifs)
-  - [Estimation du nombre de fichiers du projet](#estimation-du-nombre-de-fichiers-du-projet)
-  - [Évaluation globale des différences et conflits](#évaluation-globale-des-différences-et-conflits)
-- [Le jour J](#le-jour-j)
-  - [Seul on va vite ; ensemble on va loin… et plus vite encore !](#seul-on-va-vite--ensemble-on-va-loin-et-plus-vite-encore-)
-  - [Tout commence et finit avec Git](#tout-commence-et-finit-avec-git)
-  - [Analyse graphique de divergences et résolution de conflits](#analyse-graphique-de-divergences-et-résolution-de-conflits)
-  - [Documenter c'est gagner ✌](#documenter-cest-gagner-)
-  - [Courage, méthodologie, rigueur et patience sont sur un bateau…](#courage-méthodologie-rigueur-et-patience-sont-sur-un-bateau)
-- [Épilogue](#épilogue)
-- [Conclusion](#conclusion)
 
 
 ## La mission
