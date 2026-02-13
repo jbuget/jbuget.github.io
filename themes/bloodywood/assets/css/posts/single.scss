@@ -1,6 +1,7 @@
 @import "../colors";
 
 .posts-single {
+	padding-bottom: 0 !important;
 
 	h2 {
 		margin-top: 2rem;
@@ -116,10 +117,11 @@
 			background-color: $grey3;
 			padding: 2rem;
 			border-radius: 5px;
+			margin-bottom: 0;
 		}
 
 		&__related {
-			padding-top: 2rem;
+			padding: 2rem 0 3rem;
 		}
 	}
 }
