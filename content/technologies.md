@@ -34,6 +34,17 @@ Même si je ne compte pas mettre à disposition le thème et les outils du site,
 Pour gérer les styles, j'utilise le langage **[SCSS](https://gohugo.io/hugo-pipes/scss-sass/)**, intégré et supporté nativement dans Hugo.
 SCSS est un sur-ensemble du langage CSS, qui couvre toutes les fonctionnalités de celui-ci et en ajoute d'autres (ex : nesting, reference, interpolation, fonctions, etc.).
 
+### Icônes
+
+Les icônes du site proviennent de **[Font Awesome](https://fontawesome.com/)**, une bibliothèque d'icônes vectorielles très répandue.
+Seul un sous-ensemble d'icônes (style _solid_) est intégré dans le thème afin de limiter le poids des ressources chargées.
+
+### Recherche
+
+Le site intègre **[Pagefind](https://pagefind.app/)** pour la recherche côté client.
+Pagefind est une solution légère qui indexe le contenu statique au moment du build et permet une recherche instantanée directement dans le navigateur, sans serveur ni service tiers.
+L'indexation est automatique à chaque déploiement via la commande `npx pagefind --site public`.
+
 ### Fonts
 
 La police d'écriture utilisée sur le site est **[Nunito](https://fonts.google.com/specimen/Nunito)**.
@@ -55,6 +66,17 @@ Netlify se charge tout seul de générer et packager les ressources statiques de
 
 Par ailleurs, l'hébergement est gratuit pour les sites de taille modeste, comme un site Web / blog personnel.
 Le combo avec Hugo est d'autant plus rentable que la tarification de Netlify se base sur le _temps de build_, fortement réduit et optimisé par le CMS. 
+
+### CI/CD
+
+Le déploiement du site est entièrement automatisé via **[Netlify](https://netlify.com)**.
+À chaque push sur la branche `main` du dépôt GitHub, Netlify déclenche un pipeline de build qui :
+
+1. Génère le site statique avec Hugo (`hugo --gc --minify`)
+2. Indexe le contenu pour la recherche avec Pagefind (`npx pagefind --site public`)
+3. Déploie les fichiers sur le CDN
+
+Les _deploy previews_ sont également activées : chaque pull request génère un aperçu du site accessible via une URL temporaire.
 
 ## Propriété intellectuelle
 
@@ -96,6 +118,15 @@ En guise de navigateur Web, j'alterne entre Chrome, Brave et **[Firefox](https:/
 ### Web Analytics
 
 Le site intègre **[Google Analytics](https://analytics.google.com/)** afin de suivre et comprendre l'audience du site, et ainsi pouvoir proposer un contenu et une expérience utilisateur pertinente et de qualité.
+
+### SEO et référencement
+
+Hugo génère automatiquement plusieurs ressources utiles au référencement :
+
+- **[Sitemap XML](/sitemap.xml)** : plan du site mis à jour à chaque build
+- **[Flux RSS](/index.xml)** : pour les lecteurs de flux
+- **robots.txt** : fichier de directives pour les moteurs de recherche
+- **Balises Open Graph et Twitter Cards** : intégrées dans le `<head>` de chaque page pour un rendu optimisé lors du partage sur les réseaux sociaux
 
 ### Raccourcisseur d'URL
 
