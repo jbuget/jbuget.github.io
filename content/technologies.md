@@ -102,19 +102,17 @@ Ce faisant, vous êtes tenus de rendre disponible le code source du logiciel (en
 
 Je ne m'empêche d'utiliser aucun outil ou éditeur de texte / code pour produire le contenu de ce site.
 
-Dans les faits, au quotidien et le plus souvent, j'utilise l'IDE **[WebStorm](https://www.jetbrains.com/fr-fr/webstorm/)** de jetBrains.
+Dans les faits, au quotidien et le plus souvent, j'utilise **[VSCode](https://code.visualstudio.com/)**.
 
-La machine que j'utilise pour développer le site et produire le contenu est un **MacBook Pro d'Apple** : 15 pouces de 2016, 2,7 GHz Intel Core i7 quatre cœurs, 16 Go 2133 MHz LPDDR3, macOS BigSur.
+Comme tout dev moderne, j'ai intégré l'IA dans mon quotidien. J'utilise en priorité **[Claude Code](https://claude.ai/code)**, ou [ChatGPT](https://chat.openai.com/) (pour économiser des tokens pour autre chose que du dev).
 
-En guise de navigateur Web, j'alterne à l'envie entre Chrome, Firefox et **Brave**, ce dernier ayant tout de même ma préférence. 
+La machine que j'utilise pour développer le site et produire le contenu est un **MacBook Pro 14 pouces 2023 d'Apple** : Apple M2 Max, 64 Go de RAM (le grand luxe !).
+
+En guise de navigateur Web, j'alterne entre Chrome, Brave et **[Firefox](https://www.mozilla.org/fr/firefox/)**, ce dernier ayant ma préférence depuis quelques années.
 
 ### Web Analytics
 
-Le site intègre une solution de Web Analytics - **[Plausible](https://plausible.io/)** - afin de suivre et comprendre l'audience du site, et ainsi pouvoir proposer un contenu et une expérience utilisateur pertinente et de qualité.
-Vous pouvez consulter en toute transparence les données récoltées à la page [/stats](/stats).
-
-J'héberge moi-même la solution sur un VPS dédié, hébergé chez [PulseHeberg](https://pulseheberg.com/).
-J'ai là aussi rédigé une série d'articles sur le sujet : "[Héberger ses propres services managés sur un VPS avec Træfik et Docker / Compose (part. 3)](/posts/héberger-ses-propres-services-managés-sur-un-vps-avec-traefik-et-docker-compose/part-3/)".
+Le site intègre **[Google Analytics](https://analytics.google.com/)** afin de suivre et comprendre l'audience du site, et ainsi pouvoir proposer un contenu et une expérience utilisateur pertinente et de qualité.
 
 ### Raccourcisseur d'URL
 
