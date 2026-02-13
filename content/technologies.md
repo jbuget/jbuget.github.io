@@ -150,4 +150,4 @@ La communication et le référencement sont pour moi des éléments importants r
 
 Pour pouvoir disposer de souplesse, flexibilité, résilience, contrôle et métriques par rapport aux liens que je communique à chaque publication d'une nouvelle page ou article, j'utilise une application de gestion des URL.
 
-J'ai opté pour **[Shlink](https://shlink.io)**, une solution open source que j'auto-héberge sur mon VPS PulseHeberg.
+J'ai opté pour **[Shlink](https://shlink.io)**, une solution open source. Après l'avoir auto-hébergée sur un VPS chez [PulseHeberg](https://pulseheberg.com/), je l'héberge depuis septembre 2025 chez **[Scalingo](https://scalingo.com/)** (merci à eux 🙏).
