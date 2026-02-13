@@ -1,3 +1,17 @@
+@import "../colors";
+
 #pagefind {
     padding: 2rem 0;
+}
+
+html[data-theme='dark'] {
+    --pagefind-ui-primary: #{$dark5};
+    --pagefind-ui-text: #{$dark5};
+    --pagefind-ui-background: #{$dark1};
+    --pagefind-ui-border: #30363d;
+    --pagefind-ui-tag: #{$dark2};
+
+    .pagefind-ui__result-link {
+        color: $orange2 !important;
+    }
 }
