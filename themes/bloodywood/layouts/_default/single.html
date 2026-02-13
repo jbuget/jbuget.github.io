@@ -3,6 +3,12 @@
   <div class="container">
     <div class="row">
       <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+      {{ if .Params.toc }}
+      <aside class="post__toc">
+        <h2>Table des matières</h2>
+        {{ .TableOfContents }}
+      </aside>
+      {{ end }}
       {{ .Content }}
     </div>
     <div class="row">

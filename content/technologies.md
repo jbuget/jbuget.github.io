@@ -2,34 +2,17 @@
 title: Technologies
 date: 2017-03-23
 draft: false
+toc: true
 ---
 
 > 💡 Cette page est susceptible d'être mise à jour à chaque évolution de la stack technique du site.
-> _Dernière mise à jour : le **11/04/2022**_
-
-## Table des matières
-
-- [Application](#application)
-  - [Architecture](#architecture)
-  - [Framework](#framework)
-  - [Styles](#styles)
-  - [Fonts](#fonts)
-- [Infrastructure](#infrastructure)
-  - [DNS](#dns)
-  - [Hébergement](#hébergement)
-- [Propriété intellectuelle](#propriété-intellectuelle)
-  - [Code source](#code-source)
-  - [Licence](#licence)
-- [Misc](#misc)
-  - [Environnement de développement](#environnement-de-développement)
-  - [Web Analytics](#web-analytics)
-  - [Raccourcisseur d'URL](#raccourcisseur-durl)
+> _Dernière mise à jour : le **{{< last-modified >}}**_
 
 ## Application
 
 ### Architecture
 
-Le site [jbuget.fr](https://jbguet.fr) adopte une architecture de type **Static Website** (site statique).
+Le site [jbuget.fr](https://jbuget.fr) adopte une architecture de type **Static Website** (site statique).
 
 Dans la mesure où il s'agit principalement d'un **site éditorial** - présentation d'informations, articles, mise à disposition et publication de ressources - avec très peu d'interactions et _peu d'intelligence métier_, je ne voyais pas l'intérêt d'opter pour une architecture plus complexe type Single Page Application (SPA), Server Side Rendering (SSR) ou Progressive Webapp (PWA).
 
