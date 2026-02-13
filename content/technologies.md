@@ -38,7 +38,7 @@ En second focus, je conserve une attention et un soin particulier pour la sécur
 
 ### Framework
 
-Le framework utilisé est **[Hugo](https://gohugo.io/)**, un générateur de sites statiques open source.
+Le framework utilisé est **[Hugo](https://gohugo.io/)** (v{{< hugo-version >}}), un générateur de sites statiques open source.
 
 Hugo offre propose nativement un ensemble très complet et très bien pensé de fonctionnalités et autres conventions.
 En une commande (via le [CLI](https://gohugo.io/commands/)) il est possible de générer un site prêt-à-l'emploi avec un outillage efficace.
