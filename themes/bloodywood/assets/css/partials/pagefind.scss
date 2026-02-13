@@ -1,7 +1,11 @@
 @import "../colors";
 
 #pagefind {
-    padding: 2rem 0;
+    padding: 2rem 15px;
+
+    @media screen and (min-width: 992px) {
+        padding: 2rem 0;
+    }
 }
 
 html[data-theme='dark'] {
