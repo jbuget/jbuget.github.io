@@ -24,7 +24,6 @@ cover:
   caption: "JSON Resume → CVthèque libre → Export PDF"
 
 # Options de la page
-toc: true
 comments: true
 featured: true
 readingTime: true

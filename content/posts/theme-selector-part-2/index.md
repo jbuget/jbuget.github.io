@@ -8,7 +8,6 @@ keywords:
 - dark theme
 - thème sombre
 - menu déroulant
-date: 2022-04-02
 draft: false
 toc: true
 summary: Intégrer un button de choix du thème graphique, c'est bien ; proposer un menu de sélection du thème permettant de synchroniser à tout moment avec le thème système, c'est mieux !
