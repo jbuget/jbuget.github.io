@@ -128,6 +128,22 @@ Hugo génère automatiquement plusieurs ressources utiles au référencement :
 - **robots.txt** : fichier de directives pour les moteurs de recherche
 - **Balises Open Graph et Twitter Cards** : intégrées dans le `<head>` de chaque page pour un rendu optimisé lors du partage sur les réseaux sociaux
 
+### Thème clair / sombre
+
+Le site propose un **sélecteur de thème** (clair, sombre, ou synchronisé avec les préférences du système d'exploitation).
+Le choix est persisté dans le navigateur et appliqué instantanément via JavaScript, sans rechargement de page.
+J'ai rédigé un article à ce sujet : "[Gérer des thèmes graphiques dans un site Web (v2)](/posts/theme-selector-part-2)".
+
+### Commentaires
+
+Les articles du blog intègrent un système de commentaires via **[Disqus](https://disqus.com/)**.
+Cette solution hébergée permet aux lecteurs de réagir sans nécessiter de backend supplémentaire côté serveur.
+
+### Formulaire de contact
+
+Le site dispose d'une page de [contact](/contact) dont le formulaire est géré par **[Netlify Forms](https://www.netlify.com/products/forms/)**.
+Les soumissions sont protégées par un captcha (reCAPTCHA intégré à Netlify) et les messages sont consultables directement depuis le tableau de bord Netlify.
+
 ### Raccourcisseur d'URL
 
 La communication et le référencement sont pour moi des éléments importants relatifs au site.
