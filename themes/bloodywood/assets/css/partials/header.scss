@@ -40,6 +40,11 @@ html[data-theme='dark'] {
 		@media screen and (min-width: 992px) {
 			flex: initial;
 		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	// Checkbox hidden but functional
