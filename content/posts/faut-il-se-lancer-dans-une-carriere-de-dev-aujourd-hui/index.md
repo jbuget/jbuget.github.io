@@ -10,7 +10,7 @@ keywords:
 - formation
 - métier
 - avenir
-date: 2026-02-14T12:00:00+01:00
+date: 2026-02-15T08:00:00+01:00
 draft: false
 toc: true
 slug: faut-il-se-lancer-dans-le-dev
