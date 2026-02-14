@@ -1,6 +1,6 @@
 ---
 title: "Pix"
-description: "Plateforme nationale d'évaluation et de certification des compétences numériques"
+description: "Création d'une plateforme nationale d'évaluation et de certification des compétences numériques"
 date: 2016-06-01
 url_projet: "https://pix.fr"
 client: "Pix / BetaGouv"

@@ -1,6 +1,6 @@
 ---
 title: "La Plateforme de l'inclusion"
-description: "Incubateur de services numériques pour l'insertion professionnelle"
+description: "Incubation de services numériques pour l'insertion professionnelle"
 date: 2022-05-01
 url_projet: "https://inclusion.gouv.fr"
 client: "GIP Plateforme de l'inclusion"
