@@ -16,7 +16,9 @@ La même année, j’ai participé en tant que co-fondateur technique à la cré
 
 En 2022, j'ai participé au lancement d'un second GIP issu de [l'incubateur d'état beta.gouv](https://beta.gouv.fr/), **à nouveau en tant que CTO** : le [GIP Plateforme de l'inclusion](https://inclusion.beta.gouv.fr), dont la mission est de faciliter l'insertion des personnes éloignées de l'emploi et de leurs accompagnants.
 
-Mon but quand je me lève tous les matins consiste à **“aider les gens à s’épanouir et prendre du plaisir à travers ou au sein du numérique en accomplissant de grandes et belles choses ensemble”**.
+Après presque une décennie dans le service public, j'ai repris une **activité de freelance** pour des missions de **solution architect**, **tech lead / dev senior** ou **CTO de transition**.
+
+Mon but quand je me lève tous les matins consiste à **"aider les gens à s'épanouir et prendre du plaisir à travers ou au sein du numérique en accomplissant de grandes et belles choses ensemble"**.
 
 J’habite près de Paris avec ma femme et nos 3 enfants.
 
