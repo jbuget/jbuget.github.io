@@ -13,7 +13,9 @@ keywords:
 date: 2026-02-14T12:00:00+01:00
 draft: true
 toc: true
+slug: faut-il-se-lancer-dans-le-dev
 summary: Un collègue m'a demandé si j'encouragerais un jeune à se lancer dans le dev. Ma première réponse fut non. Puis j'ai nuancé.
+description: "Formations courtes, concurrence mondialisée, low-code, IA : le marché du dev a profondément changé. Faut-il encore conseiller à un jeune de s'y lancer ? Retour honnête d'un développeur de 20 ans d'expérience, entre inquiétude et optimisme."
 ---
 
 ## "Devenir dev ?"
