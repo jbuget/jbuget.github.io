@@ -1,0 +1,50 @@
+{{ define "main" }}
+<main class="portfolio-single">
+  <div class="container">
+    <div class="row">
+      <h1>{{ .Title }}</h1>
+
+      <div class="portfolio-meta">
+        <div class="portfolio-meta__item">
+          <strong>Client :</strong> {{ .Params.client }}
+        </div>
+        <div class="portfolio-meta__item">
+          <strong>Rôle :</strong> {{ .Params.role }}
+        </div>
+        {{ if .Params.stack }}
+        <div class="portfolio-meta__item">
+          <strong>Stack :</strong>
+          {{ range .Params.stack }}
+          <span class="portfolio-badge">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ if .Params.url_projet }}
+        <div class="portfolio-meta__item">
+          <a href="{{ .Params.url_projet }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Voir le projet
+          </a>
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="portfolio-content">
+        {{ .Content }}
+      </div>
+
+      {{ $images := .Resources.ByType "image" }}
+      {{ if $images }}
+      <div class="portfolio-gallery">
+        {{ range $images }}
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" />
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="portfolio-back">
+        <a href="/portfolio">&larr; Revenir au portfolio</a>
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

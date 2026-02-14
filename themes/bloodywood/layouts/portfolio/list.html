@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="portfolio-section">
+  <div class="container">
+    <div class="row">
+      <h1>{{ .Title }}</h1>
+      <div class="portfolio-grid">
+        {{ range .Pages.ByWeight }}
+        <a class="portfolio-card" href="{{ .Permalink }}">
+          {{ $images := .Resources.ByType "image" }}
+          {{ if $images }}
+          <img class="portfolio-card__image" src="{{ (index $images 0).RelPermalink }}" alt="{{ .Title }}" />
+          {{ else }}
+          <div class="portfolio-card__image portfolio-card__image--placeholder"></div>
+          {{ end }}
+          <div class="portfolio-card__body">
+            <h2 class="portfolio-card__title">{{ .Title }}</h2>
+            <p class="portfolio-card__description">{{ .Params.description }}</p>
+            <span class="portfolio-card__role">{{ .Params.role }}</span>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

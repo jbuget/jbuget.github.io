@@ -6,7 +6,15 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "WebSearch",
-      "WebFetch(domain:fr.wiki.isit-europe.org)"
+      "WebFetch(domain:fr.wiki.isit-europe.org)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io log --oneline -5)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io push --force-with-lease)",
+      "Bash(hugo:*)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io add themes/bloodywood/assets/css/partials/pagefind.scss)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io commit -m \"$\\(cat <<''EOF''\ntheme\\(bloodywood\\): ajouter du padding horizontal à la recherche en mobile\nEOF\n\\)\")",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io push)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io add themes/bloodywood/layouts/partials/header.html themes/bloodywood/assets/css/partials/header.scss)",
+      "Bash(git -C /Users/jeremy.buget/Works/jbuget/jbuget.github.io commit -m \"$\\(cat <<''EOF''\ntheme\\(bloodywood\\): rendre le titre du header cliquable vers la home\nEOF\n\\)\")"
     ],
     "deny": [],
     "ask": []
