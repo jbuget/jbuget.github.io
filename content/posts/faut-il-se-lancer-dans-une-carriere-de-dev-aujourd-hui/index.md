@@ -11,7 +11,7 @@ keywords:
 - métier
 - avenir
 date: 2026-02-14T12:00:00+01:00
-draft: true
+draft: false
 toc: true
 slug: faut-il-se-lancer-dans-le-dev
 summary: Un collègue m'a demandé si j'encouragerais un jeune à se lancer dans le dev. Ma première réponse fut non. Puis j'ai nuancé.
