@@ -15,7 +15,7 @@
           <div class="portfolio-card__body">
             <h2 class="portfolio-card__title">{{ .Title }}</h2>
             <p class="portfolio-card__description">{{ .Params.description }}</p>
-            <span class="portfolio-card__role">{{ .Params.role }}</span>
+            <span class="portfolio-card__role">{{ .Params.role }} · {{ .Date.Format "2006" }}</span>
           </div>
         </a>
         {{ end }}
