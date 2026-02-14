@@ -1,7 +1,8 @@
 ---
 title: "La Plateforme de l'inclusion"
 description: "Incubation de services numériques pour l'insertion professionnelle"
-date: 2022-05-01
+date_debut: 2022-05-01
+date_fin: 2025-08-31
 url_projet: "https://inclusion.gouv.fr"
 client: "GIP Plateforme de l'inclusion"
 role: "CTO"

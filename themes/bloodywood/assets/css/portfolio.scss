@@ -53,7 +53,8 @@
 
   &__description {
     font-size: 0.95rem;
-    color: $grey7;
+    color: var(--text-color);
+    opacity: 0.7;
     margin: 0 0 0.75rem;
   }
 

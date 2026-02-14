@@ -1,7 +1,8 @@
 ---
 title: "Billetterie Roland-Garros"
 description: "Refonte complète de la billetterie en ligne du tournoi de Roland-Garros"
-date: 2015-09-01
+date_debut: 2015-09-01
+date_fin: 2016-06-30
 url_projet: "https://www.rolandgarros.com"
 client: "Fédération Française de Tennis"
 role: "Tech Lead"

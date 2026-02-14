@@ -1,7 +1,8 @@
 ---
 title: "Pix"
 description: "Création d'une plateforme nationale d'évaluation et de certification des compétences numériques"
-date: 2016-06-01
+date_debut: 2016-06-01
+date_fin: 2022-04-30
 url_projet: "https://pix.fr"
 client: "Pix / BetaGouv"
 role: "Co-fondateur & CTO"

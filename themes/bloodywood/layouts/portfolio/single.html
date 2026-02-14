@@ -11,6 +11,9 @@
         <div class="portfolio-meta__item">
           <strong>Rôle :</strong> {{ .Params.role }}
         </div>
+        <div class="portfolio-meta__item">
+          <strong>Période :</strong> {{ (time .Params.date_debut).Format "2006" }} - {{ (time .Params.date_fin).Format "2006" }}
+        </div>
         {{ if .Params.stack }}
         <div class="portfolio-meta__item">
           <strong>Stack :</strong>
