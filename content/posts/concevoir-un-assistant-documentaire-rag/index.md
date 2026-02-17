@@ -31,6 +31,23 @@ Travailler sur ces cas d'usage m'a appris (et continue de m'apprendre) énormém
 > Le code source du projet qui accompagne cette série est disponible sur GitHub : [jbuget/raggae](https://github.com/jbuget/raggae). RAGGAE est une plateforme open source pour créer des agents conversationnels RAG, de l'ingestion documentaire au chat contextuel multi-LLM.
 
 
+## TL;DR
+
+Un assistant documentaire RAG, c'est un système qui permet de poser des questions en langage naturel sur un corpus de documents, et d'obtenir des réponses sourcées. Le LLM ne "sait" rien : il synthétise les passages qu'on lui donne à lire au moment de la question. Toute la valeur vient de la qualité de ce qu'on lui fournit.
+
+Le système repose sur quatre piliers :
+
+1. **L'ingestion** : on collecte les documents (PDF, HTML, Word…), on les nettoie, on les découpe en morceaux cohérents (*chunks*), et on les transforme en vecteurs numériques (*embeddings*) pour les stocker dans une base de données. C'est l'étape la plus sous-estimée et la plus déterminante. Mal découper ses documents, c'est saboter tout le reste.
+
+2. **Le retrieval** : quand un utilisateur pose une question, on la reformule si nécessaire, puis on cherche les passages les plus pertinents en combinant recherche sémantique (par le sens) et recherche lexicale (par les mots exacts). Un modèle de *reranking* affine ensuite le classement. C'est le cœur du système : sans bons passages, pas de bonne réponse.
+
+3. **La génération** : on injecte les passages sélectionnés dans le prompt du LLM avec des instructions précises (rôle, format, obligation de citer ses sources, interdiction d'inventer). Les principaux risques — hallucinations, sur-interprétation, fabrication de sources — se gèrent par des garde-fous dans le prompt, une température basse et éventuellement une vérification automatique.
+
+4. **La production** : permissions et confidentialité (filtrer les documents *avant* le retrieval, pas après), maîtrise des coûts (le poste le plus lourd est la génération), observabilité (tracer chaque étape du pipeline) et amélioration continue (itérer sur le chunking, le retrieval et le prompt en mesurant l'impact).
+
+**En résumé** : le LLM n'est qu'une brique parmi d'autres. La qualité perçue par l'utilisateur est le résultat de décisions prises bien en amont — comment on découpe, comment on cherche, comment on assemble le contexte.
+
+
 ## Ce qu'on construit réellement
 
 Avant de plonger dans la technique, posons le cadre. Un assistant documentaire intelligent, c'est un système qui prend en entrée une question formulée en langage naturel par un utilisateur, va chercher les passages les plus pertinents dans un corpus de documents préalablement indexés, et génère une réponse synthétique en s'appuyant exclusivement (ou presque) sur ces passages.
