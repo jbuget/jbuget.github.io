@@ -45,11 +45,11 @@ On peut découper l'architecture en trois grands blocs :
 
 Chaque bloc a ses propres défis. Et les erreurs les plus coûteuses se font généralement dans le premier.
 
-## Pipeline d'ingestion : là où tout se joue
+## 1. Pipeline d'ingestion : là où tout se joue
 
 La première fois que j'ai monté un pipeline RAG, j'ai sous-estimé cette étape. Je me suis dit : "on prend les docs, on les découpe, on vectorise, et c'est parti." En pratique, c'est là que se concentre l'essentiel de la complexité, et surtout l'essentiel de l'impact sur la qualité finale des réponses.
 
-### Collecter et normaliser les sources
+### 1.1. Collecter et normaliser les sources
 
 Un assistant documentaire agrège des formats hétérogènes : PDF, pages HTML, exports de wiki, fichier TXT ou Markdown versionné, comptes rendus de réunion, parfois même des transcriptions audio. La première question à se poser, c'est celle de la synchronisation. Pour un assistant de suivi de projet, les transcriptions de réunion arrivent au fil de l'eau : il faut une ingestion incrémentale, pas un batch nocturne. Pour un assistant RH, les documents évoluent peu et un rechargement périodique suffit. La plateforme doit supporter les deux modes.
 
@@ -76,13 +76,51 @@ Plusieurs problématiques se posent à cette étape :
 - **L'encodage et les caractères spéciaux** : ça peut paraître trivial, mais entre l'UTF-8, le Latin-1, les caractères accentués mal convertis et les caractères spéciaux issus de l'OCR, on passe facilement des heures de débogage.
 - **Les images et schémas** : un diagramme dans un document PDF ou une capture d'écran dans un compte rendu ne sont pas indexables en l'état. On peut les ignorer, les décrire manuellement, ou utiliser un modèle multimodal pour en générer une description textuelle — chaque approche a son coût et ses limites.
 
+#### Les outils de normalisation
+
+L'écosystème des parseurs de documents s'est considérablement structuré. Voici les principales solutions, par catégorie.
+
+**Solutions open source :**
+
+- **[Docling](https://github.com/docling-project/docling)** (IBM, licence MIT) : c'est aujourd'hui l'un des meilleurs choix open source. Docling utilise des modèles d'IA spécialisés pour l'analyse de mise en page (DocLayNet) et la reconnaissance de structure de tableaux (TableFormer). Il supporte PDF, DOCX, PPTX, HTML, images et audio, inclut l'OCR pour les documents scannés, et produit des sorties structurées (Markdown, JSON). Il s'intègre nativement avec LangChain, LlamaIndex et Haystack. Les benchmarks lui donnent environ 94-98 % de précision sur l'extraction de tableaux complexes. Il tourne en local, sans dépendance cloud.
+- **[Marker](https://github.com/VikParuchuri/marker)** : développé par Vik Paruchuri, Marker est spécialisé dans la conversion de PDF en Markdown structuré. Il combine PyMuPDF et Tesseract pour l'OCR, avec une accélération GPU optionnelle via Surya. C'est un outil léger et efficace, particulièrement adapté au traitement offline de gros volumes de PDF. Moins polyvalent que Docling sur les formats d'entrée, mais excellent sur son créneau.
+- **[Unstructured.io](https://github.com/Unstructured-IO/unstructured)** (open source + offre cloud) : historiquement la référence dans l'écosystème RAG, Unstructured propose des parseurs pour une large gamme de formats (PDF, DOCX, HTML, emails, images…). La version open source reste fonctionnelle, mais la qualité d'extraction a été critiquée récemment sur certains benchmarks par rapport aux alternatives plus récentes. L'offre cloud (payante) ajoute des modèles plus performants et une API managée.
+- **[Apache Tika](https://tika.apache.org/)** : le vétéran (projet Apache, écosystème Java). Tika détecte et extrait le contenu de plus de 1 000 types de fichiers. Robuste et éprouvé en entreprise, mais moins fin que les solutions récentes sur la préservation de la structure sémantique (hiérarchie de titres, structure de tableaux). Reste un excellent choix pour l'extraction de métadonnées et la détection de types MIME.
+
+**Solutions cloud / payantes :**
+
+- **[LlamaParse](https://docs.cloud.llamaindex.ai/llamaparse/getting_started)** (LlamaIndex) : un service cloud conçu spécifiquement pour produire des sorties "LLM-ready" à partir de documents complexes (tableaux, graphiques, diagrammes). La v2 propose plusieurs modes : un parsing sans IA (1 crédit/page), un mode économique (3 crédits/page) et un mode agentique avec des modèles avancés (jusqu'à 90 crédits/page). Excellente préservation structurelle et intégration native avec LlamaIndex. Un plan gratuit avec des crédits offerts permet de tester. Idéal si on utilise déjà l'écosystème LlamaIndex.
+- **[Reducto](https://reducto.ai/)** : un service d'ingestion documentaire qui utilise un pipeline hybride (vision par ordinateur + OCR + VLM + correction agentique) pour préserver finement la structure des documents. Particulièrement performant sur les documents d'entreprise complexes (rapports financiers, contrats, formulaires). 15 000 crédits gratuits pour démarrer, puis facturation à l'usage. Reconnu pour la qualité de ses sorties structurées et son système de correction automatique des erreurs d'extraction.
+
 #### Enrichissement en métadonnées
 
-L'enrichissement en métadonnées est stratégique dès cette étape : source, date, auteur, périmètre métier, niveau de confidentialité, type de document, langue. Ces métadonnées serviront plus tard au filtrage et au scoring lors du retrieval.
+L'enrichissement en métadonnées est stratégique dès cette étape. Ces métadonnées serviront plus tard au filtrage, au scoring et au contrôle d'accès lors du retrieval. Sans elles, on se retrouve avec un index "plat" où tous les chunks se valent — impossible de filtrer par date, par source, par périmètre métier ou par niveau de confidentialité.
 
-On distingue les métadonnées **explicites** (celles qu'on extrait directement du document ou de son contexte : nom de fichier, date de modification, auteur) et les métadonnées **inférées** (catégorie thématique, langue détectée, résumé automatique). Les métadonnées inférées ajoutent de la valeur mais introduisent un risque d'erreur supplémentaire qu'il faut évaluer.
+On distingue trois catégories de métadonnées, par ordre croissant de complexité d'extraction.
 
-### Découper en chunks
+**Les métadonnées techniques** sont les plus simples à obtenir : nom de fichier, chemin, taille, date de création et de modification, type MIME, encodage. Elles viennent du système de fichiers ou du serveur qui héberge les documents. [Apache Tika](https://tika.apache.org/) excelle dans ce domaine : il extrait automatiquement les métadonnées embarquées de plus d'un millier de formats (auteur d'un PDF, champs `<meta>` d'une page HTML, propriétés d'un fichier DOCX, données EXIF d'une image). En Python, la librairie [python-magic](https://github.com/ahupp/python-magic) (basée sur libmagic) permet une détection fiable du type MIME, et le module standard `os.stat` donne les dates système.
+
+**Les métadonnées linguistiques et structurelles** demandent un traitement NLP. On y trouve :
+
+- **La détection de langue** : indispensable sur un corpus multilingue pour aiguiller vers le bon modèle d'embedding ou le bon analyseur full-text. Des librairies comme [langdetect](https://github.com/Mimino666/langdetect) (port Python de la librairie de Google), [langid](https://github.com/saffsd/langid.py) ou [FastText](https://fasttext.cc/docs/en/language-identification.html) (Meta) offrent une détection fiable dès quelques phrases. Pour des cas plus exigeants (textes courts, code-switching), [LangExtract](https://github.com/AurelienMusic/langextract) (Google, basé sur Gemini) pousse la détection plus loin.
+- **L'extraction d'entités nommées** (*NER*) : personnes, organisations, lieux, dates, montants, identifiants. C'est essentiel pour enrichir les chunks avec des informations factuelles structurées. [spaCy](https://spacy.io/) est la référence open source en NLP industriel : ses modèles pré-entraînés couvrent le français (`fr_core_news_lg`), et le package [spacy-llm](https://github.com/explosion/spacy-llm) permet de combiner NER classique et extraction par LLM sans données d'entraînement. Pour des besoins plus simples, [NLTK](https://www.nltk.org/) ou les pipelines NER de [Hugging Face Transformers](https://huggingface.co/docs/transformers/task_summary#named-entity-recognition) font le travail.
+- **L'extraction de mots-clés et de thématiques** : des algorithmes comme TF-IDF, RAKE ou [KeyBERT](https://github.com/MaartenGr/KeyBERT) (basé sur des embeddings BERT) permettent d'extraire automatiquement les termes clés d'un chunk. Pour la classification thématique, un LLM rapide (GPT-4o-mini, Claude Haiku) avec un prompt de catégorisation fonctionne très bien.
+
+**Les métadonnées sémantiques enrichies par LLM** constituent la couche la plus sophistiquée. L'idée : utiliser un LLM pour générer des métadonnées de haut niveau que ni l'extraction technique ni le NLP classique ne peuvent produire.
+
+- **Le résumé automatique** : chaque document (ou chaque chunk) se voit attribuer un résumé de quelques phrases. Ce résumé peut servir de signal supplémentaire lors du retrieval, ou être présenté à l'utilisateur dans les résultats.
+- **Les questions potentielles** : on demande au LLM *"Quelles questions un utilisateur pourrait-il poser auxquelles ce passage répond ?"*. Ces questions synthétiques sont indexées aux côtés du chunk et améliorent le rappel en créant des "ponts" entre la formulation de l'utilisateur et le contenu du document.
+- **Le contextual retrieval** : technique [proposée par Anthropic](https://www.anthropic.com/news/contextual-retrieval), elle consiste à générer pour chaque chunk un court paragraphe de contexte qui le situe dans le document global (*"Ce passage fait partie de la section 'Congés payés' de l'accord d'entreprise 2024. Il traite des cas particuliers pour les cadres."*). Ce contexte est préfixé au chunk avant l'embedding. Selon les benchmarks d'Anthropic, cette technique réduit les erreurs de retrieval de 49 à 67 %. C'est l'un des meilleurs rapports effort/impact que j'ai observés.
+
+**Côté frameworks**, les trois grands de l'écosystème RAG proposent chacun des mécanismes d'enrichissement de métadonnées par LLM, avec des philosophies différentes :
+
+- **[LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/indexing/metadata_extraction/)** offre l'approche la plus intégrée et la plus simple à mettre en place. Son module `Metadata Extraction` fournit des extracteurs prêts à l'emploi qu'on assemble dans un pipeline d'ingestion : `TitleExtractor` (infère le titre du document), `SummaryExtractor` (génère un résumé par chunk, avec possibilité d'inclure le résumé du chunk précédent pour la continuité), `QuestionsAnsweredExtractor` (génère les questions auxquelles le chunk peut répondre — très utile pour améliorer le rappel), `KeywordExtractor` (extrait les mots-clés) et `EntityExtractor` (extraction d'entités nommées). Tous ces extracteurs s'enchaînent via l'`IngestionPipeline` et injectent automatiquement les métadonnées dans chaque nœud avant l'indexation. C'est la solution la plus "batteries included".
+- **[LangChain](https://python.langchain.com/docs/integrations/document_transformers/openai_metadata_tagger/)** propose le `create_metadata_tagger`, un document transformer qui utilise les *function calls* d'OpenAI pour extraire des métadonnées structurées selon un schéma JSON ou Pydantic défini par le développeur. L'approche est plus flexible (on définit exactement les champs qu'on veut extraire) mais plus manuelle : il faut construire son schéma, et le transformer fonctionne mieux sur des documents complets (avant le chunking). Côté JavaScript/TypeScript, l'équivalent `createMetadataTaggerFromZod` utilise des schémas Zod.
+- **[Haystack](https://haystack.deepset.ai/cookbook/metadata_enrichment)** (deepset) propose un pattern d'enrichissement via un composant `MetadataEnricher` couplé aux sorties structurées d'un LLM (schéma Pydantic). L'approche est modulaire et s'intègre dans le système de pipelines Haystack. Elle est particulièrement adaptée aux pipelines de production où chaque étape (fetch, parse, enrich, split, embed) est un composant indépendant et testable.
+
+Un point important : chaque couche d'enrichissement a un coût (en temps de calcul, en appels API, en risque d'erreur). Sur un corpus de quelques centaines de documents, on peut se permettre un enrichissement riche par LLM. Sur un corpus de dizaines de milliers de documents, il faut être sélectif et réserver les enrichissements coûteux aux métadonnées qui ont un impact mesuré sur la qualité du retrieval.
+
+### 1.2. Découper en chunks
 
 Un LLM a une fenêtre de contexte limitée. On ne peut pas lui envoyer 500 pages d'un coup. Il faut donc découper le corpus en unités cohérentes — des *chunks*. C'est une décision structurante qui impacte toute la chaîne en aval.
 
@@ -111,7 +149,30 @@ Quelle que soit la stratégie, certains problèmes reviennent systématiquement 
 
 Pour un assistant RH, par exemple, le découpage structurel par paragraphe fonctionne bien sur des accords d'entreprise ou des règlements intérieurs. Pour un assistant de suivi de projet alimenté par des transcriptions de réunion, c'est plus compliqué : les échanges oraux n'ont pas toujours de structure claire, et il faut souvent itérer vers un découpage sémantique, voire un post-traitement manuel sur les passages critiques.
 
-### Générer les embeddings et indexer
+#### Les outils de chunking
+
+Comme pour le parsing, l'écosystème propose des solutions à différents niveaux d'abstraction.
+
+**Les librairies dédiées au chunking :**
+
+- **[Chonkie](https://github.com/chonkie-inc/chonkie)** (YC X25) : c'est la librairie spécialisée la plus aboutie aujourd'hui. Légère (~15 Mo d'installation contre 80-170 Mo pour les alternatives), rapide (jusqu'à 33x plus rapide que LangChain sur le chunking par tokens), et sans dépendance externe pour les fonctionnalités de base. Elle supporte le chunking par tokens, par phrases, récursif, sémantique, et même un mode "semantic double pass" qui regroupe les chunks sémantiquement proches après un premier découpage. Elle gère 56 langues, s'intègre avec plus de 30 outils (tokenizers, modèles d'embedding, bases vectorielles), et propose des *Refineries* pour post-traiter les chunks (enrichissement, nettoyage). C'est un excellent choix si on veut un outil spécialisé et performant, découplé du reste de la stack.
+- **[semchunk](https://github.com/isaacus-dev/semchunk)** : une librairie Python minimaliste pour le chunking sémantique. Moins riche que Chonkie, mais très simple à intégrer si on a besoin uniquement de découper du texte en unités de sens cohérentes sans embarquer un framework complet.
+
+**Les splitters intégrés aux frameworks RAG :**
+
+- **[LangChain Text Splitters](https://python.langchain.com/docs/concepts/text_splitters/)** : la collection la plus connue. Le `RecursiveCharacterTextSplitter` est le point de départ recommandé pour la majorité des cas — il tente de couper sur les séparateurs les plus "larges" (doubles sauts de ligne, puis simples, puis phrases, puis mots) tout en respectant une taille maximale. LangChain propose aussi des splitters spécialisés par format : `MarkdownHeaderTextSplitter` (qui découpe en respectant la hiérarchie des titres Markdown), `HTMLSectionSplitter`, `PythonCodeTextSplitter`, `LatexTextSplitter`, etc. Le `SemanticChunker` (expérimental) utilise les embeddings pour détecter les ruptures de sens. L'écosystème est vaste mais peut être lourd à embarquer si on n'utilise que le chunking.
+- **[LlamaIndex Node Parsers](https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/)** : l'équivalent côté LlamaIndex. Le `SentenceSplitter` est le défaut, le `SemanticSplitterNodeParser` implémente le chunking sémantique par analyse de similarité entre phrases consécutives, et le `HierarchicalNodeParser` crée automatiquement une structure parent-enfant sur plusieurs niveaux de granularité (document → section → paragraphe). Ce dernier est particulièrement utile pour implémenter le pattern parent-child chunking décrit plus haut.
+
+**Les outils de parsing qui intègrent le chunking :**
+
+Les parseurs de documents mentionnés dans la section précédente proposent souvent leur propre stratégie de découpage, avec l'avantage de s'appuyer sur la structure sémantique extraite lors du parsing :
+
+- **[Unstructured.io](https://docs.unstructured.io/open-source/core-functionality/chunking)** : le chunking s'appuie sur les éléments identifiés lors du partitionnement (titres, paragraphes, tableaux, listes). La stratégie `by_title` utilise les titres détectés comme frontières de chunks, garantissant qu'un chunk ne mélange pas deux sections différentes. Leur offre cloud ajoute un *contextual chunking* inspiré de la technique d'Anthropic : un LLM génère un préfixe de contexte pour chaque chunk avant l'embedding.
+- **[Docling](https://docling-project.github.io/docling/)** (IBM) : propose un `HybridChunker` et un `HierarchicalChunker` qui exploitent le `DoclingDocument` riche produit lors du parsing — blocs de texte, tableaux, figures, listes sont traités comme des unités atomiques que le chunker respecte. C'est l'approche la plus "context-aware" parmi les parseurs open source : le chunking hérite directement de la compréhension structurelle du document.
+
+**En résumé**, le choix dépend de la stack déjà en place. Si on utilise LangChain ou LlamaIndex, leurs splitters intégrés sont un point de départ naturel. Si on veut découpler le chunking du reste ou optimiser les performances, Chonkie est le meilleur choix spécialisé. Et si on utilise déjà Docling ou Unstructured pour le parsing, autant exploiter leur chunking natif qui bénéficie de la compréhension structurelle du document.
+
+### 1.3. Générer les embeddings et indexer
 
 Chaque chunk est transformé en vecteur via un modèle d'embedding. Ce vecteur capture la "signification" sémantique du texte, ce qui permet ensuite de comparer des questions et des passages par similarité.
 
@@ -146,11 +207,11 @@ Pour Raggae, j'ai opté pour **PostgreSQL + pgvector** : ça couvre les besoins 
 
 Un point souvent négligé : que se passe-t-il quand on change de modèle d'embedding ou quand on modifie la stratégie de chunking ? Il faut réindexer l'intégralité du corpus. Sur un petit corpus, c'est anodin. Sur un corpus de dizaines de milliers de documents, ça représente des heures de calcul et un coût non négligeable. Avoir une stratégie de réindexation incrémentale, avec un suivi de version des embeddings, est un investissement qui paie à moyen terme.
 
-## Retrieval : trouver les bons passages
+## 2. Retrieval : trouver les bons passages
 
 Le retrieval est le cœur du système. C'est ici que se joue la pertinence des réponses. Un retrieval médiocre, et le LLM le plus puissant du monde ne pourra pas produire une bonne réponse — parce qu'il n'aura pas les bons éléments sous les yeux.
 
-### Reformuler la requête
+### 2.1. Reformuler la requête
 
 La question d'un utilisateur est rarement optimale pour la recherche. Elle peut être ambiguë, incomplète ou contextuellement implicite. Prenez un collaborateur qui demanderait à un assistant RH : *"J'ai droit à combien ?"* — sans préciser s'il parle de congés, de RTT ou de tickets restaurant.
 
@@ -174,7 +235,7 @@ Plusieurs approches existent, souvent combinées :
 
 En pratique, l'expansion de requête simple via un LLM rapide (type Haiku ou GPT-4o-mini) offre le meilleur rapport coût/bénéfice. HyDE est puissant mais double le coût et la latence. La multi-requête est utile sur des corpus très hétérogènes.
 
-### Combiner recherche vectorielle et lexicale
+### 2.2. Combiner recherche vectorielle et lexicale
 
 La recherche vectorielle capture la proximité sémantique : elle comprend que "congé parental" et "absence pour naissance" sont liés, même si les mots sont différents. Mais elle peut rater des correspondances exactes, notamment pour des termes techniques, des identifiants ou des acronymes.
 
@@ -196,7 +257,7 @@ La fusion des résultats de recherche hétérogènes est un problème en soi. Le
 
 Certaines bases vectorielles supportent nativement la recherche hybride (Weaviate, Qdrant, Elasticsearch). Avec pgvector, il faut combiner la recherche vectorielle et le full-text PostgreSQL soi-même, mais la flexibilité SQL compense largement.
 
-### Reranking
+### 2.3. Reranking
 
 La pratique industrielle consiste à fusionner les résultats des deux types de recherche, puis à appliquer un reranking via un modèle dédié, plus coûteux mais beaucoup plus précis. Contrairement aux bi-encoders utilisés pour les embeddings (qui encodent requête et passage séparément), un reranker évalue chaque paire (requête, passage) conjointement et produit un score de pertinence plus fin.
 
@@ -213,7 +274,7 @@ En pratique, on adopte souvent une architecture en cascade (*pipeline*) : une pr
 
 C'est souvent ici que se joue la différence entre un prototype convaincant en démo et un système robuste en production. Sur un corpus de comptes rendus de réunion, par exemple, le reranking est déterminant : sans lui, les résultats de recherche remontent régulièrement des passages thématiquement proches mais factuellement hors sujet (une réunion sur la "reprise des données" vs. une réunion sur la "reprise d'activité").
 
-### Sélection du contexte
+### 2.4. Sélection du contexte
 
 Les chunks sélectionnés doivent tenir dans la fenêtre de contexte du LLM. Le dimensionnement du top-K est un arbitrage constant entre coût, latence et risque d'hallucination : trop peu de contexte pousse le modèle à inventer ; trop de contexte dilue l'information pertinente.
 
@@ -230,11 +291,11 @@ Les chunks sélectionnés doivent tenir dans la fenêtre de contexte du LLM. Le 
 - **La compression contextuelle** (*contextual compression*) : un modèle intermédiaire résume ou extrait les passages clés de chaque chunk avant injection, réduisant la consommation de tokens tout en conservant l'information essentielle. LangChain propose un `ContextualCompressionRetriever` qui implémente cette approche.
 - **Le map-reduce** : pour les questions qui nécessitent de synthétiser de nombreux passages (ex : "Résumez toutes les décisions prises lors des réunions de janvier"), on peut d'abord traiter chaque chunk individuellement (map), puis synthétiser les résultats partiels (reduce). C'est plus coûteux en appels LLM mais permet de traiter des corpus qui dépassent largement la fenêtre de contexte.
 
-## Orchestration de génération : assembler le puzzle
+## 3. Orchestration de génération : assembler le puzzle
 
 La génération, ce n'est pas un simple `chatCompletion()`. C'est une orchestration précise du contexte, des instructions et des contraintes.
 
-### Le prompt système
+### 3.1. Le prompt système
 
 L'assistant fonctionne sur la base d'un prompt système (aussi appelé *system prompt*) qui définit son comportement, sa personnalité et ses garde-fous. C'est la "colonne vertébrale" de l'agent. Ce prompt vient s'ajouter au prompt administrateur de la plateforme sur laquelle tourne le LLM (OpenAI, Anthropic, etc.) et n'est pas visible par l'utilisateur final.
 
@@ -255,7 +316,7 @@ Typiquement, on y définit :
 
 Sur Raggae, chaque "projet" (c'est-à-dire chaque agent) dispose de son propre prompt système, configurable par le créateur.
 
-### Injection du contexte documentaire
+### 3.2. Injection du contexte documentaire
 
 Les chunks récupérés lors du retrieval sont injectés dans le prompt, numérotés et enrichis de métadonnées (source, date, auteur). C'est ce contexte qui permet au LLM de répondre de façon ancrée dans les données réelles, plutôt que de puiser dans ses connaissances génériques.
 
@@ -267,7 +328,7 @@ Les chunks récupérés lors du retrieval sont injectés dans le prompt, numéro
 
 Dans les systèmes plus complexes, une étape de compression contextuelle permet de réduire la taille totale des chunks sans perdre l'information essentielle. Des techniques comme *LongLLMLingua* ou la compression extractive (on ne garde que les phrases les plus pertinentes de chaque chunk) permettent de diviser la consommation de tokens par 2 à 5 tout en conservant l'essentiel de l'information. C'est un levier d'optimisation important quand le corpus grandit.
 
-### Génération et garde-fous
+### 3.3. Génération et garde-fous
 
 Le LLM produit alors une synthèse probabiliste du contexte fourni. Les risques sont multiples et bien documentés.
 
@@ -289,9 +350,9 @@ Le LLM produit alors une synthèse probabiliste du contexte fourni. Les risques 
 - **Les garde-fous de contenu** (*guardrails*) : des filtres en sortie qui détectent et bloquent les réponses potentiellement dangereuses (conseils médicaux, juridiques, financiers non qualifiés). Des outils comme NeMo Guardrails (NVIDIA) ou Guardrails AI permettent de définir ces règles de façon déclarative.
 
 
-## Les sujets qu'on sous-estime toujours
+## 4. Les sujets qu'on sous-estime toujours
 
-### Permissions et confidentialité
+### 4.1. Permissions et confidentialité
 
 Dans un assistant RH, certains documents sont réservés aux managers (grilles salariales, plans de restructuration, dossiers disciplinaires). On ne peut pas se contenter de filtrer après la génération : le filtrage doit intervenir **avant** le retrieval, sinon le LLM a accès à des informations qu'il ne devrait pas voir et peut les laisser fuiter dans sa réponse, même indirectement. C'est un sujet d'architecture, pas de prompt engineering.
 
@@ -307,7 +368,7 @@ Dans un assistant RH, certains documents sont réservés aux managers (grilles s
 - **L'inférence par recoupement** : un utilisateur astucieux peut poser des questions orientées pour reconstituer des informations auxquelles il n'a pas accès ("Est-ce que le budget de la direction commerciale dépasse X ?" → réponse oui/non qui fuit de l'information).
 - **La conformité réglementaire** : RGPD, données de santé, secret professionnel — selon le domaine, les exigences de confidentialité peuvent imposer des contraintes techniques fortes (chiffrement des embeddings, hébergement souverain, droit à l'oubli avec suppression des vecteurs associés).
 
-### Coûts
+### 4.2. Coûts
 
 Génération d'embeddings, requêtes vectorielles, reranking, appels LLM — tout a un coût marginal. Sur un assistant avec 50 utilisateurs quotidiens et un corpus de 2 000 documents, ça reste très raisonnable. Mais ça peut vite chiffrer si on ne fait pas attention.
 
@@ -322,7 +383,7 @@ Génération d'embeddings, requêtes vectorielles, reranking, appels LLM — tou
 
 La mise en cache des réponses (pour les questions fréquentes), la limitation du top-K, le choix d'un modèle de génération adapté (pas besoin d'un GPT-4o pour une FAQ simple), la compression contextuelle et la mutualisation des requêtes d'embedding (batching) deviennent rapidement des leviers essentiels. Sur certains projets, un cache sémantique (qui détecte que deux questions formulées différemment sont en fait identiques) peut réduire les coûts de 30 à 50 %.
 
-### Amélioration continue
+### 4.3. Amélioration continue
 
 Un système RAG n'est jamais "terminé". Les premières semaines après la mise en production sont les plus instructives : on découvre les questions sans réponse, les chunks mal découpés, les prompts trop lâches.
 
