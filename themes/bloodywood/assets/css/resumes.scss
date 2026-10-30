@@ -1,4 +1,4 @@
-@import "./colors";
+@use "colors" as *;
 
 .resumes__description {
     margin-bottom: 4rem;

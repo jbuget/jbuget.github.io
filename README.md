@@ -12,6 +12,8 @@ La recherche de contenu se fait via [Pagefind](https://pagefind.app/).
 
 ## Installation
 
+Le thème est compilé avec [Dart Sass](https://sass-lang.com/dart-sass/), qui doit être présent dans le `PATH` (cf. `scripts/install-dart-sass.sh` pour la version utilisée sur Netlify).
+
 ```
 git clone git@github.com:jbuget/jbuget.github.io.git
 cd jbuget.github.io

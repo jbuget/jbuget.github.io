@@ -68,13 +68,13 @@
   <link rel="preload" href="/fonts/Nunito-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- Custom and optimized FontAwesome icons kit -->
-  {{ $faOpts := dict "outputStyle" "compressed" }}
+  {{ $faOpts := dict "transpiler" "dartsass" "outputStyle" "compressed" }}
   {{ $faBundle := resources.Match "custom/fontawesome/css/*.css" | resources.Concat "css/fontawesome.css" | css.Sass $faOpts }}
   {{ $faCSS := resources.Minify $faBundle | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $faCSS.RelPermalink }}" integrity="{{ $faCSS.Data.Integrity }}">
 
   <!-- Styles -->
-  {{ $styleOpts := dict "outputStyle" "compressed" }}
+  {{ $styleOpts := dict "transpiler" "dartsass" "outputStyle" "compressed" }}
   {{ $styleSass := resources.Get "css/styles.scss" }}
   {{ $styleCSS := $styleSass | css.Sass $styleOpts | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $styleCSS.RelPermalink }}" integrity="{{ $styleCSS.Data.Integrity }}" >

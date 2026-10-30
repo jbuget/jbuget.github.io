@@ -1,27 +1,27 @@
-@import "colors";
-@import "fonts";
-@import "themes";
-@import "highlight";
-@import "global";
-@import "layout";
-@import "index";
-@import "resumes";
-@import "resume";
-@import "contact";
-@import "portfolio";
-@import "tables";
+@use "colors";
+@use "fonts";
+@use "themes";
+@use "highlight";
+@use "global";
+@use "layout";
+@use "index";
+@use "resumes";
+@use "resume";
+@use "contact";
+@use "portfolio";
+@use "tables";
 
 /* Pages */
-@import "posts/single";
-@import "posts/summary";
-@import "posts/section";
+@use "posts/single";
+@use "posts/summary";
+@use "posts/section";
 
 /* Partials */
-@import "partials/header";
-@import "partials/footer";
+@use "partials/header";
+@use "partials/footer";
 
 /* Components */
-@import "header-link";
-@import "switch";
-@import "./partials/pagefind";
-@import "./partials/theme-switcher-menu";
+@use "header-link";
+@use "switch";
+@use "partials/pagefind";
+@use "partials/theme-switcher-menu";

@@ -1,4 +1,4 @@
-@import "colors";
+@use "../colors" as *;
 
 html[data-theme='light'] {
 	--tsm-list-background: #f9f9fb;
