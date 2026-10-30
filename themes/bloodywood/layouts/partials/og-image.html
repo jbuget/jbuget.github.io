@@ -1,0 +1,31 @@
+{{- /*
+  Retourne l'URL absolue de l'image de partage (Open Graph, Twitter, Bluesky) de la page, par ordre de priorité :
+  1. l'image déclarée dans le front matter (`image`), en ressource de la page ou en fichier statique ;
+  2. la première image (png, jpg, jpeg, webp) de l'article ;
+  3. l'image par défaut du site (`params.ogimage`).
+  Les ressources de page sont recadrées au format recommandé par les réseaux sociaux (1200x630).
+*/ -}}
+{{- $url := "" -}}
+{{- $resource := "" -}}
+
+{{- with .Params.image -}}
+  {{- with $.Resources.GetMatch . -}}
+    {{- $resource = . -}}
+  {{- else -}}
+    {{- if fileExists (path.Join "static" .) -}}
+      {{- $url = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (not $url) (not $resource) .IsPage -}}
+  {{- range findRESubmatch `!\[[^\]]*\]\(([^)\s]+\.(?i:png|jpe?g|webp))` .RawContent 1 -}}
+    {{- $resource = $.Resources.GetMatch (index . 1) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $resource -}}
+  {{- $url = (.Fill "1200x630 jpg q80").Permalink -}}
+{{- end -}}
+
+{{- return (or $url (site.Params.ogimage | absURL)) -}}

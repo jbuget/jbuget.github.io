@@ -1,27 +1,24 @@
-<head itemscope itemtype="{{ .Site.BaseURL }}">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Title Tags -->
-  <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="bluesky:title" content="{{ .Title }} | {{ .Site.Title }}"/>
-  <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta name="application-name" content="{{ .Title }} | {{ .Site.Title }}"/>
   <meta property="og:site_name" content="{{ .Site.Params.sitename }}"/>
 
   <!-- Description Tags -->
   {{ with .Params.description }}
   <meta name="description" content="{{ . }}"/>
-  <meta itemprop="description" content="{{ . }}"/>
   <meta property="og:description" content="{{ . }}"/>
   <meta name="twitter:description" content="{{ . }}"/>
   <meta name="bluesky:description" content="{{ . }}"/>
   {{ else }}
   <meta name="description" content="{{ .Site.Params.description }}"/>
-  <meta itemprop="description" content="{{ .Site.Params.description }}"/>
   <meta property="og:description" content="{{ .Site.Params.description }}"/>
   <meta name="twitter:description" content="{{ .Site.Params.description }}"/>
   <meta name="bluesky:description" content="{{ .Site.Params.description }}"/>
@@ -29,7 +26,7 @@
 
   <!-- Link Tags -->
   <base href="{{ .Permalink }}">
-  <link rel="canonical" href="{{ .Permalink }}" itemprop="url"/>
+  <link rel="canonical" href="{{ .Permalink }}"/>
   <meta name="url" content="{{ .Permalink }}"/>
   <meta name="twitter:url" content="{{ .Permalink }}"/>
   <meta name="bluesky:url" content="{{ .Permalink }}"/>
@@ -43,21 +40,16 @@
   {{ end }}
 
   <!-- Image Tags -->
-  {{ with .Params.image }}
-  <meta itemprop="image" content="{{ . | absURL }}"/>
-  <meta property="og:image" content="{{ . | absURL }}"/>
-  <meta name="twitter:image" content="{{ . | absURL }}"/>
-  <meta name="twitter:image:src" content="{{ . | absURL }}"/>
-  <meta name="bluesky:image" content="{{ . | absURL }}"/>
-  <meta name="bluesky:image:src" content="{{ . | absURL }}"/>
-  {{ else }}
-  <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}"/>
-  <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}"/>
-  <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}"/>
-  <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
-  <meta name="bluesky:image" content="{{ .Site.Params.ogimage | absURL }}"/>
-  <meta name="bluesky:image:src" content="{{ .Site.Params.ogimage | absURL }}"/>
-  {{ end }}
+  {{- $image := partial "og-image.html" . }}
+  <meta property="og:image" content="{{ $image }}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="{{ $image }}"/>
+  <meta name="bluesky:image" content="{{ $image }}"/>
+
+  <!-- Structured data -->
+  {{- if and .IsPage (eq .Section "posts") }}
+  {{ partial "json-ld.html" . }}
+  {{- end }}
 
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}

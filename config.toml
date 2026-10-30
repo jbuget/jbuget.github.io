@@ -15,6 +15,7 @@ enableEmoji = true
 
 [params]
   author = 'Jérémy Buget'
+  ogimage = 'jbu_profile_linkedin.jpg'
   description = 'Jérémy Buget. CTO. Manager. Coder. Streamer. Speaker. Writer. Papa pupuce.'
   keywords = ["développement", "CTO", "management", "engineering", "tech", "blog"]
   sitename = "Jérémy Buget"
