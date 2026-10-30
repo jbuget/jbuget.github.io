@@ -4,7 +4,7 @@
         <!-- Breadcrumb and Print Button -->
         <div class="breadcrumb-container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                {{ $resumesData := index .Site.Data.resumes "resumes" }} {{
+                {{ $resumesData := index hugo.Data.resumes "resumes" }} {{
                 $currentType := "" }} {{ $currentLang := "" }} {{ if in
                 .RelPermalink "/developer/" }} {{ $currentType = "developer" }} {{
                 else if in .RelPermalink "/manager/" }} {{ $currentType = "manager"
