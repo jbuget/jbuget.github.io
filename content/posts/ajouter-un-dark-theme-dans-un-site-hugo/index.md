@@ -104,7 +104,7 @@ Tout ce qui se trouve dans ce dossier peut-être accédé directement.
 
 > Par exemple, lors de mon précédent article sur les Fonts Google, c'est ici que j'avais mis les fichiers de police d'écriture.
 > 
-> De fait, les fichiers de la police _Nunito_ que j'utilise ici sont directement consultables depuis [`https://jbuget.fr/fonts/Nunito-VariableFont_wght.ttf`](https://jbuget.fr/fonts/Nunito-VariableFont_wght.ttf).
+> De fait, les fichiers de la police _Nunito_ que j'utilise ici sont directement consultables depuis [`https://jbuget.fr/fonts/Nunito-VariableFont_wght.woff2`](https://jbuget.fr/fonts/Nunito-VariableFont_wght.woff2).
 >
 > En revanche, j'avais créé le répertoire `assets/` pour y mettre les fichiers de style, afin d'avoir le support des pipelines Hugo et notamment du processing Sass.
 
