@@ -392,7 +392,7 @@ export function initTheme() {
 
 🎉 Ça fonctionne !
 
-![day_night_01](day_night_01.gif)
+![day_night_01](day_night_01.mp4)
 
 > ℹ️ Remarque : il faut bien penser à assigner la case à cocher à l'état "non coché" par défaut, sous peine de devoir faire un double-clic la toute première fois.
 
@@ -432,7 +432,7 @@ export function initTheme() {
 }
 {{< / highlight >}}
 
-![day_night_02](day_night_02.gif)
+![day_night_02](day_night_02.mp4)
 
 
 ### 4. Supporter les préférences système de l'utilisateur
@@ -512,7 +512,7 @@ export function initTheme() {
 
 Et voilà !
 
-![day_night_03](day_night_03.gif)
+![day_night_03](day_night_03.mp4)
 
 ### 5. Ajouter une icône dynamique
 

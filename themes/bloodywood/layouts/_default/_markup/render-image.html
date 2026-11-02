@@ -6,11 +6,15 @@
   {{/* URL absolue, on la garde telle quelle */}}
   <img src="{{ $src }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
 {{- else -}}
-  {{/* URL relative, on la résout via le page bundle */}}
-  {{- $image := .Page.Resources.GetMatch $src -}}
-  {{- $finalSrc := $src | absURL -}}
-  {{- if $image -}}
-    {{- $finalSrc = $image.RelPermalink | absURL -}}
+  {{/* URL relative, on la résout via le page bundle (WebP redimensionné) */}}
+  {{- with .Page.Resources.GetMatch (strings.TrimPrefix "./" $src) -}}
+    {{- if eq .ResourceType "video" -}}
+      {{/* Vidéo courte (ex-GIF animé, bien plus légère) : lue en boucle et sans son, comme un GIF */}}
+      <video src="{{ .RelPermalink }}" autoplay loop muted playsinline aria-label="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}></video>
+    {{- else -}}
+      {{- partial "responsive-image.html" (dict "image" . "alt" $alt "title" $title) -}}
+    {{- end -}}
+  {{- else -}}
+    <img src="{{ $src | absURL }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
   {{- end -}}
-  <img src="{{ $finalSrc }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
 {{- end -}}

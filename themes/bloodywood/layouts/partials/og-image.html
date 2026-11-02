@@ -20,7 +20,7 @@
 
 {{- if and (not $url) (not $resource) .IsPage -}}
   {{- range findRESubmatch `!\[[^\]]*\]\(([^)\s]+\.(?i:png|jpe?g|webp))` .RawContent 1 -}}
-    {{- $resource = $.Resources.GetMatch (index . 1) -}}
+    {{- $resource = $.Resources.GetMatch (strings.TrimPrefix "./" (index . 1)) -}}
   {{- end -}}
 {{- end -}}
 

@@ -33,6 +33,7 @@
 
   &__image {
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
@@ -104,6 +105,7 @@
 
   img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
     margin-bottom: 1rem;
   }

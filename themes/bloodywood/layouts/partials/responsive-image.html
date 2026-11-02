@@ -1,0 +1,26 @@
+{{- /*
+  Affiche une image de ressource en WebP redimensionné, avec srcset.
+  Paramètres : image (ressource, obligatoire), alt, title, class, sizes.
+  Les GIF (souvent animés) et les SVG sont servis tels quels.
+*/ -}}
+{{- $img := .image -}}
+{{- $sizes := .sizes | default "(min-width: 992px) 800px, 100vw" -}}
+
+{{- if in (slice "gif" "svg" "svg+xml") $img.MediaType.SubType -}}
+  <img src="{{ $img.RelPermalink }}" alt="{{ .alt }}"{{ with .title }} title="{{ . }}"{{ end }}{{ with .class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- else -}}
+  {{- /* Paliers de largeur, sans dépasser l'image d'origine (ni 1600px) */ -}}
+  {{- $widths := slice -}}
+  {{- range slice 400 800 1200 1600 -}}
+    {{- if lt . $img.Width }}{{ $widths = $widths | append . }}{{ end -}}
+  {{- end -}}
+  {{- $widths = $widths | append (math.Min $img.Width 1600 | int) -}}
+
+  {{- $srcset := slice -}}
+  {{- $largest := "" -}}
+  {{- range $widths -}}
+    {{- $largest = $img.Resize (printf "%dx webp q80" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $largest.RelPermalink .) -}}
+  {{- end -}}
+  <img src="{{ $largest.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}" width="{{ $largest.Width }}" height="{{ $largest.Height }}" alt="{{ .alt }}"{{ with .title }} title="{{ . }}"{{ end }}{{ with .class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

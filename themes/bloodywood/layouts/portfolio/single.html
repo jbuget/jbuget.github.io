@@ -39,7 +39,7 @@
       {{ if $images }}
       <div class="portfolio-gallery">
         {{ range $images }}
-        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" />
+        {{ partial "responsive-image.html" (dict "image" . "alt" .Title) }}
         {{ end }}
       </div>
       {{ end }}

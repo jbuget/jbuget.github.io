@@ -8,7 +8,7 @@
         <a class="portfolio-card" href="{{ .Permalink }}">
           {{ $images := .Resources.ByType "image" }}
           {{ if $images }}
-          <img class="portfolio-card__image" src="{{ (index $images 0).RelPermalink }}" alt="{{ .Title }}" />
+          {{ partial "responsive-image.html" (dict "image" (index $images 0) "alt" .Title "class" "portfolio-card__image" "sizes" "(min-width: 768px) 400px, 100vw") }}
           {{ else }}
           <div class="portfolio-card__image portfolio-card__image--placeholder"></div>
           {{ end }}
