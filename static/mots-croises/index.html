@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>La femme que j’aime</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf6f1;
+    --paper: #ffffff;
+    --ink: #2b2024;
+    --muted: #7a6a6f;
+    --line: #2b2024;
+    --rose: #d6336c;
+    --rose-soft: #fde4ec;
+    --chili: #e8590c;
+    --chili-soft: #ffe8d9;
+    --word: #fff3c4;
+    --cell-active: #ffd43b;
+    --good: #2b8a3e;
+    --good-bg: #ebfbee;
+    --cell: 34px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1719;
+      --paper: #2a2326;
+      --ink: #f3e9ec;
+      --muted: #b3a2a8;
+      --line: #8c7a80;
+      --rose: #f06595;
+      --rose-soft: #3d2530;
+      --chili: #ff922b;
+      --chili-soft: #3d2b1f;
+      --word: #4a4020;
+      --cell-active: #8a6d00;
+      --good: #69db7c;
+      --good-bg: #1f3325;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.5 Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { text-align: center; margin-bottom: 24px; }
+  h1 {
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.1;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  h1 em { color: var(--rose); font-style: italic; font-weight: 400; }
+  .subtitle { color: var(--muted); margin: 0 auto; max-width: 560px; }
+  .legend {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    margin: 16px 0 0; font-size: 14px; color: var(--muted);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+  .icon { width: 18px; height: 18px; flex: none; display: inline-block; vertical-align: -3px; }
+  .icon.quality { color: var(--rose); }
+  .icon.flaw { color: var(--chili); }
+
+  .progress {
+    max-width: 420px; margin: 20px auto 0; font-size: 14px; color: var(--muted); text-align: center;
+  }
+  .bar { height: 6px; background: var(--rose-soft); border-radius: 99px; overflow: hidden; margin-top: 6px; }
+  .bar > div { height: 100%; width: 0; background: var(--rose); border-radius: 99px; transition: width .4s ease; }
+
+  .layout { display: grid; grid-template-columns: minmax(0, auto) minmax(280px, 1fr); gap: 32px; align-items: start; margin-top: 28px; }
+  @media (max-width: 980px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+  .board { position: sticky; top: 12px; min-width: 0; }
+  @media (max-width: 980px) { .board { position: static; } }
+
+  .current {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--paper); border-radius: 12px; padding: 10px 14px; margin-bottom: 12px;
+    min-height: 48px; font-size: 15px; box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 4px 14px rgba(80,30,50,.06);
+  }
+  .current b { white-space: nowrap; }
+
+  .grid-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--cell));
+    grid-auto-rows: var(--cell);
+    width: max-content;
+    margin: 0 auto;
+  }
+  .cell { position: relative; }
+  .cell.letter {
+    background: var(--paper);
+    outline: 1.5px solid var(--line);
+    outline-offset: -0.75px;
+  }
+  .cell input {
+    width: 100%; height: 100%; border: 0; padding: 0; margin: 0;
+    background: transparent; color: var(--ink);
+    text-align: center; text-transform: uppercase;
+    font: 600 calc(var(--cell) * 0.52)/1 Inter, system-ui, sans-serif;
+    caret-color: transparent; border-radius: 0;
+    -webkit-appearance: none; appearance: none;
+  }
+  .cell input:focus { outline: none; }
+  .cell.inword { background: var(--word); }
+  .cell.active { background: var(--cell-active); }
+  .cell.good input { color: var(--good); }
+  .cell.good { background: var(--good-bg); }
+  .cell.good.inword { background: var(--word); }
+  .cell.good.active { background: var(--cell-active); }
+  .cell .num {
+    position: absolute; top: 1px; left: 2px;
+    font-size: calc(var(--cell) * 0.27); line-height: 1; color: var(--muted);
+    pointer-events: none; font-weight: 500;
+  }
+
+  .actions { display: flex; justify-content: center; gap: 10px; margin-top: 14px; }
+  button.ghost {
+    font: inherit; font-size: 14px; color: var(--muted);
+    background: transparent; border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+    border-radius: 99px; padding: 6px 14px; cursor: pointer;
+  }
+  button.ghost:hover { color: var(--ink); border-color: var(--ink); }
+  button.ghost.danger { color: var(--rose); border-color: var(--rose); }
+  #reset-confirm { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+  #reset-confirm[hidden] { display: none; }
+  .save-status { text-align: center; font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+  .secret {
+    display: inline-flex; align-items: center; gap: 8px; margin: 14px auto 0;
+    background: var(--rose-soft); color: var(--ink); border-radius: 99px;
+    padding: 6px 14px; font-size: 14px;
+  }
+
+  .clues { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  @media (max-width: 980px) and (min-width: 641px) { .clues { grid-template-columns: 1fr 1fr; } }
+  .clues h2 {
+    font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.15rem;
+    margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--rose);
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .clues ol { list-style: none; margin: 0; padding: 0; }
+  .clues li {
+    display: grid; grid-template-columns: 26px 20px 1fr; gap: 6px; align-items: start;
+    padding: 6px 8px; border-radius: 8px; cursor: pointer; font-size: 14.5px; line-height: 1.4;
+  }
+  .clues li:hover { background: color-mix(in srgb, var(--word) 60%, transparent); }
+  .clues li.active { background: var(--word); }
+  .clues li .n { font-weight: 600; text-align: right; }
+  .clues li .len { color: var(--muted); white-space: nowrap; }
+  .clues li.done .txt { color: var(--good); }
+  .clues li.done .txt::after { content: " ✓"; font-weight: 600; }
+
+  .finale {
+    display: none; text-align: center; margin: 36px auto 0; max-width: 620px;
+    background: var(--paper); border-radius: 16px; padding: 28px 24px;
+    box-shadow: 0 6px 30px rgba(214, 51, 108, .15);
+  }
+  .finale.show { display: block; animation: rise .8s ease both; }
+  .finale p.big { font-family: Fraunces, Georgia, serif; font-size: 1.6rem; margin: 0 0 8px; }
+  .finale p { margin: 0; color: var(--muted); }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .heart-rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 10; }
+  .heart-rain span {
+    position: absolute; top: -40px; color: var(--rose); font-size: 22px;
+    animation: fall linear forwards;
+  }
+  @keyframes fall { to { transform: translateY(110vh) rotate(30deg); opacity: .2; } }
+  @media (prefers-reduced-motion: reduce) { .heart-rain { display: none; } .finale.show { animation: none; } }
+</style>
+</head>
+<body data-pagefind-ignore="all">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-quality" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 2.9 4.5 6.7 4.5c2.1 0 3.6 1.1 4.6 2.6.3.4.9.4 1.2 0 1-1.5 2.5-2.6 4.6-2.6 3.8 0 5.8 4 4.3 7.3C19.5 16.4 12 21 12 21z"/></symbol>
+  <symbol id="i-flaw" viewBox="0 0 24 24"><path fill="currentColor" d="M16.2 7.4c-1.6-.5-3.2.3-4 1.7-1.8 3.2-4.4 7-9.2 8.7-.6.2-.6 1 0 1.2 6.6 2.2 13.1-.7 15.1-6 .8-2.2.1-4.8-1.9-5.6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M17 7.6c.2-1.6 1.1-2.9 2.6-3.6"/><path fill="currentColor" d="M15.1 7.1c.9-1.4 2.9-1.6 4-.4.5.5.1 1.2-.5 1.1-1.1-.2-2.2 0-3.1.6-.5.3-.8-.8-.4-1.3z" opacity=".8"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header>
+    <h1>La femme <em>que j’aime</em></h1>
+    <p class="subtitle">Une grille de mots croisés sur toutes tes qualités… et tes adorables petits défauts. Un mot devient vert quand il est complet et juste.</p>
+    <p class="secret">💌 Un message caché t’attend : il apparaîtra quand toute la grille sera remplie.</p>
+    <div class="legend">
+      <span><svg class="icon quality"><use href="#i-quality"/></svg> Qualité</span>
+      <span><svg class="icon flaw"><use href="#i-flaw"/></svg> Petit défaut (qui pimente la vie)</span>
+    </div>
+    <div class="progress"><span id="progress-label">0 mot trouvé</span><div class="bar"><div id="progress-bar"></div></div></div>
+  </header>
+
+  <div class="layout">
+    <section class="board" aria-label="Grille">
+      <div class="current" id="current" aria-live="polite">Touche une case pour commencer.</div>
+      <div class="grid-scroll"><div class="grid" id="grid"></div></div>
+      <div class="actions">
+        <button class="ghost" id="reset" type="button">Effacer la grille</button>
+        <span id="reset-confirm" hidden>Tout effacer ?
+          <button class="ghost danger" id="reset-yes" type="button">Oui, effacer</button>
+          <button class="ghost" id="reset-no" type="button">Non</button>
+        </span>
+      </div>
+      <p class="save-status" id="save-status"></p>
+    </section>
+
+    <section class="clues" aria-label="Définitions">
+      <div><h2>Horizontalement</h2><ol id="clues-H"></ol></div>
+      <div><h2>Verticalement</h2><ol id="clues-V"></ol></div>
+    </section>
+  </div>
+
+  <div class="finale" id="finale" role="status">
+    <p class="big">Toutes ces facettes… c’est toi.</p>
+    <p>Les qualités comme les petits défauts : je les aime toutes. Je t’aime. — Gros Loulou</p>
+  </div>
+</div>
+
+<script>
+(() => {
+  const ROWS = 24, COLS = 25;
+  // Les réponses sont légèrement brouillées pour ne pas apparaître en clair dans le code source.
+  const WORDS = [{"n": 3, "d": "H", "r": 1, "c": 12, "len": 8, "clue": "Le coussin de travers ne restera pas longtemps comme ça !", "t": "f", "k": "RVVRQUlOQU0="}, {"n": 1, "d": "V", "r": 0, "c": 3, "len": 8, "clue": "Possède de nombreuses connaissances, bien au-delà de son jardin.", "t": "q", "k": "RUVWSVRMVUM="}, {"n": 6, "d": "H", "r": 3, "c": 0, "len": 5, "clue": "Sait tenir bon face aux épreuves.", "t": "q", "k": "RVRST0Y="}, {"n": 2, "d": "V", "r": 0, "c": 19, "len": 7, "clue": "A parfois la tête dans les nuages.", "t": "f", "k": "RVNVRVZFUg=="}, {"n": 7, "d": "H", "r": 3, "c": 16, "len": 9, "clue": "Partage volontiers son temps, son attention et ce qu’elle possède.", "t": "q", "k": "RVNVRVJFTkVH"}, {"n": 4, "d": "V", "r": 1, "c": 24, "len": 11, "clue": "Aime sortir des sentiers battus et tenter de nouvelles expériences.", "t": "q", "k": "RVJFSVJVVE5FVkE="}, {"n": 8, "d": "H", "r": 5, "c": 1, "len": 7, "clue": "Avec elle, la conversation risque peu de tomber à plat !", "t": "f", "k": "RURSQVZBQg=="}, {"n": 5, "d": "V", "r": 2, "c": 22, "len": 8, "clue": "A toujours envie d’apprendre et de découvrir.", "t": "q", "k": "RVNVRUlSVUM="}, {"n": 12, "d": "H", "r": 6, "c": 15, "len": 8, "clue": "Une petite étourderie, et voilà la boulette !", "t": "f", "k": "RVNVRUZGQUc="}, {"n": 9, "d": "V", "r": 5, "c": 6, "len": 5, "clue": "A le don de déclencher des rires.", "t": "q", "k": "RUxPUkQ="}, {"n": 13, "d": "H", "r": 7, "c": 5, "len": 7, "clue": "Rayonne de joie et réchauffe ceux qui l’entourent.", "t": "q", "k": "RVJJQUxPUw=="}, {"n": 10, "d": "V", "r": 5, "c": 16, "len": 9, "clue": "Affronte les obstacles avec courage et énergie.", "t": "q", "k": "RVROQUxMSUFW"}, {"n": 14, "d": "H", "r": 9, "c": 2, "len": 5, "clue": "Recherche l’équité et traite chacun sans favoritisme.", "t": "q", "k": "RVRTVUo="}, {"n": 11, "d": "V", "r": 6, "c": 10, "len": 9, "clue": "Planifie, classe et sait retrouver ce qu’il faut au bon moment.", "t": "q", "k": "RUVTSU5BR1JP"}, {"n": 17, "d": "H", "r": 9, "c": 20, "len": 5, "clue": "Garde la tête haute et n’aime guère ravaler son amour-propre.", "t": "f", "k": "RVJFSUY="}, {"n": 15, "d": "V", "r": 9, "c": 13, "len": 12, "clue": "Vit ses sentiments avec une grande intensité.", "t": "q", "k": "RUxMRU5OT0lTU0FQ"}, {"n": 19, "d": "H", "r": 11, "c": 5, "len": 10, "clue": "Voit grand et se donne les moyens d’aller loin.", "t": "q", "k": "RVNVRUlUSUJNQQ=="}, {"n": 16, "d": "V", "r": 9, "c": 18, "len": 9, "clue": "Accepte que les autres pensent ou vivent différemment.", "t": "q", "k": "RVROQVJFTE9U"}, {"n": 21, "d": "H", "r": 13, "c": 6, "len": 11, "clue": "Peut se vexer pour une remarque qui semblait anodine.", "t": "f", "k": "RUxCSVRQRUNTVVM="}, {"n": 18, "d": "V", "r": 10, "c": 1, "len": 6, "clue": "Ne se croit pas supérieure aux autres et reconnaît ses limites.", "t": "q", "k": "RUxCTVVI"}, {"n": 23, "d": "H", "r": 14, "c": 1, "len": 5, "clue": "Suit ses propres choix, sans se laisser enfermer.", "t": "q", "k": "RVJCSUw="}, {"n": 20, "d": "V", "r": 11, "c": 20, "len": 10, "clue": "Trouve que « dans cinq minutes », c’est déjà trop long !", "t": "f", "k": "RVRORUlUQVBNSQ=="}, {"n": 26, "d": "H", "r": 15, "c": 15, "len": 7, "clue": "Dit la vérité et refuse de tromper les autres.", "t": "q", "k": "RVRFTk5PSA=="}, {"n": 22, "d": "V", "r": 13, "c": 8, "len": 4, "clue": "Anglicisme pour une personne qui exerce une forte attirance physique.", "t": "q", "k": "WVhFUw=="}, {"n": 28, "d": "H", "r": 17, "c": 0, "len": 7, "clue": "Se donne sans compter pour ceux qui lui sont chers.", "t": "q", "k": "RUVVT1ZFRA=="}, {"n": 24, "d": "V", "r": 14, "c": 5, "len": 9, "clue": "Quand elle aime ou réagit, la demi-mesure attendra !", "t": "f", "k": "RVZJU1NFQ1hF"}, {"n": 30, "d": "H", "r": 17, "c": 9, "len": 10, "clue": "Peut rencontrer des difficultés durables avec la lecture et l’orthographe.", "t": "f", "k": "RVVRSVhFTFNZRA=="}, {"n": 25, "d": "V", "r": 14, "c": 24, "len": 9, "clue": "Reste elle-même, avec simplicité et sans artifices.", "t": "q", "k": "RUxMRVJVVEFO"}, {"n": 32, "d": "H", "r": 19, "c": 17, "len": 8, "clue": "Ne baisse pas les bras devant les difficultés.", "t": "q", "k": "RVROQVRUQUI="}, {"n": 27, "d": "V", "r": 16, "c": 3, "len": 7, "clue": "Bougon, surtout quand quelque chose le contrarie. Au masculin.", "t": "f", "k": "Tk9IQ05PUg=="}, {"n": 33, "d": "H", "r": 20, "c": 5, "len": 12, "clue": "Comprend vite, raisonne et trouve des solutions.", "t": "q", "k": "RVRORUdJTExFVE5J"}, {"n": 29, "d": "V", "r": 17, "c": 1, "len": 7, "clue": "Sincère et sans demi-mesure dans ses convictions comme dans ses sentiments.", "t": "q", "k": "RVJFSVRORQ=="}, {"n": 34, "d": "H", "r": 22, "c": 5, "len": 8, "clue": "A du style et porte ses tenues avec goût.", "t": "q", "k": "RVROQUdFTEU="}, {"n": 31, "d": "V", "r": 18, "c": 7, "len": 5, "clue": "Changer d’avis ? Il faudra de solides arguments !", "t": "f", "k": "RVVURVQ="}, {"n": 35, "d": "H", "r": 22, "c": 15, "len": 10, "clue": "Prend soin des enfants avec tendresse et protection.", "t": "q", "k": "RUxMRU5SRVRBTQ=="}];
+  const STORAGE_KEY = "mots-croises-femme-v1";
+
+  const decode = s => atob(s).split("").reverse().join("");
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toUpperCase();
+  WORDS.forEach(w => {
+    w.answer = decode(w.k);
+    w.cells = [];
+    for (let i = 0; i < w.len; i++) {
+      w.cells.push(w.d === "H" ? [w.r, w.c + i] : [w.r + i, w.c]);
+    }
+  });
+
+  // Construction de la grille
+  const cellMap = new Map(); // "r,c" -> {el, input, words: []}
+  const key = (r, c) => r + "," + c;
+  WORDS.forEach(w => w.cells.forEach(([r, c]) => {
+    const k = key(r, c);
+    if (!cellMap.has(k)) cellMap.set(k, { r, c, words: [] });
+    cellMap.get(k).words.push(w);
+  }));
+
+  const gridEl = document.getElementById("grid");
+  gridEl.style.setProperty("--cols", COLS);
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const div = document.createElement("div");
+      div.className = "cell";
+      const data = cellMap.get(key(r, c));
+      if (data) {
+        div.classList.add("letter");
+        const starts = data.words.filter(w => w.r === r && w.c === c);
+        if (starts.length) {
+          const n = document.createElement("span");
+          n.className = "num";
+          n.textContent = starts[0].n;
+          div.appendChild(n);
+        }
+        const input = document.createElement("input");
+        input.type = "text";
+        input.maxLength = 2;
+        input.autocomplete = "off";
+        input.autocapitalize = "characters";
+        input.spellcheck = false;
+        input.setAttribute("autocorrect", "off");
+        input.setAttribute("aria-label", "Ligne " + (r + 1) + ", colonne " + (c + 1));
+        div.appendChild(input);
+        data.el = div; data.input = input;
+        bindInput(data);
+      }
+      gridEl.appendChild(div);
+    }
+  }
+
+  // Taille des cases : s'adapte à l'écran, sans descendre sous un seuil confortable au doigt
+  function sizeCells() {
+    const avail = gridEl.parentElement.clientWidth;
+    const size = Math.max(24, Math.min(34, Math.floor(avail / COLS)));
+    document.documentElement.style.setProperty("--cell", size + "px");
+  }
+  window.addEventListener("resize", sizeCells);
+  sizeCells();
+
+  // Définitions
+  const iconSvg = t => `<svg class="icon ${t === "q" ? "quality" : "flaw"}" aria-label="${t === "q" ? "Qualité" : "Petit défaut"}"><use href="#i-${t === "q" ? "quality" : "flaw"}"/></svg>`;
+  ["H", "V"].forEach(d => {
+    const ol = document.getElementById("clues-" + d);
+    WORDS.filter(w => w.d === d).sort((a, b) => a.n - b.n).forEach(w => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span class="n">${w.n}</span>${iconSvg(w.t)}<span class="txt">${w.clue} <span class="len">(${w.len})</span></span>`;
+      li.addEventListener("click", () => {
+        const first = w.cells.find(([r, c]) => !cellMap.get(key(r, c)).input.value) || w.cells[0];
+        select(cellMap.get(key(first[0], first[1])), w);
+      });
+      w.li = li;
+      ol.appendChild(li);
+    });
+  });
+
+  // Sélection & navigation
+  let current = null, currentWord = null;
+  function select(cell, word) {
+    current = cell;
+    currentWord = word && cell.words.includes(word) ? word : (currentWord && cell.words.includes(currentWord) ? currentWord : cell.words[0]);
+    paintSelection();
+    cell.input.focus({ preventScroll: false });
+  }
+  function paintSelection() {
+    document.querySelectorAll(".cell.inword, .cell.active").forEach(e => e.classList.remove("inword", "active"));
+    document.querySelectorAll(".clues li.active").forEach(e => e.classList.remove("active"));
+    if (!currentWord) return;
+    currentWord.cells.forEach(([r, c]) => cellMap.get(key(r, c)).el.classList.add("inword"));
+    current.el.classList.add("active");
+    currentWord.li.classList.add("active");
+    const label = currentWord.d === "H" ? "horizontal" : "vertical";
+    document.getElementById("current").innerHTML =
+      `${iconSvg(currentWord.t)}<span><b>${currentWord.n} ${label}</b> — ${currentWord.clue} <span class="len" style="color:var(--muted)">(${currentWord.len})</span></span>`;
+  }
+  function step(delta) {
+    if (!currentWord) return;
+    const i = currentWord.cells.findIndex(([r, c]) => r === current.r && c === current.c);
+    const j = i + delta;
+    if (j >= 0 && j < currentWord.cells.length) {
+      const [r, c] = currentWord.cells[j];
+      select(cellMap.get(key(r, c)), currentWord);
+    }
+  }
+  function move(dr, dc) {
+    let r = current.r + dr, c = current.c + dc;
+    while (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
+      const cell = cellMap.get(key(r, c));
+      if (cell) {
+        const pref = cell.words.find(w => w.d === (dr ? "V" : "H"));
+        return select(cell, pref);
+      }
+      r += dr; c += dc;
+    }
+  }
+  function jumpWord(delta) {
+    const ordered = [...WORDS].sort((a, b) => (a.d === b.d ? a.n - b.n : a.d === "H" ? -1 : 1));
+    let i = ordered.indexOf(currentWord) + delta;
+    i = (i + ordered.length) % ordered.length;
+    const w = ordered[i];
+    const first = w.cells.find(([r, c]) => !cellMap.get(key(r, c)).input.value) || w.cells[0];
+    select(cellMap.get(key(first[0], first[1])), w);
+  }
+
+  function bindInput(cell) {
+    const input = cell.input;
+    input.addEventListener("mousedown", e => {
+      if (current === cell && cell.words.length > 1) {
+        e.preventDefault();
+        select(cell, cell.words.find(w => w !== currentWord));
+      }
+    });
+    input.addEventListener("focus", () => { if (current !== cell) select(cell); });
+    input.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") { e.preventDefault(); move(0, 1); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); move(0, -1); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); move(1, 0); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); move(-1, 0); }
+      else if (e.key === "Tab") { e.preventDefault(); jumpWord(e.shiftKey ? -1 : 1); }
+      else if (e.key === "Backspace") {
+        e.preventDefault();
+        if (input.value) { setLetter(cell, ""); }
+        else { step(-1); setLetter(current, ""); }
+      } else if (e.key === "Delete") { e.preventDefault(); setLetter(cell, ""); }
+      else if (e.key === " ") {
+        e.preventDefault();
+        if (cell.words.length > 1) select(cell, cell.words.find(w => w !== currentWord));
+      }
+    });
+    input.addEventListener("input", () => {
+      const letters = norm(input.value).replace(/[^A-Z]/g, "");
+      const ch = letters.slice(-1);
+      setLetter(cell, ch);
+      if (ch) step(1);
+    });
+  }
+
+  function setLetter(cell, ch) {
+    cell.input.value = ch;
+    check();
+    save();
+  }
+
+  // Vérification : un mot passe au vert seulement s'il est complet et juste
+  function check() {
+    let found = 0;
+    const goodCells = new Set();
+    WORDS.forEach(w => {
+      const typed = w.cells.map(([r, c]) => cellMap.get(key(r, c)).input.value).join("");
+      const ok = typed.length === w.len && norm(typed) === norm(w.answer);
+      w.li.classList.toggle("done", ok);
+      if (ok) { found++; w.cells.forEach(([r, c]) => goodCells.add(key(r, c))); }
+    });
+    cellMap.forEach((cell, k) => cell.el.classList.toggle("good", goodCells.has(k)));
+    const total = WORDS.length;
+    document.getElementById("progress-label").textContent =
+      `${found} mot${found > 1 ? "s" : ""} trouvé${found > 1 ? "s" : ""} sur ${total}`;
+    document.getElementById("progress-bar").style.width = (100 * found / total) + "%";
+    const finale = document.getElementById("finale");
+    const complete = found === total;
+    if (complete && !finale.classList.contains("show")) { finale.classList.add("show"); celebrate(); }
+    if (!complete) finale.classList.remove("show");
+  }
+
+  function celebrate() {
+    const rain = document.createElement("div");
+    rain.className = "heart-rain";
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement("span");
+      s.textContent = "♥";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.fontSize = 14 + Math.random() * 22 + "px";
+      s.style.animationDuration = 3 + Math.random() * 3 + "s";
+      s.style.animationDelay = Math.random() * 2 + "s";
+      rain.appendChild(s);
+    }
+    document.body.appendChild(rain);
+    setTimeout(() => rain.remove(), 9000);
+    setTimeout(() => document.getElementById("finale").scrollIntoView({ behavior: "smooth", block: "center" }), 300);
+  }
+
+  // Sauvegarde de la progression dans le localStorage du navigateur
+  const saveStatus = document.getElementById("save-status");
+  let storageOk = true;
+  function save() {
+    const state = {};
+    cellMap.forEach((cell, k) => { if (cell.input.value) state[k] = cell.input.value; });
+    try {
+      if (Object.keys(state).length) localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      else localStorage.removeItem(STORAGE_KEY);
+      storageOk = true;
+    } catch (e) { storageOk = false; }
+    showSaveStatus();
+  }
+  function load() {
+    try {
+      const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      Object.entries(state).forEach(([k, v]) => { const cell = cellMap.get(k); if (cell) cell.input.value = v; });
+      storageOk = true;
+    } catch (e) { storageOk = false; }
+    showSaveStatus();
+  }
+  function showSaveStatus() {
+    saveStatus.textContent = storageOk
+      ? "Ta progression est enregistrée automatiquement sur cet appareil : tu peux revenir quand tu veux."
+      : "Ce navigateur bloque l’enregistrement (navigation privée ?) : la grille sera perdue si tu fermes la page.";
+  }
+
+  // Effacer : confirmation intégrée à la page (les fenêtres confirm() sont bloquées dans certains navigateurs)
+  const resetBtn = document.getElementById("reset");
+  const resetConfirm = document.getElementById("reset-confirm");
+  resetBtn.addEventListener("click", () => { resetBtn.hidden = true; resetConfirm.hidden = false; });
+  document.getElementById("reset-no").addEventListener("click", () => { resetConfirm.hidden = true; resetBtn.hidden = false; });
+  document.getElementById("reset-yes").addEventListener("click", () => {
+    cellMap.forEach(cell => { cell.input.value = ""; });
+    resetConfirm.hidden = true; resetBtn.hidden = false;
+    save(); check();
+  });
+
+  load();
+  check();
+})();
+</script>
+</body>
+</html>
